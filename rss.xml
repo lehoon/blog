@@ -104,9 +104,9 @@
       <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
     
     
-      <category term="linux" scheme="http://blog.lehoon.cn/tags/linux/"/>
-    
       <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
+    
+      <category term="linux" scheme="http://blog.lehoon.cn/tags/linux/"/>
     
   </entry>
   
@@ -289,9 +289,9 @@
     
       <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
     
-      <category term="oracle" scheme="http://blog.lehoon.cn/tags/oracle/"/>
-    
       <category term="c++" scheme="http://blog.lehoon.cn/tags/c/"/>
+    
+      <category term="oracle" scheme="http://blog.lehoon.cn/tags/oracle/"/>
     
       <category term="occi" scheme="http://blog.lehoon.cn/tags/occi/"/>
     
