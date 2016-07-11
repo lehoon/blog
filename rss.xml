@@ -439,11 +439,11 @@
       <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
     
     
-      <category term="c++" scheme="http://blog.lehoon.cn/tags/c/"/>
-    
       <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
     
       <category term="oracle" scheme="http://blog.lehoon.cn/tags/oracle/"/>
+    
+      <category term="c++" scheme="http://blog.lehoon.cn/tags/c/"/>
     
       <category term="occi" scheme="http://blog.lehoon.cn/tags/occi/"/>
     
