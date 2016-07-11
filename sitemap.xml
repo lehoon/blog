@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.lehoon.cn/orther/2015/10/11/kesankaoshi.html</loc>
+    
+    <lastmod>2016-07-11T09:20:45.299Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.lehoon.cn/backend/2016/07/11/epoll.html</loc>
+    
+    <lastmod>2016-07-11T07:23:35.212Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.lehoon.cn/orther/2016/05/08/oracle-merge-into.html</loc>
     
     <lastmod>2016-07-08T08:17:54.991Z</lastmod>

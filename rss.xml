@@ -5,7 +5,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://blog.lehoon.cn/"/>
-  <updated>2016-07-07T05:40:32.170Z</updated>
+  <updated>2016-07-11T07:23:35.212Z</updated>
   <id>http://blog.lehoon.cn/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux epoll学习</title>
+    <link href="http://blog.lehoon.cn/backend/2016/07/11/epoll.html"/>
+    <id>http://blog.lehoon.cn/backend/2016/07/11/epoll.html</id>
+    <published>2016-07-11T02:43:59.000Z</published>
+    <updated>2016-07-11T07:23:35.212Z</updated>
+    
+    <content type="html">&lt;pre&gt;&lt;code&gt;在linux的网络编程中，很长的时间都在使用select来做事件触发。在linux新的内核中，有了一种替换它的机制，就是epoll。
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;函数简介&lt;br&gt;相比于select，epoll最大的好处在于它不会随着监听fd数目的增长而降低效率。因为在内核中的select实现中，它是采用轮询来处理的，轮询的fd数目越多，自然耗时越多。并且，在linux/posix_types.h头文件有这样的声明：#define __FD_SETSIZE 1024, 表示select最多同时监听1024个fd，当然，可以通过修改头文件再重编译内核来扩大这个数目，但这似乎并不治本。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;接口函数&lt;br&gt;epoll的接口非常简单，一共就三个函数：
+&lt;/strong&gt;int epoll_create&lt;br&gt;&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;epoll_create&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; size)&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;创建一个epoll的句柄，size用来告诉内核这个监听的数目一共有多大。这个参数不同于select()中的第一个参数，给出最大监听的fd+1的值。需要注意的是，当创建好epoll句柄后，它就是会占用一个fd值，在linux下如果查看/proc/进程id/fd/，是能够看到这个fd的，所以在使用完epoll后，必须调用close()关闭，否则可能导致fd被耗尽。&lt;br&gt;自从Linux 2.6.8开始，size参数被忽略，但是依然要大于0。&lt;br&gt;**int epoll_ctl&lt;br&gt;&lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;epoll_ctl&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; epfd, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; op, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; fd, &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; epoll_event *&lt;span class=&quot;keyword&quot;&gt;event&lt;/span&gt;&lt;/span&gt;)&lt;/span&gt;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;epoll的事件注册函数，它不同与select()是在监听事件时告诉内核要监听什么类型的事件，而是在这里先注册要监听的事件类型。第一个参数是epoll_create()的返回值，第二个参数表示动作，用三个宏来表示：&lt;br&gt;EPOLL_CTL_ADD：注册新的fd到epfd中；&lt;br&gt;EPOLL_CTL_MOD：修改已经注册的fd的监听事件；&lt;br&gt;EPOLL_CTL_DEL：从epfd中删除一个fd；&lt;br&gt;第三个参数是需要监听的fd，第四个参数是告诉内核需要监听什么事，struct epoll_event结构如下：&lt;br&gt;struct epoll_event {&lt;br&gt;__uint32_t events; /&lt;em&gt; Epoll events &lt;/em&gt;/&lt;br&gt;epoll_data_t data; /&lt;em&gt; User data variable &lt;/em&gt;/&lt;br&gt;};&lt;br&gt;events可以是以下几个宏的集合：&lt;br&gt;EPOLLIN ：表示对应的文件描述符可以读（包括对端SOCKET正常关闭）；&lt;br&gt;EPOLLOUT：表示对应的文件描述符可以写；&lt;br&gt;EPOLLPRI：表示对应的文件描述符有紧急的数据可读（这里应该表示有带外数据到来）；&lt;br&gt;EPOLLERR：表示对应的文件描述符发生错误；&lt;br&gt;EPOLLHUP：表示对应的文件描述符被挂断；&lt;br&gt;EPOLLET： 将EPOLL设为边缘触发(Edge Triggered)模式，这是相对于水平触发(Level Triggered)来说的。&lt;br&gt;EPOLLONESHOT：只监听一次事件，当监听完这次事件之后，如果还需要继续监听这个socket的话，需要再次把这个socket加入到EPOLL队列里。&lt;br&gt;&lt;em&gt;*int epoll_wait&lt;br&gt;int epoll_wait(int epfd, struct epoll_event &lt;/em&gt; events, int maxevents, int timeout)&lt;br&gt;等待事件的产生，类似于select()调用。参数events用来从内核得到事件的集合，maxevents表示每次能处理的最大事件数，告之内核这个events有多大，这个maxevents的值不能大于创建epoll_create()时的size，参数timeout是超时时间（毫秒，0会立即返回，-1将不确定，也有说法说是永久阻塞）。该函数返回需要处理的事件数目，如返回0表示已超时。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;在linux的网络编程中，很长的时间都在使用select来做事件触发。在linux新的内核中，有了一种替换它的机制，就是epoll。
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
+    
+    
+      <category term="linux" scheme="http://blog.lehoon.cn/tags/linux/"/>
+    
+      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
+    
+      <category term="epoll" scheme="http://blog.lehoon.cn/tags/epoll/"/>
+    
+  </entry>
   
   <entry>
     <title>go守护进程实现方式</title>
@@ -104,9 +138,9 @@
       <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
     
     
-      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
-    
       <category term="linux" scheme="http://blog.lehoon.cn/tags/linux/"/>
+    
+      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
     
   </entry>
   
@@ -175,6 +209,40 @@
       <category term="oracle" scheme="http://blog.lehoon.cn/tags/oracle/"/>
     
       <category term="merge" scheme="http://blog.lehoon.cn/tags/merge/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机动车驾驶科目三操作要领</title>
+    <link href="http://blog.lehoon.cn/orther/2015/10/11/kesankaoshi.html"/>
+    <id>http://blog.lehoon.cn/orther/2015/10/11/kesankaoshi.html</id>
+    <published>2015-10-11T11:08:58.000Z</published>
+    <updated>2016-07-11T09:20:45.299Z</updated>
+    
+    <content type="html">&lt;pre&gt;&lt;code&gt;开始学习科三了，从教练那里要来了科三考试的操作要领，要好好学习，尽快考出来。
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;一、“报告”递档案，等待语音提示考试开始或者说考试开始，逆时针绕车一圈半，注意观察周围情况，在车的做前脚观察左中右道路情况，在车右后角观察车辆道路的情况。检查完毕后，回到驾驶员车门处，喊“报告考官，请求上车”。考官允许后观察后方是否安全，时间不少于3秒，确认安全后开门上车。&lt;/p&gt;
+&lt;p&gt;二、上车后，确认车门安全关闭后，先踩刹车、后踩离合、调整座椅、调整左中右后视镜、系安全带、检查手刹、退空档、启动灯火。&lt;br&gt;1、调整座椅&lt;br&gt;2、看左中右后视镜&lt;br&gt;3、系安全带&lt;br&gt;4、检查手刹&lt;br&gt;5、退空档&lt;br&gt;6、点火&lt;/p&gt;
+&lt;p&gt;三、灯光，模拟夜间考试开始，照明不良条件下行驶。&lt;br&gt;1、&lt;/p&gt;
+&lt;p&gt;四、此时喊“报告考官，各仪表工作正常，请求起步”，考官同意后，起步顺序如下：&lt;br&gt;1、踩离合器&lt;br&gt;2、挂一档&lt;br&gt;3、拨转向灯（左转向）&lt;br&gt;4、鸣喇叭&lt;br&gt;5、看左中右后视镜&lt;br&gt;6、松手刹&lt;br&gt;7、方向盘左打2指（看左后视镜）&lt;br&gt;8、慢抬停住离合、松脚刹（抬离合要领，慢、停、慢）&lt;br&gt;10、起步成功，回转向灯，回正方向&lt;/p&gt;
+&lt;p&gt;五、变更车道&lt;br&gt;打左转向灯，看左中右后视镜，方向盘左动2指，车发生斜度以后，回正方向，再此看后视镜，进入车道，车正后回转方向灯。&lt;/p&gt;
+&lt;p&gt;六、直线行驶&lt;br&gt;直线行驶过程中方向不能跑偏，不能随意晃动方向盘，视情况加速加档，遇情况时先减速。&lt;/p&gt;
+&lt;p&gt;七、通过学校区域、人行横道、路口、公共汽车站时候&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;开始学习科三了，从教练那里要来了科三考试的操作要领，要好好学习，尽快考出来。
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
+    
+    
+      <category term="科三" scheme="http://blog.lehoon.cn/tags/%E7%A7%91%E4%B8%89/"/>
+    
+      <category term="考试" scheme="http://blog.lehoon.cn/tags/%E8%80%83%E8%AF%95/"/>
     
   </entry>
   
