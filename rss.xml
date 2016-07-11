@@ -257,6 +257,80 @@
   </entry>
   
   <entry>
+    <title>汇编指令集</title>
+    <link href="http://blog.lehoon.cn/orther/2015/09/21/assembly-instruction.html"/>
+    <id>http://blog.lehoon.cn/orther/2015/09/21/assembly-instruction.html</id>
+    <published>2015-09-21T15:13:46.000Z</published>
+    <updated>2016-07-11T15:16:13.114Z</updated>
+    
+    <content type="html">&lt;pre&gt;&lt;code&gt;汇编指令集详细说明。
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;一、数据传送指令&lt;br&gt;1.通用数据传送指令&lt;br&gt;MOV（Move）传送&lt;br&gt;PUSH（Push onto the stack）进栈&lt;br&gt;POP（Pop from the stack）出栈&lt;br&gt;XCHG（Exchange）交换&lt;br&gt;.MOV指令&lt;br&gt;格式为: MOV DST,SRC&lt;br&gt;执行的操作:(DST)&amp;lt;-(SRC)&lt;br&gt;.PUSH进栈指令&lt;br&gt;格式为:PUSH SRC&lt;br&gt;执行的操作:(SP)&amp;lt;-(SP)-2&lt;br&gt;((SP)+1,(SP))&amp;lt;-(SRC)&lt;br&gt;.POP出栈指令&lt;br&gt;格式为:POP DST&lt;br&gt;执行的操作:(DST)&amp;lt;-((SP+1),(SP))&lt;br&gt;(SP)&amp;lt;-(SP)+2&lt;br&gt;.XCHG 交换指令&lt;br&gt;格式为:XCHG OPR1,OPR2&lt;br&gt;执行的操作:(OPR1)&amp;lt;–&amp;gt;(OPR2)&lt;/p&gt;
+&lt;p&gt;2.累加器专用传送指令&lt;br&gt;IN(Input) 输入&lt;br&gt;OUT(Output) 输出&lt;br&gt;XLAT(Translate) 换码&lt;br&gt;这组指令只限于使用累加器AX或AL传送信息.&lt;br&gt;.IN 输入指令&lt;br&gt;长格式为: IN AL,PORT(字节)&lt;br&gt;IN AX,PORT(字)&lt;br&gt;执行的操作: (AL)&amp;lt;-(PORT)(字节)&lt;br&gt;(AX)&amp;lt;-(PORT+1,PORT)(字)&lt;br&gt;短格式为: IN AL,DX(字节)&lt;br&gt;IN AX,DX(字)&lt;br&gt;执行的操作: AL&amp;lt;-((DX))(字节)&lt;br&gt;AX&amp;lt;-((DX)+1,DX)(字)&lt;br&gt;.OUT 输出指令&lt;br&gt;长格式为: OUT PORT,AL(字节)&lt;br&gt;OUT PORT,AX(字)&lt;br&gt;执行的操作: (PORT)&amp;lt;-(AL)(字节)&lt;br&gt;(PORT+1,PORT)&amp;lt;-(AX)(字)&lt;br&gt;短格式为: OUT DX,AL(字节)&lt;br&gt;OUT DX,AX(字)&lt;br&gt;执行的操作: ((DX))&amp;lt;-(AL)(字节)&lt;br&gt;((DX)+1,(DX))&amp;lt;-AX(字)&lt;br&gt;在IBM-PC机里,外部设备最多可有65536个I/O端口,&lt;br&gt;端口(即外设的端口地址)为0000~FFFFH.其中前256个端&lt;br&gt;口(0~FFH)可以直接在指令中指定,这就是长格式中的PORT,&lt;br&gt;此时机器指令用二个字节表示,第二个字节就是端口号.所以&lt;br&gt;用长格式时可以在指定中直接指定端口号,但只限于前256个&lt;br&gt;端口.当端口号&amp;gt;=256时,只能使用短格式,此时,必须先把端&lt;br&gt;口号放到DX寄存器中(端口号可以从0000到0FFFFH),然后&lt;br&gt;再用IN或OUT指令来 传送信息.&lt;br&gt;.XLAT 换码指令&lt;br&gt;格式为: XLAT OPR&lt;br&gt;或: XLAT&lt;br&gt;执行的操作:(AL)&amp;lt;-((BX)+(AL))&lt;/p&gt;
+&lt;p&gt;3.有效地址送寄存器指令&lt;br&gt;LEA(Load effective address)有效地址送寄存器&lt;br&gt;LDS(Load DS with Pointer)指针送寄存器和DS&lt;br&gt;LES(Load ES with Pointer)指针送寄存器和ES&lt;br&gt;.LEA 有效地址送寄存器&lt;br&gt;格式为: LEA REG,SRC&lt;br&gt;执行的操作:(REG)&amp;lt;-SRC&lt;br&gt;指令把源操作数的有效地址送到指定的寄存器中.&lt;br&gt;.LDS 指针送寄存器和DS指令&lt;br&gt;格式为: LDS REG,SRC&lt;br&gt;执行的操作:(REG)&amp;lt;-(SRC)&lt;br&gt;(DS)&amp;lt;-(SRC+2)&lt;br&gt;把源操作数指定的4个相继字节送到由指令指定的寄存器&lt;br&gt;及DS寄存器中.该指令常指定SI寄存器.&lt;br&gt;.LES 指针送寄存器和ES指令&lt;br&gt;格式为: LES REG,SRC&lt;br&gt;执行的操作: (REG)&amp;lt;-(SRC)&lt;br&gt;(ES)&amp;lt;-(SRC+2)&lt;br&gt;把源操作数指定的4个相继字节送到由指令指定的寄存器&lt;br&gt;及ES寄存器中.该指令常指定DI寄存器.&lt;/p&gt;
+&lt;p&gt;4.标志寄存器传送指令&lt;br&gt;LAHF(Load AH with flags)标志送AH&lt;br&gt;SAHF(store AH into flags)AH送标志寄存器&lt;br&gt;PUSHF(push the flags) 标志进栈&lt;br&gt;POPF(pop the flags) 标志出栈&lt;br&gt;.LAHF 标志送AH&lt;br&gt;格式为: LAHF&lt;br&gt;执行的操作:(AH)&amp;lt;-(PWS的低字节)&lt;br&gt;.SAHF AH送标志寄存器&lt;br&gt;格式为: SAHF&lt;br&gt;执行的操作:(PWS的低字节)&amp;lt;-(AH)&lt;br&gt;.PUSHF 标志进栈&lt;br&gt;格式为: PUSHF&lt;br&gt;执行的操作:(SP)&amp;lt;-(SP)-2&lt;br&gt;((SP)+1,(SP))&amp;lt;-(PSW)&lt;br&gt;.POPF 标志出栈&lt;br&gt;格式为: POPF&lt;br&gt;执行的操作:(PWS)&amp;lt;-((SP)+1,(SP))&lt;br&gt;(SP)&amp;lt;-(SP+2)&lt;/p&gt;
+&lt;p&gt;二、算术指令&lt;br&gt;1.加法指令&lt;br&gt;ADD(add)加法&lt;br&gt;ADC(add with carry)带进位加法&lt;br&gt;INC(increment)加1&lt;br&gt;.ADD 加法指令&lt;br&gt;格式: ADD DST,SRC&lt;br&gt;执行的操作:(DST)&amp;lt;-(SRC)+(DST)&lt;br&gt;.ADC 带进位加法指令&lt;br&gt;格式: ADC DST,SRC&lt;br&gt;执行的操作:(DST)&amp;lt;-(SRC)+(DST)+CF&lt;br&gt;.ADD 加1指令&lt;br&gt;格式: INC OPR&lt;br&gt;执行的操作:(OPR)&amp;lt;-(OPR)+1&lt;/p&gt;
+&lt;p&gt;2.减法指令&lt;br&gt;SUB(subtract)减法&lt;br&gt;SBB(subtract with borrow)带借位减法&lt;br&gt;DEC(Decrement)减1&lt;br&gt;NEG(Negate)求补&lt;br&gt;CMP(Compare)比较&lt;br&gt;.SUB 减法指令&lt;br&gt;格式: SUB DST,SRC&lt;br&gt;执行的操作:(DST)&amp;lt;-(DST)-(SRC)&lt;br&gt;.SBB 带借位减法指令&lt;br&gt;格式: SBB DST,SRC&lt;br&gt;执行的操作:(DST)&amp;lt;-(DST)-(SRC)-CF&lt;br&gt;.DEC 减1指令&lt;br&gt;格式: DEC OPR&lt;br&gt;执行的操作:(OPR)&amp;lt;-(OPR)-1&lt;br&gt;.NEG 求补指令&lt;br&gt;格式: NEG OPR&lt;br&gt;执行的操作:(OPR)&amp;lt;- -(OPR)&lt;br&gt;.CMP 比较指令&lt;br&gt;格式: CMP OPR1,OPR2&lt;br&gt;执行的操作:(OPR1)-(OPR2)&lt;br&gt;该指令与SUB指令一样执行减法操作,但不保存结果,&lt;br&gt;只是根据结果设置条件标志西半球.&lt;/p&gt;
+&lt;p&gt;3.乘法指令&lt;br&gt;MUL(Unsigned Multiple)无符号数乘法&lt;br&gt;IMUL(Signed Multiple)带符号数乘法&lt;br&gt;.MUL 无符号数乘法指令&lt;br&gt;格式: MUL SRC&lt;br&gt;执行的操作:&lt;br&gt;字节操作数:(AX)&amp;lt;-(AL)&lt;em&gt;(SRC)&lt;br&gt;字操作数:(DX,AX)&amp;lt;-(AX)&lt;/em&gt;(SRC)&lt;br&gt;.IMUL 带符号数乘法指令&lt;br&gt;格式: IMUL SRC&lt;br&gt;执行的操作:与MUL相同,但必须是带符号数,而MUL是无符号数.&lt;/p&gt;
+&lt;p&gt;4.除法指令&lt;br&gt;DIV(Unsigned divide)无符号数除法&lt;br&gt;IDIV(Signed divide)带符号数除法&lt;br&gt;CBW(Convert byte to word)字节转换为字&lt;br&gt;CWD(Contert word to double word)字转换为双字&lt;br&gt;.DIV 无符号数除法指令&lt;br&gt;格式: DIV SRC&lt;br&gt;执行的操作:&lt;br&gt; 字节操作:(AL)&amp;lt;-(AX)/(SRC)的商&lt;br&gt;(AH)&amp;lt;-(AX)/(SRC)的余数&lt;br&gt;字操作: (AX)&amp;lt;-(DX,AX)/(SRC)的商&lt;br&gt;(AX)&amp;lt;-(DX,AX)/(SRC)的余数&lt;br&gt;.IDIV 带符号数除法指令&lt;br&gt;格式: DIV SRC&lt;br&gt;执行的操作:与DIV相同,但操作数必须是带符号数,商和余数&lt;br&gt;也均为带符号数,且余数的符号与被除数的符号相同.&lt;br&gt;.CBW 字节转换为字指令&lt;br&gt;格式: CBW&lt;br&gt;执行的操作:AL的内容符号扩展到AH.即如果(AL)的最高有效&lt;br&gt;位为0,则(AH)=00;如(AL)的最高有效位为1,则(AH)=0FFH&lt;br&gt;.CWD 字转换为双字指令&lt;br&gt;格式: CWD&lt;br&gt;执行的操作:AX的内容符号扩展到DX.即如(AX)的最高有效位&lt;br&gt;为0,则(DX)=0;否则(DX)=0FFFFH.&lt;br&gt;这两条指令都不影响条件码.&lt;/p&gt;
+&lt;p&gt;三、逻辑指令&lt;br&gt;1.逻辑运算指令&lt;br&gt;AND(and) 逻辑与&lt;br&gt;OR(or) 逻辑或&lt;br&gt;NOT(not) 逻辑非&lt;br&gt;XOR(exclusive or)异或&lt;br&gt;TEST(test) 测试&lt;br&gt;.AND 逻辑与指令&lt;br&gt;格式: AND DST,SRC&lt;br&gt;执行的操作:(DST)&amp;lt;-(DST)^(SRC)&lt;br&gt;.OR 逻辑或指令&lt;br&gt;格式: OR DST,SRC&lt;br&gt;执行的操作:(DST)&amp;lt;-(DST)V(SRC)&lt;br&gt;.NOT 逻辑非指令&lt;br&gt;格式: NOT OPR&lt;br&gt;执行的操作:(OPR)&amp;lt;-(OPR)&lt;br&gt;.XOR 异或指令&lt;br&gt;格式: XOR DST,SRC&lt;br&gt;执行的操作:(DST)&amp;lt;-(DST)V(SRC)&lt;br&gt;.TEST 测试指令&lt;br&gt;格式: TEST OPR1,OPR2&lt;br&gt;执行的操作:(DST)^(SRC)&lt;br&gt;两个操作数相与的结果不保存,只根据其特征置条件码&lt;/p&gt;
+&lt;p&gt;2.移位指令&lt;br&gt;SHL(shift logical left) 逻辑左移&lt;br&gt;SAL(shift arithmetic left) 算术左移&lt;br&gt;SHR(shift logical right) 逻辑右移&lt;br&gt;SAR(shift arithmetic right) 算术右移&lt;br&gt;ROL(Rotate left) 循环左移&lt;br&gt;ROR(Rotate right) 循环右移&lt;br&gt;RCL(Rotate left through carry) 带进位循环左移&lt;br&gt;RCR(Rotate right through carry) 带进位循环右移&lt;br&gt;格式: SHL OPR,CNT(其余的类似)&lt;br&gt;其中OPR可以是除立即数以外的任何寻址方式.移位次数由CNT决定,&lt;br&gt;CNT可以是1或CL.循环移位指令可以改变操作数中所有位的位置;移&lt;br&gt;位指令则常常用来做乘以2除以2操作.其中算术移位指令适用于带符&lt;br&gt;号数运算,SAL用来乘2,SAR用来除以2;而逻辑移位指令则用来无符&lt;br&gt;号数运算,SHL用来乘2,SHR用来除以2.&lt;/p&gt;
+&lt;p&gt;四、串处理指令&lt;br&gt;1.与REP相配合工作的MOVS,STOS和LODS指令&lt;br&gt;.REP重复串操作直到(CX)=0为上&lt;br&gt;格式: REP string primitive&lt;br&gt;其中String Primitive可为MOVS,LODS或STOS指令&lt;br&gt;执行的操作:&lt;br&gt;1)如(CX)=0则退出REP,否则往下执行.&lt;br&gt;2)(CX)&amp;lt;-(CX)-1&lt;br&gt;3)执行其中的串操作&lt;br&gt;4)重复1)~3)&lt;br&gt;.MOVS 串传送指令&lt;br&gt;格式:可有三种&lt;br&gt;MOVS DST,SRC&lt;br&gt;MOVSB(字节)&lt;br&gt;MOVSW(字)&lt;br&gt;其中第二、三种格式明确地注明是传送字节或字，第一种格式则应&lt;br&gt;在操作数中表明是字还是字节操作，例如：&lt;br&gt;MOVS ES:BYTE PTR[DI],DS:[SI]&lt;br&gt;执行的操作:&lt;br&gt;1)((DI))&amp;lt;-((SI))&lt;br&gt;2)字节操作:&lt;br&gt;(SI)&amp;lt;-(SI)+(或-)1,(DI)&amp;lt;-(DI)+(或-)1&lt;br&gt;当方向标志DF=0时用+,当方向标志DF=1时用-&lt;br&gt;3)字操作:&lt;br&gt;(SI)&amp;lt;-(SI)+(或-)2,(DI)&amp;lt;-(DI)+(或-)2&lt;br&gt;当方向标志DF=0时用+,当方向标志DF=1时用-&lt;br&gt;该指令不影响条件码.&lt;br&gt;.CLD(Clear direction flag)该指令使DF=0,在执行串操作&lt;br&gt;指令时可使地址自动增量;&lt;br&gt;.STD(Set direction flag)该指令使DF=1,在执行串操作指&lt;br&gt;令时可使地址自动减量.&lt;br&gt;.STOS 存入串指令&lt;br&gt;格式: STOS DST&lt;br&gt;STOSB(字节)&lt;br&gt;STOSW(字)&lt;br&gt;执行的操作:&lt;br&gt;字节操作:((DI))&amp;lt;-(AL),(DI)&amp;lt;-(DI)+-1&lt;br&gt;字操作: ((DI))&amp;lt;-(AX),(DI)&amp;lt;-(DI)+-2&lt;br&gt;该指令把AL或AX的内容存入由(DI)指定的附加段的某单元中,并根&lt;br&gt;据DF的值及数据类型修改DI的内容,当它与REP联用时,可把AL或AX&lt;br&gt;的内容存入一个长度为(CX)的缓冲区中.&lt;br&gt;.LODS 从串取指令&lt;br&gt;格式: LODS SRC&lt;br&gt;LODSB&lt;br&gt;LODSW&lt;br&gt;执行的操作:&lt;br&gt;字节操作:(AL)&amp;lt;-((SI)),(SI)&amp;lt;-(SI)+-1&lt;br&gt;字操作: (AX)&amp;lt;-((SI)),(SI)&amp;lt;-(SI)+-2&lt;br&gt;该指令把由(SI)指定的数据段中某单元的内容送到AL或AX中,并根据&lt;br&gt;方向标志及数据类型修改SI的内容.指令允许使用段跨越前缀来指定非&lt;br&gt;数据段的存储区.该指令也不影响条件码.一般说来,该指令不和REP联&lt;br&gt;用.有时缓冲区中的一串字符需要逐次取出来测试时,可使用本指令.&lt;/p&gt;
+&lt;p&gt;2.与REPE/REPZ和REPNZ/REPNE联合工作的CMPS和SCAS指令&lt;br&gt;.REPE/REPZ 当相等/为零时重复串操作&lt;br&gt;格式: REPE(或REPZ) String Primitive&lt;br&gt;其中String Primitive可为CMPS或SCAS指令.&lt;br&gt;执行的操作:&lt;br&gt;1)如(CX)=0或ZF=0(即某次比较的结果两个操作数不等)时退出,&lt;br&gt;否则往下执行&lt;br&gt;2)(CX)&amp;lt;-(CX)-1&lt;br&gt;3)执行其后的串指令&lt;br&gt;4)重复1)~3)&lt;br&gt;.REPNE/REPNZ 当不相等/不为零时重复串操作&lt;br&gt;格式: REPNE(或REPNZ) String Primitive&lt;br&gt;其中String Primitive可为CMPS或SCAS指令&lt;br&gt;执行的操作:&lt;br&gt;除退出条件(CX=0)或ZF=1外,其他操作与REPE完全相同.&lt;br&gt;.CMPS 串比较指令&lt;br&gt;格式: CMP SRC,DST&lt;br&gt;CMPSB&lt;br&gt;CMPSW&lt;br&gt;执行的操作:&lt;br&gt;1)((SI))-((DI))&lt;br&gt;2)字节操作:(SI)&amp;lt;-(SI)+-1,(DI)&amp;lt;-(DI)+-1&lt;br&gt;字操作: (SI)&amp;lt;-(SI)+-2,(DI)&amp;lt;-(DI)+-2&lt;br&gt;指令把由(SI)指向的数据段中的一个字(或字节)与由(DI)指向的&lt;br&gt;附加段中的一个字(或字节)相减,但不保存结果,只根据结果设置条&lt;br&gt;件码,指令的其它特性和MOVS指令的规定相同.&lt;br&gt;.SCAS 串扫描指令&lt;br&gt;格式: SCAS DST&lt;br&gt;SCASB&lt;br&gt;SCASW&lt;br&gt;执行的操作:&lt;br&gt;字节操作:(AL)-((DI)),(DI)&amp;lt;-(DI)+-1&lt;br&gt;字操作: (AL)-((DI)),(DI)&amp;lt;-(DI)+-2&lt;br&gt;该指令把AL(或AX)的内容与由(DI)指定的在附加段中的一个字节(或字)&lt;br&gt;进行比较,并不保存结果,只根据结果置条件码.指令的其他特性和MOVS的&lt;br&gt;规定相同. &lt;/p&gt;
+&lt;p&gt;五、控制转移指令&lt;br&gt;1.无条件转移指令&lt;br&gt;.JMP(jmp) 跳转指令&lt;br&gt;1)段内直接短转移&lt;br&gt;格式:JMP SHORT OPR&lt;br&gt;执行的操作:(IP)&amp;lt;-(IP)+8位位移量&lt;br&gt;2)段内直接近转移&lt;br&gt;格式:JMP NEAR PTR OPR&lt;br&gt;执行的操作:(IP)&amp;lt;-(IP)+16位位移量&lt;br&gt;3)段内间接转移&lt;br&gt;格式:JMP WORD PTR OPR&lt;br&gt;执行的操作:(IP)&amp;lt;-(EA)&lt;br&gt;4)段间直接(远)转移&lt;br&gt;格式:JMP FAR PTR OPR&lt;br&gt;执行的操作:(IP)&amp;lt;-OPR的段内偏移地址&lt;br&gt;(CS)&amp;lt;-OPR所在段的段地址&lt;br&gt;5)段间间接转移&lt;br&gt;格式:JMP DWORD PTR OPR&lt;br&gt;执行的操作:(IP)&amp;lt;-(EA)&lt;br&gt;(CS)&amp;lt;-(EA+2)&lt;br&gt;2.条件转移指令&lt;br&gt;1)根据单个条件标志的设置情况转移&lt;br&gt;.JZ(或JE)(Jump if zero,or equal) 结果为零(或相等)则转移&lt;br&gt;格式:JE(或JZ) OPR&lt;br&gt;测试条件:ZF=1&lt;br&gt;.JNZ(或JNE)(Jump if not zero,or not equal) 结果不为零&lt;br&gt;(或不相等)则转移&lt;br&gt;格式:JNZ(或JNE) OPR&lt;br&gt;测试条件:ZF=0&lt;br&gt;.JS(Jump if sign) 结果为负则转移&lt;br&gt;格式: JS OPR&lt;br&gt;测试条件:SF=1&lt;br&gt;.JNS(Jump if not sign) 结果为正则转移&lt;br&gt;格式:JNS OPR&lt;br&gt;测试条件:SF=0&lt;br&gt;.JO(Jump if overflow) 溢出则转移&lt;br&gt;格式: JO OPR&lt;br&gt;测试条件:OF=1&lt;br&gt;.JNO(Jump if not overflow)&lt;br&gt;不溢出则转移&lt;br&gt;格式: JNO OPR&lt;br&gt;测试条件:OF=0&lt;br&gt;.JP(或JPE)(Jump if parity,or parity even)&lt;br&gt;奇偶位为1则转移&lt;br&gt;格式: JP OPR&lt;br&gt;测试条件:PF=1&lt;br&gt;.JNP(或JPO)(Jump if not parity,or parity odd)&lt;br&gt;奇偶位为0则转移&lt;br&gt;格式: JNP(或JPO) OPR&lt;br&gt;测试条件:PF=0&lt;br&gt;.JB(或JNAE,JC)(Jump if below,or not above or equal,or carry)&lt;br&gt;低于,或者不高于或等于,或进位位为1则转移&lt;br&gt;格式:JB(或JNAE,JC) OPR&lt;br&gt;测试条件:CF=1&lt;br&gt;.JNB(或JAE,JNC)(Jump if not below,or above or equal,or not carry)&lt;br&gt;不低于,或者高于或者等于,或进位位为0则转移&lt;br&gt;格式:JNB(或JAE,JNC) OPR&lt;br&gt;测试条件:CF=0&lt;br&gt;2)比较两个无符号数,并根据比较的结果转移&lt;br&gt;.JB(或JNAE,JC)&lt;br&gt;格式:同上&lt;br&gt;.JNB(或JAE,JNC)&lt;br&gt;格式:同上&lt;br&gt;.JBE(或JNA)(Jump if below or equal,or not above)&lt;br&gt;低于或等于,或不高于则转移&lt;br&gt;格式:JBE(或JNA) OPR&lt;br&gt;测试条件:CFVZF=1&lt;br&gt;.JNBE(或JA)(Jump if not below or equal,or above)&lt;br&gt;不低于或等于,或者高于则转移&lt;br&gt;格式:JNBE(或JA) OPR&lt;br&gt;测试条件:CFVZF=0&lt;br&gt;3)比较两个带符号数,并根据比较的结果转移&lt;br&gt;.JL(或LNGE)(Jump if less,or not greater or equal)&lt;br&gt;小于,或者不大于或者等于则转移&lt;br&gt;格式:JL(或JNGE) OPR&lt;br&gt;测试条件:SFVOF=1&lt;br&gt;.JNL(或JGE)(Jump if not less,or greater or equal)&lt;br&gt;不小于,或者大于或者等于则转移&lt;br&gt;格式:JNL(或JGE) OPR&lt;br&gt;测试条件:SFVOF=0&lt;br&gt;.JLE(或JNG)(Jump if less or equal,or not greater)&lt;br&gt;小于或等于,或者不大于则转移&lt;br&gt;格式:JLE(或JNG) OPR&lt;br&gt;测试条件:(SFVOF)VZF=1&lt;br&gt;.JNLE(或JG)(Jump if not less or equal,or greater)&lt;br&gt;不小于或等于,或者大于则转移&lt;br&gt;格式:JNLE(或JG) OPR&lt;br&gt;测试条件:(SFVOF)VZF=0&lt;br&gt;4)测试CX的值为0则转移指令&lt;br&gt;.JCXZ(Jump if CX register is zero)&lt;br&gt;CX寄存器的内容为零则转移&lt;br&gt;格式:JCXZ OPR&lt;br&gt;测试条件:(CX)=0&lt;br&gt;注:条件转移全为8位短跳!&lt;/p&gt;
+&lt;p&gt;3.循环指令&lt;br&gt;.LOOP 循环指令&lt;br&gt;格式: LOOP OPR&lt;br&gt;测试条件:(CX)&amp;lt;&amp;gt;0&lt;br&gt;.LOOPZ/LOOPE 当为零或相等时循环指令&lt;br&gt;格式: LOOPZ(或LOOPE) OPR&lt;br&gt;测试条件:(CX)&amp;lt;&amp;gt;0且ZF=1&lt;br&gt;.LOOPNZ/LOOPNE 当不为零或不相等时循环指令&lt;br&gt;格式: LOOPNZ(或LOOPNE) OPR&lt;br&gt;测试条件:(CX)&amp;lt;&amp;gt;0且ZF=0&lt;br&gt;这三条指令的步骤是:&lt;br&gt;1)(CX)&amp;lt;-(CX)-1&lt;br&gt;2)检查是否满足测试条件,如满足则(IP)&amp;lt;-(IP)+D8的符号扩充.&lt;/p&gt;
+&lt;p&gt;4.子程序&lt;br&gt;.CALL调用指令&lt;br&gt;.RET返回指令&lt;br&gt;5.中断&lt;br&gt;.INT指令&lt;br&gt;格式: INT TYPE&lt;br&gt;或 INT&lt;br&gt;执行的操作:(SP)&amp;lt;-(SP)-2&lt;br&gt;((SP)+1,(SP))&amp;lt;-(PSW)&lt;br&gt;(SP)&amp;lt;-(SP)-2&lt;br&gt;((SP)+1,(SP))&amp;lt;-(CS)&lt;br&gt;(SP)&amp;lt;-(SP)-2&lt;br&gt;((SP)+1,(SP))&amp;lt;-(IP)&lt;br&gt;(IP)&amp;lt;-(TYPE&lt;em&gt;4)&lt;br&gt;(CS)&amp;lt;-(TYPE&lt;/em&gt;4+2)&lt;br&gt;.INTO 若溢出则中断&lt;br&gt;执行的操作:若OF=1则:&lt;br&gt;(SP)&amp;lt;-(SP)-2&lt;br&gt;((SP)+1,(SP))&amp;lt;-(PSW)&lt;br&gt;(SP)&amp;lt;-(SP)-2&lt;br&gt;((SP)+1,(SP))&amp;lt;-(CS)&lt;br&gt;(SP)&amp;lt;-(SP)-2&lt;br&gt;((SP)+1,(SP))&amp;lt;-(IP)&lt;br&gt;(IP)&amp;lt;-(10H)&lt;br&gt;(CS)&amp;lt;-(12H)&lt;br&gt;.IRET 从中断返回指令&lt;br&gt;格式: IRET&lt;br&gt;执行的操作:(IP)&amp;lt;-((SP)+1,(SP))&lt;br&gt;(SP)&amp;lt;-(SP)+2&lt;br&gt;(CS)&amp;lt;-((SP)+1,(SP))&lt;br&gt;(SP)&amp;lt;-(SP)+2&lt;br&gt;(PSW)&amp;lt;-((SP)+1,(SP))&lt;br&gt;(SP)&amp;lt;-(SP)+2&lt;/p&gt;
+&lt;p&gt;六、处理机控制指令&lt;br&gt;1.标志处理指令&lt;br&gt;.CLC进位位置0指令(Clear carry)CF&amp;lt;-0&lt;br&gt;.CMC进位位求反指令(Complement carry)CF&amp;lt;-CF&lt;br&gt;.STC进位位置1指令(Set carry)CF&amp;lt;-1&lt;br&gt;.CLD方向标志置0指令(Clear direction)DF&amp;lt;-0&lt;br&gt;.STD方向标志置1指令(Set direction)DF&amp;lt;-1&lt;br&gt;.CLI中断标志置0指令(Clear interrupt)IF&amp;lt;-0&lt;br&gt;.STI中断标志置1指令(Set interrupt)IF&amp;lt;-0&lt;br&gt;2.其他处理机控制指令&lt;br&gt;NOP(No Opreation) 无操作&lt;br&gt;HLT(Halt) 停机&lt;br&gt;WAIT(Wait) 等待&lt;br&gt;ESC(Escape) 换码&lt;br&gt;LOCK(Lock) 封锁&lt;br&gt;这些指令可以控制处理机状态.这们都不影响条件码.&lt;br&gt;.NOP 无操作指令&lt;br&gt;该指令不执行任何操作,其机器码占有一个字节,在调试程序时往往&lt;br&gt;用这条指令占有一定的存储单元,以便在正式运行时用其他指令取代.&lt;br&gt;.HLT停机指令&lt;br&gt;该指令可使机器暂停工作,使处理机处于停机状态以便等待一次外部&lt;br&gt;中断到来,中断结束后可继续执行下面的程序.&lt;br&gt;.WAIT等待指令&lt;br&gt;该指令使处理机处于空转状态,它也可以用来等待外部中断的发生,&lt;br&gt;但中断结束后仍返回WAIT指令继续德行.&lt;br&gt;.ESC换码指令&lt;br&gt;格式ESC mem&lt;br&gt;其中mem指出一个存储单元,ESC指令把该存储单元的内容送到数据总线去.&lt;br&gt;当然ESC指令不允许使用立即数和寄存器寻址方式.这条指令在使用协处理&lt;br&gt;机(Coprocessor)执行某些操作时,可从存储器指得指令或操作数.协处&lt;br&gt;理机(如8087)则是为了提高速度而可以选配的硬件.&lt;br&gt;.LOCK封锁指令&lt;br&gt;该指令是一种前缀,它可与其他指令联合,用来维持总线的锁存信号直&lt;br&gt;到与其联合的指令执行完为止.当CPU与其他处理机协同工作时,该指令可避&lt;br&gt;免破坏有用信息.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;汇编指令集详细说明。
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
+    
+    
+      <category term="assembly" scheme="http://blog.lehoon.cn/tags/assembly/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bool和BOOL的区别</title>
+    <link href="http://blog.lehoon.cn/orther/2015/09/15/bool-BOOL.html"/>
+    <id>http://blog.lehoon.cn/orther/2015/09/15/bool-BOOL.html</id>
+    <published>2015-09-15T15:05:48.000Z</published>
+    <updated>2016-07-11T15:16:13.115Z</updated>
+    
+    <content type="html">&lt;pre&gt;&lt;code&gt;bool 与BOOL的区别.
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;1、类型不同&lt;br&gt;BOOL为int型&lt;br&gt;bool为布尔型&lt;br&gt;2、长度不同&lt;br&gt;bool只有一个字节&lt;br&gt;BOOL长度视实际环境来定，一般可认为是4个字节&lt;br&gt;3、取值不同&lt;br&gt;bool取值false和true，是0和1的区别&lt;br&gt;BOOL取值FALSE和TRUE，是0和非0的区别&lt;/p&gt;
+&lt;p&gt;bool是标准C++数据类型，可取值true和false。单独占一个字节，&lt;br&gt;如果数个bool对象列在一起，可能会各占一个bit，这取决于编译器。&lt;/p&gt;
+&lt;p&gt;BOOL是微软定义的typedef int BOOL。与bool不同，它是一个三值逻辑，&lt;br&gt;TRUE/FALSE/ERROR，返回值为&amp;gt;0的整数为TRUE，0为FALSE，-1为ERROR。&lt;br&gt;Win32 API中很多返回值为BOOL的函数都是三值逻辑。比如GetMessage().&lt;/p&gt;
+&lt;p&gt;大BOOL和小bool之间的区别：&lt;br&gt;1、类型不同&lt;br&gt;BOOL为int型&lt;br&gt;bool为布尔型&lt;br&gt;2、长度不同&lt;br&gt;bool只有一个字节&lt;br&gt;BOOL长度视实际环境来定，一般可认为是4个字节&lt;br&gt;3、取值不同&lt;br&gt;bool取值false和true，是0和1的区别&lt;br&gt;BOOL取值FALSE和TRUE，是0和非0的区别&lt;br&gt;4、例子&lt;br&gt;bool x=3;  //告警&lt;br&gt;bool x=1;  //正确&lt;br&gt;BOOL x=3;  //正确&lt;br&gt;BOOL x=3.3;  //告警&lt;br&gt;注：windows为了兼容问题定义的基础变量。&lt;br&gt;typedef unsigned long        DWORD;&lt;br&gt;typedef int                  BOOL;&lt;br&gt;typedef unsigned char        BYTE;&lt;br&gt;typedef unsigned short      WORD;&lt;br&gt;typedef float                FLOAT;&lt;br&gt;typedef FLOAT                &lt;em&gt;PFLOAT;&lt;br&gt;typedef BOOL near            &lt;/em&gt;PBOOL;&lt;br&gt;typedef BOOL far            &lt;em&gt;LPBOOL;&lt;br&gt;typedef BYTE near            &lt;/em&gt;PBYTE;&lt;br&gt;typedef BYTE far            &lt;em&gt;LPBYTE;&lt;br&gt;typedef int near            &lt;/em&gt;PINT;&lt;br&gt;typedef int far              *LPINT; &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;bool 与BOOL的区别.
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
+    
+    
+      <category term="c++" scheme="http://blog.lehoon.cn/tags/c/"/>
+    
+      <category term="bool" scheme="http://blog.lehoon.cn/tags/bool/"/>
+    
+      <category term="BOOL" scheme="http://blog.lehoon.cn/tags/BOOL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ssh限制ip远程登录</title>
     <link href="http://blog.lehoon.cn/orther/2015/08/20/ssh-limit.html"/>
     <id>http://blog.lehoon.cn/orther/2015/08/20/ssh-limit.html</id>
@@ -365,9 +439,9 @@
       <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
     
     
-      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
-    
       <category term="c++" scheme="http://blog.lehoon.cn/tags/c/"/>
+    
+      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
     
       <category term="oracle" scheme="http://blog.lehoon.cn/tags/oracle/"/>
     
