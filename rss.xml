@@ -5,7 +5,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://blog.lehoon.cn/"/>
-  <updated>2016-07-19T06:50:19.659Z</updated>
+  <updated>2016-07-19T06:57:51.057Z</updated>
   <id>http://blog.lehoon.cn/</id>
   
   <author>
@@ -14,6 +14,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>centos-lvs</title>
+    <link href="http://blog.lehoon.cn/%E7%BC%96%E7%A8%8B/2016/07/19/centos-lvs.html"/>
+    <id>http://blog.lehoon.cn/编程/2016/07/19/centos-lvs.html</id>
+    <published>2016-07-19T06:57:50.000Z</published>
+    <updated>2016-07-19T06:57:51.057Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>awk学习</title>
@@ -215,6 +231,37 @@
     
     
       <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下tcp的优化</title>
+    <link href="http://blog.lehoon.cn/backend/2016/05/26/linux-tcp-optimization.html"/>
+    <id>http://blog.lehoon.cn/backend/2016/05/26/linux-tcp-optimization.html</id>
+    <published>2016-05-26T11:03:35.000Z</published>
+    <updated>2016-07-26T01:11:16.606Z</updated>
+    
+    <content type="html">&lt;p&gt;在GNU Linux系统中，影响连接个数的因素主是由于单个进程能够打开的最大文件数、端口数量决定的；而一个基于tcp的服务器的并发，除了上文说过的两个因素外，还有因为主要的tcp连接的很多属性，而问题最大的则是连接断开后的连接会在TIME_WAIT状态一直存在60秒，这就造成了在大量高并发的情况下当连接为此TIME_WAIT状态时没有可用连接。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;在GNU Linux系统中，影响连接个数的因素主是由于单个进程能够打开的最大文件数、端口数量决定的；而一个基于tcp的服务器的并发，除了上文说过的两个因素外，还有因为主要的tcp连接的很多属性，而问题最大的则是连接断开后的连接会在TIME_WAIT状态一直存在60秒，这就造成了在大量高并发的情况下当连接为此TIME_WAIT状态时没有可用连接。&lt;br&gt;1、修改端口号范围：&lt;br&gt;默认范围：&lt;br&gt;cat /proc/sys/net/ipv4/ip_local_port_range&lt;br&gt;32768 61000&lt;br&gt;众所周知，端口号的范围为0～65535，知名端口号介于1～255之间，256～1023之间的端口号通常都是由系统占用，所以我们需要更多可以使用的端口号的话，那么就需要修改系统中对端口使用范围变量;&lt;br&gt;修改方法：&lt;br&gt;1）、echo “1024 65535” &amp;gt; /proc/sys/net/ipv4/ip_local_port_range&lt;br&gt;2）、在/etc/sysctl.conf中进行如下的设置：&lt;br&gt;net.ipv4.ip_local_port_range=1024 65535&lt;br&gt;然后执行: sysctl -p 对这些设置进行生效；&lt;br&gt;3）、直接使用命令进行系统变量的优化&lt;br&gt;sysctl -w net.ipv4.ip_local_port_range=1024 65535&lt;br&gt;若端口不够用的时候报错信息&lt;br&gt;若没有空闲的端口可以使用时，将会报错，如：&lt;br&gt;connect() to ip:80 failed (99: Cannot assign requested address)&lt;br&gt;注意：&lt;br&gt;修改了端口的范围后，若是有多个服务在一台设备上时，若是先被其它服务先行启动将另外的服务的“众所周知”的端口给占用了，那么这个问题就比较不太好处理，在这种情况下，对于需要监听的服务进行先行启动，将服务要使用的“众所周知”的端口先行占用，就不会发生比较麻烦的情况了。&lt;br&gt;2、修改系统所有进程能够打开的文件数：&lt;br&gt;cat /proc/sys/fs/file-max&lt;br&gt;203466&lt;br&gt;若要修改的话：&lt;br&gt;echo 403466 &amp;gt; /proc/sys/fs/file-max&lt;br&gt;3、对于处理TIME_WAIT的问题，通过设置以下两项可以极大地提高并发&lt;br&gt;在进行了通信完毕后，完成通信的连接差不多在秒级间就进行了回收，经测试，再使用netstat -ntp，都不会再看到刚才使用的连接，但是在官方文档中说明了（Default value is 0. It should not be changed without advice/request of technical experts.）使用这两种方式需要非常谨慎；如下(修改方法请参看上面的修改方式)：&lt;br&gt;net.ipv4.tcp_tw_reuse = 1&lt;br&gt;//表示开启重用。允许将TIME-WAIT sockets重新用于新的TCP连接，默认为0，表示关闭；&lt;br&gt;net.ipv4.tcp_tw_recycle = 1&lt;br&gt;//表示开启TCP连接中TIME-WAIT sockets的快速回收，默认为0，表示关闭。&lt;br&gt;由于以上两项在官方文档中有这样的描述”It should not be changed without advice/request of technical experts.“，也即是说，这两项在某些情况下会产生负作用或影响；&lt;br&gt;可能出现的影响：&lt;br&gt;net.ipv4.tcp_tw_recycle是与net.ipv4.tcp_timestamps是密切相关的，而net.ipv4.tcp_timestamps默认是开启的，当tcp_tw_recycle和tcp_timestamps同时打开时会激活TCP的一种隐藏属性：缓存连接的时间戳。60秒内，同一源IP的后续请求的时间戳小于缓存中的时间戳，内核就会丢弃该请求。&lt;br&gt;什么样的场景会使时间戳会小于缓存中的时间戳呢？&lt;br&gt;类似的故障场景：&lt;br&gt;多个客户端通过一个NAT访问一台服务器，因为NAT只改IP地址信息，但不会改变timestamp（TCP的时间戳不是系统时间，而是系统启动的时间uptime，所以两台机器的的TCP时间戳一致的可能性很小），那么就会出现请求被丢弃的情况，所以很容易造成连接失败的情况。&lt;br&gt;服务器上开启了tcp_tw_recycle用于TIME_WAIT的快速回收故障现象和分析步骤：&lt;br&gt;1) 通过NAT出口的多个客户端经常请求Web服务器无响应；&lt;br&gt;2) 在服务器抓包，发现服务端可以收到客户端的SYN请求，但是没有回应SYN,ACK，也就是说内核直接将包丢弃了。&lt;br&gt;解决方法：&lt;br&gt;1) 关闭服务其端的tcp_timestamps，故障可以解决，但是这么做存在安全和性能隐患，强烈建议不关闭此变量；&lt;br&gt;2) 关闭tcp_tw_recycle，故障也可以解决。推荐NAT环境下的机器不要开启该选项；&lt;br&gt;3）调整网络拓扑避免NAT的这种类似的情况；&lt;br&gt;4）客户端使用同一个NTP服务进行时间同步，使时间同步避免timestamp差异；&lt;br&gt;其它优化参数&lt;br&gt;net.ipv4.tcp_fin_timeout = 30&lt;br&gt;//表示如果套接字由本端要求关闭，这个参数决定了它保持在FIN-WAIT-2状态的时间。&lt;br&gt;net.ipv4.tcp_keepalive_time = 1200&lt;br&gt;//表示当keepalive起用的时候，TCP发送keepalive消息的频度。缺省是2小时，改为20分钟。&lt;br&gt;net.ipv4.tcp_max_tw_buckets = 5000&lt;br&gt;//表示系统同时保持TIME_WAIT套接字的最大数量，如果超过这个数字，&lt;br&gt;//TIME_WAIT套接字将立刻被清除并打印警告信息。默认为180000，改为5000。&lt;br&gt;//对于Apache、Nginx等服务器，上几行的参数可以很好地减少TIME_WAIT套接字数量，&lt;br&gt;//此值和/proc/sys/net/ipv4/tcp_max_syn_backlog是一样的，也是对listen()函数中的backlog参数的限制，按照文档中的说明，应该最好是设置成和/proc/sys/net/ipv4/tcp_max_syn_backlog一样的值，此值的默认值是128：&lt;br&gt;cat /proc/sys/net/core/somaxconn&lt;br&gt;128&lt;br&gt;net.core.somaxconn = 40000&lt;br&gt;//指定未完成连接队列的最大长度，默认为1024个，是对socket的listen()函数中的backlog数量的限制，若服务器过载可以增大此值；&lt;br&gt;cat /proc/sys/net/ipv4/tcp_max_syn_backlog&lt;br&gt;1024&lt;br&gt;net.ipv4.tcp_max_syn_backlog = 40000&lt;br&gt;4、调整每个进程最大打开文件描述符限制&lt;br&gt;调整文件描述符限制:&lt;br&gt;$ ulimit -n&lt;br&gt;1024&lt;br&gt;修改此值，ulimit -n 4096&lt;br&gt;$vi /etc/security/limits.conf&lt;br&gt;//Setting Shell Limits for File Descriptors&lt;br&gt;&lt;em&gt;soft nofile 8192
+&lt;/em&gt;hard nofile 8192&lt;br&gt;这二者的区别，在/etc/security/limits.conf配置文件中配置好后，进行重启后再次使用ulimit -n将得到的值是8192.&lt;br&gt;5、通过重新编译内核代码减少TCP连接的TIME-WAIT时间&lt;br&gt;在内核代码中的include/net/tcp.h文件中，TIME-WAIT的定义如下：&lt;br&gt;&lt;figure class=&quot;highlight pf&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;//&lt;span class=&quot;comment&quot;&gt;#define TCP_TIMEWAIT_LEN (60*HZ) /* how long to wait to destroy TIME-WAIT&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;* &lt;span class=&quot;keyword&quot;&gt;state&lt;/span&gt;, about &lt;span class=&quot;number&quot;&gt;60&lt;/span&gt; seconds */&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;可以通过修改TCP_TIMEWAIT_LEN的值，来加快连接的释放；修改后，内核进行编译后进行替换。&lt;br&gt;Nginx的配置与系统环境变量间的关系&lt;br&gt;系统默认的是1024，若在Nginx的配置文件中，配置了worker_connections 4096;后，再启动时，会出现这样的一个警告:&lt;br&gt;nginx: [warn] 4096 worker_connections exceed open file resource limit: 1024&lt;br&gt;Nginx中的这些和系统变量有关的，是根据系统中的配置而进行设置的，若大于了系统变量的范围的话，不会生效，会被默认成系统的值，如每个worker进行能够打开的文件数量就被默认成系统的值1024；&lt;br&gt;注意：&lt;br&gt;修改内核变量是有风险的，最好是在测试环境进行测试通过，再将配置平移到生产环境。&lt;br&gt;REF:&lt;br&gt;IPV4和IPV6的内核参数各项的意义及取值：&lt;br&gt;&lt;a href=&quot;https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt&lt;/a&gt;&lt;br&gt;关于/proc目录下的主要项的介绍：&lt;br&gt;&lt;a href=&quot;http://man7.org/linux/man-pages/man5/proc.5.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://man7.org/linux/man-pages/man5/proc.5.html&lt;/a&gt;&lt;br&gt;如果你在工作和学习中有什么技术问题和困难，请关注大数据架构师微信公众号xinsz08，并留言，我们会努力帮你解答，每天1篇必读运维大牛亲笔绝密干货贴，尽在大数据架构师专家，1000万IT人的必备资源库。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在GNU Linux系统中，影响连接个数的因素主是由于单个进程能够打开的最大文件数、端口数量决定的；而一个基于tcp的服务器的并发，除了上文说过的两个因素外，还有因为主要的tcp连接的很多属性，而问题最大的则是连接断开后的连接会在TIME_WAIT状态一直存在60秒，这就造成了在大量高并发的情况下当连接为此TIME_WAIT状态时没有可用连接。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
+    
+    
+      <category term="linux" scheme="http://blog.lehoon.cn/tags/linux/"/>
+    
+      <category term="tcp" scheme="http://blog.lehoon.cn/tags/tcp/"/>
+    
+      <category term="optimization" scheme="http://blog.lehoon.cn/tags/optimization/"/>
     
   </entry>
   
