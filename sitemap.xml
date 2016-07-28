@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.lehoon.cn/backend/2016/07/28/memcache-memcached-diff.html</loc>
+    
+    <lastmod>2016-07-28T00:52:23.724Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.lehoon.cn/backend/2016/05/26/linux-tcp-optimization.html</loc>
     
     <lastmod>2016-07-26T01:11:16.606Z</lastmod>
