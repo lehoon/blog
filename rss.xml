@@ -5,7 +5,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://blog.lehoon.cn/"/>
-  <updated>2016-07-28T00:52:23.724Z</updated>
+  <updated>2016-08-16T01:32:24.318Z</updated>
   <id>http://blog.lehoon.cn/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ip地址分类</title>
+    <link href="http://blog.lehoon.cn/orther/2016/08/16/ip-catagory.html"/>
+    <id>http://blog.lehoon.cn/orther/2016/08/16/ip-catagory.html</id>
+    <published>2016-08-16T01:23:25.000Z</published>
+    <updated>2016-08-16T01:32:24.318Z</updated>
+    
+    <content type="html">&lt;p&gt;现在的IP网络使用32位地址，以点分十进制表示，如172.16.0.0。地址格式为：IP地址=网络地址＋主机地址 或 IP地址=主机地址＋子网地址＋主机地址。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;按照IP地址的逻辑层次来分，IP地址可以分为A，B，C，D，E等5类。A类IP地址用于大型网络，B类IP地址用于中型网络，C类用于小规模网络，最多只能连接256台设备，D类IP地址用于多目的地址发送，E类则保留为今后使用。&lt;br&gt;1．A类IP地址&lt;br&gt;一个A类IP地址由1字节（每个字节是8位）的网络地址和3个字节主机地址组成，网络地址的最高位必须是“0”,即第一段数字范围为1～127。每个A类地址可连接2的24次方减2等于16777214台主机，Internet有2的7次方减2等于126个A类地址。&lt;br&gt;2．B类IP地址&lt;br&gt;一个B类IP地址由2个字节的网络地址和2个字节的主机地址组成，网络地址的最高位必须是“10”，即第一段数字范围为128～191。每个B类地址可连接2的16次方减2等于65534台主机，Internet有2的14次方减2等于16382个B类地址。&lt;br&gt;3．C类IP地址&lt;br&gt;一个C类地址是由3个字节的网络地址和1个字节的主机地址组成，网络地址的最高位必须是“ll0”，即第一段数字范围为192～223。每个C类地址可连接2的8次方减2等于254台主机，Internet有2的21次方减2等于2097150个C类地址。&lt;br&gt;4．D类地址&lt;br&gt;第一个字节以“lll0”开始，第一个字节的数字范围为224～239，是多点播送地址，用于多目的地信息的传输，和作为备用。全零（“0．0．0．0”）地址对应于当前主机，全“1”的IP地址（“255．255．255．255”）是当前子网的广播地址。用于多点播送。&lt;br&gt;5．E类地址&lt;br&gt;以“llll0”开始，即第一段数字范围为240～254。E类地址保留，仅作实验和开发用。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;现在的IP网络使用32位地址，以点分十进制表示，如172.16.0.0。地址格式为：IP地址=网络地址＋主机地址 或 IP地址=主机地址＋子网地址＋主机地址。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
+    
+    
+      <category term="ip" scheme="http://blog.lehoon.cn/tags/ip/"/>
+    
+      <category term="ipv4" scheme="http://blog.lehoon.cn/tags/ipv4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>android非浏览器应用程序与服务器会话保持实现</title>
+    <link href="http://blog.lehoon.cn/orther/2016/08/09/android-connection-session.html"/>
+    <id>http://blog.lehoon.cn/orther/2016/08/09/android-connection-session.html</id>
+    <published>2016-08-09T03:37:41.000Z</published>
+    <updated>2016-08-09T03:40:16.040Z</updated>
+    
+    <content type="html">&lt;p&gt;因为android手机端在访问web服务器时，没有给http请求头部设置sessionID，而使用web浏览器作为客户端访问服务器时，在客户端每次发起请求的时候，都会将交互中的sessionID：SESSIONID设置在Cookie头中携带过去，服务器根据这个sessionID获取对应的Session,而不是重新创建一个新Session(除了这个Session失效)。所以实现方式就是在http通信的时候，在header头上设置sessionid。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;因为android手机端在访问web服务器时，没有给http请求头部设置sessionID，而使用web浏览器作为客户端访问服务器时，在客户端每次发起请求的时候，都会将交互中的sessionID：SESSIONID设置在Cookie头中携带过去，服务器根据这个sessionID获取对应的Session,而不是重新创建一个新Session(除了这个Session失效)。所以实现方式就是在http通信的时候，在header头上设置sessionid。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
+    
+    
+      <category term="android" scheme="http://blog.lehoon.cn/tags/android/"/>
+    
+      <category term="java" scheme="http://blog.lehoon.cn/tags/java/"/>
+    
+      <category term="安卓" scheme="http://blog.lehoon.cn/tags/%E5%AE%89%E5%8D%93/"/>
+    
+  </entry>
   
   <entry>
     <title>memcache与memcached区别</title>
