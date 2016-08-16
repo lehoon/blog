@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.lehoon.cn/frontend/2016/08/16/http-etag-last-midified.html</loc>
+    
+    <lastmod>2016-08-16T03:17:38.477Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.lehoon.cn/orther/2016/08/16/ip-catagory.html</loc>
     
     <lastmod>2016-08-16T01:32:24.318Z</lastmod>
