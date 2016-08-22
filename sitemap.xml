@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.lehoon.cn/backend/2016/08/22/kafka-window.html</loc>
+    
+    <lastmod>2016-08-22T04:54:57.863Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.lehoon.cn/backend/2016/08/19/makefile.html</loc>
+    
+    <lastmod>2016-08-19T06:41:54.753Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.lehoon.cn/frontend/2016/08/16/http-etag-last-midified.html</loc>
     
     <lastmod>2016-08-16T03:17:38.477Z</lastmod>
