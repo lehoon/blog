@@ -265,9 +265,9 @@
       <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
     
     
-      <category term="linux" scheme="http://blog.lehoon.cn/tags/linux/"/>
-    
       <category term="awk" scheme="http://blog.lehoon.cn/tags/awk/"/>
+    
+      <category term="linux" scheme="http://blog.lehoon.cn/tags/linux/"/>
     
   </entry>
   
