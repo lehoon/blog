@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.lehoon.cn/about/index.html</loc>
+    
+    <lastmod>2016-08-23T04:57:14.331Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.lehoon.cn/projects/index.html</loc>
     
     <lastmod>2016-08-23T03:50:24.392Z</lastmod>
@@ -159,13 +166,6 @@
     <loc>http://blog.lehoon.cn/orther/2016/07/19/awk.html</loc>
     
     <lastmod>2016-07-19T06:50:19.659Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.lehoon.cn/about/index.html</loc>
-    
-    <lastmod>2016-07-07T09:14:00.241Z</lastmod>
     
   </url>
   
