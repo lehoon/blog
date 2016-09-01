@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.lehoon.cn/frontend/2016/09/01/js-generate-uuid.html</loc>
+    
+    <lastmod>2016-09-01T03:25:32.765Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.lehoon.cn/orther/2016/08/29/notepad.html</loc>
     
     <lastmod>2016-08-29T02:36:44.914Z</lastmod>

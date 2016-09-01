@@ -5,7 +5,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://blog.lehoon.cn/"/>
-  <updated>2016-08-29T02:36:44.914Z</updated>
+  <updated>2016-09-01T03:25:32.765Z</updated>
   <id>http://blog.lehoon.cn/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript生成全局唯一id的方法</title>
+    <link href="http://blog.lehoon.cn/frontend/2016/09/01/js-generate-uuid.html"/>
+    <id>http://blog.lehoon.cn/frontend/2016/09/01/js-generate-uuid.html</id>
+    <published>2016-09-01T03:20:47.000Z</published>
+    <updated>2016-09-01T03:25:32.765Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;全局唯一标识符（GUID，Globally Unique Identifier）也称作 UUID(Universally Unique IDentifier) 。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://blog.lehoon.cn/categories/frontend/"/>
+    
+    
+      <category term="javascript" scheme="http://blog.lehoon.cn/tags/javascript/"/>
+    
+      <category term="uuid" scheme="http://blog.lehoon.cn/tags/uuid/"/>
+    
+  </entry>
   
   <entry>
     <title>随笔</title>
@@ -385,9 +407,9 @@
       <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
     
     
-      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
-    
       <category term="c++" scheme="http://blog.lehoon.cn/tags/c/"/>
+    
+      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
     
       <category term="window" scheme="http://blog.lehoon.cn/tags/window/"/>
     
@@ -499,9 +521,9 @@
       <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
     
     
-      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
-    
       <category term="c++" scheme="http://blog.lehoon.cn/tags/c/"/>
+    
+      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
     
       <category term="oracle" scheme="http://blog.lehoon.cn/tags/oracle/"/>
     
