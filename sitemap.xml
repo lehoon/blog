@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.lehoon.cn/orther/2016/09/01/usb-centos-error.html</loc>
+    
+    <lastmod>2016-09-02T07:52:23.566Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.lehoon.cn/backend/2016/09/02/nginx-load-balance.html</loc>
     
     <lastmod>2016-09-02T03:51:31.027Z</lastmod>

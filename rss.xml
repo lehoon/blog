@@ -38,6 +38,30 @@
   </entry>
   
   <entry>
+    <title>U盘安装centos7，启动报错</title>
+    <link href="http://blog.lehoon.cn/orther/2016/09/01/usb-centos-error.html"/>
+    <id>http://blog.lehoon.cn/orther/2016/09/01/usb-centos-error.html</id>
+    <published>2016-09-01T11:56:10.000Z</published>
+    <updated>2016-09-02T07:52:23.566Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通过U盘安装centos7的时候，启动报错，找不到安装媒介，解决方法。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
+    
+    
+      <category term="usb" scheme="http://blog.lehoon.cn/tags/usb/"/>
+    
+      <category term="centos7" scheme="http://blog.lehoon.cn/tags/centos7/"/>
+    
+      <category term="error" scheme="http://blog.lehoon.cn/tags/error/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript生成全局唯一id的方法</title>
     <link href="http://blog.lehoon.cn/frontend/2016/09/01/js-generate-uuid.html"/>
     <id>http://blog.lehoon.cn/frontend/2016/09/01/js-generate-uuid.html</id>
@@ -431,9 +455,9 @@
     
       <category term="c++" scheme="http://blog.lehoon.cn/tags/c/"/>
     
-      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
-    
       <category term="window" scheme="http://blog.lehoon.cn/tags/window/"/>
+    
+      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
     
       <category term="service" scheme="http://blog.lehoon.cn/tags/service/"/>
     
