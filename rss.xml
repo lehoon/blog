@@ -5,7 +5,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://blog.lehoon.cn/"/>
-  <updated>2016-09-01T03:25:32.765Z</updated>
+  <updated>2016-09-02T03:51:31.027Z</updated>
   <id>http://blog.lehoon.cn/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nginx负载均衡各种场景下的应用</title>
+    <link href="http://blog.lehoon.cn/backend/2016/09/02/nginx-load-balance.html"/>
+    <id>http://blog.lehoon.cn/backend/2016/09/02/nginx-load-balance.html</id>
+    <published>2016-09-02T03:37:01.000Z</published>
+    <updated>2016-09-02T03:51:31.027Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;nginx的upstream默认是以轮询的方式实现负载均衡，这种方式中，每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。&lt;br&gt;在实际应用过程中，根据实际情况选择合适的负载均衡方案来实现既定的目标。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
+    
+    
+      <category term="nginx" scheme="http://blog.lehoon.cn/tags/nginx/"/>
+    
+      <category term="load-balance" scheme="http://blog.lehoon.cn/tags/load-balance/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript生成全局唯一id的方法</title>
