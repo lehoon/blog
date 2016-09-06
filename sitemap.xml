@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.lehoon.cn/orther/2016/09/05/raid.html</loc>
+    
+    <lastmod>2016-09-06T03:15:32.221Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.lehoon.cn/backend/2016/07/19/centos-lvs.html</loc>
     
     <lastmod>2016-09-05T06:44:11.451Z</lastmod>

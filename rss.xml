@@ -5,7 +5,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://blog.lehoon.cn/"/>
-  <updated>2016-09-02T03:51:31.027Z</updated>
+  <updated>2016-09-06T03:15:32.221Z</updated>
   <id>http://blog.lehoon.cn/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>raid磁盘阵列介绍</title>
+    <link href="http://blog.lehoon.cn/orther/2016/09/05/raid.html"/>
+    <id>http://blog.lehoon.cn/orther/2016/09/05/raid.html</id>
+    <published>2016-09-05T15:00:11.000Z</published>
+    <updated>2016-09-06T03:15:32.221Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;RAID是英文Redundant Array of Independent Disks的缩写，中文简称为独立冗余磁盘阵列。简单的说，RAID是一种把多块独立的硬盘（物理硬盘）按不同的方式组合起来形成一个硬盘组（逻辑硬盘），从而提供比单个硬盘更高的存储性能和提供数据备份技术。组成磁盘阵列的不同方式称为RAID级别（RAID Levels）。在用户看起来，组成的磁盘组就像是一个硬盘，用户可以对它进行分区，格式化等等。总之，对磁盘阵列的操作与单个硬盘一模一样。不同的是，磁盘阵列的存储速度要比单个硬盘高很多，而且可以提供自动数据备份。数据备份的功能是在用户数据一旦发生损坏后，利用备份信息可以使损坏数据得以恢复，从而保障了用户数据的安全性。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
+    
+    
+      <category term="raid" scheme="http://blog.lehoon.cn/tags/raid/"/>
+    
+      <category term="磁盘阵列" scheme="http://blog.lehoon.cn/tags/%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97/"/>
+    
+      <category term="数据冗余" scheme="http://blog.lehoon.cn/tags/%E6%95%B0%E6%8D%AE%E5%86%97%E4%BD%99/"/>
+    
+  </entry>
   
   <entry>
     <title>nginx负载均衡各种场景下的应用</title>
@@ -463,9 +487,9 @@
     
       <category term="c++" scheme="http://blog.lehoon.cn/tags/c/"/>
     
-      <category term="window" scheme="http://blog.lehoon.cn/tags/window/"/>
-    
       <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
+    
+      <category term="window" scheme="http://blog.lehoon.cn/tags/window/"/>
     
       <category term="service" scheme="http://blog.lehoon.cn/tags/service/"/>
     
