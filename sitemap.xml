@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.lehoon.cn/backend/2016/07/19/centos-lvs.html</loc>
+    
+    <lastmod>2016-09-05T06:44:11.451Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.lehoon.cn/orther/2016/09/01/usb-centos-error.html</loc>
     
     <lastmod>2016-09-02T07:52:23.566Z</lastmod>
@@ -96,13 +103,6 @@
     <loc>http://blog.lehoon.cn/backend/2016/05/26/linux-tcp-optimization.html</loc>
     
     <lastmod>2016-07-26T01:11:16.606Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.lehoon.cn/%E7%BC%96%E7%A8%8B/2016/07/19/centos-lvs.html</loc>
-    
-    <lastmod>2016-07-19T06:57:51.057Z</lastmod>
     
   </url>
   

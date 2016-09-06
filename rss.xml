@@ -53,9 +53,9 @@
       <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
     
     
-      <category term="usb" scheme="http://blog.lehoon.cn/tags/usb/"/>
-    
       <category term="centos7" scheme="http://blog.lehoon.cn/tags/centos7/"/>
+    
+      <category term="usb" scheme="http://blog.lehoon.cn/tags/usb/"/>
     
       <category term="error" scheme="http://blog.lehoon.cn/tags/error/"/>
     
@@ -248,16 +248,24 @@
   </entry>
   
   <entry>
-    <title>centos-lvs</title>
-    <link href="http://blog.lehoon.cn/%E7%BC%96%E7%A8%8B/2016/07/19/centos-lvs.html"/>
-    <id>http://blog.lehoon.cn/编程/2016/07/19/centos-lvs.html</id>
+    <title>CentOS 7.0下安装部署LVS</title>
+    <link href="http://blog.lehoon.cn/backend/2016/07/19/centos-lvs.html"/>
+    <id>http://blog.lehoon.cn/backend/2016/07/19/centos-lvs.html</id>
     <published>2016-07-19T06:57:50.000Z</published>
-    <updated>2016-07-19T06:57:51.057Z</updated>
+    <updated>2016-09-05T06:44:11.451Z</updated>
     
     <summary type="html">
     
+      &lt;p&gt;centos7.0系统lvs安装部署。&lt;br&gt;
+    
     </summary>
     
+      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
+    
+    
+      <category term="centos7" scheme="http://blog.lehoon.cn/tags/centos7/"/>
+    
+      <category term="lvs" scheme="http://blog.lehoon.cn/tags/lvs/"/>
     
   </entry>
   
