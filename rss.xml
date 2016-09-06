@@ -1,634 +1,393 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Lehoon</title>
-  
-  <link href="/rss.xml" rel="self"/>
-  
-  <link href="http://blog.lehoon.cn/"/>
-  <updated>2016-09-06T03:15:32.221Z</updated>
-  <id>http://blog.lehoon.cn/</id>
-  
-  <author>
-    <name>lehoon</name>
-    
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>raid磁盘阵列介绍</title>
-    <link href="http://blog.lehoon.cn/orther/2016/09/05/raid.html"/>
-    <id>http://blog.lehoon.cn/orther/2016/09/05/raid.html</id>
-    <published>2016-09-05T15:00:11.000Z</published>
-    <updated>2016-09-06T03:15:32.221Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;RAID是英文Redundant Array of Independent Disks的缩写，中文简称为独立冗余磁盘阵列。简单的说，RAID是一种把多块独立的硬盘（物理硬盘）按不同的方式组合起来形成一个硬盘组（逻辑硬盘），从而提供比单个硬盘更高的存储性能和提供数据备份技术。组成磁盘阵列的不同方式称为RAID级别（RAID Levels）。在用户看起来，组成的磁盘组就像是一个硬盘，用户可以对它进行分区，格式化等等。总之，对磁盘阵列的操作与单个硬盘一模一样。不同的是，磁盘阵列的存储速度要比单个硬盘高很多，而且可以提供自动数据备份。数据备份的功能是在用户数据一旦发生损坏后，利用备份信息可以使损坏数据得以恢复，从而保障了用户数据的安全性。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="raid" scheme="http://blog.lehoon.cn/tags/raid/"/>
-    
-      <category term="磁盘阵列" scheme="http://blog.lehoon.cn/tags/%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97/"/>
-    
-      <category term="数据冗余" scheme="http://blog.lehoon.cn/tags/%E6%95%B0%E6%8D%AE%E5%86%97%E4%BD%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx负载均衡各种场景下的应用</title>
-    <link href="http://blog.lehoon.cn/backend/2016/09/02/nginx-load-balance.html"/>
-    <id>http://blog.lehoon.cn/backend/2016/09/02/nginx-load-balance.html</id>
-    <published>2016-09-02T03:37:01.000Z</published>
-    <updated>2016-09-02T03:51:31.027Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;nginx的upstream默认是以轮询的方式实现负载均衡，这种方式中，每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。&lt;br&gt;在实际应用过程中，根据实际情况选择合适的负载均衡方案来实现既定的目标。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
-    
-    
-      <category term="nginx" scheme="http://blog.lehoon.cn/tags/nginx/"/>
-    
-      <category term="load-balance" scheme="http://blog.lehoon.cn/tags/load-balance/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>U盘安装centos7，启动报错</title>
-    <link href="http://blog.lehoon.cn/orther/2016/09/01/usb-centos-error.html"/>
-    <id>http://blog.lehoon.cn/orther/2016/09/01/usb-centos-error.html</id>
-    <published>2016-09-01T11:56:10.000Z</published>
-    <updated>2016-09-02T07:52:23.566Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;通过U盘安装centos7的时候，启动报错，找不到安装媒介，解决方法。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="centos7" scheme="http://blog.lehoon.cn/tags/centos7/"/>
-    
-      <category term="usb" scheme="http://blog.lehoon.cn/tags/usb/"/>
-    
-      <category term="error" scheme="http://blog.lehoon.cn/tags/error/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript生成全局唯一id的方法</title>
-    <link href="http://blog.lehoon.cn/frontend/2016/09/01/js-generate-uuid.html"/>
-    <id>http://blog.lehoon.cn/frontend/2016/09/01/js-generate-uuid.html</id>
-    <published>2016-09-01T03:20:47.000Z</published>
-    <updated>2016-09-01T03:25:32.765Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;全局唯一标识符（GUID，Globally Unique Identifier）也称作 UUID(Universally Unique IDentifier) 。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="http://blog.lehoon.cn/categories/frontend/"/>
-    
-    
-      <category term="javascript" scheme="http://blog.lehoon.cn/tags/javascript/"/>
-    
-      <category term="uuid" scheme="http://blog.lehoon.cn/tags/uuid/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>随笔</title>
-    <link href="http://blog.lehoon.cn/orther/2016/08/29/notepad.html"/>
-    <id>http://blog.lehoon.cn/orther/2016/08/29/notepad.html</id>
-    <published>2016-08-29T02:24:09.000Z</published>
-    <updated>2016-08-29T02:36:44.914Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;记录乱起八糟的东西。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="随笔" scheme="http://blog.lehoon.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-      <category term="备忘" scheme="http://blog.lehoon.cn/tags/%E5%A4%87%E5%BF%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>kafka在window下部署</title>
-    <link href="http://blog.lehoon.cn/backend/2016/08/22/kafka-window.html"/>
-    <id>http://blog.lehoon.cn/backend/2016/08/22/kafka-window.html</id>
-    <published>2016-08-22T03:29:06.000Z</published>
-    <updated>2016-08-23T00:48:48.600Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;kafka在window下部署记录。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
-    
-    
-      <category term="rpc" scheme="http://blog.lehoon.cn/tags/rpc/"/>
-    
-      <category term="mq" scheme="http://blog.lehoon.cn/tags/mq/"/>
-    
-      <category term="kafka" scheme="http://blog.lehoon.cn/tags/kafka/"/>
-    
-      <category term="window" scheme="http://blog.lehoon.cn/tags/window/"/>
-    
-      <category term="scala" scheme="http://blog.lehoon.cn/tags/scala/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Makefile学习</title>
-    <link href="http://blog.lehoon.cn/backend/2016/08/19/makefile.html"/>
-    <id>http://blog.lehoon.cn/backend/2016/08/19/makefile.html</id>
-    <published>2016-08-19T03:53:43.000Z</published>
-    <updated>2016-08-19T06:41:54.753Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在*unix下编译工程一般使用make命令，make命令执行时，需要一个Makefile文件，告诉make怎么样去编译和链接程序。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
-    
-    
-      <category term="makefile" scheme="http://blog.lehoon.cn/tags/makefile/"/>
-    
-      <category term="工程编译" scheme="http://blog.lehoon.cn/tags/%E5%B7%A5%E7%A8%8B%E7%BC%96%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP缓存ETAG和Last-Modified</title>
-    <link href="http://blog.lehoon.cn/frontend/2016/08/16/http-etag-last-midified.html"/>
-    <id>http://blog.lehoon.cn/frontend/2016/08/16/http-etag-last-midified.html</id>
-    <published>2016-08-16T03:02:54.000Z</published>
-    <updated>2016-08-16T03:17:38.477Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;HTTP缓存ETAG和Last-Modified详解。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="http://blog.lehoon.cn/categories/frontend/"/>
-    
-    
-      <category term="http" scheme="http://blog.lehoon.cn/tags/http/"/>
-    
-      <category term="etag" scheme="http://blog.lehoon.cn/tags/etag/"/>
-    
-      <category term="last-midified" scheme="http://blog.lehoon.cn/tags/last-midified/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ip地址分类</title>
-    <link href="http://blog.lehoon.cn/orther/2016/08/16/ip-catagory.html"/>
-    <id>http://blog.lehoon.cn/orther/2016/08/16/ip-catagory.html</id>
-    <published>2016-08-16T01:23:25.000Z</published>
-    <updated>2016-08-16T01:32:24.318Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;现在的IP网络使用32位地址，以点分十进制表示，如172.16.0.0。地址格式为：IP地址=网络地址＋主机地址 或 IP地址=主机地址＋子网地址＋主机地址。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="ip" scheme="http://blog.lehoon.cn/tags/ip/"/>
-    
-      <category term="ipv4" scheme="http://blog.lehoon.cn/tags/ipv4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>android非浏览器应用程序与服务器会话保持实现</title>
-    <link href="http://blog.lehoon.cn/orther/2016/08/09/android-connection-session.html"/>
-    <id>http://blog.lehoon.cn/orther/2016/08/09/android-connection-session.html</id>
-    <published>2016-08-09T03:37:41.000Z</published>
-    <updated>2016-08-09T03:40:16.040Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;因为android手机端在访问web服务器时，没有给http请求头部设置sessionID，而使用web浏览器作为客户端访问服务器时，在客户端每次发起请求的时候，都会将交互中的sessionID：SESSIONID设置在Cookie头中携带过去，服务器根据这个sessionID获取对应的Session,而不是重新创建一个新Session(除了这个Session失效)。所以实现方式就是在http通信的时候，在header头上设置sessionid。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="android" scheme="http://blog.lehoon.cn/tags/android/"/>
-    
-      <category term="java" scheme="http://blog.lehoon.cn/tags/java/"/>
-    
-      <category term="安卓" scheme="http://blog.lehoon.cn/tags/%E5%AE%89%E5%8D%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>memcache与memcached区别</title>
-    <link href="http://blog.lehoon.cn/backend/2016/07/28/memcache-memcached-diff.html"/>
-    <id>http://blog.lehoon.cn/backend/2016/07/28/memcache-memcached-diff.html</id>
-    <published>2016-07-28T00:50:14.000Z</published>
-    <updated>2016-07-28T00:52:23.724Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Memcache是一个自由和开放源代码、高性能、分配的内存对象缓存系统。用于加速动态web应用程序，减轻数据库负载。它可以应对任意多个连接，使用非阻塞的网络IO。由于它的工作机制是在内存中开辟一块空间，然后建立一个Hash表，Memcached自管理这些Hash表。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
-    
-    
-      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
-    
-      <category term="memcache" scheme="http://blog.lehoon.cn/tags/memcache/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 7.0下安装部署LVS</title>
-    <link href="http://blog.lehoon.cn/backend/2016/07/19/centos-lvs.html"/>
-    <id>http://blog.lehoon.cn/backend/2016/07/19/centos-lvs.html</id>
-    <published>2016-07-19T06:57:50.000Z</published>
-    <updated>2016-09-05T06:44:11.451Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;centos7.0系统lvs安装部署。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
-    
-    
-      <category term="centos7" scheme="http://blog.lehoon.cn/tags/centos7/"/>
-    
-      <category term="lvs" scheme="http://blog.lehoon.cn/tags/lvs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>awk学习</title>
-    <link href="http://blog.lehoon.cn/orther/2016/07/19/awk.html"/>
-    <id>http://blog.lehoon.cn/orther/2016/07/19/awk.html</id>
-    <published>2016-07-19T06:42:56.000Z</published>
-    <updated>2016-07-19T06:50:19.659Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;awk是一种编程语言，用于在linux/unix下对文本和数据进行处理。数据可以来自标准输入、一个或多个文件，或其它命令的输出。它支持用户自定义函数和动态正则表达式等先进功能，是linux/unix下的一个强大编程工具。它在命令行中使用，但更多是作为脚本来使用。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="awk" scheme="http://blog.lehoon.cn/tags/awk/"/>
-    
-      <category term="linux" scheme="http://blog.lehoon.cn/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux epoll学习</title>
-    <link href="http://blog.lehoon.cn/backend/2016/07/11/epoll.html"/>
-    <id>http://blog.lehoon.cn/backend/2016/07/11/epoll.html</id>
-    <published>2016-07-11T02:43:59.000Z</published>
-    <updated>2016-07-19T06:52:36.499Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在linux的网络编程中，很长的时间都在使用select来做事件触发。在linux新的内核中，有了一种替换它的机制，就是epoll。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
-    
-    
-      <category term="linux" scheme="http://blog.lehoon.cn/tags/linux/"/>
-    
-      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
-    
-      <category term="epoll" scheme="http://blog.lehoon.cn/tags/epoll/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>go守护进程实现方式</title>
-    <link href="http://blog.lehoon.cn/backend/2016/07/04/golang-deamon.html"/>
-    <id>http://blog.lehoon.cn/backend/2016/07/04/golang-deamon.html</id>
-    <published>2016-07-04T06:20:51.000Z</published>
-    <updated>2016-07-19T06:52:35.578Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;go 实现守护进程的实现代码。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
-    
-    
-      <category term="go" scheme="http://blog.lehoon.cn/tags/golang/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>tcp连接负载均衡</title>
-    <link href="http://blog.lehoon.cn/backend/2016/07/04/tcp-load-balancing.html"/>
-    <id>http://blog.lehoon.cn/backend/2016/07/04/tcp-load-balancing.html</id>
-    <published>2016-07-04T06:20:42.000Z</published>
-    <updated>2016-07-19T06:52:31.915Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;tcp连接软件负载均衡一般包括lvs、HaProxy、nginx等，现主要介绍在实际应用中的特点。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
-    
-    
-      <category term="linux" scheme="http://blog.lehoon.cn/tags/linux/"/>
-    
-      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>tcp出现rst情况</title>
-    <link href="http://blog.lehoon.cn/backend/2016/07/04/tcp-rst.html"/>
-    <id>http://blog.lehoon.cn/backend/2016/07/04/tcp-rst.html</id>
-    <published>2016-07-04T06:20:33.000Z</published>
-    <updated>2016-07-19T06:52:31.267Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;正常情况tcp四层握手关闭连接，rst基本都是异常情况，整理如下：&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
-    
-    
-      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux下tcp的优化</title>
-    <link href="http://blog.lehoon.cn/backend/2016/05/26/linux-tcp-optimization.html"/>
-    <id>http://blog.lehoon.cn/backend/2016/05/26/linux-tcp-optimization.html</id>
-    <published>2016-05-26T11:03:35.000Z</published>
-    <updated>2016-07-26T01:11:16.606Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在GNU Linux系统中，影响连接个数的因素主是由于单个进程能够打开的最大文件数、端口数量决定的；而一个基于tcp的服务器的并发，除了上文说过的两个因素外，还有因为主要的tcp连接的很多属性，而问题最大的则是连接断开后的连接会在TIME_WAIT状态一直存在60秒，这就造成了在大量高并发的情况下当连接为此TIME_WAIT状态时没有可用连接。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
-    
-    
-      <category term="linux" scheme="http://blog.lehoon.cn/tags/linux/"/>
-    
-      <category term="tcp" scheme="http://blog.lehoon.cn/tags/tcp/"/>
-    
-      <category term="optimization" scheme="http://blog.lehoon.cn/tags/optimization/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>oracle中merge into语法注意点</title>
-    <link href="http://blog.lehoon.cn/orther/2016/05/08/oracle-merge-into.html"/>
-    <id>http://blog.lehoon.cn/orther/2016/05/08/oracle-merge-into.html</id>
-    <published>2016-05-08T08:09:00.000Z</published>
-    <updated>2016-07-19T06:52:33.214Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在进行SQL语句编写时，我们经常会遇到大量的同时进行Insert/Update的语句，就是说当存在记录时，就更新(Update)，不存在数据时，就插入(Insert)。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="oracle" scheme="http://blog.lehoon.cn/tags/oracle/"/>
-    
-      <category term="merge" scheme="http://blog.lehoon.cn/tags/merge/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机动车驾驶科目三操作要领</title>
-    <link href="http://blog.lehoon.cn/orther/2015/10/11/kesankaoshi.html"/>
-    <id>http://blog.lehoon.cn/orther/2015/10/11/kesankaoshi.html</id>
-    <published>2015-10-11T11:08:58.000Z</published>
-    <updated>2016-07-19T06:52:34.371Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;机动车驾驶科目三操作要领.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="科三" scheme="http://blog.lehoon.cn/tags/%E7%A7%91%E4%B8%89/"/>
-    
-      <category term="考试" scheme="http://blog.lehoon.cn/tags/%E8%80%83%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>window服务编程</title>
-    <link href="http://blog.lehoon.cn/backend/2015/09/28/window-service-program.html"/>
-    <id>http://blog.lehoon.cn/backend/2015/09/28/window-service-program.html</id>
-    <published>2015-09-28T11:40:18.000Z</published>
-    <updated>2016-07-28T01:53:58.623Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;window下编写服务程序样例。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
-    
-    
-      <category term="c++" scheme="http://blog.lehoon.cn/tags/c/"/>
-    
-      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
-    
-      <category term="window" scheme="http://blog.lehoon.cn/tags/window/"/>
-    
-      <category term="service" scheme="http://blog.lehoon.cn/tags/service/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>汇编指令集</title>
-    <link href="http://blog.lehoon.cn/orther/2015/09/21/assembly-instruction.html"/>
-    <id>http://blog.lehoon.cn/orther/2015/09/21/assembly-instruction.html</id>
-    <published>2015-09-21T15:13:46.000Z</published>
-    <updated>2016-07-19T06:51:44.226Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;汇编指令集详细说明。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="assembly" scheme="http://blog.lehoon.cn/tags/assembly/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>bool和BOOL的区别</title>
-    <link href="http://blog.lehoon.cn/orther/2015/09/15/bool-BOOL.html"/>
-    <id>http://blog.lehoon.cn/orther/2015/09/15/bool-BOOL.html</id>
-    <published>2015-09-15T15:05:48.000Z</published>
-    <updated>2016-07-19T06:51:50.971Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;bool 与BOOL的区别.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="c++" scheme="http://blog.lehoon.cn/tags/c/"/>
-    
-      <category term="bool" scheme="http://blog.lehoon.cn/tags/bool/"/>
-    
-      <category term="BOOL" scheme="http://blog.lehoon.cn/tags/BOOL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ssh限制ip远程登录</title>
-    <link href="http://blog.lehoon.cn/orther/2015/08/20/ssh-limit.html"/>
-    <id>http://blog.lehoon.cn/orther/2015/08/20/ssh-limit.html</id>
-    <published>2015-08-20T10:19:11.000Z</published>
-    <updated>2016-07-19T06:52:32.579Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在ssh远程登录linux中，限制其他非法的ip登录系统的几种实现方法。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="linux" scheme="http://blog.lehoon.cn/tags/linux/"/>
-    
-      <category term="ssh" scheme="http://blog.lehoon.cn/tags/ssh/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ultraedit正则表达式使用</title>
-    <link href="http://blog.lehoon.cn/orther/2015/08/18/ue-regex.html"/>
-    <id>http://blog.lehoon.cn/orther/2015/08/18/ue-regex.html</id>
-    <published>2015-08-18T04:33:16.000Z</published>
-    <updated>2016-07-19T06:52:29.323Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Ultraedit提供了非常丰富的编辑功能,其中非常重要的查找和替换功能一定大家都用过，UltraEdit正则表达式的查找替换功能非常方便和强大，可以在单独文件里面、指定目录下查找替换。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="ue" scheme="http://blog.lehoon.cn/tags/ue/"/>
-    
-      <category term="regex" scheme="http://blog.lehoon.cn/tags/regex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>c++使用occi连接oracle</title>
-    <link href="http://blog.lehoon.cn/backend/2015/05/07/occi.html"/>
-    <id>http://blog.lehoon.cn/backend/2015/05/07/occi.html</id>
-    <published>2015-05-07T03:44:31.000Z</published>
-    <updated>2016-07-19T06:52:33.788Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;c++使用occi连接oracle数据库的步骤。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
-    
-    
-      <category term="c++" scheme="http://blog.lehoon.cn/tags/c/"/>
-    
-      <category term="c" scheme="http://blog.lehoon.cn/tags/c/"/>
-    
-      <category term="oracle" scheme="http://blog.lehoon.cn/tags/oracle/"/>
-    
-      <category term="occi" scheme="http://blog.lehoon.cn/tags/occi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>gulp 提高页面加载速度</title>
-    <link href="http://blog.lehoon.cn/frontend/2015/03/06/gulp.html"/>
-    <id>http://blog.lehoon.cn/frontend/2015/03/06/gulp.html</id>
-    <published>2015-03-06T02:47:54.000Z</published>
-    <updated>2016-07-19T06:52:34.947Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;gulp 提高页面加载速度，主要通过html清理、js压缩、css压缩减少html页面的体积来降低页面加载速度。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="http://blog.lehoon.cn/categories/frontend/"/>
-    
-    
-      <category term="gulp" scheme="http://blog.lehoon.cn/tags/gulp/"/>
-    
-      <category term="nodejs" scheme="http://blog.lehoon.cn/tags/nodejs/"/>
-    
-  </entry>
-  
-</feed>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Lehoon</title>
+    <link>http://blog.lehoon.cn/</link>
+    <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>记录生活点点滴滴</description>
+    <pubDate>Tue, 06 Sep 2016 03:15:32 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>raid磁盘阵列介绍</title>
+      <link>http://blog.lehoon.cn/orther/2016/09/05/raid.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/09/05/raid.html</guid>
+      <pubDate>Mon, 05 Sep 2016 15:00:11 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;RAID是英文Redundant Array of Independent Disks的缩写，中文简称为独立冗余磁盘阵列。简单的说，RAID是一种把多块独立的硬盘（物理硬盘）按不同的方式组合起来形成一个硬盘组（逻辑硬盘），从而提供比单个硬盘更高的存储性能和提供数据备份技术。组成磁盘阵列的不同方式称为RAID级别（RAID Levels）。在用户看起来，组成的磁盘组就像是一个硬盘，用户可以对它进行分区，格式化等等。总之，对磁盘阵列的操作与单个硬盘一模一样。不同的是，磁盘阵列的存储速度要比单个硬盘高很多，而且可以提供自动数据备份。数据备份的功能是在用户数据一旦发生损坏后，利用备份信息可以使损坏数据得以恢复，从而保障了用户数据的安全性。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/09/05/raid.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>nginx负载均衡各种场景下的应用</title>
+      <link>http://blog.lehoon.cn/backend/2016/09/02/nginx-load-balance.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/09/02/nginx-load-balance.html</guid>
+      <pubDate>Fri, 02 Sep 2016 03:37:01 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;nginx的upstream默认是以轮询的方式实现负载均衡，这种方式中，每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。&lt;br&gt;在实际应用过程中，根据实际情况选择合适的负载均衡方案来实现既定的目标。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/09/02/nginx-load-balance.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>U盘安装centos7，启动报错</title>
+      <link>http://blog.lehoon.cn/orther/2016/09/01/usb-centos-error.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/09/01/usb-centos-error.html</guid>
+      <pubDate>Thu, 01 Sep 2016 11:56:10 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;通过U盘安装centos7的时候，启动报错，找不到安装媒介，解决方法。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/09/01/usb-centos-error.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>JavaScript生成全局唯一id的方法</title>
+      <link>http://blog.lehoon.cn/frontend/2016/09/01/js-generate-uuid.html</link>
+      <guid>http://blog.lehoon.cn/frontend/2016/09/01/js-generate-uuid.html</guid>
+      <pubDate>Thu, 01 Sep 2016 03:20:47 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;全局唯一标识符（GUID，Globally Unique Identifier）也称作 UUID(Universally Unique IDentifier) 。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/frontend/2016/09/01/js-generate-uuid.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>随笔</title>
+      <link>http://blog.lehoon.cn/orther/2016/08/29/notepad.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/08/29/notepad.html</guid>
+      <pubDate>Mon, 29 Aug 2016 02:24:09 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;记录乱起八糟的东西。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/08/29/notepad.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>kafka在window下部署</title>
+      <link>http://blog.lehoon.cn/backend/2016/08/22/kafka-window.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/08/22/kafka-window.html</guid>
+      <pubDate>Mon, 22 Aug 2016 03:29:06 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;kafka在window下部署记录。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/08/22/kafka-window.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Makefile学习</title>
+      <link>http://blog.lehoon.cn/backend/2016/08/19/makefile.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/08/19/makefile.html</guid>
+      <pubDate>Fri, 19 Aug 2016 03:53:43 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;在*unix下编译工程一般使用make命令，make命令执行时，需要一个Makefile文件，告诉make怎么样去编译和链接程序。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/08/19/makefile.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>HTTP缓存ETAG和Last-Modified</title>
+      <link>http://blog.lehoon.cn/frontend/2016/08/16/http-etag-last-midified.html</link>
+      <guid>http://blog.lehoon.cn/frontend/2016/08/16/http-etag-last-midified.html</guid>
+      <pubDate>Tue, 16 Aug 2016 03:02:54 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;HTTP缓存ETAG和Last-Modified详解。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/frontend/2016/08/16/http-etag-last-midified.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>ip地址分类</title>
+      <link>http://blog.lehoon.cn/orther/2016/08/16/ip-catagory.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/08/16/ip-catagory.html</guid>
+      <pubDate>Tue, 16 Aug 2016 01:23:25 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;现在的IP网络使用32位地址，以点分十进制表示，如172.16.0.0。地址格式为：IP地址=网络地址＋主机地址 或 IP地址=主机地址＋子网地址＋主机地址。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/08/16/ip-catagory.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>android非浏览器应用程序与服务器会话保持实现</title>
+      <link>http://blog.lehoon.cn/orther/2016/08/09/android-connection-session.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/08/09/android-connection-session.html</guid>
+      <pubDate>Tue, 09 Aug 2016 03:37:41 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;因为android手机端在访问web服务器时，没有给http请求头部设置sessionID，而使用web浏览器作为客户端访问服务器时，在客户端每次发起请求的时候，都会将交互中的sessionID：SESSIONID设置在Cookie头中携带过去，服务器根据这个sessionID获取对应的Session,而不是重新创建一个新Session(除了这个Session失效)。所以实现方式就是在http通信的时候，在header头上设置sessionid。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/08/09/android-connection-session.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>memcache与memcached区别</title>
+      <link>http://blog.lehoon.cn/backend/2016/07/28/memcache-memcached-diff.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/07/28/memcache-memcached-diff.html</guid>
+      <pubDate>Thu, 28 Jul 2016 00:50:14 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Memcache是一个自由和开放源代码、高性能、分配的内存对象缓存系统。用于加速动态web应用程序，减轻数据库负载。它可以应对任意多个连接，使用非阻塞的网络IO。由于它的工作机制是在内存中开辟一块空间，然后建立一个Hash表，Memcached自管理这些Hash表。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/07/28/memcache-memcached-diff.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>CentOS 7.0下安装部署LVS</title>
+      <link>http://blog.lehoon.cn/backend/2016/07/19/centos-lvs.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/07/19/centos-lvs.html</guid>
+      <pubDate>Tue, 19 Jul 2016 06:57:50 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;centos7.0系统lvs安装部署。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/07/19/centos-lvs.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>awk学习</title>
+      <link>http://blog.lehoon.cn/orther/2016/07/19/awk.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/07/19/awk.html</guid>
+      <pubDate>Tue, 19 Jul 2016 06:42:56 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;awk是一种编程语言，用于在linux/unix下对文本和数据进行处理。数据可以来自标准输入、一个或多个文件，或其它命令的输出。它支持用户自定义函数和动态正则表达式等先进功能，是linux/unix下的一个强大编程工具。它在命令行中使用，但更多是作为脚本来使用。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/07/19/awk.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Linux epoll学习</title>
+      <link>http://blog.lehoon.cn/backend/2016/07/11/epoll.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/07/11/epoll.html</guid>
+      <pubDate>Mon, 11 Jul 2016 02:43:59 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;在linux的网络编程中，很长的时间都在使用select来做事件触发。在linux新的内核中，有了一种替换它的机制，就是epoll。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/07/11/epoll.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>go守护进程实现方式</title>
+      <link>http://blog.lehoon.cn/backend/2016/07/04/golang-deamon.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/07/04/golang-deamon.html</guid>
+      <pubDate>Mon, 04 Jul 2016 06:20:51 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;go 实现守护进程的实现代码。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/07/04/golang-deamon.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>tcp连接负载均衡</title>
+      <link>http://blog.lehoon.cn/backend/2016/07/04/tcp-load-balancing.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/07/04/tcp-load-balancing.html</guid>
+      <pubDate>Mon, 04 Jul 2016 06:20:42 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;tcp连接软件负载均衡一般包括lvs、HaProxy、nginx等，现主要介绍在实际应用中的特点。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/07/04/tcp-load-balancing.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>tcp出现rst情况</title>
+      <link>http://blog.lehoon.cn/backend/2016/07/04/tcp-rst.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/07/04/tcp-rst.html</guid>
+      <pubDate>Mon, 04 Jul 2016 06:20:33 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;正常情况tcp四层握手关闭连接，rst基本都是异常情况，整理如下：&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/07/04/tcp-rst.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Linux下tcp的优化</title>
+      <link>http://blog.lehoon.cn/backend/2016/05/26/linux-tcp-optimization.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/05/26/linux-tcp-optimization.html</guid>
+      <pubDate>Thu, 26 May 2016 11:03:35 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;在GNU Linux系统中，影响连接个数的因素主是由于单个进程能够打开的最大文件数、端口数量决定的；而一个基于tcp的服务器的并发，除了上文说过的两个因素外，还有因为主要的tcp连接的很多属性，而问题最大的则是连接断开后的连接会在TIME_WAIT状态一直存在60秒，这就造成了在大量高并发的情况下当连接为此TIME_WAIT状态时没有可用连接。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/05/26/linux-tcp-optimization.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>oracle中merge into语法注意点</title>
+      <link>http://blog.lehoon.cn/orther/2016/05/08/oracle-merge-into.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/05/08/oracle-merge-into.html</guid>
+      <pubDate>Sun, 08 May 2016 08:09:00 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;在进行SQL语句编写时，我们经常会遇到大量的同时进行Insert/Update的语句，就是说当存在记录时，就更新(Update)，不存在数据时，就插入(Insert)。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/05/08/oracle-merge-into.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>机动车驾驶科目三操作要领</title>
+      <link>http://blog.lehoon.cn/orther/2015/10/11/kesankaoshi.html</link>
+      <guid>http://blog.lehoon.cn/orther/2015/10/11/kesankaoshi.html</guid>
+      <pubDate>Sun, 11 Oct 2015 11:08:58 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;机动车驾驶科目三操作要领.&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2015/10/11/kesankaoshi.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>window服务编程</title>
+      <link>http://blog.lehoon.cn/backend/2015/09/28/window-service-program.html</link>
+      <guid>http://blog.lehoon.cn/backend/2015/09/28/window-service-program.html</guid>
+      <pubDate>Mon, 28 Sep 2015 11:40:18 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;window下编写服务程序样例。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2015/09/28/window-service-program.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>汇编指令集</title>
+      <link>http://blog.lehoon.cn/orther/2015/09/21/assembly-instruction.html</link>
+      <guid>http://blog.lehoon.cn/orther/2015/09/21/assembly-instruction.html</guid>
+      <pubDate>Mon, 21 Sep 2015 15:13:46 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;汇编指令集详细说明。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2015/09/21/assembly-instruction.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>bool和BOOL的区别</title>
+      <link>http://blog.lehoon.cn/orther/2015/09/15/bool-BOOL.html</link>
+      <guid>http://blog.lehoon.cn/orther/2015/09/15/bool-BOOL.html</guid>
+      <pubDate>Tue, 15 Sep 2015 15:05:48 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;bool 与BOOL的区别.&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2015/09/15/bool-BOOL.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>ssh限制ip远程登录</title>
+      <link>http://blog.lehoon.cn/orther/2015/08/20/ssh-limit.html</link>
+      <guid>http://blog.lehoon.cn/orther/2015/08/20/ssh-limit.html</guid>
+      <pubDate>Thu, 20 Aug 2015 10:19:11 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;在ssh远程登录linux中，限制其他非法的ip登录系统的几种实现方法。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2015/08/20/ssh-limit.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>ultraedit正则表达式使用</title>
+      <link>http://blog.lehoon.cn/orther/2015/08/18/ue-regex.html</link>
+      <guid>http://blog.lehoon.cn/orther/2015/08/18/ue-regex.html</guid>
+      <pubDate>Tue, 18 Aug 2015 04:33:16 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Ultraedit提供了非常丰富的编辑功能,其中非常重要的查找和替换功能一定大家都用过，UltraEdit正则表达式的查找替换功能非常方便和强大，可以在单独文件里面、指定目录下查找替换。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2015/08/18/ue-regex.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>c++使用occi连接oracle</title>
+      <link>http://blog.lehoon.cn/backend/2015/05/07/occi.html</link>
+      <guid>http://blog.lehoon.cn/backend/2015/05/07/occi.html</guid>
+      <pubDate>Thu, 07 May 2015 03:44:31 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;c++使用occi连接oracle数据库的步骤。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2015/05/07/occi.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>gulp 提高页面加载速度</title>
+      <link>http://blog.lehoon.cn/frontend/2015/03/06/gulp.html</link>
+      <guid>http://blog.lehoon.cn/frontend/2015/03/06/gulp.html</guid>
+      <pubDate>Fri, 06 Mar 2015 02:47:54 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;gulp 提高页面加载速度，主要通过html清理、js压缩、css压缩减少html页面的体积来降低页面加载速度。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/frontend/2015/03/06/gulp.html#disqus_thread</comments>
+    </item>
+    
+  </channel>
+</rss>
