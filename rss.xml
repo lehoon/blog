@@ -8,8 +8,22 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活点点滴滴</description>
-    <pubDate>Tue, 06 Sep 2016 03:15:32 GMT</pubDate>
+    <pubDate>Wed, 07 Sep 2016 08:07:53 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Centos记录</title>
+      <link>http://blog.lehoon.cn/backend/2016/09/07/centos-note.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/09/07/centos-note.html</guid>
+      <pubDate>Wed, 07 Sep 2016 02:52:04 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;记录centos使用过程中的一些记录，方便后期查找。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/09/07/centos-note.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>raid磁盘阵列介绍</title>
