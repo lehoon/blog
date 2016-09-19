@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.lehoon.cn/backend/2016/09/16/linux-brk-sbrk.html</loc>
+    
+    <lastmod>2016-09-19T03:04:01.244Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.lehoon.cn/backend/2016/09/16/linux-strace.html</loc>
+    
+    <lastmod>2016-09-19T03:03:59.859Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.lehoon.cn/orther/2016/02/05/window-batch.html</loc>
     
     <lastmod>2016-09-12T02:42:50.219Z</lastmod>

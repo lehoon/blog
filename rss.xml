@@ -8,8 +8,36 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活点点滴滴</description>
-    <pubDate>Thu, 08 Sep 2016 07:23:16 GMT</pubDate>
+    <pubDate>Mon, 19 Sep 2016 03:03:59 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>linux-strace使用介绍</title>
+      <link>http://blog.lehoon.cn/backend/2016/09/16/linux-strace.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/09/16/linux-strace.html</guid>
+      <pubDate>Fri, 16 Sep 2016 11:45:35 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;linux-strace使用介绍.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/09/16/linux-strace.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>brk,sbrk--改变数据段长度</title>
+      <link>http://blog.lehoon.cn/backend/2016/09/16/linux-brk-sbrk.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/09/16/linux-brk-sbrk.html</guid>
+      <pubDate>Fri, 16 Sep 2016 11:07:06 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;brk,sbrk–改变数据段长度。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/09/16/linux-brk-sbrk.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Centos记录</title>
