@@ -8,8 +8,22 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活点点滴滴</description>
-    <pubDate>Tue, 27 Sep 2016 09:39:10 GMT</pubDate>
+    <pubDate>Thu, 29 Sep 2016 07:02:36 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Linux IO调度算法</title>
+      <link>http://blog.lehoon.cn/backend/2016/09/29/linux-io-schedule.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/09/29/linux-io-schedule.html</guid>
+      <pubDate>Thu, 29 Sep 2016 06:29:00 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;IO调度器的总体目标是希望让磁头能够总是往一个方向移动,移动到底了再往反方向走,这恰恰就是现实生活中的电梯模型,所以IO调度器也被叫做电梯. (elevator)而相应的算法也就被叫做电梯算法.而Linux中IO调度的电梯算法有好几种,一个叫做as(Anticipatory),一个叫做 cfq(Complete Fairness Queueing),一个叫做deadline,还有一个叫做noop(No Operation).具体使用哪种算法我们可以在启动的时候通过内核参数elevator来指定.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/09/29/linux-io-schedule.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Linux下C函数定义</title>

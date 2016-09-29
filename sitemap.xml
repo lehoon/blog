@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.lehoon.cn/backend/2016/09/29/linux-io-schedule.html</loc>
+    
+    <lastmod>2016-09-29T07:02:36.156Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.lehoon.cn/backend/2016/09/27/linux-c-func.html</loc>
     
     <lastmod>2016-09-27T09:39:10.425Z</lastmod>
