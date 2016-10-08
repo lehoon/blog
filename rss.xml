@@ -8,8 +8,22 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活点点滴滴</description>
-    <pubDate>Fri, 30 Sep 2016 02:02:29 GMT</pubDate>
+    <pubDate>Sat, 08 Oct 2016 05:07:15 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>gdb-miss-debuginfo</title>
+      <link>http://blog.lehoon.cn/backend/2016/10/08/gdb-miss-debuginfo.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/10/08/gdb-miss-debuginfo.html</guid>
+      <pubDate>Sat, 08 Oct 2016 02:40:58 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;使用gdb调试core时候，提示Missing separate debuginfos的解决办法。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/10/08/gdb-miss-debuginfo.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Linux IO调度算法</title>
