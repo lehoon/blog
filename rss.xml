@@ -8,8 +8,22 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活点点滴滴</description>
-    <pubDate>Sat, 08 Oct 2016 05:07:15 GMT</pubDate>
+    <pubDate>Sun, 09 Oct 2016 09:35:19 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Centos7安装oracle11gr2</title>
+      <link>http://blog.lehoon.cn/backend/2016/10/09/centos-oracle11gr2-install.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/10/09/centos-oracle11gr2-install.html</guid>
+      <pubDate>Sun, 09 Oct 2016 08:11:23 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Centos7最小化安装后，安装Oracle11g r2过程记录。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/10/09/centos-oracle11gr2-install.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>gdb-miss-debuginfo</title>

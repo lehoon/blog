@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.lehoon.cn/backend/2016/10/09/centos-oracle11gr2-install.html</loc>
+    
+    <lastmod>2016-10-09T09:35:19.169Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.lehoon.cn/backend/2016/10/08/gdb-miss-debuginfo.html</loc>
     
     <lastmod>2016-10-08T05:07:15.446Z</lastmod>
