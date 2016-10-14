@@ -8,8 +8,22 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活点点滴滴</description>
-    <pubDate>Tue, 11 Oct 2016 07:27:16 GMT</pubDate>
+    <pubDate>Fri, 14 Oct 2016 03:32:40 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>oracle错误记录</title>
+      <link>http://blog.lehoon.cn/backend/2016/10/14/oracle-error-note.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/10/14/oracle-error-note.html</guid>
+      <pubDate>Fri, 14 Oct 2016 03:19:28 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;oracle常见的错误记录。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/10/14/oracle-error-note.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>oracle物化视图</title>

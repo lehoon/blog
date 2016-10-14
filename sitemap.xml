@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.lehoon.cn/backend/2016/10/14/oracle-error-note.html</loc>
+    
+    <lastmod>2016-10-14T03:32:40.076Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.lehoon.cn/backend/2016/10/11/oracle-materialized-view.html</loc>
     
     <lastmod>2016-10-11T07:27:16.100Z</lastmod>
