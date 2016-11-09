@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.lehoon.cn/Rocketmq/2016/11/09/rocketmq-install-note.html</loc>
+    
+    <lastmod>2016-11-09T07:29:10.636Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.lehoon.cn/orther/2016/10/28/game-develop-skill.html</loc>
+    
+    <lastmod>2016-10-28T02:39:09.028Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.lehoon.cn/backend/2016/09/07/centos-note.html</loc>
+    
+    <lastmod>2016-10-27T07:37:21.543Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.lehoon.cn/backend/2016/10/11/oracle-materialized-view.html</loc>
     
     <lastmod>2016-10-17T05:29:16.678Z</lastmod>
@@ -19,13 +40,6 @@
     <loc>http://blog.lehoon.cn/backend/2016/10/09/centos-oracle11gr2-install.html</loc>
     
     <lastmod>2016-10-11T05:45:16.830Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/09/07/centos-note.html</loc>
-    
-    <lastmod>2016-10-11T05:38:19.863Z</lastmod>
     
   </url>
   
