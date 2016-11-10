@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.lehoon.cn/Rocketmq/2016/11/09/rocketmq-install-note.html</loc>
+    <loc>http://blog.lehoon.cn/orther/2016/11/10/java-error-note.html</loc>
     
-    <lastmod>2016-11-10T03:44:20.863Z</lastmod>
+    <lastmod>2016-11-10T09:16:57.326Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://blog.lehoon.cn/Rocketmq/2016/11/09/rocketmq-docs.html</loc>
     
-    <lastmod>2016-11-10T01:18:33.946Z</lastmod>
+    <lastmod>2016-11-10T06:11:36.381Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.lehoon.cn/Rocketmq/2016/11/09/rocketmq-install-note.html</loc>
+    
+    <lastmod>2016-11-10T03:44:20.863Z</lastmod>
     
   </url>
   

@@ -8,8 +8,22 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活点点滴滴</description>
-    <pubDate>Thu, 10 Nov 2016 03:44:20 GMT</pubDate>
+    <pubDate>Thu, 10 Nov 2016 09:16:57 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>java常见错误</title>
+      <link>http://blog.lehoon.cn/orther/2016/11/10/java-error-note.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/11/10/java-error-note.html</guid>
+      <pubDate>Thu, 10 Nov 2016 09:12:00 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;java常见错误&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/11/10/java-error-note.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>rocketmq安装记录</title>
@@ -32,8 +46,7 @@
       <pubDate>Wed, 09 Nov 2016 06:34:15 GMT</pubDate>
       <description>
       
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
+        &lt;p&gt;Rocketmq使用记录。&lt;br&gt;
       
       </description>
       
