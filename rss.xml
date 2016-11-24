@@ -8,8 +8,22 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活点点滴滴</description>
-    <pubDate>Thu, 10 Nov 2016 09:16:57 GMT</pubDate>
+    <pubDate>Thu, 24 Nov 2016 07:44:06 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>rocketmq中broker启动同步topic到namesrv过程</title>
+      <link>http://blog.lehoon.cn/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html</link>
+      <guid>http://blog.lehoon.cn/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html</guid>
+      <pubDate>Sun, 13 Nov 2016 12:43:31 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;rocketmq中broker启动同步topic到namesrv过程.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>java常见错误</title>
@@ -27,8 +41,8 @@
     
     <item>
       <title>rocketmq安装记录</title>
-      <link>http://blog.lehoon.cn/Rocketmq/2016/11/09/rocketmq-install-note.html</link>
-      <guid>http://blog.lehoon.cn/Rocketmq/2016/11/09/rocketmq-install-note.html</guid>
+      <link>http://blog.lehoon.cn/rocketmq/2016/11/09/rocketmq-install-note.html</link>
+      <guid>http://blog.lehoon.cn/rocketmq/2016/11/09/rocketmq-install-note.html</guid>
       <pubDate>Wed, 09 Nov 2016 06:43:59 GMT</pubDate>
       <description>
       
@@ -36,13 +50,13 @@
       
       </description>
       
-      <comments>http://blog.lehoon.cn/Rocketmq/2016/11/09/rocketmq-install-note.html#disqus_thread</comments>
+      <comments>http://blog.lehoon.cn/rocketmq/2016/11/09/rocketmq-install-note.html#disqus_thread</comments>
     </item>
     
     <item>
       <title>Rocketmq文档</title>
-      <link>http://blog.lehoon.cn/Rocketmq/2016/11/09/rocketmq-docs.html</link>
-      <guid>http://blog.lehoon.cn/Rocketmq/2016/11/09/rocketmq-docs.html</guid>
+      <link>http://blog.lehoon.cn/rocketmq/2016/11/09/rocketmq-docs.html</link>
+      <guid>http://blog.lehoon.cn/rocketmq/2016/11/09/rocketmq-docs.html</guid>
       <pubDate>Wed, 09 Nov 2016 06:34:15 GMT</pubDate>
       <description>
       
@@ -50,7 +64,7 @@
       
       </description>
       
-      <comments>http://blog.lehoon.cn/Rocketmq/2016/11/09/rocketmq-docs.html#disqus_thread</comments>
+      <comments>http://blog.lehoon.cn/rocketmq/2016/11/09/rocketmq-docs.html#disqus_thread</comments>
     </item>
     
     <item>
