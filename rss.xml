@@ -8,8 +8,22 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活点点滴滴</description>
-    <pubDate>Thu, 24 Nov 2016 07:52:12 GMT</pubDate>
+    <pubDate>Fri, 25 Nov 2016 05:44:18 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>rocketmq服务中的端口号</title>
+      <link>http://blog.lehoon.cn/rocketmq/2016/11/25/rocketmq-net-port.html</link>
+      <guid>http://blog.lehoon.cn/rocketmq/2016/11/25/rocketmq-net-port.html</guid>
+      <pubDate>Fri, 25 Nov 2016 02:13:17 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;rocketmq端口号使用&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/rocketmq/2016/11/25/rocketmq-net-port.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>rocketmq中broker启动同步topic到namesrv过程</title>
