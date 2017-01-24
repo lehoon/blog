@@ -8,8 +8,22 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活点点滴滴</description>
-    <pubDate>Wed, 11 Jan 2017 03:23:06 GMT</pubDate>
+    <pubDate>Tue, 24 Jan 2017 05:13:47 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>生活小秘方</title>
+      <link>http://blog.lehoon.cn/orther/2017/01/24/life-secret.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/01/24/life-secret.html</guid>
+      <pubDate>Tue, 24 Jan 2017 04:42:13 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;生活小秘方.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/01/24/life-secret.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>无法加载mysql odbc 5.3 unicode driver</title>
