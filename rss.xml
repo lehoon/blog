@@ -8,8 +8,22 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活点点滴滴</description>
-    <pubDate>Tue, 14 Feb 2017 01:36:22 GMT</pubDate>
+    <pubDate>Thu, 16 Feb 2017 07:52:27 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>intellij-idea-2016下载安装</title>
+      <link>http://blog.lehoon.cn/orther/2017/02/16/intellij-idea-2016.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/02/16/intellij-idea-2016.html</guid>
+      <pubDate>Thu, 16 Feb 2017 07:39:45 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;IntelliJ IDEA号称当前Java开发效率最高的IDE工具。IntelliJ IDEA有两个版本：社区版(Community)和旗舰版(Ultimate)。社区版时免费的、开源的，但功能较少，旗舰版提供了较多的功能，是收费的，可以试用30天。&lt;br&gt;IntelliJ IDEA官网：&lt;a href=&quot;https://www.jetbrains.com&quot;&gt;https://www.jetbrains.com&lt;/a&gt;&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/02/16/intellij-idea-2016.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>部标808协议文件</title>
