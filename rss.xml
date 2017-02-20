@@ -8,8 +8,22 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活点点滴滴</description>
-    <pubDate>Thu, 16 Feb 2017 09:25:50 GMT</pubDate>
+    <pubDate>Mon, 20 Feb 2017 01:54:32 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>github上fork项目源同步</title>
+      <link>http://blog.lehoon.cn/orther/2017/02/20/github-sync-fork-upstream.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/02/20/github-sync-fork-upstream.html</guid>
+      <pubDate>Mon, 20 Feb 2017 01:43:16 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;有时候我们在github上看到一些比较好的项目，我们都会fork一下它，然后在本地进行操作，但是fork之后，项目是不会跟源项目保持同步的，需要我们自己进行一些操作让其同步.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/02/20/github-sync-fork-upstream.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>intellij-idea-2016下载安装</title>
