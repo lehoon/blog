@@ -8,8 +8,22 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活点点滴滴</description>
-    <pubDate>Mon, 20 Feb 2017 01:54:32 GMT</pubDate>
+    <pubDate>Mon, 20 Feb 2017 09:05:49 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>幂等介绍</title>
+      <link>http://blog.lehoon.cn/orther/2017/02/20/idempotent-define.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/02/20/idempotent-define.html</guid>
+      <pubDate>Mon, 20 Feb 2017 08:51:44 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;幂等idempotent是一个数学与计算机学概念，常见于抽象代数中。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/02/20/idempotent-define.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>github上fork项目源同步</title>
