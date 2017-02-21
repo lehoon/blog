@@ -8,8 +8,50 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活点点滴滴</description>
-    <pubDate>Tue, 14 Feb 2017 01:36:22 GMT</pubDate>
+    <pubDate>Mon, 20 Feb 2017 09:05:49 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>幂等介绍</title>
+      <link>http://blog.lehoon.cn/orther/2017/02/20/idempotent-define.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/02/20/idempotent-define.html</guid>
+      <pubDate>Mon, 20 Feb 2017 08:51:44 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;幂等idempotent是一个数学与计算机学概念，常见于抽象代数中。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/02/20/idempotent-define.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>github上fork项目源同步</title>
+      <link>http://blog.lehoon.cn/orther/2017/02/20/github-sync-fork-upstream.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/02/20/github-sync-fork-upstream.html</guid>
+      <pubDate>Mon, 20 Feb 2017 01:43:16 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;有时候我们在github上看到一些比较好的项目，我们都会fork一下它，然后在本地进行操作，但是fork之后，项目是不会跟源项目保持同步的，需要我们自己进行一些操作让其同步.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/02/20/github-sync-fork-upstream.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>intellij-idea-2016下载安装</title>
+      <link>http://blog.lehoon.cn/orther/2017/02/16/intellij-idea-2016.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/02/16/intellij-idea-2016.html</guid>
+      <pubDate>Thu, 16 Feb 2017 07:39:45 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;IntelliJ IDEA号称当前Java开发效率最高的IDE工具。IntelliJ IDEA有两个版本：社区版(Community)和旗舰版(Ultimate)。社区版时免费的、开源的，但功能较少，旗舰版提供了较多的功能，是收费的，可以试用30天。&lt;br&gt;IntelliJ IDEA官网：&lt;a href=&quot;https://www.jetbrains.com&quot;&gt;https://www.jetbrains.com&lt;/a&gt;&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/02/16/intellij-idea-2016.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>部标808协议文件</title>
