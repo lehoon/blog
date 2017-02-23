@@ -8,8 +8,92 @@
     <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>记录生活点点滴滴</description>
-    <pubDate>Tue, 14 Feb 2017 01:36:22 GMT</pubDate>
+    <pubDate>Wed, 22 Feb 2017 06:00:49 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>source insight4安装使用</title>
+      <link>http://blog.lehoon.cn/orther/2017/02/22/source-insight4-crack.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/02/22/source-insight4-crack.html</guid>
+      <pubDate>Wed, 22 Feb 2017 05:30:55 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;source Insight V4.00.0080 破30天试用期办法.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/02/22/source-insight4-crack.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>rocketmq删除topic</title>
+      <link>http://blog.lehoon.cn/backend/2017/02/21/rocketmq-topic-delete.html</link>
+      <guid>http://blog.lehoon.cn/backend/2017/02/21/rocketmq-topic-delete.html</guid>
+      <pubDate>Tue, 21 Feb 2017 07:32:54 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;删除指定的topic、在删除不了topic的情况下的处理办法。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2017/02/21/rocketmq-topic-delete.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>rocketmq消息存储</title>
+      <link>http://blog.lehoon.cn/backend/2017/02/21/rocketmq-message-store.html</link>
+      <guid>http://blog.lehoon.cn/backend/2017/02/21/rocketmq-message-store.html</guid>
+      <pubDate>Tue, 21 Feb 2017 06:25:53 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;rocketmq消息存储是由consume queue和commit log配合完成的。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2017/02/21/rocketmq-message-store.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>幂等介绍</title>
+      <link>http://blog.lehoon.cn/orther/2017/02/20/idempotent-define.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/02/20/idempotent-define.html</guid>
+      <pubDate>Mon, 20 Feb 2017 08:51:44 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;幂等idempotent是一个数学与计算机学概念，常见于抽象代数中。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/02/20/idempotent-define.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>github上fork项目源同步</title>
+      <link>http://blog.lehoon.cn/orther/2017/02/20/github-sync-fork-upstream.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/02/20/github-sync-fork-upstream.html</guid>
+      <pubDate>Mon, 20 Feb 2017 01:43:16 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;有时候我们在github上看到一些比较好的项目，我们都会fork一下它，然后在本地进行操作，但是fork之后，项目是不会跟源项目保持同步的，需要我们自己进行一些操作让其同步.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/02/20/github-sync-fork-upstream.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>intellij-idea-2016下载安装</title>
+      <link>http://blog.lehoon.cn/orther/2017/02/16/intellij-idea-2016.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/02/16/intellij-idea-2016.html</guid>
+      <pubDate>Thu, 16 Feb 2017 07:39:45 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;IntelliJ IDEA号称当前Java开发效率最高的IDE工具。IntelliJ IDEA有两个版本：社区版(Community)和旗舰版(Ultimate)。社区版时免费的、开源的，但功能较少，旗舰版提供了较多的功能，是收费的，可以试用30天。&lt;br&gt;IntelliJ IDEA官网：&lt;a href=&quot;https://www.jetbrains.com&quot;&gt;https://www.jetbrains.com&lt;/a&gt;&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/02/16/intellij-idea-2016.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>部标808协议文件</title>
