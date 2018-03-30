@@ -1,0 +1,1175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Lehoon</title>
+    <link>http://blog.lehoon.cn/</link>
+    <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>记录生活点点滴滴</description>
+    <pubDate>Tue, 27 Mar 2018 05:43:30 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>svn查看日志显示时间为1970解决方法</title>
+      <link>http://blog.lehoon.cn/orther/2018/03/27/svn-showlog-date-1970.html</link>
+      <guid>http://blog.lehoon.cn/orther/2018/03/27/svn-showlog-date-1970.html</guid>
+      <pubDate>Tue, 27 Mar 2018 02:47:33 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;svn查看日志(show log)显示日期为1970年的解决方法，svn查看日志时候，不显示日志。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2018/03/27/svn-showlog-date-1970.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>oracle12c手动创建cdb实例</title>
+      <link>http://blog.lehoon.cn/backend/2018/03/23/oracle12c-create-instance.html</link>
+      <guid>http://blog.lehoon.cn/backend/2018/03/23/oracle12c-create-instance.html</guid>
+      <pubDate>Fri, 23 Mar 2018 08:10:17 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;oracle12c通过手动创建cdb实例。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2018/03/23/oracle12c-create-instance.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>librdkafka配置参数详解</title>
+      <link>http://blog.lehoon.cn/backend/2018/03/14/librdkafka-config.html</link>
+      <guid>http://blog.lehoon.cn/backend/2018/03/14/librdkafka-config.html</guid>
+      <pubDate>Wed, 14 Mar 2018 03:09:24 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;librdkafka配置参数整理。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2018/03/14/librdkafka-config.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>apk反编译工具</title>
+      <link>http://blog.lehoon.cn/orther/2017/12/25/apk-decompile-tools.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/12/25/apk-decompile-tools.html</guid>
+      <pubDate>Mon, 25 Dec 2017 03:30:49 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Android APK反编译下载。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/12/25/apk-decompile-tools.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>地图精度与电子地图比例尺的关系</title>
+      <link>http://blog.lehoon.cn/orther/2017/12/08/map-accuracy2scale.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/12/08/map-accuracy2scale.html</guid>
+      <pubDate>Fri, 08 Dec 2017 06:16:24 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;地图精度与比例尺的关系.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/12/08/map-accuracy2scale.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>window系统大文件打开工具</title>
+      <link>http://blog.lehoon.cn/orther/2017/12/08/window-big-file-tools.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/12/08/window-big-file-tools.html</guid>
+      <pubDate>Fri, 08 Dec 2017 01:34:26 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;window系统上打开大文件的工具集。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/12/08/window-big-file-tools.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>GPRMC格式详解</title>
+      <link>http://blog.lehoon.cn/orther/2017/10/27/gnss-gprmc-format.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/10/27/gnss-gprmc-format.html</guid>
+      <pubDate>Fri, 27 Oct 2017 07:40:39 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Recommended Minimum Specific GPS/TRANSIT Data（RMC）推荐定位信息&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/10/27/gnss-gprmc-format.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>通过gulp自动构建项目静态资源的版本号</title>
+      <link>http://blog.lehoon.cn/frontend/2017/09/21/autobuild-static-version.html</link>
+      <guid>http://blog.lehoon.cn/frontend/2017/09/21/autobuild-static-version.html</guid>
+      <pubDate>Thu, 21 Sep 2017 02:10:01 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;通过gulp自动构建项目前端静态资源的版本号，解决浏览器缓存导致更新不及时的问题。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/frontend/2017/09/21/autobuild-static-version.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Exception loading sessions from persistent storage</title>
+      <link>http://blog.lehoon.cn/backend/2017/08/28/load-session-persistent-exception.html</link>
+      <guid>http://blog.lehoon.cn/backend/2017/08/28/load-session-persistent-exception.html</guid>
+      <pubDate>Mon, 28 Aug 2017 02:34:36 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;启动项目时报以下异常,严重: Exception loading sessions from persistent storage.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2017/08/28/load-session-persistent-exception.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Mysql重设密码和远程访问</title>
+      <link>http://blog.lehoon.cn/orther/2017/06/20/mysql-reset-password.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/06/20/mysql-reset-password.html</guid>
+      <pubDate>Tue, 20 Jun 2017 07:05:52 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;mysql安装默认的root账户没有密码，所以登录mysql需要通过mysql -uroot -h 127.0.0.1 -P 3306登录后，设置密码。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/06/20/mysql-reset-password.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Intellij-idea文件格式化</title>
+      <link>http://blog.lehoon.cn/orther/2017/06/19/idea-file-format.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/06/19/idea-file-format.html</guid>
+      <pubDate>Mon, 19 Jun 2017 02:13:07 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;在使用idea过程中，最大的问题就是在eclipse中有格式化代码的快捷方式，但是在idea中一直没有找到怎么能快捷格式文件。后来才发现idea中有插件可以是实现，插件名称是Eclipse Code Formatter，这个可以从Intellij的插件仓库中安装，安装之后就可以使用文件格式功能了。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/06/19/idea-file-format.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>jstorm集成hbase、rocketmq</title>
+      <link>http://blog.lehoon.cn/backend/2017/06/13/jstorm-hbase-issue.html</link>
+      <guid>http://blog.lehoon.cn/backend/2017/06/13/jstorm-hbase-issue.html</guid>
+      <pubDate>Tue, 13 Jun 2017 02:14:04 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;jstorm集成hbase过程中问题记录。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2017/06/13/jstorm-hbase-issue.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>jps出现process information unavailable解决办法</title>
+      <link>http://blog.lehoon.cn/orther/2017/06/09/jps-process-information-unavailable.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/06/09/jps-process-information-unavailable.html</guid>
+      <pubDate>Fri, 09 Jun 2017 02:10:43 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;使用jps命令查看java进程，经常出现类似”16699 –process information unavailable”。产生这个问题有两种情况，第一种：16699这个进程不属于该用户，没有查看权限；第二种：16699进程已经kill掉了，但是结束的不正确，还有残留痕迹。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/06/09/jps-process-information-unavailable.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Linux中find的用法</title>
+      <link>http://blog.lehoon.cn/orther/2017/05/31/linux-find-command-examples.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/05/31/linux-find-command-examples.html</guid>
+      <pubDate>Wed, 31 May 2017 02:50:46 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Linux系统中的 find 命令在查找文件时非常有用而且方便。它可以根据不同的条件来查找文件，例如权限、拥有者、修改日期/时间、文件大小等等。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/05/31/linux-find-command-examples.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>VS运行库区别</title>
+      <link>http://blog.lehoon.cn/orther/2017/05/27/vs-compilemode-difference.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/05/27/vs-compilemode-difference.html</guid>
+      <pubDate>Sat, 27 May 2017 09:18:20 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;VS编译选项MD(d)、MT(d)编译选项的区别.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/05/27/vs-compilemode-difference.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>缓存击穿、失效及热点key问题</title>
+      <link>http://blog.lehoon.cn/backend/2017/05/19/cache-invalid-problem.html</link>
+      <guid>http://blog.lehoon.cn/backend/2017/05/19/cache-invalid-problem.html</guid>
+      <pubDate>Fri, 19 May 2017 03:11:41 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;分布式缓存是网站服务端经常用到的一种技术，在读多写少的业务场景中，通过使用缓存可以有效地支撑高并发的访问量，对后端的数据库等数据源做到很好地保护。现在市面上有很多分布式缓存，比如Redis、Memcached以及阿里的Tair等，不管我们使用的哪种缓存产品，基本上都会遇到缓存击穿、缓存失效以及热点key的问题。如何有效地防止这些问题，也是我们在享受缓存带来的红利地同时，必须要解决地难题。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2017/05/19/cache-invalid-problem.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>linux运维</title>
+      <link>http://blog.lehoon.cn/%E8%BF%90%E7%BB%B4/2017/05/12/linux-operation-maintenance.html</link>
+      <guid>http://blog.lehoon.cn/%E8%BF%90%E7%BB%B4/2017/05/12/linux-operation-maintenance.html</guid>
+      <pubDate>Fri, 12 May 2017 02:07:42 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;linux日常运维的一些技能。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/%E8%BF%90%E7%BB%B4/2017/05/12/linux-operation-maintenance.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>八卦阵解释</title>
+      <link>http://blog.lehoon.cn/orther/2017/05/03/eight-diagram-tactics.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/05/03/eight-diagram-tactics.html</guid>
+      <pubDate>Wed, 03 May 2017 08:45:13 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;头条上一篇关于八卦阵解释的比较好的文字，参考学习。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/05/03/eight-diagram-tactics.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>gnss术语</title>
+      <link>http://blog.lehoon.cn/orther/2017/05/03/gnss-terminology.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/05/03/gnss-terminology.html</guid>
+      <pubDate>Wed, 03 May 2017 05:47:48 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Gnss是全球导航卫星系统(Global Navigation Satellite System)的简称。泛指所有的卫星导航系统。包括全球的、区域和增强的，比如美国的GPS、俄罗斯的Glonass、欧洲的Galileo、中国的北斗卫星导航系统，以及相关的增强系统，比如美国的WAAS（广域增强系统）、欧洲的EGNOS（欧洲静地导航重叠系统）和日本的MSAS（多功能运输卫星增强系统）等，还涵盖在建和以后要建设的其他卫星导航系统。国际GNSS系统是个多系统、多层面、多模式的负责组合系统。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/05/03/gnss-terminology.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>ae网络库</title>
+      <link>http://blog.lehoon.cn/backend/2017/04/28/ae-network-library.html</link>
+      <guid>http://blog.lehoon.cn/backend/2017/04/28/ae-network-library.html</guid>
+      <pubDate>Fri, 28 Apr 2017 01:05:16 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;ae是redis中自带的网络处理逻辑，在linux上基于epoll。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2017/04/28/ae-network-library.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>GPGGA格式详解</title>
+      <link>http://blog.lehoon.cn/orther/2017/04/25/gnss-gpgga-formet.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/04/25/gnss-gpgga-formet.html</guid>
+      <pubDate>Tue, 25 Apr 2017 06:43:40 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;GPGGA，GPS固定数据输出语句($GPGGA)，这是一帧GPS定位的主要数据，也是使用最广的数据。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/04/25/gnss-gpgga-formet.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>maven下载文件超时</title>
+      <link>http://blog.lehoon.cn/orther/2017/04/10/maven-download-timeout.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/04/10/maven-download-timeout.html</guid>
+      <pubDate>Mon, 10 Apr 2017 03:27:28 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;maven使用过程中一直提示下载文件超时，试了很多方法都不能解决问题。后来终于解决这个问题了。原来是git cmd环境的问题。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/04/10/maven-download-timeout.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>storm核心术语介绍</title>
+      <link>http://blog.lehoon.cn/middleware/2017/03/31/storm-core-terminology.html</link>
+      <guid>http://blog.lehoon.cn/middleware/2017/03/31/storm-core-terminology.html</guid>
+      <pubDate>Fri, 31 Mar 2017 03:25:46 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Apache Storm是由twitter开源的分布式实时计算系统。Storm可以非常容易并且可靠的处理无限的数据流。对比Hadoop的批处理，Storm是一个实时的、分布式的、具备高容错的计算系统。Storm应用可以使用任何编程语言来进行开发。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/middleware/2017/03/31/storm-core-terminology.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>hbase通过api写入和查询</title>
+      <link>http://blog.lehoon.cn/backend/2017/03/30/hbase-insert-select.html</link>
+      <guid>http://blog.lehoon.cn/backend/2017/03/30/hbase-insert-select.html</guid>
+      <pubDate>Thu, 30 Mar 2017 06:24:02 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;hbase通过java客户端写入数据和查询数据。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2017/03/30/hbase-insert-select.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>oracle常用sql</title>
+      <link>http://blog.lehoon.cn/backend/2017/03/28/oracle-note-sql.html</link>
+      <guid>http://blog.lehoon.cn/backend/2017/03/28/oracle-note-sql.html</guid>
+      <pubDate>Tue, 28 Mar 2017 03:06:41 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;oracle常用sql收集。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2017/03/28/oracle-note-sql.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>extjs-treepanel实现单选功能</title>
+      <link>http://blog.lehoon.cn/frontend/2017/03/27/extjs-treepanel-singleselect.html</link>
+      <guid>http://blog.lehoon.cn/frontend/2017/03/27/extjs-treepanel-singleselect.html</guid>
+      <pubDate>Mon, 27 Mar 2017 09:14:20 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;extjs中treepanel中的复选框默认是多选，如果修改为单选，参考以下代码。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/frontend/2017/03/27/extjs-treepanel-singleselect.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>java语言中double比较大小方法</title>
+      <link>http://blog.lehoon.cn/backend/2017/03/15/java-double-compare.html</link>
+      <guid>http://blog.lehoon.cn/backend/2017/03/15/java-double-compare.html</guid>
+      <pubDate>Wed, 15 Mar 2017 03:21:06 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;由于double类型不像int这种整形数类型，直接使用运算符比较就可以了，一般会做差后与一个指定的极小的数比较，比如0.00001.但是这样也会产生误差。所以在实际使用过程中，不建议直接比较大小，而是通过java中的BigDecimal类型包装double后再去比较大小。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2017/03/15/java-double-compare.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>extjs中form表单提交注意点</title>
+      <link>http://blog.lehoon.cn/frontend/2017/03/10/extjs-form-submit.html</link>
+      <guid>http://blog.lehoon.cn/frontend/2017/03/10/extjs-form-submit.html</guid>
+      <pubDate>Fri, 10 Mar 2017 06:50:57 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;最近在项目中使用了extjs，在使用过程中发现form的submit提交有些需要注意的地方。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/frontend/2017/03/10/extjs-form-submit.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>rocketmq客户端sdk</title>
+      <link>http://blog.lehoon.cn/backend/2017/02/25/rocketmq-client-sdk.html</link>
+      <guid>http://blog.lehoon.cn/backend/2017/02/25/rocketmq-client-sdk.html</guid>
+      <pubDate>Sat, 25 Feb 2017 02:01:13 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;rocketmq开源版的客户端sdk包括：java版、c++版本、go版本。商业版包括：java版本、c/c++版本、.net版本、nodejs版本。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2017/02/25/rocketmq-client-sdk.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>source insight4安装使用</title>
+      <link>http://blog.lehoon.cn/orther/2017/02/22/source-insight4-crack.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/02/22/source-insight4-crack.html</guid>
+      <pubDate>Wed, 22 Feb 2017 05:30:55 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;source Insight V4.00.0080 破30天试用期办法.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/02/22/source-insight4-crack.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>rocketmq删除topic</title>
+      <link>http://blog.lehoon.cn/backend/2017/02/21/rocketmq-topic-delete.html</link>
+      <guid>http://blog.lehoon.cn/backend/2017/02/21/rocketmq-topic-delete.html</guid>
+      <pubDate>Tue, 21 Feb 2017 07:32:54 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;删除指定的topic、在删除不了topic的情况下的处理办法。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2017/02/21/rocketmq-topic-delete.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>rocketmq消息存储</title>
+      <link>http://blog.lehoon.cn/backend/2017/02/21/rocketmq-message-store.html</link>
+      <guid>http://blog.lehoon.cn/backend/2017/02/21/rocketmq-message-store.html</guid>
+      <pubDate>Tue, 21 Feb 2017 06:25:53 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;rocketmq消息存储是由consume queue和commit log配合完成的。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2017/02/21/rocketmq-message-store.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>幂等介绍</title>
+      <link>http://blog.lehoon.cn/orther/2017/02/20/idempotent-define.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/02/20/idempotent-define.html</guid>
+      <pubDate>Mon, 20 Feb 2017 08:51:44 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;幂等idempotent是一个数学与计算机学概念，常见于抽象代数中。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/02/20/idempotent-define.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>github上fork项目源同步</title>
+      <link>http://blog.lehoon.cn/orther/2017/02/20/github-sync-fork-upstream.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/02/20/github-sync-fork-upstream.html</guid>
+      <pubDate>Mon, 20 Feb 2017 01:43:16 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;有时候我们在github上看到一些比较好的项目，我们都会fork一下它，然后在本地进行操作，但是fork之后，项目是不会跟源项目保持同步的，需要我们自己进行一些操作让其同步.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/02/20/github-sync-fork-upstream.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>intellij-idea-2016下载安装</title>
+      <link>http://blog.lehoon.cn/orther/2017/02/16/intellij-idea-2016.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/02/16/intellij-idea-2016.html</guid>
+      <pubDate>Thu, 16 Feb 2017 07:39:45 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;IntelliJ IDEA号称当前Java开发效率最高的IDE工具。IntelliJ IDEA有两个版本：社区版(Community)和旗舰版(Ultimate)。社区版时免费的、开源的，但功能较少，旗舰版提供了较多的功能，是收费的，可以试用30天。&lt;br&gt;IntelliJ IDEA官网：&lt;a href=&quot;https://www.jetbrains.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.jetbrains.com&lt;/a&gt;&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/02/16/intellij-idea-2016.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>部标808协议文件</title>
+      <link>http://blog.lehoon.cn/orther/2017/01/24/bubiao-protocol.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/01/24/bubiao-protocol.html</guid>
+      <pubDate>Tue, 24 Jan 2017 07:29:11 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;本规范是对JT/T 808-2011《道路运输车辆卫星定位系统终端通讯协议及数据格式》的补充和完善&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/01/24/bubiao-protocol.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>生活小秘方</title>
+      <link>http://blog.lehoon.cn/orther/2017/01/24/life-secret.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/01/24/life-secret.html</guid>
+      <pubDate>Tue, 24 Jan 2017 04:42:13 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;生活小秘方.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/01/24/life-secret.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>无法加载mysql odbc 5.3 unicode driver</title>
+      <link>http://blog.lehoon.cn/orther/2017/01/10/mysql-odbc-driver-error.html</link>
+      <guid>http://blog.lehoon.cn/orther/2017/01/10/mysql-odbc-driver-error.html</guid>
+      <pubDate>Tue, 10 Jan 2017 15:20:00 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;无法加载 MySQL ODBC 5.3 Unicode Driver ODBC 驱动程序的安装例程，因为存在错误代码126.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2017/01/10/mysql-odbc-driver-error.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>rocketmq服务中的端口号</title>
+      <link>http://blog.lehoon.cn/rocketmq/2016/11/25/rocketmq-net-port.html</link>
+      <guid>http://blog.lehoon.cn/rocketmq/2016/11/25/rocketmq-net-port.html</guid>
+      <pubDate>Fri, 25 Nov 2016 02:13:17 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;rocketmq端口号使用&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/rocketmq/2016/11/25/rocketmq-net-port.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>rocketmq中broker启动同步topic到namesrv过程</title>
+      <link>http://blog.lehoon.cn/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html</link>
+      <guid>http://blog.lehoon.cn/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html</guid>
+      <pubDate>Sun, 13 Nov 2016 12:43:31 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;rocketmq中broker启动同步topic到namesrv过程.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>java常见错误</title>
+      <link>http://blog.lehoon.cn/orther/2016/11/10/java-error-note.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/11/10/java-error-note.html</guid>
+      <pubDate>Thu, 10 Nov 2016 09:12:00 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;java常见错误&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/11/10/java-error-note.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>rocketmq安装记录</title>
+      <link>http://blog.lehoon.cn/rocketmq/2016/11/09/rocketmq-install-note.html</link>
+      <guid>http://blog.lehoon.cn/rocketmq/2016/11/09/rocketmq-install-note.html</guid>
+      <pubDate>Wed, 09 Nov 2016 06:43:59 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;rocketmq3.5.8集群安装记录.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/rocketmq/2016/11/09/rocketmq-install-note.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Rocketmq文档</title>
+      <link>http://blog.lehoon.cn/rocketmq/2016/11/09/rocketmq-docs.html</link>
+      <guid>http://blog.lehoon.cn/rocketmq/2016/11/09/rocketmq-docs.html</guid>
+      <pubDate>Wed, 09 Nov 2016 06:34:15 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Rocketmq使用记录。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/rocketmq/2016/11/09/rocketmq-docs.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>游戏开发要点</title>
+      <link>http://blog.lehoon.cn/orther/2016/10/28/game-develop-skill.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/10/28/game-develop-skill.html</guid>
+      <pubDate>Fri, 28 Oct 2016 02:15:53 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Game development skill.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/10/28/game-develop-skill.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>oracle错误记录</title>
+      <link>http://blog.lehoon.cn/backend/2016/10/14/oracle-error-note.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/10/14/oracle-error-note.html</guid>
+      <pubDate>Fri, 14 Oct 2016 03:19:28 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;oracle常见的错误记录。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/10/14/oracle-error-note.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>oracle物化视图</title>
+      <link>http://blog.lehoon.cn/backend/2016/10/11/oracle-materialized-view.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/10/11/oracle-materialized-view.html</guid>
+      <pubDate>Tue, 11 Oct 2016 02:47:13 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Oracle的物化视图提供了强大的功能，可以用在不同的环境中。在不同的环境中，物化视图的作用也不相同。数据仓库中的物化视图主要用于预先计算并保存表连接或聚集等耗时较多的操作的结果，这样，在执行查询时，就可以避免进行这些耗时的操作，而从快速的得到结果。在数据仓库中，还经常使用查询重写（query rewrite）机制，这样不需要修改原有的查询语句，Oracle会自动选择合适的物化视图进行查询，完全对应用透明。物化视图和表一样可以直接进行查询。物化视图可以基于分区表，物化视图本身也可以分区。除了在数据仓库中使用，物化视图还用于复制、移动计算等方面。物化视图在很多方面和索引很相似：使用物化视图的目的是为了提高查询性能；物化视图对应用透明，增加和删除物化视图不会影响应用程序中SQL语句的正确性和有效性；物化视图需要占用存储空间；当基表发生变化时，物化视图也应当刷新。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/10/11/oracle-materialized-view.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Centos7安装oracle11gr2</title>
+      <link>http://blog.lehoon.cn/backend/2016/10/09/centos-oracle11gr2-install.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/10/09/centos-oracle11gr2-install.html</guid>
+      <pubDate>Sun, 09 Oct 2016 08:11:23 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Centos7最小化安装后，安装Oracle11g r2过程记录。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/10/09/centos-oracle11gr2-install.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>gdb-miss-debuginfo</title>
+      <link>http://blog.lehoon.cn/backend/2016/10/08/gdb-miss-debuginfo.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/10/08/gdb-miss-debuginfo.html</guid>
+      <pubDate>Sat, 08 Oct 2016 02:40:58 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;使用gdb调试core时候，提示Missing separate debuginfos的解决办法。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/10/08/gdb-miss-debuginfo.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Linux IO调度算法</title>
+      <link>http://blog.lehoon.cn/backend/2016/09/29/linux-io-schedule.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/09/29/linux-io-schedule.html</guid>
+      <pubDate>Thu, 29 Sep 2016 06:29:00 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;IO调度器的总体目标是希望让磁头能够总是往一个方向移动,移动到底了再往反方向走,这恰恰就是现实生活中的电梯模型,所以IO调度器也被叫做电梯. (elevator)而相应的算法也就被叫做电梯算法.而Linux中IO调度的电梯算法有好几种,一个叫做as(Anticipatory),一个叫做 cfq(Complete Fairness Queueing),一个叫做deadline,还有一个叫做noop(No Operation).具体使用哪种算法我们可以在启动的时候通过内核参数elevator来指定.&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/09/29/linux-io-schedule.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Linux下C函数定义</title>
+      <link>http://blog.lehoon.cn/backend/2016/09/27/linux-c-func.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/09/27/linux-c-func.html</guid>
+      <pubDate>Tue, 27 Sep 2016 07:02:07 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;C语言函数定义。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/09/27/linux-c-func.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>tcpdump使用文档</title>
+      <link>http://blog.lehoon.cn/backend/2016/09/26/tcpdump.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/09/26/tcpdump.html</guid>
+      <pubDate>Mon, 26 Sep 2016 02:49:41 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;tcpdump可以将网络中传送的数据包的“头”完全截获下来提供分析。它支持针对网络层、协议、主机、网络或端口的过滤，并提供and、or、not等逻辑语句来帮助你去掉无用的信息。tcpdump就是一种免费的网络分析工具，尤其其提供了源代码，公开了接口，因此具备很强的可扩展性，对于网络维护和入侵者都是非常有用的工具。tcpdump存在于基本的FreeBSD系统中，由于它需要将网络界面设置为混杂模式，普通用户不能正常执行，但具备root权限的用户可以直接执行它来获取网络上的信息。因此系统中存在网络分析工具主要不是对本机安全的威胁，而是对网络上的其他计算机的安全存在威胁。&lt;br&gt;我们用尽量简单的话来定义tcpdump，就是：dump the traffice on anetwork。根据使用者的定义对网络上的数据包进行截获的包分析工具。作为互联网上经典的的系统管理员必备工具，tcpdump以其强大的功能，灵活的截取策略，成为每个高级的系统管理员分析网络，排查问题等所必备的东西之一。tcpdump提供了源代码，公开了接口，因此具备很强的可扩展性，对于网络维护和入侵者都是非常有用的工具。tcpdump存在于基本的FreeBSD系统中，由于它需要将网络界面设置为混杂模式，普通用户不能正常执行，但具备root权限的用户可以直接执行它来获取网络上的信息。因此系统中存在网络分析工具主要不是对本机安全的威胁，而是对网络上的其他计算机的安全存在威胁。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/09/26/tcpdump.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>eim</title>
+      <link>http://blog.lehoon.cn/%E7%BC%96%E7%A8%8B/2016/09/20/eim.html</link>
+      <guid>http://blog.lehoon.cn/%E7%BC%96%E7%A8%8B/2016/09/20/eim.html</guid>
+      <pubDate>Tue, 20 Sep 2016 07:47:21 GMT</pubDate>
+      <description>
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/%E7%BC%96%E7%A8%8B/2016/09/20/eim.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>linux-strace使用介绍</title>
+      <link>http://blog.lehoon.cn/backend/2016/09/16/linux-strace.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/09/16/linux-strace.html</guid>
+      <pubDate>Fri, 16 Sep 2016 11:45:35 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;strace常用来跟踪进程执行时的系统调用和所接收的信号。 在Linux世界，进程不能直接访问硬件设备，&lt;br&gt;当进程需要访问硬件设备(比如读取磁盘文件，接收网络数据等等)时，必须由用户态模式切换至内核态模式，通 过系统调用访问硬件设备。strace可以跟踪到一个进程产生的系统调用,包括参数，返回值，执行消耗的时间&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/09/16/linux-strace.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>brk,sbrk--改变数据段长度</title>
+      <link>http://blog.lehoon.cn/backend/2016/09/16/linux-brk-sbrk.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/09/16/linux-brk-sbrk.html</guid>
+      <pubDate>Fri, 16 Sep 2016 11:07:06 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;brk,sbrk–改变数据段长度。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/09/16/linux-brk-sbrk.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Centos记录</title>
+      <link>http://blog.lehoon.cn/backend/2016/09/07/centos-note.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/09/07/centos-note.html</guid>
+      <pubDate>Wed, 07 Sep 2016 02:52:04 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;记录centos使用过程中的一些记录，方便后期查找。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/09/07/centos-note.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>raid磁盘阵列介绍</title>
+      <link>http://blog.lehoon.cn/orther/2016/09/05/raid.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/09/05/raid.html</guid>
+      <pubDate>Mon, 05 Sep 2016 15:00:11 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;RAID是英文Redundant Array of Independent Disks的缩写，中文简称为独立冗余磁盘阵列。简单的说，RAID是一种把多块独立的硬盘（物理硬盘）按不同的方式组合起来形成一个硬盘组（逻辑硬盘），从而提供比单个硬盘更高的存储性能和提供数据备份技术。组成磁盘阵列的不同方式称为RAID级别（RAID Levels）。在用户看起来，组成的磁盘组就像是一个硬盘，用户可以对它进行分区，格式化等等。总之，对磁盘阵列的操作与单个硬盘一模一样。不同的是，磁盘阵列的存储速度要比单个硬盘高很多，而且可以提供自动数据备份。数据备份的功能是在用户数据一旦发生损坏后，利用备份信息可以使损坏数据得以恢复，从而保障了用户数据的安全性。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/09/05/raid.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>nginx负载均衡各种场景下的应用</title>
+      <link>http://blog.lehoon.cn/backend/2016/09/02/nginx-load-balance.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/09/02/nginx-load-balance.html</guid>
+      <pubDate>Fri, 02 Sep 2016 03:37:01 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;nginx的upstream默认是以轮询的方式实现负载均衡，这种方式中，每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。&lt;br&gt;在实际应用过程中，根据实际情况选择合适的负载均衡方案来实现既定的目标。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/09/02/nginx-load-balance.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>U盘安装centos7，启动报错</title>
+      <link>http://blog.lehoon.cn/orther/2016/09/01/usb-centos-error.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/09/01/usb-centos-error.html</guid>
+      <pubDate>Thu, 01 Sep 2016 11:56:10 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;通过U盘安装centos7的时候，启动报错，找不到安装媒介，解决方法。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/09/01/usb-centos-error.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>JavaScript生成全局唯一id的方法</title>
+      <link>http://blog.lehoon.cn/frontend/2016/09/01/js-generate-uuid.html</link>
+      <guid>http://blog.lehoon.cn/frontend/2016/09/01/js-generate-uuid.html</guid>
+      <pubDate>Thu, 01 Sep 2016 03:20:47 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;全局唯一标识符（GUID，Globally Unique Identifier）也称作 UUID(Universally Unique IDentifier) 。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/frontend/2016/09/01/js-generate-uuid.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>随笔</title>
+      <link>http://blog.lehoon.cn/orther/2016/08/29/notepad.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/08/29/notepad.html</guid>
+      <pubDate>Mon, 29 Aug 2016 02:24:09 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;记录乱起八糟的东西。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/08/29/notepad.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>kafka在window下部署</title>
+      <link>http://blog.lehoon.cn/backend/2016/08/22/kafka-window.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/08/22/kafka-window.html</guid>
+      <pubDate>Mon, 22 Aug 2016 03:29:06 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;kafka在window下部署记录。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/08/22/kafka-window.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Makefile学习</title>
+      <link>http://blog.lehoon.cn/backend/2016/08/19/makefile.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/08/19/makefile.html</guid>
+      <pubDate>Fri, 19 Aug 2016 03:53:43 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;在*unix下编译工程一般使用make命令，make命令执行时，需要一个Makefile文件，告诉make怎么样去编译和链接程序。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/08/19/makefile.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>HTTP缓存ETAG和Last-Modified</title>
+      <link>http://blog.lehoon.cn/frontend/2016/08/16/http-etag-last-midified.html</link>
+      <guid>http://blog.lehoon.cn/frontend/2016/08/16/http-etag-last-midified.html</guid>
+      <pubDate>Tue, 16 Aug 2016 03:02:54 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;HTTP缓存ETAG和Last-Modified详解。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/frontend/2016/08/16/http-etag-last-midified.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>ip地址分类</title>
+      <link>http://blog.lehoon.cn/orther/2016/08/16/ip-catagory.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/08/16/ip-catagory.html</guid>
+      <pubDate>Tue, 16 Aug 2016 01:23:25 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;现在的IP网络使用32位地址，以点分十进制表示，如172.16.0.0。地址格式为：IP地址=网络地址＋主机地址 或 IP地址=主机地址＋子网地址＋主机地址。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/08/16/ip-catagory.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>android非浏览器应用程序与服务器会话保持实现</title>
+      <link>http://blog.lehoon.cn/orther/2016/08/09/android-connection-session.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/08/09/android-connection-session.html</guid>
+      <pubDate>Tue, 09 Aug 2016 03:37:41 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;因为android手机端在访问web服务器时，没有给http请求头部设置sessionID，而使用web浏览器作为客户端访问服务器时，在客户端每次发起请求的时候，都会将交互中的sessionID：SESSIONID设置在Cookie头中携带过去，服务器根据这个sessionID获取对应的Session,而不是重新创建一个新Session(除了这个Session失效)。所以实现方式就是在http通信的时候，在header头上设置sessionid。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/08/09/android-connection-session.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>memcache与memcached区别</title>
+      <link>http://blog.lehoon.cn/backend/2016/07/28/memcache-memcached-diff.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/07/28/memcache-memcached-diff.html</guid>
+      <pubDate>Thu, 28 Jul 2016 00:50:14 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Memcache是一个自由和开放源代码、高性能、分配的内存对象缓存系统。用于加速动态web应用程序，减轻数据库负载。它可以应对任意多个连接，使用非阻塞的网络IO。由于它的工作机制是在内存中开辟一块空间，然后建立一个Hash表，Memcached自管理这些Hash表。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/07/28/memcache-memcached-diff.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>CentOS 7.0下安装部署LVS</title>
+      <link>http://blog.lehoon.cn/backend/2016/07/19/centos-lvs.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/07/19/centos-lvs.html</guid>
+      <pubDate>Tue, 19 Jul 2016 06:57:50 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;centos7.0系统lvs安装部署。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/07/19/centos-lvs.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>awk学习</title>
+      <link>http://blog.lehoon.cn/orther/2016/07/19/awk.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/07/19/awk.html</guid>
+      <pubDate>Tue, 19 Jul 2016 06:42:56 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;awk是一种编程语言，用于在linux/unix下对文本和数据进行处理。数据可以来自标准输入、一个或多个文件，或其它命令的输出。它支持用户自定义函数和动态正则表达式等先进功能，是linux/unix下的一个强大编程工具。它在命令行中使用，但更多是作为脚本来使用。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/07/19/awk.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Linux epoll学习</title>
+      <link>http://blog.lehoon.cn/backend/2016/07/11/epoll.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/07/11/epoll.html</guid>
+      <pubDate>Mon, 11 Jul 2016 02:43:59 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;在linux的网络编程中，很长的时间都在使用select来做事件触发。在linux新的内核中，有了一种替换它的机制，就是epoll。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/07/11/epoll.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>go守护进程实现方式</title>
+      <link>http://blog.lehoon.cn/backend/2016/07/04/golang-deamon.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/07/04/golang-deamon.html</guid>
+      <pubDate>Mon, 04 Jul 2016 06:20:51 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;go 实现守护进程的实现代码。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/07/04/golang-deamon.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>tcp连接负载均衡</title>
+      <link>http://blog.lehoon.cn/backend/2016/07/04/tcp-load-balancing.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/07/04/tcp-load-balancing.html</guid>
+      <pubDate>Mon, 04 Jul 2016 06:20:42 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;tcp连接软件负载均衡一般包括lvs、HaProxy、nginx等，现主要介绍在实际应用中的特点。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/07/04/tcp-load-balancing.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>tcp出现rst情况</title>
+      <link>http://blog.lehoon.cn/backend/2016/07/04/tcp-rst.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/07/04/tcp-rst.html</guid>
+      <pubDate>Mon, 04 Jul 2016 06:20:33 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;正常情况tcp四层握手关闭连接，rst基本都是异常情况，整理如下：&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/07/04/tcp-rst.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Linux下tcp的优化</title>
+      <link>http://blog.lehoon.cn/backend/2016/05/26/linux-tcp-optimization.html</link>
+      <guid>http://blog.lehoon.cn/backend/2016/05/26/linux-tcp-optimization.html</guid>
+      <pubDate>Thu, 26 May 2016 11:03:35 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;在GNU Linux系统中，影响连接个数的因素主是由于单个进程能够打开的最大文件数、端口数量决定的；而一个基于tcp的服务器的并发，除了上文说过的两个因素外，还有因为主要的tcp连接的很多属性，而问题最大的则是连接断开后的连接会在TIME_WAIT状态一直存在60秒，这就造成了在大量高并发的情况下当连接为此TIME_WAIT状态时没有可用连接。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2016/05/26/linux-tcp-optimization.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>oracle中merge into语法注意点</title>
+      <link>http://blog.lehoon.cn/orther/2016/05/08/oracle-merge-into.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/05/08/oracle-merge-into.html</guid>
+      <pubDate>Sun, 08 May 2016 08:09:00 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;在进行SQL语句编写时，我们经常会遇到大量的同时进行Insert/Update的语句，就是说当存在记录时，就更新(Update)，不存在数据时，就插入(Insert)。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/05/08/oracle-merge-into.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Window批处理记录</title>
+      <link>http://blog.lehoon.cn/orther/2016/02/05/window-batch.html</link>
+      <guid>http://blog.lehoon.cn/orther/2016/02/05/window-batch.html</guid>
+      <pubDate>Fri, 05 Feb 2016 11:37:28 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Window批处理记录。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2016/02/05/window-batch.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>机动车驾驶科目三操作要领</title>
+      <link>http://blog.lehoon.cn/orther/2015/10/11/kesankaoshi.html</link>
+      <guid>http://blog.lehoon.cn/orther/2015/10/11/kesankaoshi.html</guid>
+      <pubDate>Sun, 11 Oct 2015 11:08:58 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;机动车驾驶科目三操作要领.&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2015/10/11/kesankaoshi.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>window服务编程</title>
+      <link>http://blog.lehoon.cn/backend/2015/09/28/window-service-program.html</link>
+      <guid>http://blog.lehoon.cn/backend/2015/09/28/window-service-program.html</guid>
+      <pubDate>Mon, 28 Sep 2015 11:40:18 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;window下编写服务程序样例。&lt;br&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2015/09/28/window-service-program.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>汇编指令集</title>
+      <link>http://blog.lehoon.cn/orther/2015/09/21/assembly-instruction.html</link>
+      <guid>http://blog.lehoon.cn/orther/2015/09/21/assembly-instruction.html</guid>
+      <pubDate>Mon, 21 Sep 2015 15:13:46 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;汇编指令集详细说明。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2015/09/21/assembly-instruction.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>bool和BOOL的区别</title>
+      <link>http://blog.lehoon.cn/orther/2015/09/15/bool-BOOL.html</link>
+      <guid>http://blog.lehoon.cn/orther/2015/09/15/bool-BOOL.html</guid>
+      <pubDate>Tue, 15 Sep 2015 15:05:48 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;bool 与BOOL的区别.&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2015/09/15/bool-BOOL.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>ssh限制ip远程登录</title>
+      <link>http://blog.lehoon.cn/orther/2015/08/20/ssh-limit.html</link>
+      <guid>http://blog.lehoon.cn/orther/2015/08/20/ssh-limit.html</guid>
+      <pubDate>Thu, 20 Aug 2015 10:19:11 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;在ssh远程登录linux中，限制其他非法的ip登录系统的几种实现方法。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2015/08/20/ssh-limit.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>ultraedit正则表达式使用</title>
+      <link>http://blog.lehoon.cn/orther/2015/08/18/ue-regex.html</link>
+      <guid>http://blog.lehoon.cn/orther/2015/08/18/ue-regex.html</guid>
+      <pubDate>Tue, 18 Aug 2015 04:33:16 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Ultraedit提供了非常丰富的编辑功能,其中非常重要的查找和替换功能一定大家都用过，UltraEdit正则表达式的查找替换功能非常方便和强大，可以在单独文件里面、指定目录下查找替换。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/orther/2015/08/18/ue-regex.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>c++使用occi连接oracle</title>
+      <link>http://blog.lehoon.cn/backend/2015/05/07/occi.html</link>
+      <guid>http://blog.lehoon.cn/backend/2015/05/07/occi.html</guid>
+      <pubDate>Thu, 07 May 2015 03:44:31 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;c++使用occi连接oracle数据库的步骤。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/backend/2015/05/07/occi.html#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>gulp 提高页面加载速度</title>
+      <link>http://blog.lehoon.cn/frontend/2015/03/06/gulp.html</link>
+      <guid>http://blog.lehoon.cn/frontend/2015/03/06/gulp.html</guid>
+      <pubDate>Fri, 06 Mar 2015 02:47:54 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;gulp 提高页面加载速度，主要通过html清理、js压缩、css压缩减少html页面的体积来降低页面加载速度。&lt;/p&gt;
+      
+      </description>
+      
+      <comments>http://blog.lehoon.cn/frontend/2015/03/06/gulp.html#disqus_thread</comments>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>rocketmq客户端sdk | Lehoon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="rocketmq开源版的客户端sdk包括：java版、c++版本、go版本。商业版包括：java版本、c/c++版本、.net版本、nodejs版本。">
+<meta name="keywords" content="rocketmq,client,sdk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rocketmq客户端sdk">
+<meta property="og:url" content="http://blog.lehoon.cn/backend/2017/02/25/rocketmq-client-sdk.html">
+<meta property="og:site_name" content="Lehoon">
+<meta property="og:description" content="rocketmq开源版的客户端sdk包括：java版、c++版本、go版本。商业版包括：java版本、c/c++版本、.net版本、nodejs版本。">
+<meta property="og:locale" content="zh_Hans">
+<meta property="og:updated_time" content="2017-03-06T05:13:28.653Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="rocketmq客户端sdk">
+<meta name="twitter:description" content="rocketmq开源版的客户端sdk包括：java版、c++版本、go版本。商业版包括：java版本、c/c++版本、.net版本、nodejs版本。">
+  
+    <link rel="alternative" href="/rss.xml" title="Lehoon" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="http://static.lehoon.cn/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="http://static.lehoon.cn/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="http://static.lehoon.cn/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Lehoon">lehoon</a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives">文章</a></li>
+                        
+                            <li><a href="/projects">项目</a></li>
+                        
+                            <li><a href="/polymerization">聚合</a></li>
+                        
+                            <li><a href="/about">关于</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:lehoon@lehoon.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/lehoon" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/lehoons" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="/rss.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">热爱生活，享受生活。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">lehoon</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">lehoon</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives">文章</a></li>
+                
+                    <li><a href="/projects">项目</a></li>
+                
+                    <li><a href="/polymerization">聚合</a></li>
+                
+                    <li><a href="/about">关于</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:lehoon@lehoon.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/lehoon" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/lehoons" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/rss.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-rocketmq-client-sdk" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/backend/2017/02/25/rocketmq-client-sdk.html" class="article-date">
+      <time datetime="2017-02-25T02:01:13.000Z" itemprop="datePublished">2017-02-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      rocketmq客户端sdk
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/backend/">后端</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/client/">client</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rocketmq/">rocketmq</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sdk/">sdk</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>rocketmq开源版的客户端sdk包括：java版、c++版本、go版本。商业版包括：java版本、c/c++版本、.net版本、nodejs版本。<br><a id="more"></a></p>
+<h2 id="开源版本sdk"><a href="#开源版本sdk" class="headerlink" title="开源版本sdk"></a>开源版本sdk</h2><h3 id="java版"><a href="#java版" class="headerlink" title="java版"></a>java版</h3><p>1、通过maven方式引入依赖<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.rocketmq<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>rocketmq-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.rocketmq<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>rocketmq-all<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>2、下载jar包<br>主要依赖：rocketmq-client-3.5.8.jar、rocketmq-common-3.5.8.jar、rocketmq-3.5.8-remoting-3.5.8.jar三个包。<br>3、参考代码,生产者<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) throws MQClientException, InterruptedException &#123;</span><br><span class="line">    DefaultMQProducer producer = <span class="keyword">new</span> DefaultMQProducer(<span class="string">"ProducerGroupName"</span>);</span><br><span class="line">    producer.setNamesrvAddr(<span class="string">"192.168.1.2:9876;192.168.1.3:9876"</span>);</span><br><span class="line">    producer.start();</span><br><span class="line">    <span class="built_in">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000</span>; i++)</span><br><span class="line">        <span class="built_in">try</span> &#123;</span><br><span class="line">            &#123;</span><br><span class="line">                Message msg = <span class="keyword">new</span> Message(<span class="string">"TopicTest"</span>,<span class="comment">// topic</span></span><br><span class="line">                        <span class="string">"TagA"</span>,<span class="comment">// tag</span></span><br><span class="line">                        <span class="string">"OrderID188"</span>,<span class="comment">// key</span></span><br><span class="line">                        (<span class="string">"Hello MetaQ"</span>).getBytes(RemotingHelper.DEFAULT_CHARSET));<span class="comment">// body</span></span><br><span class="line">                SendResult sendResult = producer.send(msg);</span><br><span class="line">                System.out.<span class="built_in">println</span>(sendResult);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="built_in">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    producer.<span class="built_in">shutdown</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>消费者<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) <span class="keyword">throws</span> InterruptedException, MQClientException &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 一个应用创建一个Consumer，由应用来维护此对象，可以设置为全局对象或者单例&lt;br&gt;</span></span><br><span class="line"><span class="comment">     * 注意：ConsumerGroupName需要由应用来保证唯一</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    DefaultMQPushConsumer consumer = <span class="keyword">new</span> DefaultMQPushConsumer(<span class="string">"ConsumerGroupName"</span>);</span><br><span class="line">    consumer.setNamesrvAddr(<span class="string">"192.168.1.182:9876"</span>);</span><br><span class="line">    consumer.setInstanceName(<span class="string">"Consumber1"</span>);</span><br><span class="line">    consumer.setMessageModel(MessageModel.BROADCASTING);</span><br><span class="line">    consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);</span><br><span class="line"></span><br><span class="line">    consumer.subscribe(<span class="string">"topic_test"</span>, <span class="string">"*"</span>);</span><br><span class="line">    consumer.registerMessageListener(</span><br><span class="line">            <span class="keyword">new</span> MessageListenerConcurrently() &#123;</span><br><span class="line">                <span class="keyword">public</span> ConsumeConcurrentlyStatus consumeMessage(List&lt;MessageExt&gt; msgs, ConsumeConcurrentlyContext context) &#123;</span><br><span class="line">                    MessageExt msg = msgs.<span class="built_in">get</span>(<span class="number">0</span>);</span><br><span class="line">                    System.out.<span class="built_in">println</span>(msg.getQueueId() + <span class="string">"========"</span> + msg.getMsgId() + <span class="string">"========"</span> + <span class="keyword">new</span> <span class="keyword">String</span>(msg.getBody()));</span><br><span class="line">                    <span class="keyword">return</span> ConsumeConcurrentlyStatus.CONSUME_SUCCESS;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Consumer对象在使用之前必须要调用start初始化，初始化一次即可&lt;br&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    consumer.start();</span><br><span class="line">    System.out.<span class="built_in">println</span>(<span class="string">"ConsumerStarted."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="c-c-版本"><a href="#c-c-版本" class="headerlink" title="c/c++版本"></a>c/c++版本</h3><p>在github上由广大用户维护的几个版本：<br>1、可用资源<br>a、<a href="https://github.com/hooligan520/rocketmq-client4cpp-linux" target="_blank" rel="noopener">https://github.com/hooligan520/rocketmq-client4cpp-linux</a>  由 <a href="https://github.com/hooligan520" target="_blank" rel="noopener">hooligan</a> 维护一个可用的版本，主要支持linux平台。推荐使用。<br>b、<a href="https://github.com/lehoon/rocketmq-client4cpp-linux" target="_blank" rel="noopener">https://github.com/lehoon/rocketmq-client4cpp-linux</a> 主要是修改文件编码为UTF-8,后续继续维护更新。<br>2、下载代码后，通过sh build.sh编译出lib在release文件夹下。<br>3、参考代码：<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化RocketMQ生产者，传入生产组名称</span></span><br><span class="line">RMQ_DEBUG(<span class="string">"producer.new: %s"</span>, <span class="built_in">group</span>.c_str());</span><br><span class="line">DefaultMQProducer producer(<span class="built_in">group</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置MQ的NameServer地址</span></span><br><span class="line">RMQ_DEBUG(<span class="string">"producer.setNamesrvAddr: %s"</span>, namesrv.c_str());</span><br><span class="line">producer.setNamesrvAddr(namesrv);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动生产者</span></span><br><span class="line">RMQ_DEBUG(<span class="string">"producer.start"</span>);</span><br><span class="line">producer.start();</span><br><span class="line"></span><br><span class="line">std::string tags[] = &#123; <span class="string">"TagA"</span>, <span class="string">"TagB"</span>, <span class="string">"TagC"</span>, <span class="string">"TagD"</span>, <span class="string">"TagE"</span> &#125;;</span><br><span class="line"></span><br><span class="line">int <span class="variable">_cost</span> = <span class="number">0</span>, <span class="variable">_tps</span> = <span class="number">0</span>, <span class="variable">_avg</span> = <span class="number">0</span>, <span class="variable">_min</span> = <span class="number">0</span>, <span class="variable">_max</span> = <span class="number">0</span>;</span><br><span class="line">int <span class="variable">_failCnt</span> = <span class="number">0</span>;</span><br><span class="line">TimeCount tc;</span><br><span class="line">TimeCount tcTotal;</span><br><span class="line">tcTotal.begin();</span><br><span class="line"></span><br><span class="line">int nNow = <span class="built_in">time</span>(NULL);</span><br><span class="line">char key[<span class="number">64</span>];</span><br><span class="line">char value[<span class="number">1024</span>];</span><br><span class="line"></span><br><span class="line">std::string <span class="built_in">str</span>;</span><br><span class="line"><span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; <span class="built_in">size</span>; i += <span class="number">8</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">str</span>.<span class="built_in">append</span>(<span class="string">"hello baby"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; <span class="built_in">count</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        tc.begin();</span><br><span class="line"></span><br><span class="line">        snprintf(key, <span class="built_in">sizeof</span>(key), <span class="string">"KEY_%d_%d"</span>, nNow, i);</span><br><span class="line">        snprintf(value, <span class="built_in">sizeof</span>(value), <span class="string">"%011d_%s"</span>, i, <span class="built_in">str</span>.c_str());</span><br><span class="line">        Message msg(topic,<span class="comment">// topic</span></span><br><span class="line">            tags[i % <span class="number">5</span>],<span class="comment">// tag</span></span><br><span class="line">            key,<span class="comment">// key</span></span><br><span class="line">            value,<span class="comment">// body</span></span><br><span class="line">            strlen(value)+<span class="number">1</span></span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 同步生产消息</span></span><br><span class="line">        SendResult sendResult = producer.send(msg);</span><br><span class="line"></span><br><span class="line">        tc.end();</span><br><span class="line"></span><br><span class="line">        int cost = tc.countMsec();</span><br><span class="line">        <span class="variable">_min</span> = (<span class="variable">_min</span> == <span class="number">0</span>) ? cost : (std::<span class="built_in">min</span>(cost, <span class="variable">_min</span>));</span><br><span class="line">        <span class="variable">_max</span> = (<span class="variable">_max</span> == <span class="number">0</span>) ? cost : (std::<span class="built_in">max</span>(cost, <span class="variable">_max</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (print_screen)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(<span class="string">"cost:%dms, result:&#123;sendStatus=%d,msgId=%s,messageQueue=[topic=%s,brokerName=%s,queueId=%d],queueOffset=%d&#125;\n"</span>,</span><br><span class="line">                cost,</span><br><span class="line">                sendResult.getSendStatus(), sendResult.getMsgId().c_str(),</span><br><span class="line">                sendResult.getMessageQueue().getTopic().c_str(),</span><br><span class="line">                sendResult.getMessageQueue().getBrokerName().c_str(),</span><br><span class="line">                sendResult.getMessageQueue().getQueueId(),</span><br><span class="line">                sendResult.getQueueOffset());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (MQClientException&amp; e)</span><br><span class="line">    &#123;</span><br><span class="line">        std::cout &lt;&lt; e &lt;&lt; std::endl;</span><br><span class="line">        <span class="variable">_failCnt</span>++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">tcTotal.end();</span><br><span class="line"></span><br><span class="line">printf(<span class="string">"statsics: num=%d, fail=%d, total_cost=%ds, tps=%d, avg=%dms, min=%dms, max=%dms\n"</span>,</span><br><span class="line">    <span class="built_in">count</span>, <span class="variable">_failCnt</span>, tcTotal.countSec(), (int)((double)<span class="built_in">count</span>/(tcTotal.countMsec()/<span class="number">1000</span>)),</span><br><span class="line">    tcTotal.countMsec()/<span class="built_in">count</span>, <span class="variable">_min</span>, <span class="variable">_max</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 停止生产者</span></span><br><span class="line">producer.shutdown();</span><br></pre></td></tr></table></figure></p>
+<h3 id="go版本"><a href="#go版本" class="headerlink" title="go版本"></a>go版本</h3><p>1、go版本是由嘀嗒拼车在github上开源的一个版本。<a href="https://github.com/didapinchegit/go_rocket_mq" target="_blank" rel="noopener">github地址</a>。<br>2、引入的go_rocket_mq库<br>3、参考代码<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">conf</span> := &amp;rocketmq.Config&#123;</span><br><span class="line">    Nameserver:   <span class="string">"192.168.1.234:9876"</span>,</span><br><span class="line">    ClientIp:     <span class="string">"192.168.1.23"</span>,</span><br><span class="line">    InstanceName: <span class="string">"DEFAULT"</span>,</span><br><span class="line">&#125;</span><br><span class="line">consumer, <span class="keyword">err</span> := rocketmq.NewDefaultConsumer(<span class="string">"C_TEST"</span>, <span class="keyword">conf</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">err</span> != nil &#123;</span><br><span class="line">    <span class="keyword">log</span>.Panic(<span class="keyword">err</span>)</span><br><span class="line">&#125;</span><br><span class="line">consumer.Subscribe(<span class="string">"test2"</span>, <span class="string">"*"</span>)</span><br><span class="line">consumer.RegisterMessageListener(func(msgs []*rocketmq.MessageExt) <span class="keyword">error</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> i, msg := <span class="keyword">range</span> msgs &#123;</span><br><span class="line">        <span class="keyword">log</span>.<span class="keyword">Print</span>(i, <span class="built_in">string</span>(msg.Body))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nil</span><br><span class="line">&#125;)</span><br><span class="line">consumer.Start()</span><br></pre></td></tr></table></figure></p>
+<h2 id="商业版sdk"><a href="#商业版sdk" class="headerlink" title="商业版sdk"></a>商业版sdk</h2><p>商业版在阿里云上，参考网址：<a href="https://help.aliyun.com/product/29530.html?spm=5176.doc29561.3.1.FiDeyn" target="_blank" rel="noopener">https://help.aliyun.com/product/29530.html?spm=5176.doc29561.3.1.FiDeyn</a></p>
+<h3 id="java-sdk"><a href="#java-sdk" class="headerlink" title="java sdk"></a>java sdk</h3><p>参考网址：<a href="https://help.aliyun.com/document_detail/29546.html?spm=5176.doc42419.6.571.RM2pFd" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/29546.html?spm=5176.doc42419.6.571.RM2pFd</a></p>
+<h3 id="c-c-sdk"><a href="#c-c-sdk" class="headerlink" title="c/c++ sdk"></a>c/c++ sdk</h3><p>参考网址：<a href="https://help.aliyun.com/document_detail/29555.html?spm=5176.doc29546.6.581.qYwUZd" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/29555.html?spm=5176.doc29546.6.581.qYwUZd</a></p>
+<h3 id="net-sdk"><a href="#net-sdk" class="headerlink" title=".net sdk"></a>.net sdk</h3><p>参考网址：<a href="https://help.aliyun.com/document_detail/29561.html?spm=5176.doc29555.6.587.D9x3wx" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/29561.html?spm=5176.doc29555.6.587.D9x3wx</a></p>
+<h3 id="nodejs-sdk"><a href="#nodejs-sdk" class="headerlink" title="nodejs sdk"></a>nodejs sdk</h3><p>由大神维护的一个开源版本，github地址: <a href="https://github.com/XadillaX/aliyun-ons" target="_blank" rel="noopener">https://github.com/XadillaX/aliyun-ons</a><br>此版本依赖于官方的c/c++库，所以需要先安装c/c++库。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/backend/2017/02/25/rocketmq-client-sdk.html">rocketmq客户端sdk</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 lehoon 的个人博客">lehoon</a></p>
+        <p><span>发布时间:</span>2017年02月25日 - 10时01分</p>
+        <p><span>最后更新:</span>2017年03月06日 - 13时13分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/backend/2017/02/25/rocketmq-client-sdk.html" title="rocketmq客户端sdk">http://blog.lehoon.cn/backend/2017/02/25/rocketmq-client-sdk.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.lehoon.cn/backend/2017/02/25/rocketmq-client-sdk.html　　作者: lehoon" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/frontend/2017/03/10/extjs-form-submit.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          extjs中form表单提交注意点
+        
+      </div>
+    </a>
+  
+  
+    <a href="/orther/2017/02/22/source-insight4-crack.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">source insight4安装使用</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开源版本sdk"><span class="toc-number">1.</span> <span class="toc-text">开源版本sdk</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java版"><span class="toc-number">1.1.</span> <span class="toc-text">java版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c-c-版本"><span class="toc-number">1.2.</span> <span class="toc-text">c/c++版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go版本"><span class="toc-number">1.3.</span> <span class="toc-text">go版本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#商业版sdk"><span class="toc-number">2.</span> <span class="toc-text">商业版sdk</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-sdk"><span class="toc-number">2.1.</span> <span class="toc-text">java sdk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c-c-sdk"><span class="toc-number">2.2.</span> <span class="toc-text">c/c++ sdk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#net-sdk"><span class="toc-number">2.3.</span> <span class="toc-text">.net sdk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nodejs-sdk"><span class="toc-number">2.4.</span> <span class="toc-text">nodejs sdk</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/frontend/2017/03/10/extjs-form-submit.html" title="上一篇: extjs中form表单提交注意点">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/orther/2017/02/22/source-insight4-crack.html" title="下一篇: source insight4安装使用">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/orther/2018/03/27/svn-showlog-date-1970.html">svn查看日志显示时间为1970解决方法</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/03/23/oracle12c-create-instance.html">oracle12c手动创建cdb实例</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/03/14/librdkafka-config.html">librdkafka配置参数详解</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/12/25/apk-decompile-tools.html">apk反编译工具</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/12/08/map-accuracy2scale.html">地图精度与电子地图比例尺的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/12/08/window-big-file-tools.html">window系统大文件打开工具</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/10/27/gnss-gprmc-format.html">GPRMC格式详解</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2017/09/21/autobuild-static-version.html">通过gulp自动构建项目静态资源的版本号</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/08/28/load-session-persistent-exception.html">Exception loading sessions from persistent storage</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/06/20/mysql-reset-password.html">Mysql重设密码和远程访问</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/06/19/idea-file-format.html">Intellij-idea文件格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/06/13/jstorm-hbase-issue.html">jstorm集成hbase、rocketmq</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/06/09/jps-process-information-unavailable.html">jps出现process information unavailable解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/05/31/linux-find-command-examples.html">Linux中find的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/05/27/vs-compilemode-difference.html">VS运行库区别</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/05/19/cache-invalid-problem.html">缓存击穿、失效及热点key问题</a></li><li class="post-list-item"><a class="post-list-link" href="/运维/2017/05/12/linux-operation-maintenance.html">linux运维</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/05/03/eight-diagram-tactics.html">八卦阵解释</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/05/03/gnss-terminology.html">gnss术语</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/04/28/ae-network-library.html">ae网络库</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/04/25/gnss-gpgga-formet.html">GPGGA格式详解</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/04/10/maven-download-timeout.html">maven下载文件超时</a></li><li class="post-list-item"><a class="post-list-link" href="/middleware/2017/03/31/storm-core-terminology.html">storm核心术语介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/03/30/hbase-insert-select.html">hbase通过api写入和查询</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/03/28/oracle-note-sql.html">oracle常用sql</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2017/03/27/extjs-treepanel-singleselect.html">extjs-treepanel实现单选功能</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/03/15/java-double-compare.html">java语言中double比较大小方法</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2017/03/10/extjs-form-submit.html">extjs中form表单提交注意点</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/02/25/rocketmq-client-sdk.html">rocketmq客户端sdk</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/02/22/source-insight4-crack.html">source insight4安装使用</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/02/21/rocketmq-topic-delete.html">rocketmq删除topic</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/02/21/rocketmq-message-store.html">rocketmq消息存储</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/02/20/idempotent-define.html">幂等介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/02/20/github-sync-fork-upstream.html">github上fork项目源同步</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/02/16/intellij-idea-2016.html">intellij-idea-2016下载安装</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/01/24/bubiao-protocol.html">部标808协议文件</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/01/24/life-secret.html">生活小秘方</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/01/10/mysql-odbc-driver-error.html">无法加载mysql odbc 5.3 unicode driver</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/25/rocketmq-net-port.html">rocketmq服务中的端口号</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html">rocketmq中broker启动同步topic到namesrv过程</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/11/10/java-error-note.html">java常见错误</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/09/rocketmq-install-note.html">rocketmq安装记录</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/09/rocketmq-docs.html">Rocketmq文档</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/10/28/game-develop-skill.html">游戏开发要点</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/10/14/oracle-error-note.html">oracle错误记录</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/10/11/oracle-materialized-view.html">oracle物化视图</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/10/09/centos-oracle11gr2-install.html">Centos7安装oracle11gr2</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/10/08/gdb-miss-debuginfo.html">gdb-miss-debuginfo</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/29/linux-io-schedule.html">Linux IO调度算法</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/27/linux-c-func.html">Linux下C函数定义</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/26/tcpdump.html">tcpdump使用文档</a></li><li class="post-list-item"><a class="post-list-link" href="/编程/2016/09/20/eim.html">eim</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/16/linux-strace.html">linux-strace使用介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/16/linux-brk-sbrk.html">brk,sbrk--改变数据段长度</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/07/centos-note.html">Centos记录</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/09/05/raid.html">raid磁盘阵列介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/02/nginx-load-balance.html">nginx负载均衡各种场景下的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/09/01/usb-centos-error.html">U盘安装centos7，启动报错</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2016/09/01/js-generate-uuid.html">JavaScript生成全局唯一id的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/08/29/notepad.html">随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/08/22/kafka-window.html">kafka在window下部署</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/08/19/makefile.html">Makefile学习</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2016/08/16/http-etag-last-midified.html">HTTP缓存ETAG和Last-Modified</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/08/16/ip-catagory.html">ip地址分类</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/08/09/android-connection-session.html">android非浏览器应用程序与服务器会话保持实现</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/28/memcache-memcached-diff.html">memcache与memcached区别</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/19/centos-lvs.html">CentOS 7.0下安装部署LVS</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/07/19/awk.html">awk学习</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/11/epoll.html">Linux epoll学习</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/04/golang-deamon.html">go守护进程实现方式</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/04/tcp-load-balancing.html">tcp连接负载均衡</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/04/tcp-rst.html">tcp出现rst情况</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/05/26/linux-tcp-optimization.html">Linux下tcp的优化</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/05/08/oracle-merge-into.html">oracle中merge into语法注意点</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/02/05/window-batch.html">Window批处理记录</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2015/10/11/kesankaoshi.html">机动车驾驶科目三操作要领</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2015/09/28/window-service-program.html">window服务编程</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2015/09/21/assembly-instruction.html">汇编指令集</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2015/09/15/bool-BOOL.html">bool和BOOL的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2015/08/20/ssh-limit.html">ssh限制ip远程登录</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2015/08/18/ue-regex.html">ultraedit正则表达式使用</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2015/05/07/occi.html">c++使用occi连接oracle</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2015/03/06/gulp.html">gulp 提高页面加载速度</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 lehoon
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="http://static.lehoon.cn/static/js/require-2.1.6.min.js"></script>
+<script src="http://static.lehoon.cn/static/js/jquery-1.9.1.min.js"></script>
+<script src="http://static.lehoon.cn/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 3;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".jpg)";
+            //$("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            //$(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?3ee891f83ef39340c672188e2567ec64";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
