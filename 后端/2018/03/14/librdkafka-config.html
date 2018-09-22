@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>librdkafka配置参数详解 | Lehoon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="librdkafka配置参数整理。">
+<meta name="keywords" content="kafka,配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="librdkafka配置参数详解">
+<meta property="og:url" content="http://blog.lehoon.cn/后端/2018/03/14/librdkafka-config.html">
+<meta property="og:site_name" content="Lehoon">
+<meta property="og:description" content="librdkafka配置参数整理。">
+<meta property="og:locale" content="zh_Hans">
+<meta property="og:updated_time" content="2018-09-22T13:30:49.021Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="librdkafka配置参数详解">
+<meta name="twitter:description" content="librdkafka配置参数整理。">
+  
+    <link rel="alternative" href="/rss.xml" title="Lehoon" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="http://static.lehoon.cn/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="http://static.lehoon.cn/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="http://static.lehoon.cn/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Lehoon">lehoon</a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives">文章</a></li>
+                        
+                            <li><a href="/projects">项目</a></li>
+                        
+                            <li><a href="/polymerization">聚合</a></li>
+                        
+                            <li><a href="/about">关于</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:lehoon@lehoon.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/lehoon" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/lehoons" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="/rss.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">热爱生活，享受生活。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">lehoon</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">lehoon</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives">文章</a></li>
+                
+                    <li><a href="/projects">项目</a></li>
+                
+                    <li><a href="/polymerization">聚合</a></li>
+                
+                    <li><a href="/about">关于</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:lehoon@lehoon.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/lehoon" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/lehoons" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/rss.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-librdkafka-config" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/后端/2018/03/14/librdkafka-config.html" class="article-date">
+      <time datetime="2018-03-14T03:09:24.000Z" itemprop="datePublished">2018-03-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      librdkafka配置参数详解
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/后端/">后端</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kafka/">kafka</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>librdkafka配置参数整理。<br><a id="more"></a></p>
+<h2 id="全局配置参数"><a href="#全局配置参数" class="headerlink" title="全局配置参数"></a>全局配置参数</h2><p><a href="https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md" target="_blank" rel="noopener">原文地址</a></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>C/P</th>
+<th>Range</th>
+<th>Default</th>
+<th>Description              </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>builtin.features</td>
+<td>*</td>
+<td></td>
+<td>gzip, snappy, ssl, sasl, regex, lz4, sasl_gssapi, sasl_plain, sasl_scram, plugins</td>
+<td>标示该librdkafka的支持的内建特性。应用程序可以查看或设置这些值来检查是否支持这些特性. <br><em>Type: CSV flags</em></td>
+</tr>
+<tr>
+<td>client.id</td>
+<td>*</td>
+<td></td>
+<td>rdkafka</td>
+<td>客户端标识. <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>metadata.broker.list</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>初始化的broker列表，host:port格式, 应用程序可以使用rd_kafka_brokers_add()动态添加broker. <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>bootstrap.servers</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>参考 metadata.broker.list</td>
+</tr>
+<tr>
+<td>message.max.bytes</td>
+<td>*</td>
+<td>1000 .. 1000000000</td>
+<td>1000000</td>
+<td>消息发送最大字节数. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>message.copy.max.bytes</td>
+<td>*</td>
+<td>0 .. 1000000000</td>
+<td>65535</td>
+<td>消息缓冲区最大字节数，多出的消息将通过引用传递，但是会消耗更多的内存(struct iovec). <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>receive.message.max.bytes</td>
+<td>*</td>
+<td>1000 .. 1000000000</td>
+<td>100000000</td>
+<td>kafka消息接收最大字节数，这事一种安全机制，防止在最坏的情况耗尽内存问题。建议值：fetch.message.max.bytes <em> 分区数 + 消息的最大字节数.<br></em>Type: integer*</td>
+</tr>
+<tr>
+<td>max.in.flight.requests.per.connection</td>
+<td>*</td>
+<td>1 .. 1000000</td>
+<td>1000000</td>
+<td>broker连接数最大值，针对每个broker配置。主要用于发送消息，但是其他机制将会限制每个broker未处理消息消费数量为1个. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>max.in.flight</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>参考 max.in.flight.requests.per.connection</td>
+</tr>
+<tr>
+<td>metadata.request.timeout.ms</td>
+<td>*</td>
+<td>10 .. 900000</td>
+<td>60000</td>
+<td>没有数据操作的超时时间，单位毫秒. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>topic.metadata.refresh.interval.ms</td>
+<td>*</td>
+<td>-1 .. 3600000</td>
+<td>300000</td>
+<td>数据刷新时间间隔，单位毫秒，自动刷新错误和连接，设置为-1则关闭刷新时间间隔. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>metadata.max.age.ms</td>
+<td>*</td>
+<td>1 .. 86400000</td>
+<td>-1</td>
+<td>元数据缓存最大生命周期. 默认值为数据刷新时间间隔 metadata.refresh.interval.ms <em> 3 <br></em>Type: integer*</td>
+</tr>
+<tr>
+<td>topic.metadata.refresh.fast.interval.ms</td>
+<td>*</td>
+<td>1 .. 60000</td>
+<td>250</td>
+<td>topic主题失去leader领导者时，元数据请求发送间隔. 用户快速恢复broker leader. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>topic.metadata.refresh.fast.cnt</td>
+<td>*</td>
+<td>0 .. 1000</td>
+<td>10</td>
+<td>保留，未启用. <em> <br></em>Type: integer*</td>
+</tr>
+<tr>
+<td>topic.metadata.refresh.sparse</td>
+<td>*</td>
+<td>true, false</td>
+<td>true</td>
+<td>极少的元数据请求，消费者的网络带宽很小 <br><em>Type: boolean</em></td>
+</tr>
+<tr>
+<td>topic.blacklist</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>topic内名单，逗号分割增则表达式列表. <br><em>Type: pattern list</em></td>
+</tr>
+<tr>
+<td>debug</td>
+<td>*</td>
+<td>generic, broker, topic, metadata, feature, queue, msg, protocol, cgrp, security, fetch, interceptor, plugin, consumer, all</td>
+<td></td>
+<td>一个逗号分割的调试上下文列表，包括：生产者：broker、topic、message； 消费者：cgroup、topic、tetch等 <br><em>Type: CSV flags</em></td>
+</tr>
+<tr>
+<td>socket.timeout.ms</td>
+<td>*</td>
+<td>10 .. 300000</td>
+<td>60000</td>
+<td>默认的网络请求超时时间, Producer：ProduceRequests将使用批处理中第一条消息的socket.timeout.ms和其余message.timeout.ms的较小值。 使用者：FetchRequests将使用fetch.wait.max.ms + socket.timeout.ms.  <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>socket.blocking.max.ms</td>
+<td>*</td>
+<td>1 .. 60000</td>
+<td>1000</td>
+<td>socket套接字可能阻塞的最大时间，比较小的值提高了响应速度，但是CPU负载比较大. 已废弃. <strong>Deprecated</strong> <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>socket.send.buffer.bytes</td>
+<td>*</td>
+<td>0 .. 100000000</td>
+<td>0</td>
+<td>broker端发送缓冲区大小，0则使用系统默认值. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>socket.receive.buffer.bytes</td>
+<td>*</td>
+<td>0 .. 100000000</td>
+<td>0</td>
+<td>broker端接收缓冲区大小，0则使用系统默认值. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>socket.keepalive.enable</td>
+<td>*</td>
+<td>true, false</td>
+<td>false</td>
+<td>启用TCP keep-alives (SO_KEEPALIVE) on broker sockets <br><em>Type: boolean</em></td>
+</tr>
+<tr>
+<td>socket.nagle.disable</td>
+<td>*</td>
+<td>true, false</td>
+<td>false</td>
+<td>禁用nagle 算法TCP_NODELAY  <br><em>Type: boolean</em></td>
+</tr>
+<tr>
+<td>socket.max.fails</td>
+<td>*</td>
+<td>0 .. 1000000</td>
+<td>1</td>
+<td>发送失败的最大次数，超过该次数后断开与broker的连接，0 禁用；注意：连接会自动重连. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>broker.address.ttl</td>
+<td>*</td>
+<td>0 .. 86400000</td>
+<td>1000</td>
+<td>broker地址解析结果缓存值(毫秒). <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>broker.address.family</td>
+<td>*</td>
+<td>any, v4, v6</td>
+<td>any</td>
+<td>any  ipv4  ipv6 <br><em>Type: enum value</em></td>
+</tr>
+<tr>
+<td>reconnect.backoff.jitter.ms</td>
+<td>*</td>
+<td>0 .. 3600000</td>
+<td>500</td>
+<td>通过该配置参数+-50%调整broker重连. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>statistics.interval.ms</td>
+<td>*</td>
+<td>0 .. 86400000</td>
+<td>0</td>
+<td>librdkafka统计时间间隔，应用程序也应该通过注册回调函数来实现对统计指标的监控，0禁用，单位1000ms. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>enabled_events</td>
+<td>*</td>
+<td>0 .. 2147483647</td>
+<td>0</td>
+<td>See rd_kafka_conf_set_events() <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>error_cb</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>发送错误的回调函数， (set with rd_kafka_conf_set_error_cb()) <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>throttle_cb</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>调整回调函数 (set with rd_kafka_conf_set_throttle_cb()) <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>stats_cb</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>统计回调函数 (set with rd_kafka_conf_set_stats_cb()) <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>log_cb</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>日志回调函数 (set with rd_kafka_conf_set_log_cb()) <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>log_level</td>
+<td>*</td>
+<td>0 .. 7</td>
+<td>6</td>
+<td>日志级别 (syslog(3) levels) <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>log.queue</td>
+<td>*</td>
+<td>true, false</td>
+<td>false</td>
+<td>禁用内部librdkafka线程中的自发log_cb，而是使用rd_kafka_set_log_queue（）将队列中的日志消息排入队列，并通过标准轮询API提供日志回调或事件。 <strong>注意</strong>：日志消息将一直存在于临时队列中，直到日志队列被设置. <br><em>Type: boolean</em></td>
+</tr>
+<tr>
+<td>log.thread.name</td>
+<td>*</td>
+<td>true, false</td>
+<td>true</td>
+<td>在日志中记录线程名称，经常用于调试librdkafka内部问题 <br><em>Type: boolean</em></td>
+</tr>
+<tr>
+<td>log.connection.close</td>
+<td>*</td>
+<td>true, false</td>
+<td>true</td>
+<td>记录broker关闭事件，受0.9版本的connection.max.idle.ms参数影响，一般建议关闭该参数. <br><em>Type: boolean</em></td>
+</tr>
+<tr>
+<td>socket_cb</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>为socket套接字创建CLOEXEC提供回调函数 <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>connect_cb</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>socket连接的回调函数 <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>closesocket_cb</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>socket关闭的回调函数 <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>open_cb</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>打开文件时CLOEXEC的回调函数 <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>opaque</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>应用程序设置的上下文参数，一般用与消息发送后的回调、librdkafka注册函数回调的上下文，主要用于参数传递，由c++到c在转会c++指针寻址上 (set with rd_kafka_conf_set_opaque()) <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>default_topic_conf</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>自动订阅主题的默认配置参数 <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>internal.termination.signal</td>
+<td>*</td>
+<td>0 .. 128</td>
+<td>0</td>
+<td>370/5000librdkafka将用于快速终止rd_kafka_destroy（）的信号。 如果未设置此信号，则会在rd_kafka_wait_destroyed（）返回true之前发生延迟，因为内部线程正在超时执行其系统调用。 如果这个信号被设置，但延迟将是最小的。 应用程序应该在安装内部信号处理程序时屏蔽此信号。 <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>api.version.request</td>
+<td>*</td>
+<td>true, false</td>
+<td>true</td>
+<td>请求broker支持的API版本以调整可用协议功能的功能。 如果设置为false，或者ApiVersionRequest失败，则将使用备用版本broker.version.fallback。 <strong>注意</strong>：取决于broker版本&gt; = 0.10.0。 如果（较旧的）代理不支持请求，则使用broker.version.fallback回退. <br><em>Type: boolean</em></td>
+</tr>
+<tr>
+<td>api.version.request.timeout.ms</td>
+<td>*</td>
+<td>1 .. 300000</td>
+<td>10000</td>
+<td>broker的api版本请求超时时间. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>api.version.fallback.ms</td>
+<td>*</td>
+<td>0 .. 604800000</td>
+<td>1200000</td>
+<td>Dictates how long the broker.version.fallback fallback is used in the case the ApiVersionRequest fails. <strong>NOTE</strong>: The ApiVersionRequest is only issued when a new connection to the broker is made (such as after an upgrade). <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>broker.version.fallback</td>
+<td>*</td>
+<td></td>
+<td>0.9.0</td>
+<td>Older broker versions (&lt;0.10.0) provides no way for a client to query for supported protocol features (ApiVersionRequest, see api.version.request) making it impossible for the client to know what features it may use. As a workaround a user may set this property to the expected broker version and the client will automatically adjust its feature set accordingly if the ApiVersionRequest fails (or is disabled). The fallback broker version will be used for api.version.fallback.ms. Valid values are: 0.9.0, 0.8.2, 0.8.1, 0.8.0. Any other value, such as 0.10.2.1, enables ApiVersionRequests. <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>security.protocol</td>
+<td>*</td>
+<td>plaintext, ssl, sasl_plaintext, sasl_ssl</td>
+<td>plaintext</td>
+<td>用于和broker通信的协议，默认plaintext. <br><em>Type: enum value</em></td>
+</tr>
+<tr>
+<td>ssl.cipher.suites</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>根据SSL/TLS规范,客户端提交使用的加密算法. See manual page for ciphers(1) and SSL_CTX_set_cipher_list(3). <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>ssl.key.location</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>客户端私钥的路径. <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>ssl.key.password</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>私钥密码 <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>ssl.certificate.location</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>公钥地址. <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>ssl.ca.location</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>CA证书路径. <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>ssl.crl.location</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>CRL 路径，用于 broker 的证书校验. <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>ssl.keystore.location</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>keystore存储路径. <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>ssl.keystore.password</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>keystore 密码. <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>sasl.mechanisms</td>
+<td>*</td>
+<td></td>
+<td>GSSAPI</td>
+<td>使用 SASL 机制鉴权。 支持：GSSAPI, PLAIN. 提示: 只能配置一种机制名. <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>sasl.mechanism</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>Alias for sasl.mechanisms</td>
+</tr>
+<tr>
+<td>sasl.kerberos.service.name</td>
+<td>*</td>
+<td></td>
+<td>kafka</td>
+<td>Kafka 运行的 Kerberos 首要名, not including /hostname@REALM <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>sasl.kerberos.principal</td>
+<td>*</td>
+<td></td>
+<td>kafkaclient</td>
+<td>客户端的 Kerberos 首要名. (Not supported on Windows, will use the logon user’s principal). <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>sasl.kerberos.kinit.cmd</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>完整的 kerberos kinit 命令串，%{config.prop.name} 替换为与配置对象一直的值，%{broker.name} broker 的主机名. <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>sasl.kerberos.keytab</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>Kerberos keytab 文件的路径。如果不设置，则使用系统默认的。提示：不会自动使用，必须在 sasl.kerberos.kinit.cmd 中添加到模板  … -t %{sasl.kerberos.keytab}. <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>sasl.kerberos.min.time.before.relogin</td>
+<td>*</td>
+<td>1 .. 86400000</td>
+<td>60000</td>
+<td>Key 恢复尝试的最小时间，毫秒. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>sasl.username</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>使用 PLAIN 机制时，SASL 用户名 <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>sasl.password</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>使用 PLAIN 机制时，SASL 密码 <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>plugin.library.paths</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>使用;分割的插件库列表，如果没有标明库文件后缀，则根据平台自动配置dll或者so后缀名. <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>interceptors</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>通过rd_kafka_conf_interceptoes添加拦截器. <br><em>Type: </em></td>
+</tr>
+<tr>
+<td>group.id</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>客户端分组编号id <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>partition.assignment.strategy</td>
+<td>*</td>
+<td></td>
+<td>range,roundrobin</td>
+<td>分区策略名称（轮询、范围）. <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>session.timeout.ms</td>
+<td>*</td>
+<td>1 .. 3600000</td>
+<td>30000</td>
+<td>客户端会话超时时间. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>heartbeat.interval.ms</td>
+<td>*</td>
+<td>1 .. 3600000</td>
+<td>1000</td>
+<td>组会话超时时间. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>group.protocol.type</td>
+<td>*</td>
+<td></td>
+<td>consumer</td>
+<td>组协议类型 <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>coordinator.query.interval.ms</td>
+<td>*</td>
+<td>1 .. 3600000</td>
+<td>600000</td>
+<td>多久查询一次当前的客户端组协调器。 如果当前分配的协调器已关闭，则在协调器重新分配的情况下，配置的查询时间间隔将除以10以更快地恢复. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>enable.auto.commit</td>
+<td>C</td>
+<td>true, false</td>
+<td>true</td>
+<td>在后台周期性的自动提交偏移量. Note: setting this to false does not prevent the consumer from fetching previously committed start offsets. To circumvent this behaviour set specific start offsets per partition in the call to assign(). <br><em>Type: boolean</em></td>
+</tr>
+<tr>
+<td>auto.commit.interval.ms</td>
+<td>C</td>
+<td>0 .. 86400000</td>
+<td>5000</td>
+<td>消费者偏移量提交（写入）到存储的频率，毫秒。(0 = 不可用) . (0 = disable). This setting is used by the high-level consumer. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>enable.auto.offset.store</td>
+<td>C</td>
+<td>true, false</td>
+<td>true</td>
+<td>Automatically store offset of last message provided to application. <br><em>Type: boolean</em></td>
+</tr>
+<tr>
+<td>queued.min.messages</td>
+<td>C</td>
+<td>1 .. 10000000</td>
+<td>100000</td>
+<td>Minimum number of messages per topic+partition librdkafka tries to maintain in the local consumer queue. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>queued.max.messages.kbytes</td>
+<td>C</td>
+<td>1 .. 2097151</td>
+<td>1048576</td>
+<td>Maximum number of kilobytes per topic+partition in the local consumer queue. This value may be overshot by fetch.message.max.bytes. This property has higher priority than queued.min.messages. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>fetch.wait.max.ms</td>
+<td>C</td>
+<td>0 .. 300000</td>
+<td>100</td>
+<td>Maximum time the broker may wait to fill the response with fetch.min.bytes. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>fetch.message.max.bytes</td>
+<td>C</td>
+<td>1 .. 1000000000</td>
+<td>1048576</td>
+<td>Initial maximum number of bytes per topic+partition to request when fetching messages from the broker. If the client encounters a message larger than this value it will gradually try to increase it until the entire message can be fetched. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>max.partition.fetch.bytes</td>
+<td>C</td>
+<td></td>
+<td></td>
+<td>Alias for fetch.message.max.bytes</td>
+</tr>
+<tr>
+<td>fetch.min.bytes</td>
+<td>C</td>
+<td>1 .. 100000000</td>
+<td>1</td>
+<td>Minimum number of bytes the broker responds with. If fetch.wait.max.ms expires the accumulated data will be sent to the client regardless of this setting. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>fetch.error.backoff.ms</td>
+<td>C</td>
+<td>0 .. 300000</td>
+<td>500</td>
+<td>How long to postpone the next fetch request for a topic+partition in case of a fetch error. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>offset.store.method</td>
+<td>C</td>
+<td>none, file, broker</td>
+<td>broker</td>
+<td>Offset commit store method: ‘file’ - local file store (offset.store.path, et.al), ‘broker’ - broker commit store (requires Apache Kafka 0.8.2 or later on the broker). <br><em>Type: enum value</em></td>
+</tr>
+<tr>
+<td>consume_cb</td>
+<td>C</td>
+<td></td>
+<td></td>
+<td>Message consume callback (set with rd_kafka_conf_set_consume_cb()) <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>rebalance_cb</td>
+<td>C</td>
+<td></td>
+<td></td>
+<td>Called after consumer group has been rebalanced (set with rd_kafka_conf_set_rebalance_cb()) <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>offset_commit_cb</td>
+<td>C</td>
+<td></td>
+<td></td>
+<td>Offset commit result propagation callback. (set with rd_kafka_conf_set_offset_commit_cb()) <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>enable.partition.eof</td>
+<td>C</td>
+<td>true, false</td>
+<td>true</td>
+<td>Emit RD_KAFKA_RESP_ERR__PARTITION_EOF event whenever the consumer reaches the end of a partition. <br><em>Type: boolean</em></td>
+</tr>
+<tr>
+<td>check.crcs</td>
+<td>C</td>
+<td>true, false</td>
+<td>false</td>
+<td>Verify CRC32 of consumed messages, ensuring no on-the-wire or on-disk corruption to the messages occurred. This check comes at slightly increased CPU usage. <br><em>Type: boolean</em></td>
+</tr>
+<tr>
+<td>queue.buffering.max.messages</td>
+<td>P</td>
+<td>1 .. 10000000</td>
+<td>100000</td>
+<td>Maximum number of messages allowed on the producer queue. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>queue.buffering.max.kbytes</td>
+<td>P</td>
+<td>1 .. 2097151</td>
+<td>1048576</td>
+<td>Maximum total message size sum allowed on the producer queue. This property has higher priority than queue.buffering.max.messages. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>queue.buffering.max.ms</td>
+<td>P</td>
+<td>0 .. 900000</td>
+<td>0</td>
+<td>Delay in milliseconds to wait for messages in the producer queue to accumulate before constructing message batches (MessageSets) to transmit to brokers. A higher value allows larger and more effective (less overhead, improved compression) batches of messages to accumulate at the expense of increased message delivery latency. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>linger.ms</td>
+<td>P</td>
+<td></td>
+<td></td>
+<td>Alias for queue.buffering.max.ms</td>
+</tr>
+<tr>
+<td>message.send.max.retries</td>
+<td>P</td>
+<td>0 .. 10000000</td>
+<td>2</td>
+<td>How many times to retry sending a failing MessageSet. <strong>Note:</strong> retrying may cause reordering. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>retries</td>
+<td>P</td>
+<td></td>
+<td></td>
+<td>Alias for message.send.max.retries</td>
+</tr>
+<tr>
+<td>retry.backoff.ms</td>
+<td>P</td>
+<td>1 .. 300000</td>
+<td>100</td>
+<td>The backoff time in milliseconds before retrying a protocol request. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>queue.buffering.backpressure.threshold</td>
+<td>P</td>
+<td>0 .. 1000000</td>
+<td>10</td>
+<td>The threshold of outstanding not yet transmitted requests needed to backpressure the producer’s message accumulator. A lower number yields larger and more effective batches. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>compression.codec</td>
+<td>P</td>
+<td>none, gzip, snappy, lz4</td>
+<td>none</td>
+<td>compression codec to use for compressing message sets. This is the default value for all topics, may be overriden by the topic configuration property compression.codec.  <br><em>Type: enum value</em></td>
+</tr>
+<tr>
+<td>compression.type</td>
+<td>P</td>
+<td></td>
+<td></td>
+<td>Alias for compression.codec</td>
+</tr>
+<tr>
+<td>batch.num.messages</td>
+<td>P</td>
+<td>1 .. 1000000</td>
+<td>10000</td>
+<td>Maximum number of messages batched in one MessageSet. The total MessageSet size is also limited by message.max.bytes. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>delivery.report.only.error</td>
+<td>P</td>
+<td>true, false</td>
+<td>false</td>
+<td>Only provide delivery reports for failed messages. <br><em>Type: boolean</em></td>
+</tr>
+<tr>
+<td>dr_cb</td>
+<td>P</td>
+<td></td>
+<td></td>
+<td>Delivery report callback (set with rd_kafka_conf_set_dr_cb()) <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>dr_msg_cb</td>
+<td>P</td>
+<td></td>
+<td></td>
+<td>Delivery report callback (set with rd_kafka_conf_set_dr_msg_cb()) <br><em>Type: pointer</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Topic-configuration-properties"><a href="#Topic-configuration-properties" class="headerlink" title="Topic configuration properties"></a>Topic configuration properties</h2><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>C/P</th>
+<th>Range</th>
+<th>Default</th>
+<th>Description              </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>request.required.acks</td>
+<td>P</td>
+<td>-1 .. 1000</td>
+<td>1</td>
+<td>This field indicates how many acknowledgements the leader broker must receive from ISR brokers before responding to the request: <em>0</em>=Broker does not send any response/ack to client, <em>1</em>=Only the leader broker will need to ack the message, <em>-1</em> or <em>all</em>=broker will block until message is committed by all in sync replicas (ISRs) or broker’s min.insync.replicas setting before sending response.  <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>acks</td>
+<td>P</td>
+<td></td>
+<td></td>
+<td>Alias for request.required.acks</td>
+</tr>
+<tr>
+<td>request.timeout.ms</td>
+<td>P</td>
+<td>1 .. 900000</td>
+<td>5000</td>
+<td>The ack timeout of the producer request in milliseconds. This value is only enforced by the broker and relies on request.required.acks being != 0. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>message.timeout.ms</td>
+<td>P</td>
+<td>0 .. 900000</td>
+<td>300000</td>
+<td>Local message timeout. This value is only enforced locally and limits the time a produced message waits for successful delivery. A time of 0 is infinite. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>queuing.strategy</td>
+<td>P</td>
+<td>fifo, lifo</td>
+<td>fifo</td>
+<td>Producer queuing strategy. FIFO preserves produce ordering, while LIFO prioritizes new messages. WARNING: lifo is experimental and subject to change or removal. <br><em>Type: enum value</em></td>
+</tr>
+<tr>
+<td>produce.offset.report</td>
+<td>P</td>
+<td>true, false</td>
+<td>false</td>
+<td>Report offset of produced message back to application. The application must be use the dr_msg_cb to retrieve the offset from rd_kafka_message_t.offset. <br><em>Type: boolean</em></td>
+</tr>
+<tr>
+<td>partitioner</td>
+<td>P</td>
+<td></td>
+<td>consistent_random</td>
+<td>Partitioner: random - random distribution, consistent - CRC32 hash of key (Empty and NULL keys are mapped to single partition), consistent_random - CRC32 hash of key (Empty and NULL keys are randomly partitioned), murmur2 - Java Producer compatible Murmur2 hash of key (NULL keys are mapped to single partition), murmur2_random - Java Producer compatible Murmur2 hash of key (NULL keys are randomly partitioned. This is functionally equivalent to the default partitioner in the Java Producer.). <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>partitioner_cb</td>
+<td>P</td>
+<td></td>
+<td></td>
+<td>Custom partitioner callback (set with rd_kafka_topic_conf_set_partitioner_cb()) <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>msg_order_cmp</td>
+<td>P</td>
+<td></td>
+<td></td>
+<td>Message queue ordering comparator (set with rd_kafka_topic_conf_set_msg_order_cmp()). Also see queuing.strategy. <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>opaque</td>
+<td>*</td>
+<td></td>
+<td></td>
+<td>Application opaque (set with rd_kafka_topic_conf_set_opaque()) <br><em>Type: pointer</em></td>
+</tr>
+<tr>
+<td>compression.codec</td>
+<td>P</td>
+<td>none, gzip, snappy, lz4, inherit</td>
+<td>inherit</td>
+<td>Compression codec to use for compressing message sets. inherit = inherit global compression.codec configuration. <br><em>Type: enum value</em></td>
+</tr>
+<tr>
+<td>compression.type</td>
+<td>P</td>
+<td></td>
+<td></td>
+<td>Alias for compression.codec</td>
+</tr>
+<tr>
+<td>auto.commit.enable</td>
+<td>C</td>
+<td>true, false</td>
+<td>true</td>
+<td>If true, periodically commit offset of the last message handed to the application. This committed offset will be used when the process restarts to pick up where it left off. If false, the application will have to call rd_kafka_offset_store() to store an offset (optional). <strong>NOTE:</strong> This property should only be used with the simple legacy consumer, when using the high-level KafkaConsumer the global enable.auto.commit property must be used instead. <strong>NOTE:</strong> There is currently no zookeeper integration, offsets will be written to broker or local file according to offset.store.method. <br><em>Type: boolean</em></td>
+</tr>
+<tr>
+<td>enable.auto.commit</td>
+<td>C</td>
+<td></td>
+<td></td>
+<td>Alias for auto.commit.enable</td>
+</tr>
+<tr>
+<td>auto.commit.interval.ms</td>
+<td>C</td>
+<td>10 .. 86400000</td>
+<td>60000</td>
+<td>The frequency in milliseconds that the consumer offsets are committed (written) to offset storage. This setting is used by the low-level legacy consumer. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>auto.offset.reset</td>
+<td>C</td>
+<td>smallest, earliest, beginning, largest, latest, end, error</td>
+<td>largest</td>
+<td>Action to take when there is no initial offset in offset store or the desired offset is out of range: ‘smallest’,’earliest’ - automatically reset the offset to the smallest offset, ‘largest’,’latest’ - automatically reset the offset to the largest offset, ‘error’ - trigger an error which is retrieved by consuming messages and checking ‘message-&gt;err’. <br><em>Type: enum value</em></td>
+</tr>
+<tr>
+<td>offset.store.path</td>
+<td>C</td>
+<td></td>
+<td>.</td>
+<td>Path to local file for storing offsets. If the path is a directory a filename will be automatically generated in that directory based on the topic and partition. <br><em>Type: string</em></td>
+</tr>
+<tr>
+<td>offset.store.sync.interval.ms</td>
+<td>C</td>
+<td>-1 .. 86400000</td>
+<td>-1</td>
+<td>fsync() interval for the offset file, in milliseconds. Use -1 to disable syncing, and 0 for immediate sync after each write. <br><em>Type: integer</em></td>
+</tr>
+<tr>
+<td>offset.store.method</td>
+<td>C</td>
+<td>file, broker</td>
+<td>broker</td>
+<td>Offset commit store method: ‘file’ - local file store (offset.store.path, et.al), ‘broker’ - broker commit store (requires “group.id” to be configured and Apache Kafka 0.8.2 or later on the broker.). <br><em>Type: enum value</em></td>
+</tr>
+<tr>
+<td>consume.callback.max.messages</td>
+<td>C</td>
+<td>0 .. 1000000</td>
+<td>0</td>
+<td>Maximum number of messages to dispatch in one rd_kafka_consume_callback<em>() call (0 = unlimited) <br></em>Type: integer*</td>
+</tr>
+</tbody>
+</table>
+<h3 id="C-P-legend-C-Consumer-P-Producer-both"><a href="#C-P-legend-C-Consumer-P-Producer-both" class="headerlink" title="C/P legend: C = Consumer, P = Producer, * = both"></a>C/P legend: C = Consumer, P = Producer, * = both</h3>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/后端/2018/03/14/librdkafka-config.html">librdkafka配置参数详解</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 lehoon 的个人博客">lehoon</a></p>
+        <p><span>发布时间:</span>2018年03月14日 - 11时09分</p>
+        <p><span>最后更新:</span>2018年09月22日 - 21时30分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/后端/2018/03/14/librdkafka-config.html" title="librdkafka配置参数详解">http://blog.lehoon.cn/后端/2018/03/14/librdkafka-config.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.lehoon.cn/后端/2018/03/14/librdkafka-config.html　　作者: lehoon" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/后端/2018/03/23/oracle12c-create-instance.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          oracle12c手动创建cdb实例
+        
+      </div>
+    </a>
+  
+  
+    <a href="/其他/2017/12/25/apk-decompile-tools.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">apk反编译工具</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#全局配置参数"><span class="toc-number">1.</span> <span class="toc-text">全局配置参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Topic-configuration-properties"><span class="toc-number">2.</span> <span class="toc-text">Topic configuration properties</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C-P-legend-C-Consumer-P-Producer-both"><span class="toc-number">2.1.</span> <span class="toc-text">C/P legend: C = Consumer, P = Producer, * = both</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/后端/2018/03/23/oracle12c-create-instance.html" title="上一篇: oracle12c手动创建cdb实例">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/其他/2017/12/25/apk-decompile-tools.html" title="下一篇: apk反编译工具">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/其他/2018/03/27/svn-showlog-date-1970.html">svn查看日志显示时间为1970解决方法</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2018/03/23/oracle12c-create-instance.html">oracle12c手动创建cdb实例</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2018/03/14/librdkafka-config.html">librdkafka配置参数详解</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/12/25/apk-decompile-tools.html">apk反编译工具</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/12/08/map-accuracy2scale.html">地图精度与电子地图比例尺的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/12/08/window-big-file-tools.html">window系统大文件打开工具</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/10/27/gnss-gprmc-format.html">GPRMC格式详解</a></li><li class="post-list-item"><a class="post-list-link" href="/前端/2017/09/21/autobuild-static-version.html">通过gulp自动构建项目静态资源的版本号</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2017/08/28/load-session-persistent-exception.html">Exception loading sessions from persistent storage</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/06/20/mysql-reset-password.html">Mysql重设密码和远程访问</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/06/19/idea-file-format.html">Intellij-idea文件格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2017/06/13/jstorm-hbase-issue.html">jstorm集成hbase、rocketmq</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/06/09/jps-process-information-unavailable.html">jps出现process information unavailable解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/05/31/linux-find-command-examples.html">Linux中find的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/05/27/vs-compilemode-difference.html">VS运行库区别</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2017/05/19/cache-invalid-problem.html">缓存击穿、失效及热点key问题</a></li><li class="post-list-item"><a class="post-list-link" href="/运维/2017/05/12/linux-operation-maintenance.html">linux运维</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/05/03/eight-diagram-tactics.html">八卦阵解释</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/05/03/gnss-terminology.html">gnss术语</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2017/04/28/ae-network-library.html">ae网络库</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/04/25/gnss-gpgga-formet.html">GPGGA格式详解</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/04/10/maven-download-timeout.html">maven下载文件超时</a></li><li class="post-list-item"><a class="post-list-link" href="/中间件/2017/03/31/storm-core-terminology.html">storm核心术语介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2017/03/30/hbase-insert-select.html">hbase通过api写入和查询</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2017/03/28/oracle-note-sql.html">oracle常用sql</a></li><li class="post-list-item"><a class="post-list-link" href="/前端/2017/03/27/extjs-treepanel-singleselect.html">extjs-treepanel实现单选功能</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2017/03/15/java-double-compare.html">java语言中double比较大小方法</a></li><li class="post-list-item"><a class="post-list-link" href="/前端/2017/03/10/extjs-form-submit.html">extjs中form表单提交注意点</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2017/02/25/rocketmq-client-sdk.html">rocketmq客户端sdk</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/02/22/source-insight4-crack.html">source insight4安装使用</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2017/02/21/rocketmq-topic-delete.html">rocketmq删除topic</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2017/02/21/rocketmq-message-store.html">rocketmq消息存储</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/02/20/idempotent-define.html">幂等介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/02/20/github-sync-fork-upstream.html">github上fork项目源同步</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/02/16/intellij-idea-2016.html">intellij-idea-2016下载安装</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/01/24/bubiao-protocol.html">部标808协议文件</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/01/24/life-secret.html">生活小秘方</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2017/01/10/mysql-odbc-driver-error.html">无法加载mysql odbc 5.3 unicode driver</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/25/rocketmq-net-port.html">rocketmq服务中的端口号</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html">rocketmq中broker启动同步topic到namesrv过程</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2016/11/10/java-error-note.html">java常见错误</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/09/rocketmq-install-note.html">rocketmq安装记录</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/09/rocketmq-docs.html">Rocketmq文档</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2016/10/28/game-develop-skill.html">游戏开发要点</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/10/14/oracle-error-note.html">oracle错误记录</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/10/11/oracle-materialized-view.html">oracle物化视图</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/10/09/centos-oracle11gr2-install.html">Centos7安装oracle11gr2</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/10/08/gdb-miss-debuginfo.html">gdb-miss-debuginfo</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/09/29/linux-io-schedule.html">Linux IO调度算法</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/09/27/linux-c-func.html">Linux下C函数定义</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/09/26/tcpdump.html">tcpdump使用文档</a></li><li class="post-list-item"><a class="post-list-link" href="/uncategorized/2016/09/20/eim.html">eim</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/09/16/linux-strace.html">linux-strace使用介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/09/16/linux-brk-sbrk.html">brk,sbrk--改变数据段长度</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/09/07/centos-note.html">Centos记录</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2016/09/05/raid.html">raid磁盘阵列介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/09/02/nginx-load-balance.html">nginx负载均衡各种场景下的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2016/09/01/usb-centos-error.html">U盘安装centos7，启动报错</a></li><li class="post-list-item"><a class="post-list-link" href="/前端/2016/09/01/js-generate-uuid.html">JavaScript生成全局唯一id的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2016/08/29/notepad.html">随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/08/22/kafka-window.html">kafka在window下部署</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/08/19/makefile.html">Makefile学习</a></li><li class="post-list-item"><a class="post-list-link" href="/前端/2016/08/16/http-etag-last-midified.html">HTTP缓存ETAG和Last-Modified</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2016/08/16/ip-catagory.html">ip地址分类</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2016/08/09/android-connection-session.html">android非浏览器应用程序与服务器会话保持实现</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/07/28/memcache-memcached-diff.html">memcache与memcached区别</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/07/19/centos-lvs.html">CentOS 7.0下安装部署LVS</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2016/07/19/awk.html">awk学习</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/07/11/epoll.html">Linux epoll学习</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/07/04/golang-deamon.html">go守护进程实现方式</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/07/04/tcp-load-balancing.html">tcp连接负载均衡</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/07/04/tcp-rst.html">tcp出现rst情况</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2016/05/26/linux-tcp-optimization.html">Linux下tcp的优化</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2016/05/08/oracle-merge-into.html">oracle中merge into语法注意点</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2016/02/05/window-batch.html">Window批处理记录</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2015/10/11/kesankaoshi.html">机动车驾驶科目三操作要领</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2015/09/28/window-service-program.html">window服务编程</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2015/09/21/assembly-instruction.html">汇编指令集</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2015/09/15/bool-BOOL.html">bool和BOOL的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2015/08/20/ssh-limit.html">ssh限制ip远程登录</a></li><li class="post-list-item"><a class="post-list-link" href="/其他/2015/08/18/ue-regex.html">ultraedit正则表达式使用</a></li><li class="post-list-item"><a class="post-list-link" href="/后端/2015/05/07/occi.html">c++使用occi连接oracle</a></li><li class="post-list-item"><a class="post-list-link" href="/前端/2015/03/06/gulp.html">gulp 提高页面加载速度</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 lehoon
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="http://static.lehoon.cn/static/js/require-2.1.6.min.js"></script>
+<script src="http://static.lehoon.cn/static/js/jquery-1.9.1.min.js"></script>
+<script src="http://static.lehoon.cn/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 3;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".jpg)";
+            //$("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            //$(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?3ee891f83ef39340c672188e2567ec64";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
