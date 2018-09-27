@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://blog.lehoon.cn/"/>
-  <updated>2018-09-25T03:11:43.958Z</updated>
+  <updated>2018-09-27T09:21:38.795Z</updated>
   <id>http://blog.lehoon.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>art-template使用笔记</title>
+    <link href="http://blog.lehoon.cn/frontend/2018/09/27/art-template-note.html"/>
+    <id>http://blog.lehoon.cn/frontend/2018/09/27/art-template-note.html</id>
+    <published>2018-09-27T08:37:05.000Z</published>
+    <updated>2018-09-27T09:21:38.795Z</updated>
+    
+    <content type="html"><![CDATA[<p>art-template是一款开源的js的模板引擎，渲染速度比较快，使用后可以介绍不少的代码量，本文记录下使用过程中遇到的问题及解决方法。<br><a id="more"></a></p><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><a href="http://aui.github.io/art-template/zh-cn/" target="_blank" rel="noopener">官方网站</a><br><a href="https://github.com/aui/art-template" target="_blank" rel="noopener">下载地址</a></p><p>art-template可以应用于前端js、koa、nodejs、webpack、express中。定义模板后，组织数据对象，然后使用template渲染出结果html片段。</p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>1、使用中html原样输出，没有被浏览器解析成dom。<br>解决方法：定义template.defaults.escape=false;关闭编码输出功能<br>2、使用template(id, data);返回一个function。<br>解决方法：使用template返回一个渲染render方法，然后使用该方法使用数据后渲染出最后的html片段。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cacheRender = template(tplSource); <span class="comment">//生成渲染函数对象</span></span><br><span class="line"><span class="keyword">var</span> destHtml = cacheRender(<span class="keyword">data</span>);  <span class="comment">//使用数据渲染html片段</span></span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;art-template是一款开源的js的模板引擎，渲染速度比较快，使用后可以介绍不少的代码量，本文记录下使用过程中遇到的问题及解决方法。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="http://blog.lehoon.cn/categories/frontend/"/>
+    
+    
+      <category term="template" scheme="http://blog.lehoon.cn/tags/template/"/>
+    
+      <category term="javascript" scheme="http://blog.lehoon.cn/tags/javascript/"/>
+    
+      <category term="cache" scheme="http://blog.lehoon.cn/tags/cache/"/>
+    
+  </entry>
   
   <entry>
     <title>apama笔记</title>
@@ -499,30 +525,6 @@
       <category term="解释" scheme="http://blog.lehoon.cn/tags/%E8%A7%A3%E9%87%8A/"/>
     
       <category term="数学" scheme="http://blog.lehoon.cn/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>gnss术语</title>
-    <link href="http://blog.lehoon.cn/orther/2017/05/03/gnss-terminology.html"/>
-    <id>http://blog.lehoon.cn/orther/2017/05/03/gnss-terminology.html</id>
-    <published>2017-05-03T05:47:48.000Z</published>
-    <updated>2018-09-22T13:30:35.549Z</updated>
-    
-    <content type="html"><![CDATA[<p>Gnss是全球导航卫星系统(Global Navigation Satellite System)的简称。泛指所有的卫星导航系统。包括全球的、区域和增强的，比如美国的GPS、俄罗斯的Glonass、欧洲的Galileo、中国的北斗卫星导航系统，以及相关的增强系统，比如美国的WAAS（广域增强系统）、欧洲的EGNOS（欧洲静地导航重叠系统）和日本的MSAS（多功能运输卫星增强系统）等，还涵盖在建和以后要建设的其他卫星导航系统。国际GNSS系统是个多系统、多层面、多模式的负责组合系统。<br><a id="more"></a></p><h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><h3 id="差分GPS定位"><a href="#差分GPS定位" class="headerlink" title="差分GPS定位"></a>差分GPS定位</h3><p>DGPS即差分全球定位系统(Differential Global Position System)，是在GPS的基础上利用差分技术使用户能够从GPS系统中获的更高的经度。<br>DGPS实际上是把一台GPS接收机放在位置已经精确测定的点上，组成基准台。基准台接收机通过接收GPS卫星信号，测的并计算到卫星的伪距，将伪距和已知的精确距离相比较，求的该点在GPS系统中的伪距测量误差，再讲这些误差作为修正值以标准数据格式播发电台向周围空间播发。附近的DGPS用户接收到来自基准台的误差修正信息，以此来修正自身GPS测量值，从而大大提高其定位经度。</p><p>差分技术的基础是，在同一区域内，GPS缓慢变化的系统误差，包括选择可用性(SA)误差，对基准台及其临近用户的影响是相同或相近的。应用差分技术可有效的削弱SA、电离层延迟、大气层延迟、星历误差、卫星时钟误差，达到米级定位经度。</p><h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><h3 id="Ntrip协议文档"><a href="#Ntrip协议文档" class="headerlink" title="Ntrip协议文档"></a>Ntrip协议文档</h3><p><a href="http://static.lehoon.cn//download/book/Ntrip%E5%8D%8F%E8%AE%AE%E8%AF%B4%E6%98%8E.pdf" target="_blank" rel="noopener">ntrip协议文档</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Gnss是全球导航卫星系统(Global Navigation Satellite System)的简称。泛指所有的卫星导航系统。包括全球的、区域和增强的，比如美国的GPS、俄罗斯的Glonass、欧洲的Galileo、中国的北斗卫星导航系统，以及相关的增强系统，比如美国的WAAS（广域增强系统）、欧洲的EGNOS（欧洲静地导航重叠系统）和日本的MSAS（多功能运输卫星增强系统）等，还涵盖在建和以后要建设的其他卫星导航系统。国际GNSS系统是个多系统、多层面、多模式的负责组合系统。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="gnss" scheme="http://blog.lehoon.cn/tags/gnss/"/>
-    
-      <category term="术语" scheme="http://blog.lehoon.cn/tags/%E6%9C%AF%E8%AF%AD/"/>
     
   </entry>
   
