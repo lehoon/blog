@@ -252,7 +252,7 @@ a {
 }
 #container .left-col {
   background: #515457;
-  width: 300px;
+  width: 250px;
   position: fixed;
   opacity: 1;
   -webkit-transition: all 0.2s ease-in;
@@ -291,7 +291,7 @@ a {
   position: absolute;
   right: 0;
   min-height: 100%;
-  left: 300px;
+  left: 250px;
   width: auto;
   overflow: hidden;
 }
