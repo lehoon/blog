@@ -58,11 +58,11 @@
       <category term="前端" scheme="http://blog.lehoon.cn/categories/frontend/"/>
     
     
-      <category term="cache" scheme="http://blog.lehoon.cn/tags/cache/"/>
-    
       <category term="template" scheme="http://blog.lehoon.cn/tags/template/"/>
     
       <category term="javascript" scheme="http://blog.lehoon.cn/tags/javascript/"/>
+    
+      <category term="cache" scheme="http://blog.lehoon.cn/tags/cache/"/>
     
   </entry>
   
@@ -264,9 +264,9 @@
     
       <category term="gnss" scheme="http://blog.lehoon.cn/tags/gnss/"/>
     
-      <category term="gprmc" scheme="http://blog.lehoon.cn/tags/gprmc/"/>
-    
       <category term="format" scheme="http://blog.lehoon.cn/tags/format/"/>
+    
+      <category term="gprmc" scheme="http://blog.lehoon.cn/tags/gprmc/"/>
     
   </entry>
   
