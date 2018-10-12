@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hbase通过api写入和查询 | 豌豆荚博客</title>
+  <title>SuSE 15.0安装备忘 | 豌豆荚博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hbase通过java客户端写入数据和查询数据。">
-<meta name="keywords" content="hbase,写入,查询">
+  <meta name="description" content="SuSE leap 15.0安装记录，主要配置ip、关闭防火墙、启动sshd、修改hostname等，逐步完善。">
+<meta name="keywords" content="SuSE,leap,15">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hbase通过api写入和查询">
-<meta property="og:url" content="http://blog.lehoon.cn/backend/2017/03/30/hbase-insert-select.html">
+<meta property="og:title" content="SuSE 15.0安装备忘">
+<meta property="og:url" content="http://blog.lehoon.cn/backend/2018/10/12/suse-leap15-install-note.html">
 <meta property="og:site_name" content="豌豆荚博客">
-<meta property="og:description" content="hbase通过java客户端写入数据和查询数据。">
+<meta property="og:description" content="SuSE leap 15.0安装记录，主要配置ip、关闭防火墙、启动sshd、修改hostname等，逐步完善。">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2018-09-22T13:30:38.304Z">
+<meta property="og:updated_time" content="2018-10-12T09:28:46.623Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hbase通过api写入和查询">
-<meta name="twitter:description" content="hbase通过java客户端写入数据和查询数据。">
+<meta name="twitter:title" content="SuSE 15.0安装备忘">
+<meta name="twitter:description" content="SuSE leap 15.0安装记录，主要配置ip、关闭防火墙、启动sshd、修改hostname等，逐步完善。">
   
     <link rel="alternative" href="/atom.xml" title="豌豆荚博客" type="application/atom+xml">
   
@@ -155,11 +155,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-hbase-insert-select" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-suse-leap15-install-note" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/backend/2017/03/30/hbase-insert-select.html" class="article-date">
-      <time datetime="2017-03-30T06:24:02.000Z" itemprop="datePublished">2017-03-30</time>
+      <a href="/backend/2018/10/12/suse-leap15-install-note.html" class="article-date">
+      <time datetime="2018-10-12T09:16:13.000Z" itemprop="datePublished">2018-10-12</time>
 </a>
     </div>
   
@@ -172,7 +172,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hbase通过api写入和查询
+      SuSE 15.0安装备忘
     </h1>
   
 
@@ -187,7 +187,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hbase/">hbase</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/写入/">写入</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/查询/">查询</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/15/">15</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SuSE/">SuSE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leap/">leap</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -197,10 +197,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>hbase通过java客户端写入数据和查询数据。<br><a id="more"></a></p>
-<h2 id="写入数据"><a href="#写入数据" class="headerlink" title="写入数据"></a>写入数据</h2><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Configuration hbaseConfiguration = HBaseConfiguration.create();</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Connection connection = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Admin admin = <span class="keyword">null</span>;</span><br><span class="line"><span class="comment">//date format</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> SimpleDateFormat dateFornat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyyMMddHHmmss"</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化hbase的连接和获取admin对象</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> init() &#123;</span><br><span class="line">    hbaseConfiguration.<span class="built_in">set</span>(<span class="string">"hbase.zookeeper.property.clientPort"</span>, <span class="string">"2181"</span>);</span><br><span class="line">    hbaseConfiguration.<span class="built_in">set</span>(<span class="string">"hbase.zookeeper.quorum"</span>, <span class="string">"192.168.1.180"</span>);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        connection = ConnectionFactory.createConnection(hbaseConfiguration);</span><br><span class="line">        admin = connection.getAdmin();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    init();</span><br><span class="line">    insert(<span class="string">"person_sale"</span>, <span class="string">"186xxxxxxxx_"</span>, <span class="string">"content"</span>, <span class="string">"content"</span>, <span class="string">"11111============2222=========333"</span>);</span><br><span class="line">    close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//批量写入</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> insert(<span class="keyword">String</span> tableName, <span class="keyword">String</span> rowKey, <span class="keyword">String</span> colFamily, <span class="keyword">String</span> col, <span class="keyword">String</span> value)</span><br><span class="line">        <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">    <span class="keyword">Table</span> table = connection.getTable(TableName.valueOf(tableName));</span><br><span class="line">    Calendar calendar = <span class="keyword">null</span>;</span><br><span class="line">    List&lt;Put&gt; putList = <span class="keyword">new</span> ArrayList&lt;Put&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        calendar = Calendar.getInstance();</span><br><span class="line">        Date date = calendar.getTime();</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="string">"========"</span> + dateFornat.format(date));</span><br><span class="line">        Put put = <span class="keyword">new</span> Put(Bytes.toBytes(rowKey + dateFornat.format(date)));</span><br><span class="line">        put.addColumn(Bytes.toBytes(colFamily), Bytes.toBytes(col), Bytes.toBytes(value));</span><br><span class="line">        putList.<span class="built_in">add</span>(put);</span><br><span class="line">        </span><br><span class="line">        java.util.concurrent.TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//批量添加数据</span></span><br><span class="line">    table.put(putList);</span><br><span class="line">    table.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> close() &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != admin) &#123;</span><br><span class="line">            admin.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != connection) &#123;</span><br><span class="line">            connection.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h2><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Configuration hbaseConfiguration = HBaseConfiguration.create();</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Connection connection = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Admin admin = <span class="keyword">null</span>;</span><br><span class="line"><span class="comment">//date format</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> SimpleDateFormat dateFornat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyyMMddHHmmss"</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化hbase的连接和获取admin对象</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> init() &#123;</span><br><span class="line">    hbaseConfiguration.<span class="built_in">set</span>(<span class="string">"hbase.zookeeper.property.clientPort"</span>, <span class="string">"2181"</span>);</span><br><span class="line">    hbaseConfiguration.<span class="built_in">set</span>(<span class="string">"hbase.zookeeper.quorum"</span>, <span class="string">"192.168.1.180"</span>);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        connection = ConnectionFactory.createConnection(hbaseConfiguration);</span><br><span class="line">        admin = connection.getAdmin();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    init();</span><br><span class="line">    showTablesContent(<span class="string">"person_sale"</span>);</span><br><span class="line">    close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//范围查询数据</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> showTablesContent(<span class="keyword">final</span> <span class="keyword">String</span> tableName) <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="keyword">Table</span> table = connection.getTable(TableName.valueOf(tableName));</span><br><span class="line">    Scan scan = <span class="keyword">new</span> Scan();</span><br><span class="line">    scan.setMaxVersions();</span><br><span class="line">    scan.setBatch(<span class="number">10000</span>);</span><br><span class="line">    <span class="comment">//开始位置</span></span><br><span class="line">    scan.setStartRow(Bytes.toBytes(<span class="string">"186xxxxxxxx_20170330132405"</span>));</span><br><span class="line">    <span class="comment">//结束位置</span></span><br><span class="line">    scan.setStopRow(Bytes.toBytes(<span class="string">"186xxxxxxxx_20170330132418"</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//返回结果集</span></span><br><span class="line">    ResultScanner result = table.getScanner(scan);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//循环处理结果集</span></span><br><span class="line">    <span class="keyword">for</span>(Result r : result) &#123;</span><br><span class="line">        System.out.<span class="built_in">println</span>(Bytes.toString(r.getValue(Bytes.toBytes(<span class="string">"content"</span>), Bytes.toBytes(<span class="string">"content"</span>))));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    table.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> close() &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != admin) &#123;</span><br><span class="line">            admin.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != connection) &#123;</span><br><span class="line">            connection.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>1、hbase的机器名称要在客户端机器上面的hosts文件里面标明，否则会一直卡在connection.getAdmin();这句上。这里会从zk中获取master的hbase实例，zk返回的是master的主机名，不是ip地址。所以在这里一定要在客户端hosts中添加主机名到ip的映射关系。</p>
+        <p>SuSE leap 15.0安装记录，主要配置ip、关闭防火墙、启动sshd、修改hostname等，逐步完善。<br><a id="more"></a></p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>在虚拟机中安装SuSE leap 15.0， 主要用于测试系统环境搭建使用，每台服务器分配了8G内存，4个cpu，50G磁盘。后期资源紧张的时候可以动态调整资源。<br><a href="https://download.opensuse.org/distribution/leap/15.0/iso/openSUSE-Leap-15.0-DVD-x86_64.iso?mirrorlist" target="_blank" rel="noopener">文件下载地址</a>, 选择一个中国的镜像源下载，速度比较快。</p>
+<h2 id="安装后配置"><a href="#安装后配置" class="headerlink" title="安装后配置"></a>安装后配置</h2><h3 id="禁用防火墙"><a href="#禁用防火墙" class="headerlink" title="禁用防火墙"></a>禁用防火墙</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="builtin-name">disable</span> firewalld</span><br></pre></td></tr></table></figure>
+<h3 id="修改主机名"><a href="#修改主机名" class="headerlink" title="修改主机名"></a>修改主机名</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -w kernel.<span class="attribute">hostname</span>=servername</span><br></pre></td></tr></table></figure>
+<p>编辑/etc/hostname文件，修改主机名与上面相同。</p>
+<h3 id="修改IP地址"><a href="#修改IP地址" class="headerlink" title="修改IP地址"></a>修改IP地址</h3><p>编辑/etc/sysconfig/network/ifcfg-eth0文件，编辑如下内容<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">BOOTPROTO</span>=<span class="string">'static'</span></span><br><span class="line"><span class="attr">BROADCAST</span>=<span class="string">'255.255.255.0'</span></span><br><span class="line"><span class="comment">#ETHTOOL_OPTIONS=''</span></span><br><span class="line"><span class="attr">IPADDR</span>=<span class="string">'192.168.1.57'</span></span><br><span class="line"><span class="comment">#MTU=''</span></span><br><span class="line"><span class="attr">NAME</span>=<span class="string">'server001'</span></span><br><span class="line"><span class="attr">NETMASK</span>=<span class="string">'255.255.255.0'</span></span><br><span class="line"><span class="comment">#NETWORK=''</span></span><br><span class="line"><span class="comment">#REMOTE_IPADDR=''</span></span><br><span class="line"><span class="attr">STARTMODE</span>=<span class="string">'auto'</span></span><br><span class="line"><span class="attr">DHCLIENT_SET_DEFAULT_ROUTE</span>=<span class="string">'yes'</span></span><br><span class="line"><span class="attr">ZONE</span>=public</span><br><span class="line"><span class="attr">GATEWAY</span>=<span class="number">192.168</span>.<span class="number">1.1</span></span><br><span class="line"><span class="attr">DNS1</span>=<span class="number">192.168</span>.<span class="number">1.1</span></span><br></pre></td></tr></table></figure></p>
+<p>把网关地址、ip地址根据自己的网络环境修改一个值。</p>
+<p>编辑/etc/resolv.conf文件，编辑网关地址<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nameserver</span> 192<span class="selector-class">.168</span><span class="selector-class">.1</span><span class="selector-class">.1</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="sshd服务自启动"><a href="#sshd服务自启动" class="headerlink" title="sshd服务自启动"></a>sshd服务自启动</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig sshd <span class="keyword">on</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装-卸载软件"><a href="#安装-卸载软件" class="headerlink" title="安装/卸载软件"></a>安装/卸载软件</h3><p>在suse中安装、卸载软件使用zypper可以完成。<br>安装软件包：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zypper <span class="keyword">install</span> packagename</span><br></pre></td></tr></table></figure></p>
+<p>卸载软件包：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zyyper <span class="builtin-name">remove</span>  packagename</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -209,13 +216,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/backend/2017/03/30/hbase-insert-select.html">hbase通过api写入和查询</a></p>
+        <p><span>本文标题:</span><a href="/backend/2018/10/12/suse-leap15-install-note.html">SuSE 15.0安装备忘</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 lehoon 的个人博客">lehoon</a></p>
-        <p><span>发布时间:</span>2017年03月30日 - 14时24分</p>
-        <p><span>最后更新:</span>2018年09月22日 - 21时30分</p>
+        <p><span>发布时间:</span>2018年10月12日 - 17时16分</p>
+        <p><span>最后更新:</span>2018年10月12日 - 17时28分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/backend/2017/03/30/hbase-insert-select.html" title="hbase通过api写入和查询">http://blog.lehoon.cn/backend/2017/03/30/hbase-insert-select.html</a>
-            <span class="copy-path" data-clipboard-text="原文: http://blog.lehoon.cn/backend/2017/03/30/hbase-insert-select.html　　作者: lehoon" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/backend/2018/10/12/suse-leap15-install-note.html" title="SuSE 15.0安装备忘">http://blog.lehoon.cn/backend/2018/10/12/suse-leap15-install-note.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.lehoon.cn/backend/2018/10/12/suse-leap15-install-note.html　　作者: lehoon" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -228,18 +235,9 @@
 
 <nav id="article-nav">
   
-    <a href="/middleware/2017/03/31/storm-core-terminology.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          storm核心术语介绍
-        
-      </div>
-    </a>
   
-  
-    <a href="/backend/2017/03/28/oracle-note-sql.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">oracle常用sql</div>
+    <a href="/backend/2018/10/09/ehcache-note.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">EhCache缓存使用</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -250,7 +248,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#写入数据"><span class="toc-number">1.</span> <span class="toc-text">写入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询数据"><span class="toc-number">2.</span> <span class="toc-text">查询数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意点"><span class="toc-number">3.</span> <span class="toc-text">注意点</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#说明"><span class="toc-number">1.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装后配置"><span class="toc-number">2.</span> <span class="toc-text">安装后配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#禁用防火墙"><span class="toc-number">2.1.</span> <span class="toc-text">禁用防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改主机名"><span class="toc-number">2.2.</span> <span class="toc-text">修改主机名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改IP地址"><span class="toc-number">2.3.</span> <span class="toc-text">修改IP地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sshd服务自启动"><span class="toc-number">2.4.</span> <span class="toc-text">sshd服务自启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-卸载软件"><span class="toc-number">2.5.</span> <span class="toc-text">安装/卸载软件</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -290,13 +288,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/middleware/2017/03/31/storm-core-terminology.html" title="上一篇: storm核心术语介绍">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/backend/2017/03/28/oracle-note-sql.html" title="下一篇: oracle常用sql">
+            <a href="/backend/2018/10/09/ehcache-note.html" title="下一篇: EhCache缓存使用">
                 <i class="fa fa-angle-right"></i>
             </a>
         
