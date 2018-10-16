@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://blog.lehoon.cn/"/>
-  <updated>2018-10-12T09:28:46.623Z</updated>
+  <updated>2018-10-16T08:02:01.253Z</updated>
   <id>http://blog.lehoon.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>apama发布笔记</title>
+    <link href="http://blog.lehoon.cn/backend/2018/10/16/apama-deploy-note.html"/>
+    <id>http://blog.lehoon.cn/backend/2018/10/16/apama-deploy-note.html</id>
+    <published>2018-10-16T06:48:30.000Z</published>
+    <updated>2018-10-16T08:02:01.253Z</updated>
+    
+    <content type="html"><![CDATA[<p>apama开发时可以使用apama的Software AG Designer工具开发和测试。但是在项目上线的时候，需要发布到服务器环境中，本文记录apama发布过程。<br><a id="more"></a></p><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>apama发布支持以下几种方式。<br>1、使用Command Central部署组件<br>2、使用Ant脚本部署</p><h3 id="Command-Central部署"><a href="#Command-Central部署" class="headerlink" title="Command Central部署"></a>Command Central部署</h3><p>Software AG Command Central可用于跨多个主机配置，部署和监控各种Apama组件。</p><h3 id="Ant脚本部署"><a href="#Ant脚本部署" class="headerlink" title="Ant脚本部署"></a>Ant脚本部署</h3><p>Software AG Designer工具支持导出ant工程，支持手动命令启动、停止apama工程。利用apama-macros.xml文件中提供的Ant宏定义。可以在Apama安装的etc目录中找到此文件。<br>本文主要介绍ant脚本部署方式。</p><h2 id="部署工程"><a href="#部署工程" class="headerlink" title="部署工程"></a>部署工程</h2><h3 id="导出工程"><a href="#导出工程" class="headerlink" title="导出工程"></a>导出工程</h3><p>1、打开Software AG Designer工具，在Project Explorer试图中，项目上右键，选择Export菜单，显示导出对话框。<br>2、在导出对话框中，展开”Software AG”项目。<br>3、选择Apama Ant Project，然后点击Next，出现Ant导出对话框。<br>4、在Ant Export对话框中，指定如下配置项：<br>  a、启动项目，选择指定的apama工程；<br>  b、导出文件夹，选择要导出工程的目标文件夹；<br>  c、去掉Generate initialization list during languch项复选框的选中状态；<br>  d、选中copy resources to destination（拷贝资源到目标文件夹）项；<br>  e、选中use relative paths（使用相对路径）项；<br>  f、选中include custom file（包含自定义文件）项；<br>  g、选中batch resources when possible项；<br>  h、选中launch correlator in separate console（单独的控制台启动correlator）；</p><p>其余默认即可，点击完成按钮，导出apama功能成功。</p><h3 id="部署工程-1"><a href="#部署工程-1" class="headerlink" title="部署工程"></a>部署工程</h3><p>拷贝导出的apama工程文件夹到服务器上，修改用户环境变量，增加apama安装目录的环境变量。<br>linux服务器在~/.bash_profile中增加$APAMA_HOME/Apama/bin/apama_env.sh导入。<br>window服务器在cmd中首先call %APAMA_HOME%\Apama\bin\apama_env.bat。<br>然后进入工程目录，调用startProject.sh或者startProject.bat即可启动apama工程。</p><p>停止工程则需要调用stopProject.sh或者stopProject.bat。</p><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>1、修改apama工程的socket端口。<br>在导出的ant工程文件夹中的environment.properties文件中，default.port项为apama的默认端口，修改这个配置项。<br>2、apama在服务器上运行成功，但是通信不正常。<br>检查工程是否成功启动，如果启动，能连接上但是通信异常则有可能时correlator启动成功，但是工程没有正确启动，检查environment.properties中apama的环境变量是否正确，主要APAMA_HOME、APAMA_WORK、APAMA_FOUNDATION_HOME几个参数，涉及到apama安装目录、授权文件、扩展库等。<br>3、取消启动dashboard。<br>默认的startProject脚本会传递all参数给ant，导出的build.xml中target名称为all的包含了三个项（start, adapters, dashboards），如果项目中包含了dashboard则会启动，不想启动的话，修改build.xml中all的target去掉dashboards。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;apama开发时可以使用apama的Software AG Designer工具开发和测试。但是在项目上线的时候，需要发布到服务器环境中，本文记录apama发布过程。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
+    
+    
+      <category term="apama" scheme="http://blog.lehoon.cn/tags/apama/"/>
+    
+      <category term="deploy" scheme="http://blog.lehoon.cn/tags/deploy/"/>
+    
+      <category term="发布" scheme="http://blog.lehoon.cn/tags/%E5%8F%91%E5%B8%83/"/>
+    
+  </entry>
   
   <entry>
     <title>SuSE 15.0安装备忘</title>
@@ -290,9 +316,9 @@
     
       <category term="gnss" scheme="http://blog.lehoon.cn/tags/gnss/"/>
     
-      <category term="format" scheme="http://blog.lehoon.cn/tags/format/"/>
-    
       <category term="gprmc" scheme="http://blog.lehoon.cn/tags/gprmc/"/>
+    
+      <category term="format" scheme="http://blog.lehoon.cn/tags/format/"/>
     
   </entry>
   
@@ -499,32 +525,6 @@
       <category term="vs" scheme="http://blog.lehoon.cn/tags/vs/"/>
     
       <category term="运行库" scheme="http://blog.lehoon.cn/tags/%E8%BF%90%E8%A1%8C%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>缓存击穿、失效及热点key问题</title>
-    <link href="http://blog.lehoon.cn/backend/2017/05/19/cache-invalid-problem.html"/>
-    <id>http://blog.lehoon.cn/backend/2017/05/19/cache-invalid-problem.html</id>
-    <published>2017-05-19T03:11:41.000Z</published>
-    <updated>2018-09-22T13:30:23.864Z</updated>
-    
-    <content type="html"><![CDATA[<p>分布式缓存是网站服务端经常用到的一种技术，在读多写少的业务场景中，通过使用缓存可以有效地支撑高并发的访问量，对后端的数据库等数据源做到很好地保护。现在市面上有很多分布式缓存，比如Redis、Memcached以及阿里的Tair等，不管我们使用的哪种缓存产品，基本上都会遇到缓存击穿、缓存失效以及热点key的问题。如何有效地防止这些问题，也是我们在享受缓存带来的红利地同时，必须要解决地难题。</p><a id="more"></a><p>通常我们在使用缓存时候都是先检查缓存中是否存在，如果存在直接返回缓存内容，如果不存在就直接查询数据库然后再缓存查询结果返回，例如下图所示，<br><img src="http://o9m6mjdbx.bkt.clouddn.com/image/cache/616903-4f6c97a3c449734b.png"></p><h2 id="缓存击穿："><a href="#缓存击穿：" class="headerlink" title="缓存击穿："></a>缓存击穿：</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>查询一个数据库中不存在的数据，比如商品详情，查询一个不存在的ID，每次都会访问DB，如果有人恶意破坏，很可能直接对DB造成过大地压力。</p><h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><p>当通过某一个key去查询数据的时候，如果对应在数据库中的数据都不存在，我们将此key对应的value设置为一个默认的值，比如“NULL”，并设置一个缓存的失效时间，这时在缓存失效之前，所有通过此key的访问都被缓存挡住了。后面如果此key对应的数据在DB中存在时，缓存失效之后，通过此key再去访问数据，就能拿到新的value了。</p><h2 id="缓存失效："><a href="#缓存失效：" class="headerlink" title="缓存失效："></a>缓存失效：</h2><h3 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h3><p>在高并发的环境下，如果此时key对应的缓存失效，此时有多个进程就会去同时去查询DB，然后再去同时设置缓存。这个时候如果这个key是系统中的热点key或者同时失效的数量比较多时，DB访问量会瞬间增大，造成过大的压力。</p><h3 id="解决方案：-1"><a href="#解决方案：-1" class="headerlink" title="解决方案："></a>解决方案：</h3><p>将系统中key的缓存失效时间均匀地错开，防止统一时间点有大量的key对应的缓存失效；<br>重新设计缓存的使用方式，当我们通过key去查询数据时，首先查询缓存，如果此时缓存中查询不到，就通过分布式锁进行加锁，取得锁的进程查DB并设置缓存，然后解锁；其他进程如果发现有锁就等待，然后等解锁后返回缓存数据或者再次查询DB。</p><h2 id="热点key："><a href="#热点key：" class="headerlink" title="热点key："></a>热点key：</h2><h3 id="描述-2"><a href="#描述-2" class="headerlink" title="描述"></a>描述</h3><p>缓存中的某些Key(可能对应用与某个促销商品)对应的value存储在集群中一台机器，使得所有流量涌向同一机器，成为系统的瓶颈，该问题的挑战在于它无法通过增加机器容量来解决。</p><h3 id="解决方案：-2"><a href="#解决方案：-2" class="headerlink" title="解决方案："></a>解决方案：</h3><p>客户端热点key缓存：将热点key对应value并缓存在客户端本地，并且设置一个失效时间。对于每次读请求，将首先检查key是否存在于本地缓存中，如果存在则直接返回，如果不存在再去访问分布式缓存的机器。<br>将热点key分散为多个子key，然后存储到缓存集群的不同机器上，这些子key对应的value都和热点key是一样的。当通过热点key去查询数据时，通过某种hash算法随机选择一个子key，然后再去访问缓存机器，将热点分散到了多个子key上。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;分布式缓存是网站服务端经常用到的一种技术，在读多写少的业务场景中，通过使用缓存可以有效地支撑高并发的访问量，对后端的数据库等数据源做到很好地保护。现在市面上有很多分布式缓存，比如Redis、Memcached以及阿里的Tair等，不管我们使用的哪种缓存产品，基本上都会遇到缓存击穿、缓存失效以及热点key的问题。如何有效地防止这些问题，也是我们在享受缓存带来的红利地同时，必须要解决地难题。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
-    
-    
-      <category term="redis" scheme="http://blog.lehoon.cn/tags/redis/"/>
-    
-      <category term="cache" scheme="http://blog.lehoon.cn/tags/cache/"/>
-    
-      <category term="memcache" scheme="http://blog.lehoon.cn/tags/memcache/"/>
     
   </entry>
   

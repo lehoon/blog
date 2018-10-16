@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>apk反编译工具 | 豌豆荚博客</title>
+  <title>apama发布笔记 | 豌豆荚博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android APK反编译下载。">
-<meta name="keywords" content="apk decompile,反编译">
+  <meta name="description" content="apama开发时可以使用apama的Software AG Designer工具开发和测试。但是在项目上线的时候，需要发布到服务器环境中，本文记录apama发布过程。">
+<meta name="keywords" content="apama,deploy,发布">
 <meta property="og:type" content="article">
-<meta property="og:title" content="apk反编译工具">
-<meta property="og:url" content="http://blog.lehoon.cn/orther/2017/12/25/apk-decompile-tools.html">
+<meta property="og:title" content="apama发布笔记">
+<meta property="og:url" content="http://blog.lehoon.cn/backend/2018/10/16/apama-deploy-note.html">
 <meta property="og:site_name" content="豌豆荚博客">
-<meta property="og:description" content="Android APK反编译下载。">
+<meta property="og:description" content="apama开发时可以使用apama的Software AG Designer工具开发和测试。但是在项目上线的时候，需要发布到服务器环境中，本文记录apama发布过程。">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2018-09-22T13:30:21.689Z">
+<meta property="og:updated_time" content="2018-10-16T08:02:01.253Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="apk反编译工具">
-<meta name="twitter:description" content="Android APK反编译下载。">
+<meta name="twitter:title" content="apama发布笔记">
+<meta name="twitter:description" content="apama开发时可以使用apama的Software AG Designer工具开发和测试。但是在项目上线的时候，需要发布到服务器环境中，本文记录apama发布过程。">
   
     <link rel="alternative" href="/atom.xml" title="豌豆荚博客" type="application/atom+xml">
   
@@ -155,11 +155,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-apk-decompile-tools" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-apama-deploy-note" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/orther/2017/12/25/apk-decompile-tools.html" class="article-date">
-      <time datetime="2017-12-25T03:30:49.000Z" itemprop="datePublished">2017-12-25</time>
+      <a href="/backend/2018/10/16/apama-deploy-note.html" class="article-date">
+      <time datetime="2018-10-16T06:48:30.000Z" itemprop="datePublished">2018-10-16</time>
 </a>
     </div>
   
@@ -172,7 +172,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      apk反编译工具
+      apama发布笔记
     </h1>
   
 
@@ -181,13 +181,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/orther/">其他</a>
+    <a class="article-category-link" href="/categories/backend/">后端</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apk-decompile/">apk decompile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/反编译/">反编译</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apama/">apama</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/deploy/">deploy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/发布/">发布</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -197,10 +197,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Android APK反编译下载。<br><a id="more"></a></p>
-<h2 id="工具介绍"><a href="#工具介绍" class="headerlink" title="工具介绍"></a>工具介绍</h2><h3 id="资源文件获取工具"><a href="#资源文件获取工具" class="headerlink" title="资源文件获取工具"></a>资源文件获取工具</h3><p>apktool，主要是apk的资源文件提取，可以提取到图片文件和布局文件。<br>版本：2.3.0<br>下载地址：<a href="http://static.lehoon.cn//download/tools/apktool_2.3.0.jar" target="_blank" rel="noopener">apktool_2.3.0</a></p>
-<h3 id="资源文件获取工具-1"><a href="#资源文件获取工具-1" class="headerlink" title="资源文件获取工具"></a>资源文件获取工具</h3><p>dex-tools，将apk反编译成java源码，apk的资源文件classses.dex转成jar为文件。<br>版本：2.1<br>下载地址：<a href="http://static.lehoon.cn//download/tools/dex-tools-2.1.zip" target="_blank" rel="noopener">dex-tools-2.1</a></p>
-<h3 id="阅读class文件工具"><a href="#阅读class文件工具" class="headerlink" title="阅读class文件工具"></a>阅读class文件工具</h3><p>jd-gui，主要是读取class文件，及载入class相关的工程文件的工具，可以浏览相关的java源码及关联文件代码<br>版本：1.4.0<br>下载地址：<a href="http://static.lehoon.cn//download/tools/jd-gui-windows-1.4.0.zip" target="_blank" rel="noopener">jd-gui-1.4.0</a></p>
+        <p>apama开发时可以使用apama的Software AG Designer工具开发和测试。但是在项目上线的时候，需要发布到服务器环境中，本文记录apama发布过程。<br><a id="more"></a></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>apama发布支持以下几种方式。<br>1、使用Command Central部署组件<br>2、使用Ant脚本部署</p>
+<h3 id="Command-Central部署"><a href="#Command-Central部署" class="headerlink" title="Command Central部署"></a>Command Central部署</h3><p>Software AG Command Central可用于跨多个主机配置，部署和监控各种Apama组件。</p>
+<h3 id="Ant脚本部署"><a href="#Ant脚本部署" class="headerlink" title="Ant脚本部署"></a>Ant脚本部署</h3><p>Software AG Designer工具支持导出ant工程，支持手动命令启动、停止apama工程。利用apama-macros.xml文件中提供的Ant宏定义。可以在Apama安装的etc目录中找到此文件。<br>本文主要介绍ant脚本部署方式。</p>
+<h2 id="部署工程"><a href="#部署工程" class="headerlink" title="部署工程"></a>部署工程</h2><h3 id="导出工程"><a href="#导出工程" class="headerlink" title="导出工程"></a>导出工程</h3><p>1、打开Software AG Designer工具，在Project Explorer试图中，项目上右键，选择Export菜单，显示导出对话框。<br>2、在导出对话框中，展开”Software AG”项目。<br>3、选择Apama Ant Project，然后点击Next，出现Ant导出对话框。<br>4、在Ant Export对话框中，指定如下配置项：<br>  a、启动项目，选择指定的apama工程；<br>  b、导出文件夹，选择要导出工程的目标文件夹；<br>  c、去掉Generate initialization list during languch项复选框的选中状态；<br>  d、选中copy resources to destination（拷贝资源到目标文件夹）项；<br>  e、选中use relative paths（使用相对路径）项；<br>  f、选中include custom file（包含自定义文件）项；<br>  g、选中batch resources when possible项；<br>  h、选中launch correlator in separate console（单独的控制台启动correlator）；</p>
+<p>其余默认即可，点击完成按钮，导出apama功能成功。</p>
+<h3 id="部署工程-1"><a href="#部署工程-1" class="headerlink" title="部署工程"></a>部署工程</h3><p>拷贝导出的apama工程文件夹到服务器上，修改用户环境变量，增加apama安装目录的环境变量。<br>linux服务器在~/.bash_profile中增加$APAMA_HOME/Apama/bin/apama_env.sh导入。<br>window服务器在cmd中首先call %APAMA_HOME%\Apama\bin\apama_env.bat。<br>然后进入工程目录，调用startProject.sh或者startProject.bat即可启动apama工程。</p>
+<p>停止工程则需要调用stopProject.sh或者stopProject.bat。</p>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>1、修改apama工程的socket端口。<br>在导出的ant工程文件夹中的environment.properties文件中，default.port项为apama的默认端口，修改这个配置项。<br>2、apama在服务器上运行成功，但是通信不正常。<br>检查工程是否成功启动，如果启动，能连接上但是通信异常则有可能时correlator启动成功，但是工程没有正确启动，检查environment.properties中apama的环境变量是否正确，主要APAMA_HOME、APAMA_WORK、APAMA_FOUNDATION_HOME几个参数，涉及到apama安装目录、授权文件、扩展库等。<br>3、取消启动dashboard。<br>默认的startProject脚本会传递all参数给ant，导出的build.xml中target名称为all的包含了三个项（start, adapters, dashboards），如果项目中包含了dashboard则会启动，不想启动的话，修改build.xml中all的target去掉dashboards。</p>
 
       
     </div>
@@ -209,13 +214,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/orther/2017/12/25/apk-decompile-tools.html">apk反编译工具</a></p>
+        <p><span>本文标题:</span><a href="/backend/2018/10/16/apama-deploy-note.html">apama发布笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 lehoon 的个人博客">lehoon</a></p>
-        <p><span>发布时间:</span>2017年12月25日 - 11时30分</p>
-        <p><span>最后更新:</span>2018年09月22日 - 21时30分</p>
+        <p><span>发布时间:</span>2018年10月16日 - 14时48分</p>
+        <p><span>最后更新:</span>2018年10月16日 - 16时02分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/orther/2017/12/25/apk-decompile-tools.html" title="apk反编译工具">http://blog.lehoon.cn/orther/2017/12/25/apk-decompile-tools.html</a>
-            <span class="copy-path" data-clipboard-text="原文: http://blog.lehoon.cn/orther/2017/12/25/apk-decompile-tools.html　　作者: lehoon" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/backend/2018/10/16/apama-deploy-note.html" title="apama发布笔记">http://blog.lehoon.cn/backend/2018/10/16/apama-deploy-note.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.lehoon.cn/backend/2018/10/16/apama-deploy-note.html　　作者: lehoon" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -228,18 +233,9 @@
 
 <nav id="article-nav">
   
-    <a href="/backend/2018/03/14/librdkafka-config.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          librdkafka配置参数详解
-        
-      </div>
-    </a>
   
-  
-    <a href="/orther/2017/12/08/map-accuracy2scale.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">地图精度与电子地图比例尺的关系</div>
+    <a href="/backend/2018/10/12/suse-leap15-install-note.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SuSE 15.0安装备忘</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -250,7 +246,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工具介绍"><span class="toc-number">1.</span> <span class="toc-text">工具介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#资源文件获取工具"><span class="toc-number">1.1.</span> <span class="toc-text">资源文件获取工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#资源文件获取工具-1"><span class="toc-number">1.2.</span> <span class="toc-text">资源文件获取工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#阅读class文件工具"><span class="toc-number">1.3.</span> <span class="toc-text">阅读class文件工具</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Command-Central部署"><span class="toc-number">1.1.</span> <span class="toc-text">Command Central部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ant脚本部署"><span class="toc-number">1.2.</span> <span class="toc-text">Ant脚本部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署工程"><span class="toc-number">2.</span> <span class="toc-text">部署工程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导出工程"><span class="toc-number">2.1.</span> <span class="toc-text">导出工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署工程-1"><span class="toc-number">2.2.</span> <span class="toc-text">部署工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见问题"><span class="toc-number">2.3.</span> <span class="toc-text">常见问题</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -290,13 +286,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/backend/2018/03/14/librdkafka-config.html" title="上一篇: librdkafka配置参数详解">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/orther/2017/12/08/map-accuracy2scale.html" title="下一篇: 地图精度与电子地图比例尺的关系">
+            <a href="/backend/2018/10/12/suse-leap15-install-note.html" title="下一篇: SuSE 15.0安装备忘">
                 <i class="fa fa-angle-right"></i>
             </a>
         
