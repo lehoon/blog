@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://blog.lehoon.cn/"/>
-  <updated>2018-10-16T08:02:01.253Z</updated>
+  <updated>2018-10-18T01:38:22.334Z</updated>
   <id>http://blog.lehoon.cn/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://blog.lehoon.cn/backend/2018/10/16/apama-deploy-note.html"/>
     <id>http://blog.lehoon.cn/backend/2018/10/16/apama-deploy-note.html</id>
     <published>2018-10-16T06:48:30.000Z</published>
-    <updated>2018-10-16T08:02:01.253Z</updated>
+    <updated>2018-10-18T01:38:22.334Z</updated>
     
-    <content type="html"><![CDATA[<p>apama开发时可以使用apama的Software AG Designer工具开发和测试。但是在项目上线的时候，需要发布到服务器环境中，本文记录apama发布过程。<br><a id="more"></a></p><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>apama发布支持以下几种方式。<br>1、使用Command Central部署组件<br>2、使用Ant脚本部署</p><h3 id="Command-Central部署"><a href="#Command-Central部署" class="headerlink" title="Command Central部署"></a>Command Central部署</h3><p>Software AG Command Central可用于跨多个主机配置，部署和监控各种Apama组件。</p><h3 id="Ant脚本部署"><a href="#Ant脚本部署" class="headerlink" title="Ant脚本部署"></a>Ant脚本部署</h3><p>Software AG Designer工具支持导出ant工程，支持手动命令启动、停止apama工程。利用apama-macros.xml文件中提供的Ant宏定义。可以在Apama安装的etc目录中找到此文件。<br>本文主要介绍ant脚本部署方式。</p><h2 id="部署工程"><a href="#部署工程" class="headerlink" title="部署工程"></a>部署工程</h2><h3 id="导出工程"><a href="#导出工程" class="headerlink" title="导出工程"></a>导出工程</h3><p>1、打开Software AG Designer工具，在Project Explorer试图中，项目上右键，选择Export菜单，显示导出对话框。<br>2、在导出对话框中，展开”Software AG”项目。<br>3、选择Apama Ant Project，然后点击Next，出现Ant导出对话框。<br>4、在Ant Export对话框中，指定如下配置项：<br>  a、启动项目，选择指定的apama工程；<br>  b、导出文件夹，选择要导出工程的目标文件夹；<br>  c、去掉Generate initialization list during languch项复选框的选中状态；<br>  d、选中copy resources to destination（拷贝资源到目标文件夹）项；<br>  e、选中use relative paths（使用相对路径）项；<br>  f、选中include custom file（包含自定义文件）项；<br>  g、选中batch resources when possible项；<br>  h、选中launch correlator in separate console（单独的控制台启动correlator）；</p><p>其余默认即可，点击完成按钮，导出apama功能成功。</p><h3 id="部署工程-1"><a href="#部署工程-1" class="headerlink" title="部署工程"></a>部署工程</h3><p>拷贝导出的apama工程文件夹到服务器上，修改用户环境变量，增加apama安装目录的环境变量。<br>linux服务器在~/.bash_profile中增加$APAMA_HOME/Apama/bin/apama_env.sh导入。<br>window服务器在cmd中首先call %APAMA_HOME%\Apama\bin\apama_env.bat。<br>然后进入工程目录，调用startProject.sh或者startProject.bat即可启动apama工程。</p><p>停止工程则需要调用stopProject.sh或者stopProject.bat。</p><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>1、修改apama工程的socket端口。<br>在导出的ant工程文件夹中的environment.properties文件中，default.port项为apama的默认端口，修改这个配置项。<br>2、apama在服务器上运行成功，但是通信不正常。<br>检查工程是否成功启动，如果启动，能连接上但是通信异常则有可能时correlator启动成功，但是工程没有正确启动，检查environment.properties中apama的环境变量是否正确，主要APAMA_HOME、APAMA_WORK、APAMA_FOUNDATION_HOME几个参数，涉及到apama安装目录、授权文件、扩展库等。<br>3、取消启动dashboard。<br>默认的startProject脚本会传递all参数给ant，导出的build.xml中target名称为all的包含了三个项（start, adapters, dashboards），如果项目中包含了dashboard则会启动，不想启动的话，修改build.xml中all的target去掉dashboards。</p>]]></content>
+    <content type="html"><![CDATA[<p>apama开发时可以使用apama的Software AG Designer工具开发和测试。但是在项目上线的时候，需要发布到服务器环境中，本文记录apama发布过程。<br><a id="more"></a></p><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>apama发布支持以下几种方式。<br>1、使用Command Central部署组件<br>2、使用Ant脚本部署</p><h3 id="Command-Central部署"><a href="#Command-Central部署" class="headerlink" title="Command Central部署"></a>Command Central部署</h3><p>Software AG Command Central可用于跨多个主机配置，部署和监控各种Apama组件。</p><h3 id="Ant脚本部署"><a href="#Ant脚本部署" class="headerlink" title="Ant脚本部署"></a>Ant脚本部署</h3><p>Software AG Designer工具支持导出ant工程，支持手动命令启动、停止apama工程。利用apama-macros.xml文件中提供的Ant宏定义。可以在Apama安装的etc目录中找到此文件。<br>本文主要介绍ant脚本部署方式。</p><h2 id="部署工程"><a href="#部署工程" class="headerlink" title="部署工程"></a>部署工程</h2><h3 id="导出工程"><a href="#导出工程" class="headerlink" title="导出工程"></a>导出工程</h3><p>1、打开Software AG Designer工具，在Project Explorer试图中，项目上右键，选择Export菜单，显示导出对话框。<br>2、在导出对话框中，展开”Software AG”项目。<br>3、选择Apama Ant Project，然后点击Next，出现Ant导出对话框。<br>4、在Ant Export对话框中，指定如下配置项：</p><ul><li>a、启动项目，选择指定的apama工程；</li><li>b、导出文件夹，选择要导出工程的目标文件夹；</li><li>c、去掉Generate initialization list during languch项复选框的选中状态；</li><li>d、选中copy resources to destination（拷贝资源到目标文件夹）项；</li><li>e、选中use relative paths（使用相对路径）项；</li><li>f、选中include custom file（包含自定义文件）项；</li><li>g、选中batch resources when possible项；</li><li>h、选中launch correlator in separate console（在一个单独的控制台中启动新的correlator）；</li></ul><p>其余默认即可，点击完成按钮，导出apama工程成功。</p><h3 id="部署工程-1"><a href="#部署工程-1" class="headerlink" title="部署工程"></a>部署工程</h3><p>拷贝导出的apama工程文件夹到服务器上，修改用户环境变量，增加apama安装目录的环境变量。<br>linux服务器在~/.bash_profile中增加$APAMA_HOME/Apama/bin/apama_env.sh导入。<br>window服务器在cmd中首先call %APAMA_HOME%\Apama\bin\apama_env.bat。<br>然后进入工程目录，调用startProject.sh或者startProject.bat即可启动apama工程。</p><p>停止工程则需要调用stopProject.sh或者stopProject.bat。</p><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>1、修改apama工程的socket端口。<br>在导出的ant工程文件夹中的environment.properties文件中，default.port项为apama的默认端口，修改这个配置项。<br>2、apama在服务器上运行成功，但是通信不正常。<br>检查工程是否成功启动，如果启动，能连接上但是通信异常则有可能时correlator启动成功，但是工程没有正确启动，检查environment.properties中apama的环境变量是否正确，主要APAMA_HOME、APAMA_WORK、APAMA_FOUNDATION_HOME几个参数，涉及到apama安装目录、授权文件、扩展库等。<br>3、取消启动dashboard。<br>默认的startProject脚本会传递all参数给ant，导出的build.xml中target名称为all的包含了三个项（start, adapters, dashboards），如果项目中包含了dashboard则会启动，不想启动的话，修改build.xml中all的target去掉dashboards。</p>]]></content>
     
     <summary type="html">
     
@@ -316,9 +316,9 @@
     
       <category term="gnss" scheme="http://blog.lehoon.cn/tags/gnss/"/>
     
-      <category term="gprmc" scheme="http://blog.lehoon.cn/tags/gprmc/"/>
-    
       <category term="format" scheme="http://blog.lehoon.cn/tags/format/"/>
+    
+      <category term="gprmc" scheme="http://blog.lehoon.cn/tags/gprmc/"/>
     
   </entry>
   
