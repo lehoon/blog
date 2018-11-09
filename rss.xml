@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://blog.lehoon.cn/"/>
-  <updated>2018-10-18T01:38:22.334Z</updated>
+  <updated>2018-11-09T07:57:13.790Z</updated>
   <id>http://blog.lehoon.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux编译OpenJdk1.8</title>
+    <link href="http://blog.lehoon.cn/backend/2018/11/09/openjdk-compile-linux.html"/>
+    <id>http://blog.lehoon.cn/backend/2018/11/09/openjdk-compile-linux.html</id>
+    <published>2018-11-09T07:24:16.000Z</published>
+    <updated>2018-11-09T07:57:13.790Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录在linux编译openjdk过程。<br><a id="more"></a></p><h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><p>在<a href="http://hg.openjdk.java.net/jdk8u/jdk8u-dev/" target="_blank" rel="noopener">下载网址</a>下载gz压缩包或者使用hg克隆到本地。<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="regexp">/opt/</span>source</span><br><span class="line">wget http:<span class="regexp">//</span>hg.openjdk.java.net<span class="regexp">/jdk8u/</span>jdk8u-dev<span class="regexp">/archive/</span>jdk8u-dev.tar.gz</span><br><span class="line">hg clone http:<span class="regexp">//</span>hg.openjdk.java.net<span class="regexp">/jdk8u/</span>jdk8u-dev<span class="regexp">/</span></span><br></pre></td></tr></table></figure></p><h2 id="安装工具库"><a href="#安装工具库" class="headerlink" title="安装工具库"></a>安装工具库</h2><h3 id="安装jdk1-7"><a href="#安装jdk1-7" class="headerlink" title="安装jdk1.7"></a>安装jdk1.7</h3><p>编译openjdk1.8时需要一个以安装的jdk环境，因为在编译过程中会使用ant打包java的库文件，所以需要安装jdk，但是在编译1.8时最好使用1.7及以前版本的jdk。</p><p>手册上一句话说明：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Building JDK 8 requires <span class="keyword">use</span> <span class="keyword">of</span> a <span class="keyword">version</span> <span class="keyword">of</span> JDK <span class="number">7</span> that <span class="keyword">is</span> <span class="keyword">at</span> <span class="keyword">Update</span> <span class="number">7</span> <span class="keyword">or</span> newer. </span><br><span class="line">JDK <span class="number">8</span> developers should <span class="keyword">not</span> <span class="keyword">use</span> JDK <span class="number">8</span> <span class="keyword">as</span> the boot JDK, </span><br><span class="line"><span class="keyword">to</span> ensure that JDK <span class="number">8</span> dependencies <span class="keyword">are</span> <span class="keyword">not</span> introduced <span class="keyword">into</span> the parts </span><br><span class="line"><span class="keyword">of</span> the <span class="keyword">system</span> that <span class="keyword">are</span> built <span class="keyword">with</span> JDK <span class="number">7.</span></span><br></pre></td></tr></table></figure></p><p>下载jdk1.7（官网或者openjdk都可以）<br>mkdir -p /opt/depends/jdk1.7.0_80</p><h2 id="编译openJdk"><a href="#编译openJdk" class="headerlink" title="编译openJdk"></a>编译openJdk</h2><h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">LANG</span>=C</span><br><span class="line">unset JAVA_HOME</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">JAVA_HOME</span>=/opt/depends/jdk1.7.0_80</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">PATH</span>=<span class="variable">$PATH</span>:$JAVA_HOME/bin</span><br></pre></td></tr></table></figure><h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>首先使用configure生成Makefile<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/source/jdk8u-dev</span><br><span class="line">./configure <span class="attribute">--with-boot-jdk</span>=/opt/depends/jdk1.7.0_80 <span class="attribute">--with-debug-level</span>=fastdebug <span class="attribute">--with-target-bits</span>=64 <span class="attribute">--with-num-cores</span>=4</span><br></pre></td></tr></table></figure></p><p>然后使用make all编译openjdk，最后在build文件下会有一个目录linux-x86_64-normal-server-fastdebug，是存放编译结果的。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录在linux编译openjdk过程。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="后端" scheme="http://blog.lehoon.cn/categories/backend/"/>
+    
+    
+      <category term="linux" scheme="http://blog.lehoon.cn/tags/linux/"/>
+    
+      <category term="openjdk" scheme="http://blog.lehoon.cn/tags/openjdk/"/>
+    
+      <category term="编译" scheme="http://blog.lehoon.cn/tags/%E7%BC%96%E8%AF%91/"/>
+    
+  </entry>
   
   <entry>
     <title>apama发布笔记</title>
@@ -501,30 +527,6 @@
       <category term="find" scheme="http://blog.lehoon.cn/tags/find/"/>
     
       <category term="shell" scheme="http://blog.lehoon.cn/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VS运行库区别</title>
-    <link href="http://blog.lehoon.cn/orther/2017/05/27/vs-compilemode-difference.html"/>
-    <id>http://blog.lehoon.cn/orther/2017/05/27/vs-compilemode-difference.html</id>
-    <published>2017-05-27T09:18:20.000Z</published>
-    <updated>2018-09-22T13:31:21.231Z</updated>
-    
-    <content type="html"><![CDATA[<p>VS编译选项MD(d)、MT(d)编译选项的区别.<br><a id="more"></a></p><h2 id="设置位置："><a href="#设置位置：" class="headerlink" title="设置位置："></a>设置位置：</h2><p>属性-&gt;C/C++-&gt;代码生成-&gt;运行库</p><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p><img src="http://static.lehoon.cn/image/vs/vsrtlib.png"></p><p>/MD 表示运行时库不集成，生成的文件小;<br>/MT 表示运行时库集成，生成的文件大；</p><h2 id="如何选择"><a href="#如何选择" class="headerlink" title="如何选择"></a>如何选择</h2><p>选/MD的理由：文件小，使用的是同一个堆，不存在A申请、B释放的问题；<br>选/MT的理由：文件大，移植性好，减少依赖；</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;VS编译选项MD(d)、MT(d)编译选项的区别.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="vs" scheme="http://blog.lehoon.cn/tags/vs/"/>
-    
-      <category term="运行库" scheme="http://blog.lehoon.cn/tags/%E8%BF%90%E8%A1%8C%E5%BA%93/"/>
     
   </entry>
   
