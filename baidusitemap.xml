@@ -1,271 +1,271 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://blog.lehoon.cn/backend/2018/11/09/openjdk-compile-linux.html</loc>
+    <loc>http://lehoon.cn/backend/2018/11/09/openjdk-compile-linux.html</loc>
     <lastmod>2018-11-14T02:17:49.762Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2018/10/16/apama-deploy-note.html</loc>
+    <loc>http://lehoon.cn/backend/2018/10/16/apama-deploy-note.html</loc>
     <lastmod>2018-10-18T01:38:22.334Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2018/10/12/suse-leap15-install-note.html</loc>
+    <loc>http://lehoon.cn/backend/2018/10/12/suse-leap15-install-note.html</loc>
     <lastmod>2018-10-12T09:28:46.623Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2018/10/09/ehcache-note.html</loc>
+    <loc>http://lehoon.cn/backend/2018/10/09/ehcache-note.html</loc>
     <lastmod>2018-10-09T04:15:45.866Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/frontend/2018/09/27/art-template-note.html</loc>
+    <loc>http://lehoon.cn/frontend/2018/09/27/art-template-note.html</loc>
     <lastmod>2018-09-27T09:21:38.795Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2018/09/25/apama-note.html</loc>
+    <loc>http://lehoon.cn/backend/2018/09/25/apama-note.html</loc>
     <lastmod>2018-09-25T03:11:43.958Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2015/09/28/window-service-program.html</loc>
+    <loc>http://lehoon.cn/backend/2015/09/28/window-service-program.html</loc>
     <lastmod>2018-09-22T13:31:24.355Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/12/08/window-big-file-tools.html</loc>
+    <loc>http://lehoon.cn/orther/2017/12/08/window-big-file-tools.html</loc>
     <lastmod>2018-09-22T13:31:23.465Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2016/02/05/window-batch.html</loc>
+    <loc>http://lehoon.cn/orther/2016/02/05/window-batch.html</loc>
     <lastmod>2018-09-22T13:31:22.863Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/05/27/vs-compilemode-difference.html</loc>
+    <loc>http://lehoon.cn/orther/2017/05/27/vs-compilemode-difference.html</loc>
     <lastmod>2018-09-22T13:31:21.231Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2016/09/01/usb-centos-error.html</loc>
+    <loc>http://lehoon.cn/orther/2016/09/01/usb-centos-error.html</loc>
     <lastmod>2018-09-22T13:31:20.622Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2015/08/18/ue-regex.html</loc>
+    <loc>http://lehoon.cn/orther/2015/08/18/ue-regex.html</loc>
     <lastmod>2018-09-22T13:31:19.478Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/07/04/tcp-rst.html</loc>
+    <loc>http://lehoon.cn/backend/2016/07/04/tcp-rst.html</loc>
     <lastmod>2018-09-22T13:31:19.056Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/09/26/tcpdump.html</loc>
+    <loc>http://lehoon.cn/backend/2016/09/26/tcpdump.html</loc>
     <lastmod>2018-09-22T13:31:18.588Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/07/04/tcp-load-balancing.html</loc>
+    <loc>http://lehoon.cn/backend/2016/07/04/tcp-load-balancing.html</loc>
     <lastmod>2018-09-22T13:31:17.537Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2018/03/27/svn-showlog-date-1970.html</loc>
+    <loc>http://lehoon.cn/orther/2018/03/27/svn-showlog-date-1970.html</loc>
     <lastmod>2018-09-22T13:31:16.492Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/middleware/2017/03/31/storm-core-terminology.html</loc>
+    <loc>http://lehoon.cn/middleware/2017/03/31/storm-core-terminology.html</loc>
     <lastmod>2018-09-22T13:31:16.492Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2015/08/20/ssh-limit.html</loc>
+    <loc>http://lehoon.cn/orther/2015/08/20/ssh-limit.html</loc>
     <lastmod>2018-09-22T13:31:15.937Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2017/02/21/rocketmq-topic-delete.html</loc>
+    <loc>http://lehoon.cn/backend/2017/02/21/rocketmq-topic-delete.html</loc>
     <lastmod>2018-09-22T13:31:14.586Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/02/22/source-insight4-crack.html</loc>
+    <loc>http://lehoon.cn/orther/2017/02/22/source-insight4-crack.html</loc>
     <lastmod>2018-09-22T13:31:14.395Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/rocketmq/2016/11/25/rocketmq-net-port.html</loc>
+    <loc>http://lehoon.cn/rocketmq/2016/11/25/rocketmq-net-port.html</loc>
     <lastmod>2018-09-22T13:31:13.560Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/rocketmq/2016/11/09/rocketmq-install-note.html</loc>
+    <loc>http://lehoon.cn/rocketmq/2016/11/09/rocketmq-install-note.html</loc>
     <lastmod>2018-09-22T13:31:12.190Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2017/02/21/rocketmq-message-store.html</loc>
+    <loc>http://lehoon.cn/backend/2017/02/21/rocketmq-message-store.html</loc>
     <lastmod>2018-09-22T13:31:12.184Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/rocketmq/2016/11/09/rocketmq-docs.html</loc>
+    <loc>http://lehoon.cn/rocketmq/2016/11/09/rocketmq-docs.html</loc>
     <lastmod>2018-09-22T13:31:11.345Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2017/02/25/rocketmq-client-sdk.html</loc>
+    <loc>http://lehoon.cn/backend/2017/02/25/rocketmq-client-sdk.html</loc>
     <lastmod>2018-09-22T13:31:09.719Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2018/03/23/oracle12c-create-instance.html</loc>
+    <loc>http://lehoon.cn/backend/2018/03/23/oracle12c-create-instance.html</loc>
     <lastmod>2018-09-22T13:31:09.484Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html</loc>
+    <loc>http://lehoon.cn/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html</loc>
     <lastmod>2018-09-22T13:31:08.514Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2016/09/05/raid.html</loc>
+    <loc>http://lehoon.cn/orther/2016/09/05/raid.html</loc>
     <lastmod>2018-09-22T13:31:07.442Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2017/03/28/oracle-note-sql.html</loc>
+    <loc>http://lehoon.cn/backend/2017/03/28/oracle-note-sql.html</loc>
     <lastmod>2018-09-22T13:31:06.410Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/10/11/oracle-materialized-view.html</loc>
+    <loc>http://lehoon.cn/backend/2016/10/11/oracle-materialized-view.html</loc>
     <lastmod>2018-09-22T13:31:05.259Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2016/05/08/oracle-merge-into.html</loc>
+    <loc>http://lehoon.cn/orther/2016/05/08/oracle-merge-into.html</loc>
     <lastmod>2018-09-22T13:31:05.042Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/10/14/oracle-error-note.html</loc>
+    <loc>http://lehoon.cn/backend/2016/10/14/oracle-error-note.html</loc>
     <lastmod>2018-09-22T13:31:04.176Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2015/05/07/occi.html</loc>
+    <loc>http://lehoon.cn/backend/2015/05/07/occi.html</loc>
     <lastmod>2018-09-22T13:31:03.525Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2016/08/29/notepad.html</loc>
+    <loc>http://lehoon.cn/orther/2016/08/29/notepad.html</loc>
     <lastmod>2018-09-22T13:31:03.239Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/09/02/nginx-load-balance.html</loc>
+    <loc>http://lehoon.cn/backend/2016/09/02/nginx-load-balance.html</loc>
     <lastmod>2018-09-22T13:31:02.138Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/01/10/mysql-odbc-driver-error.html</loc>
+    <loc>http://lehoon.cn/orther/2017/01/10/mysql-odbc-driver-error.html</loc>
     <lastmod>2018-09-22T13:31:01.493Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/06/20/mysql-reset-password.html</loc>
+    <loc>http://lehoon.cn/orther/2017/06/20/mysql-reset-password.html</loc>
     <lastmod>2018-09-22T13:31:01.485Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/07/28/memcache-memcached-diff.html</loc>
+    <loc>http://lehoon.cn/backend/2016/07/28/memcache-memcached-diff.html</loc>
     <lastmod>2018-09-22T13:30:59.861Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/08/19/makefile.html</loc>
+    <loc>http://lehoon.cn/backend/2016/08/19/makefile.html</loc>
     <lastmod>2018-09-22T13:30:58.783Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/04/10/maven-download-timeout.html</loc>
+    <loc>http://lehoon.cn/orther/2017/04/10/maven-download-timeout.html</loc>
     <lastmod>2018-09-22T13:30:58.778Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/12/08/map-accuracy2scale.html</loc>
+    <loc>http://lehoon.cn/orther/2017/12/08/map-accuracy2scale.html</loc>
     <lastmod>2018-09-22T13:30:58.127Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2017/08/28/load-session-persistent-exception.html</loc>
+    <loc>http://lehoon.cn/backend/2017/08/28/load-session-persistent-exception.html</loc>
     <lastmod>2018-09-22T13:30:56.610Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/05/26/linux-tcp-optimization.html</loc>
+    <loc>http://lehoon.cn/backend/2016/05/26/linux-tcp-optimization.html</loc>
     <lastmod>2018-09-22T13:30:55.231Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/09/16/linux-strace.html</loc>
+    <loc>http://lehoon.cn/backend/2016/09/16/linux-strace.html</loc>
     <lastmod>2018-09-22T13:30:55.227Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/09/27/linux-c-func.html</loc>
+    <loc>http://lehoon.cn/backend/2016/09/27/linux-c-func.html</loc>
     <lastmod>2018-09-22T13:30:54.121Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/%E8%BF%90%E7%BB%B4/2017/05/12/linux-operation-maintenance.html</loc>
+    <loc>http://lehoon.cn/%E8%BF%90%E7%BB%B4/2017/05/12/linux-operation-maintenance.html</loc>
     <lastmod>2018-09-22T13:30:53.508Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/09/29/linux-io-schedule.html</loc>
+    <loc>http://lehoon.cn/backend/2016/09/29/linux-io-schedule.html</loc>
     <lastmod>2018-09-22T13:30:52.384Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/05/31/linux-find-command-examples.html</loc>
+    <loc>http://lehoon.cn/orther/2017/05/31/linux-find-command-examples.html</loc>
     <lastmod>2018-09-22T13:30:51.365Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/09/16/linux-brk-sbrk.html</loc>
+    <loc>http://lehoon.cn/backend/2016/09/16/linux-brk-sbrk.html</loc>
     <lastmod>2018-09-22T13:30:50.016Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2018/03/14/librdkafka-config.html</loc>
+    <loc>http://lehoon.cn/backend/2018/03/14/librdkafka-config.html</loc>
     <lastmod>2018-09-22T13:30:49.021Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/01/24/life-secret.html</loc>
+    <loc>http://lehoon.cn/orther/2017/01/24/life-secret.html</loc>
     <lastmod>2018-09-22T13:30:48.762Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/08/22/kafka-window.html</loc>
+    <loc>http://lehoon.cn/backend/2016/08/22/kafka-window.html</loc>
     <lastmod>2018-09-22T13:30:48.198Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2015/10/11/kesankaoshi.html</loc>
+    <loc>http://lehoon.cn/orther/2015/10/11/kesankaoshi.html</loc>
     <lastmod>2018-09-22T13:30:47.125Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2017/06/13/jstorm-hbase-issue.html</loc>
+    <loc>http://lehoon.cn/backend/2017/06/13/jstorm-hbase-issue.html</loc>
     <lastmod>2018-09-22T13:30:46.236Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/06/09/jps-process-information-unavailable.html</loc>
+    <loc>http://lehoon.cn/orther/2017/06/09/jps-process-information-unavailable.html</loc>
     <lastmod>2018-09-22T13:30:44.533Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/frontend/2016/09/01/js-generate-uuid.html</loc>
+    <loc>http://lehoon.cn/frontend/2016/09/01/js-generate-uuid.html</loc>
     <lastmod>2018-09-22T13:30:44.460Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2016/11/10/java-error-note.html</loc>
+    <loc>http://lehoon.cn/orther/2016/11/10/java-error-note.html</loc>
     <lastmod>2018-09-22T13:30:43.253Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2017/03/15/java-double-compare.html</loc>
+    <loc>http://lehoon.cn/backend/2017/03/15/java-double-compare.html</loc>
     <lastmod>2018-09-22T13:30:42.745Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2016/08/16/ip-catagory.html</loc>
+    <loc>http://lehoon.cn/orther/2016/08/16/ip-catagory.html</loc>
     <lastmod>2018-09-22T13:30:42.740Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/02/16/intellij-idea-2016.html</loc>
+    <loc>http://lehoon.cn/orther/2017/02/16/intellij-idea-2016.html</loc>
     <lastmod>2018-09-22T13:30:41.424Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/02/20/idempotent-define.html</loc>
+    <loc>http://lehoon.cn/orther/2017/02/20/idempotent-define.html</loc>
     <lastmod>2018-09-22T13:30:40.262Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/06/19/idea-file-format.html</loc>
+    <loc>http://lehoon.cn/orther/2017/06/19/idea-file-format.html</loc>
     <lastmod>2018-09-22T13:30:40.116Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/frontend/2016/08/16/http-etag-last-midified.html</loc>
+    <loc>http://lehoon.cn/frontend/2016/08/16/http-etag-last-midified.html</loc>
     <lastmod>2018-09-22T13:30:38.849Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/frontend/2015/03/06/gulp.html</loc>
+    <loc>http://lehoon.cn/frontend/2015/03/06/gulp.html</loc>
     <lastmod>2018-09-22T13:30:38.311Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2017/03/30/hbase-insert-select.html</loc>
+    <loc>http://lehoon.cn/backend/2017/03/30/hbase-insert-select.html</loc>
     <lastmod>2018-09-22T13:30:38.304Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/07/04/golang-deamon.html</loc>
+    <loc>http://lehoon.cn/backend/2016/07/04/golang-deamon.html</loc>
     <lastmod>2018-09-22T13:30:36.868Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/05/03/gnss-terminology.html</loc>
+    <loc>http://lehoon.cn/orther/2017/05/03/gnss-terminology.html</loc>
     <lastmod>2018-09-22T13:30:35.549Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/04/25/gnss-gpgga-formet.html</loc>
+    <loc>http://lehoon.cn/orther/2017/04/25/gnss-gpgga-formet.html</loc>
     <lastmod>2018-09-22T13:30:35.276Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/10/27/gnss-gprmc-format.html</loc>
+    <loc>http://lehoon.cn/orther/2017/10/27/gnss-gprmc-format.html</loc>
     <lastmod>2018-09-22T13:30:34.775Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/10/08/gdb-miss-debuginfo.html</loc>
+    <loc>http://lehoon.cn/backend/2016/10/08/gdb-miss-debuginfo.html</loc>
     <lastmod>2018-09-22T13:30:33.120Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/02/20/github-sync-fork-upstream.html</loc>
+    <loc>http://lehoon.cn/orther/2017/02/20/github-sync-fork-upstream.html</loc>
     <lastmod>2018-09-22T13:30:32.605Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2016/10/28/game-develop-skill.html</loc>
+    <loc>http://lehoon.cn/orther/2016/10/28/game-develop-skill.html</loc>
     <lastmod>2018-09-22T13:30:32.248Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/frontend/2017/03/10/extjs-form-submit.html</loc>
+    <loc>http://lehoon.cn/frontend/2017/03/10/extjs-form-submit.html</loc>
     <lastmod>2018-09-22T13:30:30.567Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/frontend/2017/03/27/extjs-treepanel-singleselect.html</loc>
+    <loc>http://lehoon.cn/frontend/2017/03/27/extjs-treepanel-singleselect.html</loc>
     <lastmod>2018-09-22T13:30:30.359Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/07/11/epoll.html</loc>
+    <loc>http://lehoon.cn/backend/2016/07/11/epoll.html</loc>
     <lastmod>2018-09-22T13:30:29.042Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/%E7%BC%96%E7%A8%8B/2016/09/20/eim.html</loc>
+    <loc>http://lehoon.cn/%E7%BC%96%E7%A8%8B/2016/09/20/eim.html</loc>
     <lastmod>2018-09-22T13:30:28.450Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/05/03/eight-diagram-tactics.html</loc>
+    <loc>http://lehoon.cn/orther/2017/05/03/eight-diagram-tactics.html</loc>
     <lastmod>2018-09-22T13:30:27.958Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/10/09/centos-oracle11gr2-install.html</loc>
+    <loc>http://lehoon.cn/backend/2016/10/09/centos-oracle11gr2-install.html</loc>
     <lastmod>2018-09-22T13:30:26.930Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/07/19/centos-lvs.html</loc>
+    <loc>http://lehoon.cn/backend/2016/07/19/centos-lvs.html</loc>
     <lastmod>2018-09-22T13:30:26.020Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2016/09/07/centos-note.html</loc>
+    <loc>http://lehoon.cn/backend/2016/09/07/centos-note.html</loc>
     <lastmod>2018-09-22T13:30:26.012Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2015/09/15/bool-BOOL.html</loc>
+    <loc>http://lehoon.cn/orther/2015/09/15/bool-BOOL.html</loc>
     <lastmod>2018-09-22T13:30:23.991Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/01/24/bubiao-protocol.html</loc>
+    <loc>http://lehoon.cn/orther/2017/01/24/bubiao-protocol.html</loc>
     <lastmod>2018-09-22T13:30:23.875Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2017/05/19/cache-invalid-problem.html</loc>
+    <loc>http://lehoon.cn/backend/2017/05/19/cache-invalid-problem.html</loc>
     <lastmod>2018-09-22T13:30:23.864Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2016/07/19/awk.html</loc>
+    <loc>http://lehoon.cn/orther/2016/07/19/awk.html</loc>
     <lastmod>2018-09-22T13:30:21.983Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/frontend/2017/09/21/autobuild-static-version.html</loc>
+    <loc>http://lehoon.cn/frontend/2017/09/21/autobuild-static-version.html</loc>
     <lastmod>2018-09-22T13:30:21.861Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2017/12/25/apk-decompile-tools.html</loc>
+    <loc>http://lehoon.cn/orther/2017/12/25/apk-decompile-tools.html</loc>
     <lastmod>2018-09-22T13:30:21.689Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2016/08/09/android-connection-session.html</loc>
+    <loc>http://lehoon.cn/orther/2016/08/09/android-connection-session.html</loc>
     <lastmod>2018-09-22T13:30:20.020Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/orther/2015/09/21/assembly-instruction.html</loc>
+    <loc>http://lehoon.cn/orther/2015/09/21/assembly-instruction.html</loc>
     <lastmod>2018-09-22T13:30:20.007Z</lastmod>
   </url>  <url>
-    <loc>http://blog.lehoon.cn/backend/2017/04/28/ae-network-library.html</loc>
+    <loc>http://lehoon.cn/backend/2017/04/28/ae-network-library.html</loc>
     <lastmod>2018-09-22T13:30:17.420Z</lastmod>
   </url>
 </urlset>
