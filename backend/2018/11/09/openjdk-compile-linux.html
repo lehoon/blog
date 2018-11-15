@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="豌豆荚博客">
 <meta property="og:description" content="记录在linux编译openjdk过程。">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2018-11-14T02:17:49.762Z">
+<meta property="og:updated_time" content="2018-11-15T01:51:10.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux编译OpenJdk1.8">
 <meta name="twitter:description" content="记录在linux编译openjdk过程。">
@@ -198,7 +198,8 @@
       
           
         <p>记录在linux编译openjdk过程。<br><a id="more"></a></p>
-<h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><p>在<a href="http://hg.openjdk.java.net/jdk8u/jdk8u-dev/" target="_blank" rel="noopener">下载网址</a>下载gz压缩包或者使用hg克隆到本地。<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="regexp">/opt/</span>source</span><br><span class="line">wget http:<span class="regexp">//</span>hg.openjdk.java.net<span class="regexp">/jdk8u/</span>jdk8u-dev<span class="regexp">/archive/</span>jdk8u-dev.tar.gz</span><br><span class="line">hg clone http:<span class="regexp">//</span>hg.openjdk.java.net<span class="regexp">/jdk8u/</span>jdk8u-dev<span class="regexp">/</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><p>在<a href="http://hg.openjdk.java.net/jdk8u/jdk8u-dev/" target="_blank" rel="noopener">下载网址</a>下载gz压缩包到本地。<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="regexp">/opt/</span>source</span><br><span class="line">wget http:<span class="regexp">//</span>hg.openjdk.java.net<span class="regexp">/jdk8u/</span>jdk8u-dev<span class="regexp">/archive/</span>jdk8u-dev.tar.gz</span><br><span class="line">tar zxvf jdk8u-dev.tar.gz</span><br><span class="line">cd jdk8u-dev</span><br></pre></td></tr></table></figure></p>
+<p>或者使用hg克隆到本地，然后下载源码<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /<span class="keyword">opt</span>/<span class="keyword">source</span></span><br><span class="line">hg clone http://hg.openjdk.java.net/jdk8u/jdk8u-dev/</span><br><span class="line"><span class="keyword">cd</span> /<span class="keyword">opt</span>/<span class="keyword">source</span>/jdk8u-dev</span><br><span class="line">#下载源码</span><br><span class="line"><span class="keyword">sh</span> get_source.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="安装工具库"><a href="#安装工具库" class="headerlink" title="安装工具库"></a>安装工具库</h2><h3 id="安装jdk1-7"><a href="#安装jdk1-7" class="headerlink" title="安装jdk1.7"></a>安装jdk1.7</h3><p>编译openjdk1.8时需要一个以安装的jdk环境，因为在编译过程中会使用ant打包java的库文件，所以需要安装jdk，但是在编译1.8时最好使用1.7及以前版本的jdk。</p>
 <p>手册上一句话说明：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Building JDK 8 requires <span class="keyword">use</span> <span class="keyword">of</span> a <span class="keyword">version</span> <span class="keyword">of</span> JDK <span class="number">7</span> that <span class="keyword">is</span> <span class="keyword">at</span> <span class="keyword">Update</span> <span class="number">7</span> <span class="keyword">or</span> newer. </span><br><span class="line">JDK <span class="number">8</span> developers should <span class="keyword">not</span> <span class="keyword">use</span> JDK <span class="number">8</span> <span class="keyword">as</span> the boot JDK, </span><br><span class="line"><span class="keyword">to</span> ensure that JDK <span class="number">8</span> dependencies <span class="keyword">are</span> <span class="keyword">not</span> introduced <span class="keyword">into</span> the parts </span><br><span class="line"><span class="keyword">of</span> the <span class="keyword">system</span> that <span class="keyword">are</span> built <span class="keyword">with</span> JDK <span class="number">7.</span></span><br></pre></td></tr></table></figure></p>
 <p>下载jdk1.7（官网或者openjdk都可以）<br>mkdir -p /opt/depends/jdk1.7.0_80</p>
@@ -219,7 +220,7 @@
         <p><span>本文标题:</span><a href="/backend/2018/11/09/openjdk-compile-linux.html">Linux编译OpenJdk1.8</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 lehoon 的个人博客">lehoon</a></p>
         <p><span>发布时间:</span>2018年11月09日 - 15时24分</p>
-        <p><span>最后更新:</span>2018年11月14日 - 10时17分</p>
+        <p><span>最后更新:</span>2018年11月15日 - 09时51分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/backend/2018/11/09/openjdk-compile-linux.html" title="Linux编译OpenJdk1.8">http://lehoon.cn/backend/2018/11/09/openjdk-compile-linux.html</a>
             <span class="copy-path" data-clipboard-text="原文: http://lehoon.cn/backend/2018/11/09/openjdk-compile-linux.html　　作者: lehoon" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
