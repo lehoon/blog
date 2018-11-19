@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://lehoon.cn/"/>
-  <updated>2018-11-15T01:51:10.951Z</updated>
+  <updated>2018-11-19T02:11:01.200Z</updated>
   <id>http://lehoon.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>win10系统使用及问题解决记录</title>
+    <link href="http://lehoon.cn/orther/2018/11/19/win10-system-note.html"/>
+    <id>http://lehoon.cn/orther/2018/11/19/win10-system-note.html</id>
+    <published>2018-11-19T01:52:56.000Z</published>
+    <updated>2018-11-19T02:11:01.200Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录平时使用win10的一些问题解决方法和使用习惯。<br><a id="more"></a></p><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="系统启动项位置"><a href="#系统启动项位置" class="headerlink" title="系统启动项位置"></a>系统启动项位置</h3><p>有2中方式实现跟随系统启动方法，使用注册表和系统启动项快捷方式实现。</p><ul><li>注注册表项<ul><li>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run</li><li>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run</li></ul></li><li>启动文件夹<ul><li>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp</li></ul></li></ul><h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录平时使用win10的一些问题解决方法和使用习惯。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="其他" scheme="http://lehoon.cn/categories/orther/"/>
+    
+    
+      <category term="win10系统" scheme="http://lehoon.cn/tags/win10%E7%B3%BB%E7%BB%9F/"/>
+    
+      <category term="问题解决记录" scheme="http://lehoon.cn/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="使用方法" scheme="http://lehoon.cn/tags/%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux编译OpenJdk1.8</title>
@@ -501,32 +527,6 @@
       <category term="jps" scheme="http://lehoon.cn/tags/jps/"/>
     
       <category term="unavailable" scheme="http://lehoon.cn/tags/unavailable/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux中find的用法</title>
-    <link href="http://lehoon.cn/orther/2017/05/31/linux-find-command-examples.html"/>
-    <id>http://lehoon.cn/orther/2017/05/31/linux-find-command-examples.html</id>
-    <published>2017-05-31T02:50:46.000Z</published>
-    <updated>2018-09-22T13:30:51.365Z</updated>
-    
-    <content type="html"><![CDATA[<p>Linux系统中的 find 命令在查找文件时非常有用而且方便。它可以根据不同的条件来查找文件，例如权限、拥有者、修改日期/时间、文件大小等等。<br><a id="more"></a></p><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find <span class="string">[-H]</span> <span class="string">[-L]</span> <span class="string">[-P]</span> <span class="string">[-D debugopts]</span> <span class="string">[-Olevel]</span> <span class="string">[path...]</span> <span class="string">[expression]</span></span><br></pre></td></tr></table></figure><h2 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h2><p><strong>1、列出当前目录及子目录下的所有文件</strong><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$find</span> .</span><br><span class="line">.</span><br><span class="line">./abc.txt</span><br><span class="line">./subdir</span><br><span class="line">./subdir/how.php</span><br><span class="line">./cool.php</span><br></pre></td></tr></table></figure></p><p>该命令和下面是一样的<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">find .</span></span><br><span class="line"><span class="meta">$</span><span class="bash">find . -<span class="built_in">print</span></span></span><br></pre></td></tr></table></figure></p><p><strong>2、指定路径查找</strong><br>通过指定绝对路径参数实现在指定的路径下查找匹配的文件<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$find <span class="string">./webserver</span></span><br><span class="line"><span class="string">./webserver</span></span><br><span class="line"><span class="string">./webserver/nginx</span></span><br><span class="line"><span class="string">./webserver/nginx/conf</span></span><br><span class="line"><span class="string">./webserver/nginx/conf/nginx.conf</span></span><br><span class="line"><span class="string">./webserver/bin</span></span><br><span class="line"><span class="string">./webserver/bin/nginx</span></span><br></pre></td></tr></table></figure></p><p>查询指定路径下的指定文件<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$find ./webserver -name <span class="string">"nginx"</span></span><br><span class="line">.<span class="meta-keyword">/webserver/</span>nginx<span class="meta-keyword">/bin/</span>nginx</span><br></pre></td></tr></table></figure></p><p>通配符查询<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$find ./webserver -name <span class="string">"*.go"</span></span><br><span class="line">.<span class="meta-keyword">/webserver/</span>gateway<span class="meta-keyword">/src/</span>middleware/route.go</span><br><span class="line">.<span class="meta-keyword">/webserver/</span>gateway<span class="meta-keyword">/src/</span>middleware/route_map.go</span><br></pre></td></tr></table></figure></p><p>由于在linux上区分大小写，所以在查询的时候可以指定参数来忽略大小写<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$find <span class="string">./webserver</span> -iname <span class="string">"*.erl"</span></span><br><span class="line"><span class="string">./webserver/pushsvr/pushsvr.erl</span></span><br><span class="line"><span class="string">./webserver/pushsvr/Message.erl</span></span><br></pre></td></tr></table></figure></p><p>模式字符串要用双引号或者单引号包围，否则可能会产生不正确的结果。</p><p><strong>3、限制查询目录的深度</strong><br>find命令默认会递归查询整个目录树，当目录树很大的时候，会非常耗时。通过指定目录查询深度参数，实现查询指定目录深度的查询结果。<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$find <span class="string">./webserver</span> -maxdepth 2 -name <span class="string">"*.adb"</span></span><br><span class="line"><span class="string">./webserver/controller/flycontrole.adb</span></span><br></pre></td></tr></table></figure></p><p>与maxdepth选项相似，还有一个参数mindepth，通过指定mindepth参数，至少到达参数指定的目录层次后才开始查找文件。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">find -mindepth 3 -<span class="built_in">type</span> f -name <span class="string">"*.cpp"</span></span></span><br></pre></td></tr></table></figure></p><p><strong>4、反向匹配查找</strong><br>在日常工作中经常也会有查询不满足条件的一些文件，这时候就需要使用反向匹配查找选项来实现我们的目的。<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$find <span class="string">./webserver</span> -not -name <span class="string">"*.asm"</span></span><br><span class="line"><span class="string">./webserver</span></span><br><span class="line"><span class="string">./webserver/gateway</span></span><br><span class="line"><span class="string">./webserver/gateway/src/middleware/route.go</span></span><br><span class="line"><span class="string">./webserver/controller</span></span><br><span class="line"><span class="string">./webserver/controller/flycontroller.adb</span></span><br></pre></td></tr></table></figure></p><p>查询指定目录下所有的非php文件，</p><p>这里也可以使用！感叹号来代替 -not ，比如：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$find <span class="string">./webserver</span> ! -name <span class="string">"*.asm"</span></span><br><span class="line"><span class="string">./webserver</span></span><br><span class="line"><span class="string">./webserver/gateway</span></span><br><span class="line"><span class="string">./webserver/gateway/src/middleware/route.go</span></span><br><span class="line"><span class="string">./webserver/controller</span></span><br><span class="line"><span class="string">./webserver/controller/flycontroller.adb</span></span><br></pre></td></tr></table></figure></p><p><strong>5、多条件查询</strong><br>可以通过组合多个条件查询来实现更精确的查询。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find /webserver -name <span class="string">"*controller"</span> ! -name <span class="string">"host-controller"</span></span><br><span class="line"><span class="regexp">/webserver/</span>jboss7<span class="number">-2103</span><span class="regexp">/modules/</span>org<span class="regexp">/jboss/</span><span class="keyword">as</span>/process-controller</span><br><span class="line"><span class="regexp">/webserver/</span>jboss7<span class="number">-2103</span><span class="regexp">/modules/</span>org<span class="regexp">/jboss/</span><span class="keyword">as</span>/controller</span><br></pre></td></tr></table></figure></p><p>查找名称中包含controller，并且排除host-controoler文件。</p><p><strong>OR操作符</strong><br>当使用多个条件查询时，find命令会将他们通过and操作符结合起来，必须满足所有的条件才会列出。当我们需要进行基于or运算的查找时，可以加上-o开关。<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$find <span class="string">/webserver</span> -name <span class="string">"*.php"</span> -o name <span class="string">"*.txt"</span></span><br><span class="line"><span class="string">/webserver/abc.txt</span></span><br><span class="line"><span class="string">/webserver/gateway/router.php</span></span><br></pre></td></tr></table></figure></p><p>查找文件扩展名为txt或php的文件。</p><p><strong>6、指定文件类型</strong><br>当需要指定查询目录或者文件的时候，可以通过-type 参数实现，选项为f（文件）、d（目录）。 不指定该参数的时候，默认查询目录和文件。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查询目录、文件</span></span><br><span class="line"><span class="meta">$</span><span class="bash">find . -name <span class="string">"abc*"</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">只查询文件</span></span><br><span class="line"><span class="meta">$</span><span class="bash">find . -<span class="built_in">type</span> f -name <span class="string">"abc*"</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">只查询目录</span></span><br><span class="line"><span class="meta">$</span><span class="bash">find . -<span class="built_in">type</span> d -name <span class="string">"abc*"</span></span></span><br></pre></td></tr></table></figure></p><p><strong>7、多目录查找</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Linux系统中的 find 命令在查找文件时非常有用而且方便。它可以根据不同的条件来查找文件，例如权限、拥有者、修改日期/时间、文件大小等等。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="linux" scheme="http://lehoon.cn/tags/linux/"/>
-    
-      <category term="find" scheme="http://lehoon.cn/tags/find/"/>
-    
-      <category term="shell" scheme="http://lehoon.cn/tags/shell/"/>
     
   </entry>
   
