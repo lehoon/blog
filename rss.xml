@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://lehoon.cn/"/>
-  <updated>2018-11-26T01:33:48.652Z</updated>
+  <updated>2018-11-26T09:14:04.010Z</updated>
   <id>http://lehoon.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OpenJdk1.8笔记</title>
+    <link href="http://lehoon.cn/orther/2018/11/26/openjdk-study-note.html"/>
+    <id>http://lehoon.cn/orther/2018/11/26/openjdk-study-note.html</id>
+    <published>2018-11-26T09:03:49.000Z</published>
+    <updated>2018-11-26T09:14:04.010Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文记录openjdk1.8学习过程一些笔记。<br><a id="more"></a></p><h2 id="java启动入口"><a href="#java启动入口" class="headerlink" title="java启动入口"></a>java启动入口</h2><h3 id="启动流程"><a href="#启动流程" class="headerlink" title="启动流程"></a>启动流程</h3><p>Jdk中java的入口函数文件为openjdk\jdk\src\share\bin\main.c中的main方法（window上为WinMain），然后调用jdk8u-dev/jdk/src/share/bin/java.c的JLI_Launch方法，启动一个jvm虚拟机；</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文记录openjdk1.8学习过程一些笔记。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="其他" scheme="http://lehoon.cn/categories/orther/"/>
+    
+    
+      <category term="openjdk 开源jdk" scheme="http://lehoon.cn/tags/openjdk-%E5%BC%80%E6%BA%90jdk/"/>
+    
+      <category term="学习记录" scheme="http://lehoon.cn/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>win10系统使用及问题解决记录</title>
@@ -503,30 +527,6 @@
       <category term="jstorm" scheme="http://lehoon.cn/tags/jstorm/"/>
     
       <category term="issue" scheme="http://lehoon.cn/tags/issue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jps出现process information unavailable解决办法</title>
-    <link href="http://lehoon.cn/orther/2017/06/09/jps-process-information-unavailable.html"/>
-    <id>http://lehoon.cn/orther/2017/06/09/jps-process-information-unavailable.html</id>
-    <published>2017-06-09T02:10:43.000Z</published>
-    <updated>2018-09-22T13:30:44.533Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用jps命令查看java进程，经常出现类似”16699 –process information unavailable”。产生这个问题有两种情况，第一种：16699这个进程不属于该用户，没有查看权限；第二种：16699进程已经kill掉了，但是结束的不正确，还有残留痕迹。<br><a id="more"></a></p><h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>使用jps查看当前的java进程，出现procss information unavailable<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@DBServer bin]# jps</span><br><span class="line"><span class="number">12865</span> Jps</span><br><span class="line"><span class="number">16699</span> -- process information unavailable</span><br><span class="line"><span class="number">12667</span> NimbusServer</span><br><span class="line"><span class="number">26331</span> QuorumPeerMain</span><br><span class="line"><span class="number">27790</span> Supervisor</span><br></pre></td></tr></table></figure></p><p>经常出现的应该是第二种情况，就是进程异常退出（通过kill 结束，还有程序驻留的残留）。<br>这里主要解决第二种情况。</p><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>在/tmp目录下找到hsperdata_前缀的目录，查找对应出现process infomation unavailable的进程pid， 找到对应的文件，删除掉即可。<br><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">[root@DBServer bin]<span class="comment"># jps</span></span><br><span class="line">12865 Jps</span><br><span class="line">16699 -- process information unavailable</span><br><span class="line">12667 NimbusServer</span><br><span class="line">26331 QuorumPeerMain</span><br><span class="line">27790 Supervisor</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[root@DBServer tmp]<span class="comment"># ll</span></span><br><span class="line">total 13712</span><br><span class="line">drwxr-xr-x <span class="number"> 3 </span>root   root       <span class="number"> 4096 </span>Jun <span class="number"> 2 </span>15:21 37c71559-e634-4fbf-82ec-1f33ae5e949a</span><br><span class="line">drwxr-xr-x <span class="number"> 4 </span>root   root       <span class="number"> 4096 </span>Jun <span class="number"> 2 </span>15:21 a40cec43-0618-485e-99a3-d389116367c3</span><br><span class="line">drwxr-xr-x <span class="number"> 4 </span>root   root       <span class="number"> 4096 </span>Jun <span class="number"> 2 </span>15:21 f9a83090-032c-443d-9ee4-c88b60ac2cd1</span><br><span class="line">srwxr-xr-x.<span class="number"> 1 </span>root   root          <span class="number"> 0 </span>Jun<span class="number"> 30 </span><span class="number"> 2016 </span>gamma</span><br><span class="line">srwxr-xr-x.<span class="number"> 1 </span>root   root          <span class="number"> 0 </span>Feb<span class="number"> 24 </span><span class="number"> 2016 </span>gnome-system-monitor.root.3066537162</span><br><span class="line">drwxr----- <span class="number"> 2 </span>oracle oinstall   <span class="number"> 4096 </span>Jun <span class="number"> 8 </span>11:45 hsperfdata_oracle</span><br><span class="line">drwxr-xr-x <span class="number"> 2 </span>root   root       <span class="number"> 4096 </span>Jun <span class="number"> 9 </span>10:02 hsperfdata_root</span><br><span class="line">-rw-r--r-- <span class="number"> 1 </span>root   root    <span class="number"> 4666338 </span>Jun <span class="number"> 2 </span>14:33 librocksdbjni3784873004521369627..so</span><br><span class="line">-rw-r--r-- <span class="number"> 1 </span>root   root    <span class="number"> 4666338 </span>Jun <span class="number"> 2 </span>15:10 librocksdbjni7032512820676696127..so</span><br><span class="line">-rw-r--r-- <span class="number"> 1 </span>root   root    <span class="number"> 4666338 </span>Jun <span class="number"> 7 </span>16:46 librocksdbjni8178522767522874847..so</span><br><span class="line">drwx------ <span class="number"> 2 </span>gdm    gdm        <span class="number"> 4096 </span>Jun <span class="number"> 6 </span>10:02 orbit-gdm</span><br><span class="line">drwx------.<span class="number"> 2 </span>gdm    gdm        <span class="number"> 4096 </span>Jun <span class="number"> 6 </span>10:01 pulse-NMadY3Qi6SAA</span><br><span class="line">srwx------.<span class="number"> 1 </span>root   root          <span class="number"> 0 </span>Jun<span class="number"> 28 </span><span class="number"> 2016 </span>supervisor.sock</span><br><span class="line">drwxr-xr-x <span class="number"> 3 </span>root   root       <span class="number"> 4096 </span>Jun <span class="number"> 2 </span>15:06 zookeeper</span><br><span class="line">[root@DBServer tmp]<span class="comment"># cd hsperfdata_root</span></span><br><span class="line">[root@DBServer hsperfdata_root]<span class="comment"># ll</span></span><br><span class="line">total 64</span><br><span class="line">-rw-------<span class="number"> 1 </span>root root<span class="number"> 32768 </span>Jun <span class="number"> 9 </span>10:03 16699</span><br><span class="line">-rw-------<span class="number"> 1 </span>root root<span class="number"> 32768 </span>Jun <span class="number"> 9 </span>10:02 27790</span><br><span class="line">[root@DBServer hsperfdata_root]<span class="comment"># rm -rf 16699</span></span><br><span class="line">[root@DBServer hsperfdata_root]<span class="comment"># ll</span></span><br><span class="line">total 32</span><br><span class="line">-rw-------<span class="number"> 1 </span>root root<span class="number"> 32768 </span>Jun <span class="number"> 9 </span>10:02 27790</span><br></pre></td></tr></table></figure></p><p>删除后，再通过jps查看，就会发现出现process infomation unavailable的进程号不在了。<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@DBServer bin]# jps</span><br><span class="line"><span class="number">12590</span> Jps</span><br><span class="line"><span class="number">12667</span> NimbusServer</span><br><span class="line"><span class="number">26331</span> QuorumPeerMain</span><br><span class="line"><span class="number">27790</span> Supervisor</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用jps命令查看java进程，经常出现类似”16699 –process information unavailable”。产生这个问题有两种情况，第一种：16699这个进程不属于该用户，没有查看权限；第二种：16699进程已经kill掉了，但是结束的不正确，还有残留痕迹。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="jps" scheme="http://lehoon.cn/tags/jps/"/>
-    
-      <category term="unavailable" scheme="http://lehoon.cn/tags/unavailable/"/>
     
   </entry>
   
