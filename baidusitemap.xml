@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://lehoon.cn/orther/2018/11/27/openjdk-startup-note.html</loc>
+    <lastmod>2018-11-27T09:09:46.466Z</lastmod>
+  </url>  <url>
     <loc>http://lehoon.cn/orther/2018/11/26/openjdk-study-note.html</loc>
-    <lastmod>2018-11-27T08:52:57.358Z</lastmod>
+    <lastmod>2018-11-27T09:08:06.397Z</lastmod>
   </url>  <url>
     <loc>http://lehoon.cn/orther/2018/11/19/win10-system-note.html</loc>
     <lastmod>2018-11-26T01:33:48.652Z</lastmod>
