@@ -159,11 +159,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-rocketmq-message-store" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-tcp-rst" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/backend/2017/02/21/rocketmq-message-store.html" class="article-date">
-      <time datetime="2017-02-21T06:25:53.000Z" itemprop="datePublished">2017-02-21</time>
+      <a href="/backend/2016/07/04/tcp-rst.html" class="article-date">
+      <time datetime="2016-07-04T06:20:33.000Z" itemprop="datePublished">2016-07-04</time>
 </a>
     </div>
   
@@ -176,7 +176,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/backend/2017/02/21/rocketmq-message-store.html">rocketmq消息存储</a>
+      <a class="article-title" href="/backend/2016/07/04/tcp-rst.html">tcp出现rst情况</a>
     </h1>
   
 
@@ -186,7 +186,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>rocketmq消息存储是由consume queue和commit log配合完成的。<br>
+              <p>正常情况tcp四层握手关闭连接，rst基本都是异常情况，整理如下：</p>
           
       
     </div>
@@ -201,12 +201,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/message/">message</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rocketmq/">rocketmq</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/store/">store</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a  href="/backend/2017/02/21/rocketmq-message-store.html#more">More >></a>
+          <a  href="/backend/2016/07/04/tcp-rst.html#more">More >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -225,11 +225,11 @@
 
 
   
-    <article id="post-idempotent-define" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-linux-tcp-optimization" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/orther/2017/02/20/idempotent-define.html" class="article-date">
-      <time datetime="2017-02-20T08:51:44.000Z" itemprop="datePublished">2017-02-20</time>
+      <a href="/backend/2016/05/26/linux-tcp-optimization.html" class="article-date">
+      <time datetime="2016-05-26T11:03:35.000Z" itemprop="datePublished">2016-05-26</time>
 </a>
     </div>
   
@@ -242,7 +242,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/orther/2017/02/20/idempotent-define.html">幂等介绍</a>
+      <a class="article-title" href="/backend/2016/05/26/linux-tcp-optimization.html">Linux下tcp的优化</a>
     </h1>
   
 
@@ -252,7 +252,73 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>幂等idempotent是一个数学与计算机学概念，常见于抽象代数中。<br>
+              <p>在GNU Linux系统中，影响连接个数的因素主是由于单个进程能够打开的最大文件数、端口数量决定的；而一个基于tcp的服务器的并发，除了上文说过的两个因素外，还有因为主要的tcp连接的很多属性，而问题最大的则是连接断开后的连接会在TIME_WAIT状态一直存在60秒，这就造成了在大量高并发的情况下当连接为此TIME_WAIT状态时没有可用连接。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/backend/">后端</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/optimization/">optimization</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tcp/">tcp</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/backend/2016/05/26/linux-tcp-optimization.html#more">More >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-oracle-merge-into" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/orther/2016/05/08/oracle-merge-into.html" class="article-date">
+      <time datetime="2016-05-08T08:09:00.000Z" itemprop="datePublished">2016-05-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/orther/2016/05/08/oracle-merge-into.html">oracle中merge into语法注意点</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>在进行SQL语句编写时，我们经常会遇到大量的同时进行Insert/Update的语句，就是说当存在记录时，就更新(Update)，不存在数据时，就插入(Insert)。</p>
           
       
     </div>
@@ -267,12 +333,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/定义/">定义</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/幂等/">幂等</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/merge/">merge</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a  href="/orther/2017/02/20/idempotent-define.html#more">More >></a>
+          <a  href="/orther/2016/05/08/oracle-merge-into.html#more">More >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -291,11 +357,11 @@
 
 
   
-    <article id="post-github-sync-fork-upstream" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-window-batch" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/orther/2017/02/20/github-sync-fork-upstream.html" class="article-date">
-      <time datetime="2017-02-20T01:43:16.000Z" itemprop="datePublished">2017-02-20</time>
+      <a href="/orther/2016/02/05/window-batch.html" class="article-date">
+      <time datetime="2016-02-05T11:37:28.000Z" itemprop="datePublished">2016-02-05</time>
 </a>
     </div>
   
@@ -308,7 +374,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/orther/2017/02/20/github-sync-fork-upstream.html">github上fork项目源同步</a>
+      <a class="article-title" href="/orther/2016/02/05/window-batch.html">Window批处理记录</a>
     </h1>
   
 
@@ -318,7 +384,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>有时候我们在github上看到一些比较好的项目，我们都会fork一下它，然后在本地进行操作，但是fork之后，项目是不会跟源项目保持同步的，需要我们自己进行一些操作让其同步.<br>
+              <p>Window批处理记录。<br>
           
       
     </div>
@@ -333,12 +399,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/synchronize/">synchronize</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/window/">window</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/备忘/">备忘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/批处理/">批处理</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a  href="/orther/2017/02/20/github-sync-fork-upstream.html#more">More >></a>
+          <a  href="/orther/2016/02/05/window-batch.html#more">More >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -357,11 +423,11 @@
 
 
   
-    <article id="post-intellij-idea-2016" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-kesankaoshi" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/orther/2017/02/16/intellij-idea-2016.html" class="article-date">
-      <time datetime="2017-02-16T07:39:45.000Z" itemprop="datePublished">2017-02-16</time>
+      <a href="/orther/2015/10/11/kesankaoshi.html" class="article-date">
+      <time datetime="2015-10-11T11:08:58.000Z" itemprop="datePublished">2015-10-11</time>
 </a>
     </div>
   
@@ -374,7 +440,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/orther/2017/02/16/intellij-idea-2016.html">intellij-idea-2016下载安装</a>
+      <a class="article-title" href="/orther/2015/10/11/kesankaoshi.html">机动车驾驶科目三操作要领</a>
     </h1>
   
 
@@ -384,7 +450,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>IntelliJ IDEA号称当前Java开发效率最高的IDE工具。IntelliJ IDEA有两个版本：社区版(Community)和旗舰版(Ultimate)。社区版时免费的、开源的，但功能较少，旗舰版提供了较多的功能，是收费的，可以试用30天。<br>IntelliJ IDEA官网：<a href="https://www.jetbrains.com" target="_blank" rel="noopener">https://www.jetbrains.com</a><br>
+              <p>机动车驾驶科目三操作要领.</p>
           
       
     </div>
@@ -399,12 +465,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idea2016/">idea2016</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/科三/">科三</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/考试/">考试</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a  href="/orther/2017/02/16/intellij-idea-2016.html#more">More >></a>
+          <a  href="/orther/2015/10/11/kesankaoshi.html#more">More >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -423,11 +489,11 @@
 
 
   
-    <article id="post-bubiao-protocol" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-window-service-program" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/orther/2017/01/24/bubiao-protocol.html" class="article-date">
-      <time datetime="2017-01-24T07:29:11.000Z" itemprop="datePublished">2017-01-24</time>
+      <a href="/backend/2015/09/28/window-service-program.html" class="article-date">
+      <time datetime="2015-09-28T11:40:18.000Z" itemprop="datePublished">2015-09-28</time>
 </a>
     </div>
   
@@ -440,7 +506,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/orther/2017/01/24/bubiao-protocol.html">部标808协议文件</a>
+      <a class="article-title" href="/backend/2015/09/28/window-service-program.html">window服务编程</a>
     </h1>
   
 
@@ -450,7 +516,73 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>本规范是对JT/T 808-2011《道路运输车辆卫星定位系统终端通讯协议及数据格式》的补充和完善</p>
+              <p>window下编写服务程序样例。<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/backend/">后端</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/service/">service</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/window/">window</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/backend/2015/09/28/window-service-program.html#more">More >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-assembly-instruction" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/orther/2015/09/21/assembly-instruction.html" class="article-date">
+      <time datetime="2015-09-21T15:13:46.000Z" itemprop="datePublished">2015-09-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/orther/2015/09/21/assembly-instruction.html">汇编指令集</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>汇编指令集详细说明。</p>
           
       
     </div>
@@ -465,12 +597,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/808/">808</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/部标/">部标</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/assembly/">assembly</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a  href="/orther/2017/01/24/bubiao-protocol.html#more">More >></a>
+          <a  href="/orther/2015/09/21/assembly-instruction.html#more">More >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -489,11 +621,11 @@
 
 
   
-    <article id="post-life-secret" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-bool-BOOL" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/orther/2017/01/24/life-secret.html" class="article-date">
-      <time datetime="2017-01-24T04:42:13.000Z" itemprop="datePublished">2017-01-24</time>
+      <a href="/orther/2015/09/15/bool-BOOL.html" class="article-date">
+      <time datetime="2015-09-15T15:05:48.000Z" itemprop="datePublished">2015-09-15</time>
 </a>
     </div>
   
@@ -506,7 +638,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/orther/2017/01/24/life-secret.html">生活小秘方</a>
+      <a class="article-title" href="/orther/2015/09/15/bool-BOOL.html">bool和BOOL的区别</a>
     </h1>
   
 
@@ -516,7 +648,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>生活小秘方.<br>
+              <p>bool 与BOOL的区别.</p>
           
       
     </div>
@@ -531,12 +663,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/生活/">生活</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/秘方/">秘方</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BOOL/">BOOL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bool/">bool</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a  href="/orther/2017/01/24/life-secret.html#more">More >></a>
+          <a  href="/orther/2015/09/15/bool-BOOL.html#more">More >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -555,11 +687,11 @@
 
 
   
-    <article id="post-mysql-odbc-driver-error" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ssh-limit" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/orther/2017/01/10/mysql-odbc-driver-error.html" class="article-date">
-      <time datetime="2017-01-10T15:20:00.000Z" itemprop="datePublished">2017-01-10</time>
+      <a href="/orther/2015/08/20/ssh-limit.html" class="article-date">
+      <time datetime="2015-08-20T10:19:11.000Z" itemprop="datePublished">2015-08-20</time>
 </a>
     </div>
   
@@ -572,7 +704,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/orther/2017/01/10/mysql-odbc-driver-error.html">无法加载mysql odbc 5.3 unicode driver</a>
+      <a class="article-title" href="/orther/2015/08/20/ssh-limit.html">ssh限制ip远程登录</a>
     </h1>
   
 
@@ -582,7 +714,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>无法加载 MySQL ODBC 5.3 Unicode Driver ODBC 驱动程序的安装例程，因为存在错误代码126.<br>
+              <p>在ssh远程登录linux中，限制其他非法的ip登录系统的几种实现方法。</p>
           
       
     </div>
@@ -597,12 +729,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/">Mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/error/">error</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odbc/">odbc</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a  href="/orther/2017/01/10/mysql-odbc-driver-error.html#more">More >></a>
+          <a  href="/orther/2015/08/20/ssh-limit.html#more">More >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -621,11 +753,11 @@
 
 
   
-    <article id="post-rocketmq-net-port" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ue-regex" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/rocketmq/2016/11/25/rocketmq-net-port.html" class="article-date">
-      <time datetime="2016-11-25T02:13:17.000Z" itemprop="datePublished">2016-11-25</time>
+      <a href="/orther/2015/08/18/ue-regex.html" class="article-date">
+      <time datetime="2015-08-18T04:33:16.000Z" itemprop="datePublished">2015-08-18</time>
 </a>
     </div>
   
@@ -638,7 +770,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/rocketmq/2016/11/25/rocketmq-net-port.html">rocketmq服务中的端口号</a>
+      <a class="article-title" href="/orther/2015/08/18/ue-regex.html">ultraedit正则表达式使用</a>
     </h1>
   
 
@@ -648,139 +780,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>rocketmq端口号使用<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/rocketmq/">rocketmq</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/listenport/">listenport</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rocketmq/">rocketmq</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/rocketmq/2016/11/25/rocketmq-net-port.html#more">More >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-rocketmq-broker-synctopic2namesrv" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html" class="article-date">
-      <time datetime="2016-11-13T12:43:31.000Z" itemprop="datePublished">2016-11-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html">rocketmq中broker启动同步topic到namesrv过程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>rocketmq中broker启动同步topic到namesrv过程.<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/rocketmq/">rocketmq</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/broker/">broker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rocketmq/">rocketmq</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/topic/">topic</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html#more">More >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java-error-note" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/orther/2016/11/10/java-error-note.html" class="article-date">
-      <time datetime="2016-11-10T09:12:00.000Z" itemprop="datePublished">2016-11-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/orther/2016/11/10/java-error-note.html">java常见错误</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>java常见错误<br>
+              <p>Ultraedit提供了非常丰富的编辑功能,其中非常重要的查找和替换功能一定大家都用过，UltraEdit正则表达式的查找替换功能非常方便和强大，可以在单独文件里面、指定目录下查找替换。</p>
           
       
     </div>
@@ -795,12 +795,144 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/error/">error</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/regex/">regex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ue/">ue</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a  href="/orther/2016/11/10/java-error-note.html#more">More >></a>
+          <a  href="/orther/2015/08/18/ue-regex.html#more">More >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-occi" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/backend/2015/05/07/occi.html" class="article-date">
+      <time datetime="2015-05-07T03:44:31.000Z" itemprop="datePublished">2015-05-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/backend/2015/05/07/occi.html">c++使用occi连接oracle</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>c++使用occi连接oracle数据库的步骤。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/backend/">后端</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/occi/">occi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/backend/2015/05/07/occi.html#more">More >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-gulp" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/frontend/2015/03/06/gulp.html" class="article-date">
+      <time datetime="2015-03-06T02:47:54.000Z" itemprop="datePublished">2015-03-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/frontend/2015/03/06/gulp.html">gulp 提高页面加载速度</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>gulp 提高页面加载速度，主要通过html清理、js压缩、css压缩减少html页面的体积来降低页面加载速度。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/frontend/">前端</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/frontend/2015/03/06/gulp.html#more">More >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -821,7 +953,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
     </nav>
   
 </div>
