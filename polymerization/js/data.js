@@ -574,6 +574,7 @@ var FrontGuide = {
             "pageC2":[
                 {'Name':'Linux命令大全','Title':'Linux命令大全','Href':'http://man.linuxde.net',"New":"1"},
                 {'Name':'Linux Man Pages','Title':'Linux Man Pages','Href':'https://linux.die.net/man',"New":"1"},
+                {'Name':'Jdk 1.6 api','Title':'Jdk 1.6 api','Href':'http://tool.oschina.net/apidocs/apidoc?api=jdk-zh', "New":"1"},
             ]}
         ]},{
         "pageT1":"找工作",
@@ -597,10 +598,10 @@ var FrontGuide = {
         "pageC1":[{
                 "pageT2":"复合事件处理",
                 "pageC2":[
-                    {"Name":"Wiki", 'Title':'Wiki', 'Href':'https://en.wikipedia.org/wiki/Complex_event_processing'},
-                    {"Name":"Apama官网", 'Title':'Apama官网', 'Href':'http://www.apamacommunity.com/'},
-                    {"Name":"Apama下载", 'Title':'Apama下载', 'Href':'http://www.apamacommunity.com/downloads/'},
-                    {"Name":"Apache Cep", 'Title':'Apache Cep', 'Href':'http://camel.apache.org/cep.html'},
+                    {"Name":"Wiki", 'Title':'Wiki', 'Href':'https://en.wikipedia.org/wiki/Complex_event_processing', "New":"1"},
+                    {"Name":"Apama官网", 'Title':'Apama官网', 'Href':'http://www.apamacommunity.com/', "New":"1"},
+                    {"Name":"Apama下载", 'Title':'Apama下载', 'Href':'http://www.apamacommunity.com/downloads/', "New":"1"},
+                    {"Name":"Apache Cep", 'Title':'Apache Cep', 'Href':'http://camel.apache.org/cep.html', "New":"1"},
                 ]
             }]
         }, {
