@@ -420,9 +420,9 @@
     
       <category term="gnss" scheme="http://lehoon.cn/tags/gnss/"/>
     
-      <category term="gprmc" scheme="http://lehoon.cn/tags/gprmc/"/>
-    
       <category term="format" scheme="http://lehoon.cn/tags/format/"/>
+    
+      <category term="gprmc" scheme="http://lehoon.cn/tags/gprmc/"/>
     
   </entry>
   

@@ -593,10 +593,22 @@ var FrontGuide = {
                 {'Name':'前端导航','Title':'','Href':'http://www.haorooms.com/nav'}, 
             ]
         }]},{
+        "pageT1":"复合事件处理",
+        "pageC1":[{
+                "pageT2":"复合事件处理",
+                "pageC2":[
+                    {"Name":"Wiki", 'Title':'Wiki', 'Href':'https://en.wikipedia.org/wiki/Complex_event_processing'},
+                    {"Name":"Apama官网", 'Title':'Apama官网', 'Href':'http://www.apamacommunity.com/'},
+                    {"Name":"Apama下载", 'Title':'Apama下载', 'Href':'http://www.apamacommunity.com/downloads/'},
+                    {"Name":"Apache Cep", 'Title':'Apache Cep', 'Href':'http://camel.apache.org/cep.html'},
+                ]
+            }]
+        }, {
         "pageT1":"我的链接",
         "pageC1":[{
             "pageT2":"我的链接",
             "pageC2":[
+                {'Name':'网站','Title':'Lehoon。','Href':'http://lehoon.com'},
                 {'Name':'主页','Title':'Lehoon。','Href':'http://blog.lehoon.cn'},
                 {'Name':'博客','Title':'Lehoon Blog。','Href':'http://blog.lehoon.cn'},
                 {'Name':'项目','Title':'开发项目','Href':'http://blog.lehoon.cn/projects/'},
