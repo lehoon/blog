@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://lehoon.cn/"/>
-  <updated>2018-12-07T02:56:40.824Z</updated>
+  <updated>2018-12-27T02:39:14.624Z</updated>
   <id>http://lehoon.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux使用记录笔记</title>
+    <link href="http://lehoon.cn/orther/2018/12/27/linux-using-note.html"/>
+    <id>http://lehoon.cn/orther/2018/12/27/linux-using-note.html</id>
+    <published>2018-12-27T02:02:25.000Z</published>
+    <updated>2018-12-27T02:39:14.624Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录linux日常使用过程中的一些使用方式、记录，比较少用的、少见的一些问题及解决方法。<br><a id="more"></a><br>平时使用linux遇到的比较少见的问题及解决方法，便于后期再次遇到。</p><h1 id="Shell命令"><a href="#Shell命令" class="headerlink" title="Shell命令"></a>Shell命令</h1><h2 id="删除特殊字符的目录、文件"><a href="#删除特殊字符的目录、文件" class="headerlink" title="删除特殊字符的目录、文件"></a>删除特殊字符的目录、文件</h2><p>程序开发中经常使用配置文件，然后在程序中引用使用，但是如果配置参数没有定义，则程序不能正确替换，就会生成一些特殊字符的目录、文件，例如： ${app.conf.name} 文件名的文件，使用rm -rf {app.conf.name} 删不掉。需要使用转移字符删除。<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[lehoon<span class="variable">@lehoon</span> ~]<span class="variable">$ </span>rm -rf \<span class="variable">$\</span>&#123;app.conf.name\&#125;/</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录linux日常使用过程中的一些使用方式、记录，比较少用的、少见的一些问题及解决方法。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="其他" scheme="http://lehoon.cn/categories/orther/"/>
+    
+    
+      <category term="linux" scheme="http://lehoon.cn/tags/linux/"/>
+    
+      <category term="使用记录" scheme="http://lehoon.cn/tags/%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="常用备忘" scheme="http://lehoon.cn/tags/%E5%B8%B8%E7%94%A8%E5%A4%87%E5%BF%98/"/>
+    
+  </entry>
   
   <entry>
     <title>openjdk1.8中的Makefile</title>
@@ -446,9 +472,9 @@
     
       <category term="gnss" scheme="http://lehoon.cn/tags/gnss/"/>
     
-      <category term="format" scheme="http://lehoon.cn/tags/format/"/>
-    
       <category term="gprmc" scheme="http://lehoon.cn/tags/gprmc/"/>
+    
+      <category term="format" scheme="http://lehoon.cn/tags/format/"/>
     
   </entry>
   
@@ -503,32 +529,6 @@
       <category term="session" scheme="http://lehoon.cn/tags/session/"/>
     
       <category term="exception" scheme="http://lehoon.cn/tags/exception/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mysql重设密码和远程访问</title>
-    <link href="http://lehoon.cn/orther/2017/06/20/mysql-reset-password.html"/>
-    <id>http://lehoon.cn/orther/2017/06/20/mysql-reset-password.html</id>
-    <published>2017-06-20T07:05:52.000Z</published>
-    <updated>2018-09-22T13:31:01.485Z</updated>
-    
-    <content type="html"><![CDATA[<p>mysql安装默认的root账户没有密码，所以登录mysql需要通过mysql -uroot -h 127.0.0.1 -P 3306登录后，设置密码。<br><a id="more"></a></p><h2 id="重设密码"><a href="#重设密码" class="headerlink" title="重设密码"></a>重设密码</h2><h3 id="登录mysql数据库"><a href="#登录mysql数据库" class="headerlink" title="登录mysql数据库"></a>登录mysql数据库</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -h <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> -P <span class="number">3306</span></span><br></pre></td></tr></table></figure><h3 id="更新密码"><a href="#更新密码" class="headerlink" title="更新密码"></a>更新密码</h3><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> <span class="keyword">password</span> = <span class="keyword">PASSWORD</span>(<span class="string">'123456'</span>) <span class="keyword">where</span> <span class="keyword">user</span> = <span class="string">'root'</span>;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line">Rows matched: 1  Changed: 1  Warnings: 0</span><br></pre></td></tr></table></figure><p>重新登录就需要输入密码了。</p><h2 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h2><p>mysql远程连接是通过mysql数据库中user表中的host主机字段来限定的，如果是%则匹配所有主机，如果是localhost、127.0.0.1或者是主机名的话，则表示只允许本机登录。一般线上服务器都是限制本机登录。</p><h3 id="直接该表字段"><a href="#直接该表字段" class="headerlink" title="直接该表字段"></a>直接该表字段</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; update <span class="keyword">user</span> <span class="title">set</span> host = '%' where <span class="keyword">user</span> <span class="title">= 'root</span>' <span class="keyword">and</span> host = 'localhost';</span><br></pre></td></tr></table></figure><h3 id="授权指令"><a href="#授权指令" class="headerlink" title="授权指令"></a>授权指令</h3><p>mysql提供了grant指令来实现一些常用的授权，比如限制指定用户访问指定的表，权限(只读、写等)。<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root用户允许任何机器连接到mysql服务器，密码<span class="number">123456</span>，使用以下指令</span><br><span class="line">mysql&gt; grant <span class="literal">all</span> privileges <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'root'</span>@<span class="string">'%'</span> idenified <span class="keyword">by</span> <span class="string">'12345'</span> <span class="keyword">with</span> grant option;</span><br><span class="line"></span><br><span class="line">jack用户从ip地址为<span class="number">10.10</span><span class="number">.25</span><span class="number">.126</span>的主机连接到mysql服务器，密码<span class="number">123456</span>，使用以下指令</span><br><span class="line">mysql&gt; grant <span class="literal">all</span> privileges <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'jack'</span>@<span class="string">'10.10.25.126'</span> identified <span class="keyword">by</span> <span class="string">'123456'</span> <span class="keyword">with</span> grant option;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;mysql安装默认的root账户没有密码，所以登录mysql需要通过mysql -uroot -h 127.0.0.1 -P 3306登录后，设置密码。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="mysql" scheme="http://lehoon.cn/tags/mysql/"/>
-    
-      <category term="密码" scheme="http://lehoon.cn/tags/%E5%AF%86%E7%A0%81/"/>
-    
-      <category term="远程访问" scheme="http://lehoon.cn/tags/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/"/>
     
   </entry>
   

@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>memcache与memcached区别 | 豌豆荚博客</title>
+  <title>linux使用记录笔记 | 豌豆荚博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Memcache是一个自由和开放源代码、高性能、分配的内存对象缓存系统。用于加速动态web应用程序，减轻数据库负载。它可以应对任意多个连接，使用非阻塞的网络IO。由于它的工作机制是在内存中开辟一块空间，然后建立一个Hash表，Memcached自管理这些Hash表。">
-<meta name="keywords" content="memcache,c">
+  <meta name="description" content="记录linux日常使用过程中的一些使用方式、记录，比较少用的、少见的一些问题及解决方法。">
+<meta name="keywords" content="linux,使用记录,常用备忘">
 <meta property="og:type" content="article">
-<meta property="og:title" content="memcache与memcached区别">
-<meta property="og:url" content="http://lehoon.cn/backend/2016/07/28/memcache-memcached-diff.html">
+<meta property="og:title" content="linux使用记录笔记">
+<meta property="og:url" content="http://lehoon.cn/orther/2018/12/27/linux-using-note.html">
 <meta property="og:site_name" content="豌豆荚博客">
-<meta property="og:description" content="Memcache是一个自由和开放源代码、高性能、分配的内存对象缓存系统。用于加速动态web应用程序，减轻数据库负载。它可以应对任意多个连接，使用非阻塞的网络IO。由于它的工作机制是在内存中开辟一块空间，然后建立一个Hash表，Memcached自管理这些Hash表。">
+<meta property="og:description" content="记录linux日常使用过程中的一些使用方式、记录，比较少用的、少见的一些问题及解决方法。">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2018-09-22T13:30:59.861Z">
+<meta property="og:updated_time" content="2018-12-27T02:39:14.624Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="memcache与memcached区别">
-<meta name="twitter:description" content="Memcache是一个自由和开放源代码、高性能、分配的内存对象缓存系统。用于加速动态web应用程序，减轻数据库负载。它可以应对任意多个连接，使用非阻塞的网络IO。由于它的工作机制是在内存中开辟一块空间，然后建立一个Hash表，Memcached自管理这些Hash表。">
+<meta name="twitter:title" content="linux使用记录笔记">
+<meta name="twitter:description" content="记录linux日常使用过程中的一些使用方式、记录，比较少用的、少见的一些问题及解决方法。">
   
     <link rel="alternative" href="/atom.xml" title="豌豆荚博客" type="application/atom+xml">
   
@@ -155,11 +155,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-memcache-memcached-diff" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-linux-using-note" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/backend/2016/07/28/memcache-memcached-diff.html" class="article-date">
-      <time datetime="2016-07-28T00:50:14.000Z" itemprop="datePublished">2016-07-28</time>
+      <a href="/orther/2018/12/27/linux-using-note.html" class="article-date">
+      <time datetime="2018-12-27T02:02:25.000Z" itemprop="datePublished">2018-12-27</time>
 </a>
     </div>
   
@@ -172,7 +172,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      memcache与memcached区别
+      linux使用记录笔记
     </h1>
   
 
@@ -181,13 +181,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/backend/">后端</a>
+    <a class="article-category-link" href="/categories/orther/">其他</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memcache/">memcache</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/使用记录/">使用记录</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常用备忘/">常用备忘</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -197,8 +197,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Memcache是一个自由和开放源代码、高性能、分配的内存对象缓存系统。用于加速动态web应用程序，减轻数据库负载。它可以应对任意多个连接，使用非阻塞的网络IO。由于它的工作机制是在内存中开辟一块空间，然后建立一个Hash表，Memcached自管理这些Hash表。<br><a id="more"></a><br>Memcache是什么？<br>Memcache是一个自由和开放源代码、高性能、分配的内存对象缓存系统。用于加速动态web应用程序，减轻数据库负载。它可以应对任意多个连接，使用非阻塞的网络IO。由于它的工作机制是在内存中开辟一块空间，然后建立一个Hash表，Memcached自管理这些Hash表。<br>Memcached是简单而强大的。它简单的设计促进迅速部署，易于发展所面临的问题，解决了很多大型数据缓存。它的API可供最流行的语言。<br>Memcache官方网站：<a href="http://memcached.org/" target="_blank" rel="noopener">http://memcached.org/</a><br>Memcached又是什么？<br>Memcache是该系统的项目名称，Memcached是该系统的主程序文件（字母d可以理解为daemon），以守护程序方式运行于一个或多个服务器中，随时接受客户端的连接操作，使用共享内存存取数据。<br>memcache客户端(php)<br>PHP有两个memcache客户端：php memcache和php memcached。<br>php memcache独立用php实现，是老客户端，从我们实践中已发现有多个问题，而且功能少，属性也可设置的少；<br><a href="http://pecl.php.net/package/memcache" target="_blank" rel="noopener">http://pecl.php.net/package/memcache</a><br>php memcached是基于原生的c的libmemcached的扩展，更加完善，建议替换为php memcached。<br><a href="http://pecl.php.net/package/memcached" target="_blank" rel="noopener">http://pecl.php.net/package/memcached</a><br>memcached安装(服务端)<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/root/lnmp/src/</span></span><br><span class="line">wget http:<span class="string">//memcached.googlecode.com/files/memcached-1.4.15.tar.gz</span></span><br><span class="line">tar xzf memcached-1.4.15.tar.gz</span><br><span class="line"><span class="keyword">cd</span> memcached-1.4.15</span><br><span class="line"><span class="string">./configure</span> <span class="params">--prefix=/usr/local/memcached</span></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line">ln -s <span class="string">/usr/local/memcached/bin/memcached</span> <span class="string">/usr/bin/memcached</span></span><br><span class="line"><span class="string">/bin/cp</span> scripts/memcached.sysv <span class="string">/etc/init.d/memcached</span></span><br><span class="line">sed -i 's@^USER=.*@USER=root@' <span class="string">/etc/init.d/memcached</span></span><br><span class="line">sed -i 's@chown@<span class="comment">#chown@' /etc/init.d/memcached</span></span><br><span class="line">sed -i 's@<span class="string">/var/run/memcached/memcached.pid</span>@<span class="string">/var/run/memcached.pid</span>@' <span class="string">/etc/init.d/memcached</span></span><br><span class="line">sed -i 's@^prog=.*@prog=<span class="string">"/usr/local/memcached/bin/memcached"</span>@' <span class="string">/etc/init.d/memcached</span> <span class="comment">#前面有软链接，这里可以省略</span></span><br><span class="line">chmod +x <span class="string">/etc/init.d/memcached</span></span><br><span class="line">chkconfig <span class="params">--add</span> memcached</span><br><span class="line">chkconfig memcached on</span><br><span class="line"><span class="keyword">cd</span> <span class="string">..</span></span><br><span class="line">启动memcached:</span><br><span class="line">service memcached start  <span class="comment">#或者执行下面</span></span><br><span class="line">memcached -p 11211 -l 127.0.0.1 -d -u root -P <span class="string">/var/run/memcached.pid</span> -m 64M -c 1024</span><br><span class="line">几个参数的解释：</span><br><span class="line">-p memcached监听的TCP端口</span><br><span class="line">-l 监听的ip地址，127.0.0.1是本机，当然也可以写上你的服务器IP，如：10.0.0.10，这是我服务器的IP地址，如果你需要多个服务器都能够读取这台memcached的缓存数据，那么就必须设定这个ip</span><br><span class="line">-d 以daemon方式运行，将程序放入后台</span><br><span class="line">-u memcached的运行用户，我设定的是nobody</span><br><span class="line">-P memcached的pid文件路径</span><br><span class="line">-m memcached可以使用的最大内存数量</span><br><span class="line">-c memcached同时可以接受的最大的连接数</span><br><span class="line">如果你希望以socket方式来访问memcached，那么在启动的时候就必须去掉 -l和-p参数，并加上-s参数：</span><br><span class="line">-s memcached的socket文件路径</span><br><span class="line">php中memcache扩展组件的安装：</span><br><span class="line">tar xzf memcache-2.2.7.tgz</span><br><span class="line"><span class="keyword">cd</span> memcache-2.2.7</span><br><span class="line"><span class="string">/usr/local/php/bin/phpize</span></span><br><span class="line"><span class="string">./configure</span> <span class="params">--with-php-config=/usr/local/php/bin/php-config</span></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"><span class="keyword">cd</span> <span class="string">../</span></span><br><span class="line">按照我的环境，编译出来的memcache.so自动生成在<span class="string">/usr/local/php/lib/php/extensions/no-debug-non-zts-20121212/</span> 目录下，如果你的环境不一样，你得根据自己情况修改你的php.ini了。</span><br><span class="line">接着要做的工作就是让php加载这个扩展，编辑你的php.ini，在适当位置（通常是最后，也可以是独立的一个ini文件）加入如下行：</span><br><span class="line">extension=memcache.so</span><br><span class="line">然后重启php或者apache，运行一个phpinfo<span class="params">()</span>来确认一下，正常的话你应该可以看到这个了：memcache</span><br><span class="line">php-memcache的简单使用举例：</span><br><span class="line">&lt;?php</span><br><span class="line">$memcache = new Memcache;</span><br><span class="line">$memcache-&gt;<span class="keyword">connect</span><span class="params">('127.0.0.1','11211')</span>;</span><br><span class="line">$memcache-&gt;<span class="keyword">set</span>CompressThreshold<span class="params">(20000, 0.2)</span>;    <span class="string">//</span> 设置压缩   </span><br><span class="line"><span class="keyword">echo</span> $memcache-&gt;getVersion<span class="params">()</span>;                   <span class="string">//</span> 输出memcached版本   </span><br><span class="line">$test = array<span class="params">(1,2,3,4,5,'abcde')</span>;               <span class="string">//</span>生成一个数组   </span><br><span class="line"><span class="keyword">if</span><span class="params">($memcache-&gt;get('test')</span>)&#123;</span><br><span class="line">        print_r<span class="params">($memcache-&gt;get('test')</span>);        <span class="string">//</span>获取数据   </span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line">        <span class="keyword">echo</span> 'cached';</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">        $memcache-&gt;<span class="keyword">set</span><span class="params">('test',$test,0,30)</span>;      <span class="string">//</span>写入数据   </span><br><span class="line">        <span class="keyword">echo</span> 'no cache';</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line">php中memcached扩展组件的安装（LNMP一键安装包）：</span><br><span class="line">最新版ibmemcached-1.0.17.tar.gz可能会报错error: ‘HAVE_MEMCACHED_BINARY’ was not declared in this scope</span><br><span class="line">用libmemcached-1.0.16.tar.gz没问题</span><br><span class="line">安装如下：</span><br><span class="line">wget https:<span class="string">//launchpad.net/libmemcached/1.0/1.0.16/</span>+download/libmemcached-1.0.16.tar.gz</span><br><span class="line">wget http:<span class="string">//pecl.php.net/get/memcached-2.1.0.tgz</span></span><br><span class="line">tar xzf libmemcached-1.0.16.tar.gz</span><br><span class="line"><span class="keyword">cd</span> libmemcached-1.0.16</span><br><span class="line"><span class="string">./configure</span> <span class="params">--with-memcached=/usr/local/memcached</span></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"><span class="keyword">cd</span> <span class="string">..</span></span><br><span class="line">tar xzf memcached-2.1.0.tgz</span><br><span class="line"><span class="keyword">cd</span> memcached-2.1.0</span><br><span class="line"><span class="string">/usr/local/php/bin/phpize</span></span><br><span class="line"><span class="string">./configure</span> <span class="params">--with-php-config=/usr/local/php/bin/php-config</span></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
-<p>按照我的环境，编译出来的memcached.so自动生成在 /usr/local/php/lib/php/extensions/no-debug-non-zts-20121212/ 目录下，如果你的环境不一样，你得根据自己情况修改你的php.ini了。<br>接着要做的工作就是让php加载这个扩展，编辑你的php.ini，在适当位置（通常是最后，也可以是独立的一个ini文件）加入如下行：<br>extension=memcached.so<br>然后重启php或者apache，运行一个phpinfo()来确认一下，正常的话你应该可以看到这个了：memcached<br>总结：<br>其实很简单，memcache是php的一个扩展，用于php管理memcached(服务端)，php-memcache.dll。<br>如果安装了memcached(服务端)不安装扩展，那么php无法操控memcached，但是命令行使用起来没有问题<br>如果安装了PHP memcache客户端(php memcache和php memcached)。但是没有安装memcached(服务端)服务，那么这个就无法使用<br>只有同时安装了memcached(服务端)和PHP memcache客户端扩展才可以提高动态网站性能</p>
+        <p>记录linux日常使用过程中的一些使用方式、记录，比较少用的、少见的一些问题及解决方法。<br><a id="more"></a><br>平时使用linux遇到的比较少见的问题及解决方法，便于后期再次遇到。</p>
+<h1 id="Shell命令"><a href="#Shell命令" class="headerlink" title="Shell命令"></a>Shell命令</h1><h2 id="删除特殊字符的目录、文件"><a href="#删除特殊字符的目录、文件" class="headerlink" title="删除特殊字符的目录、文件"></a>删除特殊字符的目录、文件</h2><p>程序开发中经常使用配置文件，然后在程序中引用使用，但是如果配置参数没有定义，则程序不能正确替换，就会生成一些特殊字符的目录、文件，例如： ${app.conf.name} 文件名的文件，使用rm -rf {app.conf.name} 删不掉。需要使用转移字符删除。<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[lehoon<span class="variable">@lehoon</span> ~]<span class="variable">$ </span>rm -rf \<span class="variable">$\</span>&#123;app.conf.name\&#125;/</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -207,13 +207,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/backend/2016/07/28/memcache-memcached-diff.html">memcache与memcached区别</a></p>
+        <p><span>本文标题:</span><a href="/orther/2018/12/27/linux-using-note.html">linux使用记录笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 lehoon 的个人博客">lehoon</a></p>
-        <p><span>发布时间:</span>2016年07月28日 - 08时50分</p>
-        <p><span>最后更新:</span>2018年09月22日 - 21时30分</p>
+        <p><span>发布时间:</span>2018年12月27日 - 10时02分</p>
+        <p><span>最后更新:</span>2018年12月27日 - 10时39分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/backend/2016/07/28/memcache-memcached-diff.html" title="memcache与memcached区别">http://lehoon.cn/backend/2016/07/28/memcache-memcached-diff.html</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lehoon.cn/backend/2016/07/28/memcache-memcached-diff.html　　作者: lehoon" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/orther/2018/12/27/linux-using-note.html" title="linux使用记录笔记">http://lehoon.cn/orther/2018/12/27/linux-using-note.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lehoon.cn/orther/2018/12/27/linux-using-note.html　　作者: lehoon" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -226,18 +226,9 @@
 
 <nav id="article-nav">
   
-    <a href="/orther/2016/08/09/android-connection-session.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          android非浏览器应用程序与服务器会话保持实现
-        
-      </div>
-    </a>
   
-  
-    <a href="/backend/2016/07/19/centos-lvs.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CentOS 7.0下安装部署LVS</div>
+    <a href="/backend/2018/12/06/openjdk-makefile-note.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">openjdk1.8中的Makefile</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -248,7 +239,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shell命令"><span class="toc-number">1.</span> <span class="toc-text">Shell命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#删除特殊字符的目录、文件"><span class="toc-number">1.1.</span> <span class="toc-text">删除特殊字符的目录、文件</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -288,13 +279,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/orther/2016/08/09/android-connection-session.html" title="上一篇: android非浏览器应用程序与服务器会话保持实现">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/backend/2016/07/19/centos-lvs.html" title="下一篇: CentOS 7.0下安装部署LVS">
+            <a href="/backend/2018/12/06/openjdk-makefile-note.html" title="下一篇: openjdk1.8中的Makefile">
                 <i class="fa fa-angle-right"></i>
             </a>
         
