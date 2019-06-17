@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://lehoon.cn/"/>
-  <updated>2019-04-12T02:05:24.797Z</updated>
+  <updated>2019-06-17T06:09:54.082Z</updated>
   <id>http://lehoon.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>maven私服neuxs错误集合</title>
+    <link href="http://lehoon.cn/backend/2019/06/17/maven-error-note.html"/>
+    <id>http://lehoon.cn/backend/2019/06/17/maven-error-note.html</id>
+    <published>2019-06-17T06:05:20.000Z</published>
+    <updated>2019-06-17T06:09:54.082Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录使用nexus搭建maven私服日常使用中遇到的错误。<br><a id="more"></a></p><h1 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h1><h2 id="上传大文件-一直显示滚动条"><a href="#上传大文件-一直显示滚动条" class="headerlink" title="上传大文件,一直显示滚动条"></a>上传大文件,一直显示滚动条</h2><p>上传比较打的jar到nexus私服中时，一直显示上传进度滚动条，但是上传失败。是因为前端使用了nginx反向代理，而且nginx中配置的客户端上传的body请求大小小于该jar包实际大小导致。<br>只要修改nginx的配置文件，修改client_max_body_size 20m;保证该数值大于你要上传的jar包大小即可解决。<br>nginx.conf配置文件。<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client_max_body_size <span class="number">20</span>m<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录使用nexus搭建maven私服日常使用中遇到的错误。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="后端" scheme="http://lehoon.cn/categories/backend/"/>
+    
+    
+      <category term="maven" scheme="http://lehoon.cn/tags/maven/"/>
+    
+      <category term="nexus" scheme="http://lehoon.cn/tags/nexus/"/>
+    
+      <category term="私服" scheme="http://lehoon.cn/tags/%E7%A7%81%E6%9C%8D/"/>
+    
+      <category term="错误集合" scheme="http://lehoon.cn/tags/%E9%94%99%E8%AF%AF%E9%9B%86%E5%90%88/"/>
+    
+  </entry>
   
   <entry>
     <title>在centos7 linux上编译php-7.1.28</title>
@@ -318,11 +346,11 @@
       <category term="前端" scheme="http://lehoon.cn/categories/frontend/"/>
     
     
+      <category term="cache" scheme="http://lehoon.cn/tags/cache/"/>
+    
       <category term="template" scheme="http://lehoon.cn/tags/template/"/>
     
       <category term="javascript" scheme="http://lehoon.cn/tags/javascript/"/>
-    
-      <category term="cache" scheme="http://lehoon.cn/tags/cache/"/>
     
   </entry>
   
@@ -501,32 +529,6 @@
       <category term="big file" scheme="http://lehoon.cn/tags/big-file/"/>
     
       <category term="tools" scheme="http://lehoon.cn/tags/tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GPRMC格式详解</title>
-    <link href="http://lehoon.cn/orther/2017/10/27/gnss-gprmc-format.html"/>
-    <id>http://lehoon.cn/orther/2017/10/27/gnss-gprmc-format.html</id>
-    <published>2017-10-27T07:40:39.000Z</published>
-    <updated>2018-09-22T13:30:34.775Z</updated>
-    
-    <content type="html"><![CDATA[<p>Recommended Minimum Specific GPS/TRANSIT Data（RMC）推荐定位信息<br><a id="more"></a></p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$GPRMC,&lt;<span class="number">1</span>&gt;,&lt;<span class="number">2</span>&gt;,&lt;<span class="number">3</span>&gt;,&lt;<span class="number">4</span>&gt;,&lt;<span class="number">5</span>&gt;,&lt;<span class="number">6</span>&gt;,&lt;<span class="number">7</span>&gt;,&lt;<span class="number">8</span>&gt;,&lt;<span class="number">9</span>&gt;,&lt;<span class="number">10</span>&gt;,&lt;<span class="number">11</span>&gt;,&lt;<span class="number">12</span>&gt;*hh&lt;CR&gt;&lt;LF&gt;</span><br><span class="line">&lt;<span class="number">1</span>&gt; UTC时间，hhmmss（时分秒）格式</span><br><span class="line">&lt;<span class="number">2</span>&gt; 定位状态，A=有效定位，V=无效定位</span><br><span class="line">&lt;<span class="number">3</span>&gt; 纬度ddmm.mmmm（度分）格式（前面的<span class="number">0</span>也将被传输）</span><br><span class="line">&lt;<span class="number">4</span>&gt; 纬度半球N（北半球）或S（南半球）</span><br><span class="line">&lt;<span class="number">5</span>&gt; 经度dddmm.mmmm（度分）格式（前面的<span class="number">0</span>也将被传输）</span><br><span class="line">&lt;<span class="number">6</span>&gt; 经度半球E（东经）或W（西经）</span><br><span class="line">&lt;<span class="number">7</span>&gt; 地面速率（<span class="number">000.0</span>~<span class="number">999.9</span>节，前面的<span class="number">0</span>也将被传输）    这里是按照节计算的，换成成千米/时为<span class="number">1.852</span>km/h</span><br><span class="line">&lt;<span class="number">8</span>&gt; 地面航向（<span class="number">000.0</span>~<span class="number">359.9</span>度，以真北为参考基准，前面的<span class="number">0</span>也将被传输）</span><br><span class="line">&lt;<span class="number">9</span>&gt; UTC日期，ddmmyy（日月年）格式</span><br><span class="line">&lt;<span class="number">10</span>&gt; 磁偏角（<span class="number">000.0</span>~<span class="number">180.0</span>度，前面的<span class="number">0</span>也将被传输）</span><br><span class="line">&lt;<span class="number">11</span>&gt; 磁偏角方向，E（东）或W（西）</span><br><span class="line">&lt;<span class="number">12</span>&gt; 模式指示（仅NMEA0183 <span class="number">3.00</span>版本输出，A=自主定位，D=差分，E=估算，N=数据无效）</span><br></pre></td></tr></table></figure><h2 id="数据样例"><a href="#数据样例" class="headerlink" title="数据样例"></a>数据样例</h2><p>源数据<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$GNRMC,<span class="number">034404.00</span>,A,<span class="number">3640.48056</span>,N,<span class="number">11707.96443</span>,E,<span class="number">0.04</span>,<span class="number">0.000</span>,<span class="number">271017</span>,<span class="number">0.0</span>,<span class="number">0</span>,D*<span class="number">68</span></span><br><span class="line">解析后的数据</span><br><span class="line">$GNRMC                 消息头标识（rmc是固定的）</span><br><span class="line"><span class="number">034404.00</span>              UTC时间</span><br><span class="line">A                      有效定位</span><br><span class="line"><span class="number">3640.48056</span>             纬度</span><br><span class="line">N                      纬度方向</span><br><span class="line"><span class="number">11707.96443</span>            经度</span><br><span class="line">E                      纬度方向</span><br><span class="line"><span class="number">0.04</span>                   地面速率  * <span class="number">1852</span>米/h</span><br><span class="line"><span class="number">0.000</span>                  地面航向</span><br><span class="line"><span class="number">271017</span>                 UTC日期(ddmmyy)</span><br><span class="line"><span class="number">0.0</span>                    磁偏角</span><br><span class="line"><span class="number">0</span>                      磁偏角方向</span><br><span class="line">D                      模式指示</span><br><span class="line">*<span class="number">46</span>                    CRC</span><br><span class="line">\r\n</span><br></pre></td></tr></table></figure></p><p>节/h = 1.852km/h</p><p>速度计算方式为：速度*1852为m/h</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Recommended Minimum Specific GPS/TRANSIT Data（RMC）推荐定位信息&lt;br&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="gnss" scheme="http://lehoon.cn/tags/gnss/"/>
-    
-      <category term="format" scheme="http://lehoon.cn/tags/format/"/>
-    
-      <category term="gprmc" scheme="http://lehoon.cn/tags/gprmc/"/>
     
   </entry>
   
