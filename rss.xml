@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://lehoon.cn/"/>
-  <updated>2019-06-17T06:09:54.082Z</updated>
+  <updated>2019-06-18T07:59:08.789Z</updated>
   <id>http://lehoon.cn/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://lehoon.cn/backend/2019/06/17/maven-error-note.html"/>
     <id>http://lehoon.cn/backend/2019/06/17/maven-error-note.html</id>
     <published>2019-06-17T06:05:20.000Z</published>
-    <updated>2019-06-17T06:09:54.082Z</updated>
+    <updated>2019-06-18T07:59:08.789Z</updated>
     
-    <content type="html"><![CDATA[<p>记录使用nexus搭建maven私服日常使用中遇到的错误。<br><a id="more"></a></p><h1 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h1><h2 id="上传大文件-一直显示滚动条"><a href="#上传大文件-一直显示滚动条" class="headerlink" title="上传大文件,一直显示滚动条"></a>上传大文件,一直显示滚动条</h2><p>上传比较打的jar到nexus私服中时，一直显示上传进度滚动条，但是上传失败。是因为前端使用了nginx反向代理，而且nginx中配置的客户端上传的body请求大小小于该jar包实际大小导致。<br>只要修改nginx的配置文件，修改client_max_body_size 20m;保证该数值大于你要上传的jar包大小即可解决。<br>nginx.conf配置文件。<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client_max_body_size <span class="number">20</span>m<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>]]></content>
+    <content type="html"><![CDATA[<p>记录使用nexus搭建maven私服日常使用中遇到的错误。<br><a id="more"></a></p><h1 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h1><h2 id="上传大文件-一直显示滚动条"><a href="#上传大文件-一直显示滚动条" class="headerlink" title="上传大文件,一直显示滚动条"></a>上传大文件,一直显示滚动条</h2><p>上传比较大的jar到nexus私服中时，一直显示上传进度滚动条，最后上传失败。是因为前端使用了nginx反向代理，而且nginx中配置的客户端上传的body请求最大值小于该jar包实际大小导致。<br>只要修改nginx的配置文件，修改client_max_body_size 20m;保证该数值大于你要上传的jar包大小即可解决。<br>nginx.conf配置文件。<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client_max_body_size <span class="number">20</span>m<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
@@ -346,11 +346,11 @@
       <category term="前端" scheme="http://lehoon.cn/categories/frontend/"/>
     
     
-      <category term="cache" scheme="http://lehoon.cn/tags/cache/"/>
-    
       <category term="template" scheme="http://lehoon.cn/tags/template/"/>
     
       <category term="javascript" scheme="http://lehoon.cn/tags/javascript/"/>
+    
+      <category term="cache" scheme="http://lehoon.cn/tags/cache/"/>
     
   </entry>
   

@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="豌豆荚博客">
 <meta property="og:description" content="记录使用nexus搭建maven私服日常使用中遇到的错误。">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-06-17T06:09:54.082Z">
+<meta property="og:updated_time" content="2019-06-18T07:59:08.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="maven私服neuxs错误集合">
 <meta name="twitter:description" content="记录使用nexus搭建maven私服日常使用中遇到的错误。">
@@ -198,7 +198,7 @@
       
           
         <p>记录使用nexus搭建maven私服日常使用中遇到的错误。<br><a id="more"></a></p>
-<h1 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h1><h2 id="上传大文件-一直显示滚动条"><a href="#上传大文件-一直显示滚动条" class="headerlink" title="上传大文件,一直显示滚动条"></a>上传大文件,一直显示滚动条</h2><p>上传比较打的jar到nexus私服中时，一直显示上传进度滚动条，但是上传失败。是因为前端使用了nginx反向代理，而且nginx中配置的客户端上传的body请求大小小于该jar包实际大小导致。<br>只要修改nginx的配置文件，修改client_max_body_size 20m;保证该数值大于你要上传的jar包大小即可解决。<br>nginx.conf配置文件。<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client_max_body_size <span class="number">20</span>m<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h1><h2 id="上传大文件-一直显示滚动条"><a href="#上传大文件-一直显示滚动条" class="headerlink" title="上传大文件,一直显示滚动条"></a>上传大文件,一直显示滚动条</h2><p>上传比较大的jar到nexus私服中时，一直显示上传进度滚动条，最后上传失败。是因为前端使用了nginx反向代理，而且nginx中配置的客户端上传的body请求最大值小于该jar包实际大小导致。<br>只要修改nginx的配置文件，修改client_max_body_size 20m;保证该数值大于你要上传的jar包大小即可解决。<br>nginx.conf配置文件。<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client_max_body_size <span class="number">20</span>m<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -210,7 +210,7 @@
         <p><span>本文标题:</span><a href="/backend/2019/06/17/maven-error-note.html">maven私服neuxs错误集合</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 lehoon 的个人博客">lehoon</a></p>
         <p><span>发布时间:</span>2019年06月17日 - 14时05分</p>
-        <p><span>最后更新:</span>2019年06月17日 - 14时09分</p>
+        <p><span>最后更新:</span>2019年06月18日 - 15时59分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/backend/2019/06/17/maven-error-note.html" title="maven私服neuxs错误集合">http://lehoon.cn/backend/2019/06/17/maven-error-note.html</a>
             <span class="copy-path" data-clipboard-text="原文: http://lehoon.cn/backend/2019/06/17/maven-error-note.html　　作者: lehoon" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
