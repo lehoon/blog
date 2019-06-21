@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>rocketmq安装记录 | 豌豆荚博客</title>
+  <title>python-note | 豌豆荚博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="rocketmq3.5.8集群安装记录.">
-<meta name="keywords" content="rocketmq">
+  <meta name="description" content="python使用中一些问题记录。">
+<meta name="keywords" content="python,pip,国内源">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rocketmq安装记录">
-<meta property="og:url" content="http://lehoon.cn/rocketmq/2016/11/09/rocketmq-install-note.html">
+<meta property="og:title" content="python-note">
+<meta property="og:url" content="http://lehoon.cn/backend/2019/06/21/python-note.html">
 <meta property="og:site_name" content="豌豆荚博客">
-<meta property="og:description" content="rocketmq3.5.8集群安装记录.">
+<meta property="og:description" content="python使用中一些问题记录。">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2018-09-22T13:31:12.190Z">
+<meta property="og:updated_time" content="2019-06-21T02:06:41.537Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rocketmq安装记录">
-<meta name="twitter:description" content="rocketmq3.5.8集群安装记录.">
+<meta name="twitter:title" content="python-note">
+<meta name="twitter:description" content="python使用中一些问题记录。">
   
     <link rel="alternative" href="/atom.xml" title="豌豆荚博客" type="application/atom+xml">
   
@@ -155,11 +155,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-rocketmq-install-note" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-python-note" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/rocketmq/2016/11/09/rocketmq-install-note.html" class="article-date">
-      <time datetime="2016-11-09T06:43:59.000Z" itemprop="datePublished">2016-11-09</time>
+      <a href="/backend/2019/06/21/python-note.html" class="article-date">
+      <time datetime="2019-06-21T02:02:11.000Z" itemprop="datePublished">2019-06-21</time>
 </a>
     </div>
   
@@ -172,7 +172,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      rocketmq安装记录
+      python-note
     </h1>
   
 
@@ -181,13 +181,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/rocketmq/">rocketmq</a>
+    <a class="article-category-link" href="/categories/backend/">后端</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rocketmq/">rocketmq</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pip/">pip</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/国内源/">国内源</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -197,30 +197,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>rocketmq3.5.8集群安装记录.<br><a id="more"></a></p>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>3台机器，分别是：<br>192.168.1.180    web console<br>192.168.1.181    master-slave<br>192.168.1.182    master-slave</p>
-<p>181、182互为主从。</p>
-<p>配置文件为/opt/rocketmq-3.5.8/devenv/conf/2m-2s-async</p>
-<p>broker:<br>192.168.1.182中通过broker-a.properties、broker-b-s.properties启动rocketmq-broker<br>192.168.1.181中通过broker-b.properties、broker-a-s.properties启动rocketmq-broker</p>
-<p>nameserver:<br>192.168.1.181:9876;192.168.1.182:9876</p>
-<p><a href="http://static.lehoon.cn/rocketmq/rocketmq-web-console-3.2.6.war" target="_blank" rel="noopener">rocketmq-web-console.war 下载地址</a></p>
-<p>解压完后配置WEB-INF/classes/config.properties中nameserver的地址即可。</p>
-<h2 id="rocketmq版本"><a href="#rocketmq版本" class="headerlink" title="rocketmq版本"></a>rocketmq版本</h2><p>rocketmq-3.5.8版本</p>
-<p><a href="http://static.lehoon.cn/rocketmq/rocketmq-3.5.8.tar.gz" target="_blank" rel="noopener">rocketmq3.5.8下载地址</a></p>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="配置hosts"><a href="#配置hosts" class="headerlink" title="配置hosts"></a>配置hosts</h3><p>修改181、182的/etc/hosts文件，加入：<br>192.168.1.182 rocketmq-master<br>192.168.1.181 rocketmq-slave</p>
-<h3 id="修改181的配置文件"><a href="#修改181的配置文件" class="headerlink" title="修改181的配置文件"></a>修改181的配置文件</h3><p>修改181的配置文件，目录为/opt/rocketmq-3.5.8/devenv/conf/2m-2s-async<br>1、broker-a.properties内容如下：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[root@lehoon 2m-2s-async]</span><span class="comment"># cat broker-a.properties </span></span><br><span class="line"><span class="attr">brokerClusterName</span>=LehoonCluster</span><br><span class="line"><span class="attr">brokerName</span>=broker-a</span><br><span class="line"><span class="attr">brokerId</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">deleteWhen</span>=<span class="number">04</span></span><br><span class="line"><span class="attr">fileReservedTime</span>=<span class="number">48</span></span><br><span class="line"><span class="attr">brokerRole</span>=ASYNC_MASTER</span><br><span class="line"><span class="attr">flushDiskType</span>=ASYNC_FLUSH</span><br><span class="line"></span><br><span class="line"><span class="attr">namesrvAddr</span>=rocketmq-master:<span class="number">9876</span>;rocketmq-slave:<span class="number">9876</span></span><br><span class="line"></span><br><span class="line"><span class="attr">storePathRootDir</span>=/opt/rocketmq-<span class="number">3.5</span>.<span class="number">8</span>/store</span><br><span class="line"><span class="attr">storePathCommitLog</span>=/opt/rocketmq-<span class="number">3.5</span>.<span class="number">8</span>/store/commitlog</span><br></pre></td></tr></table></figure></p>
-<p>2、broker-b-s.properties文件内容如下：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[root@lehoon 2m-2s-async]</span><span class="comment"># cat broker-b-s.properties</span></span><br><span class="line"></span><br><span class="line"><span class="attr">brokerClusterName</span>=LehoonCluster</span><br><span class="line"><span class="attr">brokerName</span>=broker-b</span><br><span class="line"><span class="attr">brokerId</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">deleteWhen</span>=<span class="number">04</span></span><br><span class="line"><span class="attr">fileReservedTime</span>=<span class="number">48</span></span><br><span class="line"><span class="attr">brokerRole</span>=SLAVE</span><br><span class="line"><span class="attr">flushDiskType</span>=ASYNC_FLUSH</span><br><span class="line"></span><br><span class="line"><span class="attr">listenPort</span>=<span class="number">10919</span></span><br><span class="line"></span><br><span class="line"><span class="attr">storePathRootDir</span>=/opt/rocketmq-<span class="number">3.5</span>.<span class="number">8</span>/store</span><br><span class="line"><span class="attr">storePathCommitLog</span>=/opt/rocketmq-<span class="number">3.5</span>.<span class="number">8</span>/store/commitlog</span><br><span class="line"></span><br><span class="line"><span class="attr">namesrvAddr</span>=rocketmq-master:<span class="number">9876</span>;rocketmq-slave:<span class="number">9876</span></span><br></pre></td></tr></table></figure></p>
-<p>3、修改logback的文件目录<br>修改/opt/rocketmq-3.5.8/devenv/conf/目录下的logback配置文件<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sed</span> -i <span class="string">'s#<span class="variable">$&#123;user.home&#125;</span>#/opt#g'</span> <span class="regexp">*.xml</span></span><br></pre></td></tr></table></figure></p>
-<p>把{user.home}替换为/opt</p>
-<h3 id="修改182的配置文件"><a href="#修改182的配置文件" class="headerlink" title="修改182的配置文件"></a>修改182的配置文件</h3><p>修改182的配置文件，目录为/opt/rocketmq-3.5.8/devenv/conf/2m-2s-async<br>1、broker-b.properties内容如下：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[root@lehoon 2m-2s-async]</span><span class="comment"># cat broker-b.properties </span></span><br><span class="line"><span class="attr">brokerClusterName</span>=LehoonCluster</span><br><span class="line"><span class="attr">brokerName</span>=broker-b</span><br><span class="line"><span class="attr">brokerId</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">deleteWhen</span>=<span class="number">04</span></span><br><span class="line"><span class="attr">fileReservedTime</span>=<span class="number">48</span></span><br><span class="line"><span class="attr">brokerRole</span>=ASYNC_MASTER</span><br><span class="line"><span class="attr">flushDiskType</span>=ASYNC_FLUSH</span><br><span class="line"></span><br><span class="line"><span class="attr">namesrvAddr</span>=rocketmq-master:<span class="number">9876</span>;rocketmq-slave:<span class="number">9876</span></span><br><span class="line"></span><br><span class="line"><span class="attr">storePathRootDir</span>=/opt/rocketmq-<span class="number">3.5</span>.<span class="number">8</span>/store</span><br><span class="line"><span class="attr">storePathCommitLog</span>=/opt/rocketmq-<span class="number">3.5</span>.<span class="number">8</span>/store/commitlog</span><br></pre></td></tr></table></figure></p>
-<p>2、broker-a-s.properties文件内容如下：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[root@lehoon 2m-2s-async]</span><span class="comment"># cat broker-a-s.properties</span></span><br><span class="line"></span><br><span class="line"><span class="attr">brokerClusterName</span>=LehoonCluster</span><br><span class="line"><span class="attr">brokerName</span>=broker-a</span><br><span class="line"><span class="attr">brokerId</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">deleteWhen</span>=<span class="number">04</span></span><br><span class="line"><span class="attr">fileReservedTime</span>=<span class="number">48</span></span><br><span class="line"><span class="attr">brokerRole</span>=SLAVE</span><br><span class="line"><span class="attr">flushDiskType</span>=ASYNC_FLUSH</span><br><span class="line"></span><br><span class="line"><span class="attr">listenPort</span>=<span class="number">10919</span></span><br><span class="line"></span><br><span class="line"><span class="attr">storePathRootDir</span>=/opt/rocketmq-<span class="number">3.5</span>.<span class="number">8</span>/store</span><br><span class="line"><span class="attr">storePathCommitLog</span>=/opt/rocketmq-<span class="number">3.5</span>.<span class="number">8</span>/store/commitlog</span><br><span class="line"></span><br><span class="line"><span class="attr">namesrvAddr</span>=rocketmq-master:<span class="number">9876</span>;rocketmq-slave:<span class="number">9876</span></span><br></pre></td></tr></table></figure></p>
-<p>3、修改logback的文件目录<br>修改/opt/rocketmq-3.5.8/devenv/conf/目录下的logback配置文件<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sed</span> -i <span class="string">'s#<span class="variable">$&#123;user.home&#125;</span>#/opt#g'</span> <span class="regexp">*.xml</span></span><br></pre></td></tr></table></figure></p>
-<p>把{user.home}替换为/opt</p>
-<h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><p>在181、182分别创建以下目录<br>在rocketmq目录下撞见store、store/commitlog目录<br>创建/opt/log/rocketmqlogs/otherdays目录</p>
-<h2 id="启动rocketmq服务"><a href="#启动rocketmq服务" class="headerlink" title="启动rocketmq服务"></a>启动rocketmq服务</h2><h3 id="启动namserver"><a href="#启动namserver" class="headerlink" title="启动namserver"></a>启动namserver</h3><p>1、在182上启动nameserver、broker,进入rocketmq的bin目录下<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/rocketmq<span class="number">-3.5</span><span class="number">.8</span>/deven/bin</span><br><span class="line">[root@lehoon bin]# nohup ./mqnamesrv &gt;/var/log/mqnamesrv.log <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br><span class="line">[root@lehoon bin]# nohup ./mqbroker -c ../conf/<span class="number">2</span>m<span class="number">-2</span>s-async/broker-a.properties &gt; /var/log/mqbrokera.log <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br><span class="line">[root@lehoon bin]# nohup ./mqbroker -c ../conf/<span class="number">2</span>m<span class="number">-2</span>s-async/broker-b-s.properties &gt; /var/log/mqbrokerbs.log <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br></pre></td></tr></table></figure></p>
-<p>2、在181上启动nameserver、broker,进入rocketmq的bin目录下<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/rocketmq<span class="number">-3.5</span><span class="number">.8</span>/deven/bin</span><br><span class="line">[root@lehoon bin]# nohup ./mqnamesrv &gt;/var/log/mqnamesrv.log <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br><span class="line">[root@lehoon bin]# nohup ./mqbroker -c ../conf/<span class="number">2</span>m<span class="number">-2</span>s-async/broker-b.properties &gt; /var/log/mqbrokerb.log <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br><span class="line">[root@lehoon bin]# nohup ./mqbroker -c ../conf/<span class="number">2</span>m<span class="number">-2</span>s-async/broker-a-s.properties &gt; /var/log/mqbrokeras.log <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="启动web-console服务"><a href="#启动web-console服务" class="headerlink" title="启动web-console服务"></a>启动web-console服务</h2><p>下载tomcat，把rocketmq-web-console.war放入webapps目录<br>进入bin目录启动tomcat<br>然后通过<a href="http://hostname:port/rocketmq-web-console访问管理页面" target="_blank" rel="noopener">http://hostname:port/rocketmq-web-console访问管理页面</a></p>
-<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>在同一台机器启动多个broker的时候，需要注意配置文件中的listenPort配置的和上一个broket要间隔4以上。<br>因为broker启动会占用3个端口，listenPort、listenPort + 1、listenPort - 2。<br>例如：<br>broker1配置的listenPort=10911，那么再配置一个broker的时候，listenPort应该在10915之后或者10905之前。<br>否则会导致broker启动不起来，netty的bind0报错，端口已占用。</p>
+        <p>python使用中一些问题记录。</p>
+<a id="more"></a>
+<hr>
+<h1 id="日常使用"><a href="#日常使用" class="headerlink" title="日常使用"></a>日常使用</h1><h2 id="修改pip使用国内源安装软件"><a href="#修改pip使用国内源安装软件" class="headerlink" title="修改pip使用国内源安装软件"></a>修改pip使用国内源安装软件</h2><p>在window系统上，需要在c:\users\用户名  文件夹下新建pip文件夹，里面新建pip.ini文件，增加使用国内清华的pip源，文件内容如下：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">global</span>]</span><br><span class="line"><span class="built_in">index</span>-url = http<span class="variable">s:</span>//pypi.tuna.tsinghua.edu.<span class="keyword">cn</span>/simple</span><br></pre></td></tr></table></figure></p>
+<p>再使用pip安装软件的时候就使用清华的源下载软件。不需要退出控制台即可生效。</p>
 
       
     </div>
@@ -229,13 +210,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/rocketmq/2016/11/09/rocketmq-install-note.html">rocketmq安装记录</a></p>
+        <p><span>本文标题:</span><a href="/backend/2019/06/21/python-note.html">python-note</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 lehoon 的个人博客">lehoon</a></p>
-        <p><span>发布时间:</span>2016年11月09日 - 14时43分</p>
-        <p><span>最后更新:</span>2018年09月22日 - 21时31分</p>
+        <p><span>发布时间:</span>2019年06月21日 - 10时02分</p>
+        <p><span>最后更新:</span>2019年06月21日 - 10时06分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/rocketmq/2016/11/09/rocketmq-install-note.html" title="rocketmq安装记录">http://lehoon.cn/rocketmq/2016/11/09/rocketmq-install-note.html</a>
-            <span class="copy-path" data-clipboard-text="原文: http://lehoon.cn/rocketmq/2016/11/09/rocketmq-install-note.html　　作者: lehoon" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/backend/2019/06/21/python-note.html" title="python-note">http://lehoon.cn/backend/2019/06/21/python-note.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lehoon.cn/backend/2019/06/21/python-note.html　　作者: lehoon" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -248,18 +229,9 @@
 
 <nav id="article-nav">
   
-    <a href="/orther/2016/11/10/java-error-note.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          java常见错误
-        
-      </div>
-    </a>
   
-  
-    <a href="/rocketmq/2016/11/09/rocketmq-docs.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Rocketmq文档</div>
+    <a href="/backend/2019/06/17/maven-error-note.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">maven私服neuxs错误集合</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -270,7 +242,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境"><span class="toc-number">1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rocketmq版本"><span class="toc-number">2.</span> <span class="toc-text">rocketmq版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作步骤"><span class="toc-number">3.</span> <span class="toc-text">操作步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置hosts"><span class="toc-number">3.1.</span> <span class="toc-text">配置hosts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改181的配置文件"><span class="toc-number">3.2.</span> <span class="toc-text">修改181的配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改182的配置文件"><span class="toc-number">3.3.</span> <span class="toc-text">修改182的配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建目录"><span class="toc-number">3.4.</span> <span class="toc-text">创建目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动rocketmq服务"><span class="toc-number">4.</span> <span class="toc-text">启动rocketmq服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动namserver"><span class="toc-number">4.1.</span> <span class="toc-text">启动namserver</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动web-console服务"><span class="toc-number">5.</span> <span class="toc-text">启动web-console服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意点"><span class="toc-number">6.</span> <span class="toc-text">注意点</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#日常使用"><span class="toc-number">1.</span> <span class="toc-text">日常使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#修改pip使用国内源安装软件"><span class="toc-number">1.1.</span> <span class="toc-text">修改pip使用国内源安装软件</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -310,13 +282,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/orther/2016/11/10/java-error-note.html" title="上一篇: java常见错误">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/rocketmq/2016/11/09/rocketmq-docs.html" title="下一篇: Rocketmq文档">
+            <a href="/backend/2019/06/17/maven-error-note.html" title="下一篇: maven私服neuxs错误集合">
                 <i class="fa fa-angle-right"></i>
             </a>
         

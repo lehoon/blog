@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://lehoon.cn/"/>
-  <updated>2019-06-18T07:59:08.789Z</updated>
+  <updated>2019-06-21T02:06:41.537Z</updated>
   <id>http://lehoon.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python-note</title>
+    <link href="http://lehoon.cn/backend/2019/06/21/python-note.html"/>
+    <id>http://lehoon.cn/backend/2019/06/21/python-note.html</id>
+    <published>2019-06-21T02:02:11.000Z</published>
+    <updated>2019-06-21T02:06:41.537Z</updated>
+    
+    <content type="html"><![CDATA[<p>python使用中一些问题记录。</p><a id="more"></a><hr><h1 id="日常使用"><a href="#日常使用" class="headerlink" title="日常使用"></a>日常使用</h1><h2 id="修改pip使用国内源安装软件"><a href="#修改pip使用国内源安装软件" class="headerlink" title="修改pip使用国内源安装软件"></a>修改pip使用国内源安装软件</h2><p>在window系统上，需要在c:\users\用户名  文件夹下新建pip文件夹，里面新建pip.ini文件，增加使用国内清华的pip源，文件内容如下：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">global</span>]</span><br><span class="line"><span class="built_in">index</span>-url = http<span class="variable">s:</span>//pypi.tuna.tsinghua.edu.<span class="keyword">cn</span>/simple</span><br></pre></td></tr></table></figure></p><p>再使用pip安装软件的时候就使用清华的源下载软件。不需要退出控制台即可生效。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;python使用中一些问题记录。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="后端" scheme="http://lehoon.cn/categories/backend/"/>
+    
+    
+      <category term="python" scheme="http://lehoon.cn/tags/python/"/>
+    
+      <category term="pip" scheme="http://lehoon.cn/tags/pip/"/>
+    
+      <category term="国内源" scheme="http://lehoon.cn/tags/%E5%9B%BD%E5%86%85%E6%BA%90/"/>
+    
+  </entry>
   
   <entry>
     <title>maven私服neuxs错误集合</title>
@@ -503,32 +529,6 @@
       <category term="accuracy" scheme="http://lehoon.cn/tags/accuracy/"/>
     
       <category term="scale" scheme="http://lehoon.cn/tags/scale/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>window系统大文件打开工具</title>
-    <link href="http://lehoon.cn/orther/2017/12/08/window-big-file-tools.html"/>
-    <id>http://lehoon.cn/orther/2017/12/08/window-big-file-tools.html</id>
-    <published>2017-12-08T01:34:26.000Z</published>
-    <updated>2018-09-22T13:31:23.465Z</updated>
-    
-    <content type="html"><![CDATA[<p>window系统上打开大文件的工具集。<br><a id="more"></a></p><h2 id="EmEditor"><a href="#EmEditor" class="headerlink" title="EmEditor"></a>EmEditor</h2><p>网址：<a href="https://zh-cn.emeditor.com/" target="_blank" rel="noopener">https://zh-cn.emeditor.com/</a></p><h2 id="LogView"><a href="#LogView" class="headerlink" title="LogView"></a>LogView</h2><p>网址：<a href="http://www.logview.info" target="_blank" rel="noopener">http://www.logview.info</a></p><h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><p>网址：<a href="http://www.vim.org/download.php#pc" target="_blank" rel="noopener">http://www.vim.org/download.php#pc</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;window系统上打开大文件的工具集。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="window" scheme="http://lehoon.cn/tags/window/"/>
-    
-      <category term="big file" scheme="http://lehoon.cn/tags/big-file/"/>
-    
-      <category term="tools" scheme="http://lehoon.cn/tags/tools/"/>
     
   </entry>
   
