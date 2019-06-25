@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://lehoon.cn/"/>
-  <updated>2019-06-21T02:06:41.537Z</updated>
+  <updated>2019-06-25T00:56:27.273Z</updated>
   <id>http://lehoon.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>python-note</title>
+    <title>python记录</title>
     <link href="http://lehoon.cn/backend/2019/06/21/python-note.html"/>
     <id>http://lehoon.cn/backend/2019/06/21/python-note.html</id>
     <published>2019-06-21T02:02:11.000Z</published>
-    <updated>2019-06-21T02:06:41.537Z</updated>
+    <updated>2019-06-25T00:56:27.273Z</updated>
     
     <content type="html"><![CDATA[<p>python使用中一些问题记录。</p><a id="more"></a><hr><h1 id="日常使用"><a href="#日常使用" class="headerlink" title="日常使用"></a>日常使用</h1><h2 id="修改pip使用国内源安装软件"><a href="#修改pip使用国内源安装软件" class="headerlink" title="修改pip使用国内源安装软件"></a>修改pip使用国内源安装软件</h2><p>在window系统上，需要在c:\users\用户名  文件夹下新建pip文件夹，里面新建pip.ini文件，增加使用国内清华的pip源，文件内容如下：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">global</span>]</span><br><span class="line"><span class="built_in">index</span>-url = http<span class="variable">s:</span>//pypi.tuna.tsinghua.edu.<span class="keyword">cn</span>/simple</span><br></pre></td></tr></table></figure></p><p>再使用pip安装软件的时候就使用清华的源下载软件。不需要退出控制台即可生效。</p>]]></content>
     
@@ -75,9 +75,9 @@
     <link href="http://lehoon.cn/backend/2019/04/12/linux-compile-php7.html"/>
     <id>http://lehoon.cn/backend/2019/04/12/linux-compile-php7.html</id>
     <published>2019-04-12T02:01:08.000Z</published>
-    <updated>2019-04-12T02:05:24.797Z</updated>
+    <updated>2019-06-21T02:10:17.965Z</updated>
     
-    <content type="html"><![CDATA[<p>在centos7上边编译php7.1.28版本过程记录。<br><a id="more"></a></p><h1 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h1><h1 id="编译php"><a href="#编译php" class="headerlink" title="编译php"></a>编译php</h1><h1 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h1><p>1、 configure: error: Unable to detect ICU prefix or no failed. Please verify ICU install prefix and make sure icu-config works.<br>yum -y install libicu-devel</p>]]></content>
+    <content type="html"><![CDATA[<p>在centos7上边编译php7.1.28版本过程记录。<br><a id="more"></a></p><h1 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h1><h1 id="编译php"><a href="#编译php" class="headerlink" title="编译php"></a>编译php</h1><h1 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h1><p>1、 configure: error: Unable to detect ICU prefix or no failed. Please verify ICU install prefix and make sure icu-config works.<br>yum -y install libicu-devel</p><p>configure: error: mcrypt.h not found. Please reinstall libmcrypt.</p>]]></content>
     
     <summary type="html">
     
@@ -372,11 +372,11 @@
       <category term="前端" scheme="http://lehoon.cn/categories/frontend/"/>
     
     
+      <category term="cache" scheme="http://lehoon.cn/tags/cache/"/>
+    
       <category term="template" scheme="http://lehoon.cn/tags/template/"/>
     
       <category term="javascript" scheme="http://lehoon.cn/tags/javascript/"/>
-    
-      <category term="cache" scheme="http://lehoon.cn/tags/cache/"/>
     
   </entry>
   
