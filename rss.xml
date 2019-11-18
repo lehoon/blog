@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://lehoon.cn/"/>
-  <updated>2019-06-25T00:56:27.273Z</updated>
+  <updated>2019-11-18T02:43:06.475Z</updated>
   <id>http://lehoon.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>chrome占用cpu解决方法</title>
+    <link href="http://lehoon.cn/orther/2019/11/18/chrome-cpu-note.html"/>
+    <id>http://lehoon.cn/orther/2019/11/18/chrome-cpu-note.html</id>
+    <published>2019-11-18T02:39:10.000Z</published>
+    <updated>2019-11-18T02:43:06.475Z</updated>
+    
+    <content type="html"><![CDATA[<p>chrome长时间占用cpu解决方法。</p><h2 id="清理浏览器缓存"><a href="#清理浏览器缓存" class="headerlink" title="清理浏览器缓存"></a>清理浏览器缓存</h2><p>通过清理浏览器缓存有时可以解决chrome占用cpu过多问题。<br>菜单—设置—–高级——隐私设置和安全性,点击清除浏览数据。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;chrome长时间占用cpu解决方法。&lt;/p&gt;
+&lt;h2 id=&quot;清理浏览器缓存&quot;&gt;&lt;a href=&quot;#清理浏览器缓存&quot; class=&quot;headerlink&quot; title=&quot;清理浏览器缓存&quot;&gt;&lt;/a&gt;清理浏览器缓存&lt;/h2&gt;&lt;p&gt;通过清理浏览器缓存有时可以解决chrome占用
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="http://lehoon.cn/categories/orther/"/>
+    
+    
+      <category term="chrome" scheme="http://lehoon.cn/tags/chrome/"/>
+    
+      <category term="占用cpu" scheme="http://lehoon.cn/tags/%E5%8D%A0%E7%94%A8cpu/"/>
+    
+  </entry>
   
   <entry>
     <title>python记录</title>
@@ -503,32 +531,6 @@
       <category term="apk decompile" scheme="http://lehoon.cn/tags/apk-decompile/"/>
     
       <category term="反编译" scheme="http://lehoon.cn/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>地图精度与电子地图比例尺的关系</title>
-    <link href="http://lehoon.cn/orther/2017/12/08/map-accuracy2scale.html"/>
-    <id>http://lehoon.cn/orther/2017/12/08/map-accuracy2scale.html</id>
-    <published>2017-12-08T06:16:24.000Z</published>
-    <updated>2018-09-22T13:30:58.127Z</updated>
-    
-    <content type="html"><![CDATA[<p>地图精度与比例尺的关系.<br><a id="more"></a></p><h2 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h2><p>1、地图最大精度<br>视力正常的人的肉眼能分辨图上最短距离是0.1毫米。所以地图上0.1毫秒所能表现的实地水平长度就是地图上所能表示的最高精度，成为比例尺的最大精度。</p><p>2、地图比例尺<br>图上距离和实地距离的比例。</p><p>3、电子地图比例尺<br>电子地图一般是矢量地图，它具有无极缩放的特性，而通常说它的比例尺只是一种借用，即指生成电子地图的传统地图图源的比例尺。</p><h2 id="基本的比例尺与地图精度的关系"><a href="#基本的比例尺与地图精度的关系" class="headerlink" title="基本的比例尺与地图精度的关系"></a>基本的比例尺与地图精度的关系</h2><table><thead><tr><th style="text-align:left">比例尺</th><th style="text-align:left">1:1万</th><th style="text-align:left">1:2.5万</th><th style="text-align:left">1:5万</th><th style="text-align:left">1:10万</th><th style="text-align:left">1:25万</th><th style="text-align:left">1:50万</th><th style="text-align:left">1:100万</th></tr></thead><tbody><tr><td style="text-align:left">最大精度(m)</td><td style="text-align:left">1</td><td style="text-align:left">2.5</td><td style="text-align:left">5</td><td style="text-align:left">10</td><td style="text-align:left">25</td><td style="text-align:left">50</td><td style="text-align:left">100</td></tr></tbody></table><p>计算方式：<br>计算1cm能表达的距离，然后除以100即可算出电子地图的最大精度。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;地图精度与比例尺的关系.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://lehoon.cn/categories/orther/"/>
-    
-    
-      <category term="map" scheme="http://lehoon.cn/tags/map/"/>
-    
-      <category term="accuracy" scheme="http://lehoon.cn/tags/accuracy/"/>
-    
-      <category term="scale" scheme="http://lehoon.cn/tags/scale/"/>
     
   </entry>
   
