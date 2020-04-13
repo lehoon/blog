@@ -2,14 +2,14 @@ require([], function (){
 
     var isMobileInit = false;
     var loadMobile = function(){
-        require(['http://static.lehoon.cn/js/mobile.js'], function(mobile){
+        require(['js/mobile.js'], function(mobile){
             mobile.init();
             isMobileInit = true;
         });
     }
     var isPCInit = false;
     var loadPC = function(){
-        require(['http://static.lehoon.cn/js/pc.js'], function(pc){
+        require(['js/pc.js'], function(pc){
             pc.init();
             isPCInit = true;
         });
