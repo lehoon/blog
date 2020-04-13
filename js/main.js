@@ -55,7 +55,7 @@ require([], function (){
 
     //是否使用fancybox
     if(yiliaConfig.fancybox === true){
-        require(['http://static.lehoon.cn/fancybox/jquery.fancybox.js'], function(pc){
+        require(['fancybox/jquery.fancybox.js'], function(pc){
             var isFancy = $(".isFancy");
             if(isFancy.length != 0){
                 var imgArr = $(".article-inner img");
@@ -71,8 +71,7 @@ require([], function (){
     }
     //是否开启动画
     if(yiliaConfig.animate === true){
-
-        require(['http://static.lehoon.cn/js/jquery.lazyload.js'], function(){
+        require(['js/jquery.lazyload.js'], function(){
             //avatar
             $(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
             $(".js-avatar")[0].onload = function(){
