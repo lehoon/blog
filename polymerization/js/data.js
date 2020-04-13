@@ -610,9 +610,8 @@ var FrontGuide = {
             "pageT2":"我的链接",
             "pageC2":[
                 {'Name':'网站','Title':'Lehoon。','Href':'http://lehoon.com'},
-                {'Name':'主页','Title':'Lehoon。','Href':'http://blog.lehoon.cn'},
-                {'Name':'博客','Title':'Lehoon Blog。','Href':'http://blog.lehoon.cn'},
-                {'Name':'项目','Title':'开发项目','Href':'https://blog.lehoon.cn/projects/'},
+                {'Name':'博客','Title':'Lehoon Blog。','Href':'https://lehoon.cn'},
+                {'Name':'项目','Title':'开发项目','Href':'https://lehoon.cn/projects/'},
             ]
             }],
     }],
