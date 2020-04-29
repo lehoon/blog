@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="http://lehoon.cn/"/>
-  <updated>2020-04-29T08:07:20.265Z</updated>
+  <updated>2020-04-29T09:58:22.690Z</updated>
   <id>http://lehoon.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>weixin-minishop-note</title>
+    <title>微信商城小程序</title>
     <link href="http://lehoon.cn/project/2020/04/29/weixin-minishop-note.html"/>
     <id>http://lehoon.cn/project/2020/04/29/weixin-minishop-note.html</id>
     <published>2020-04-29T07:56:01.000Z</published>
-    <updated>2020-04-29T08:07:20.265Z</updated>
+    <updated>2020-04-29T09:58:22.690Z</updated>
     
     <content type="html"><![CDATA[<p>微信小程序网上商城，使用php开发的微商城.<br><a id="more"></a><br><img src="https://lehoon.cn/static/images/gh_f459a92816f5_344.jpg"></p>]]></content>
     
