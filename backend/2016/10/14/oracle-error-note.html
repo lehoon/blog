@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>oracle错误记录 | 豌豆荚博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="oracle常见的错误记录。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oracle错误记录">
+<meta property="og:url" content="http://lehoon.cn/backend/2016/10/14/oracle-error-note.html">
+<meta property="og:site_name" content="豌豆荚博客">
+<meta property="og:description" content="oracle常见的错误记录。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2016-10-14T03:19:28.000Z">
+<meta property="article:modified_time" content="2018-09-22T13:31:04.176Z">
+<meta property="article:author" content="lehoon">
+<meta property="article:tag" content="oracle">
+<meta property="article:tag" content="错误">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="豌豆荚博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+  <script src="/js/pace.js"></script>
+  <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: 'https://lehoon.cn',
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Lehoon"></a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives">文章</a></li>
+                        
+                            <li><a href="/projects">项目</a></li>
+                        
+                            <li><a href="/polymerization">聚合</a></li>
+                        
+                            <li><a href="/about">关于</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:lehoon@lehoon.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/lehoon" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/lehoons" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="/rss.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">热爱生活，享受生活。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives">文章</a></li>
+                
+                    <li><a href="/projects">项目</a></li>
+                
+                    <li><a href="/polymerization">聚合</a></li>
+                
+                    <li><a href="/about">关于</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:lehoon@lehoon.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/lehoon" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/lehoons" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/rss.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-oracle-error-note" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/backend/2016/10/14/oracle-error-note.html" class="article-date">
+      <time datetime="2016-10-14T03:19:28.000Z" itemprop="datePublished">2016-10-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      oracle错误记录
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/backend/">后端</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/" rel="tag">oracle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%94%99%E8%AF%AF/" rel="tag">错误</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>oracle常见的错误记录。</p>
+<span id="more"></span>
+<h2 id="The-listener-supports-no-services"><a href="#The-listener-supports-no-services" class="headerlink" title="The listener supports no services"></a>The listener supports no services</h2><h3 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h3><p>在启动oracle监听的时候，提示The listener supports no services。如下：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">[oracle@root bin]$ lsnrctl start</span><br><span class="line"></span><br><span class="line">LSNRCTL <span class="keyword">for</span> Linux: Version <span class="number">11.2</span>.<span class="number">0.4</span>.<span class="number">0</span> - Production on <span class="number">14</span>-OCT-<span class="number">2016</span> <span class="number">18</span>:<span class="number">49</span>:<span class="number">30</span></span><br><span class="line"></span><br><span class="line">Copyright (c) <span class="number">1991</span>, <span class="number">2013</span>, Oracle.  All rights reserved.</span><br><span class="line"></span><br><span class="line">Starting <span class="regexp">/home/</span>app<span class="regexp">/oracle/</span>product<span class="regexp">/11.2.0.4/</span>db_1<span class="regexp">/bin/</span>tnslsnr: please wait...</span><br><span class="line"></span><br><span class="line">TNSLSNR <span class="keyword">for</span> Linux: Version <span class="number">11.2</span>.<span class="number">0.4</span>.<span class="number">0</span> - Production</span><br><span class="line">System parameter <span class="keyword">file</span> is <span class="regexp">/home/</span>app<span class="regexp">/oracle/</span>product<span class="regexp">/11.2.0.4/</span>db_1<span class="regexp">/network/</span>admin/listener.ora</span><br><span class="line">Log messages written to <span class="regexp">/home/</span>app<span class="regexp">/diag/</span>tnslsnr<span class="regexp">/dbserver/</span>listener<span class="regexp">/alert/</span>log.xml</span><br><span class="line">Listening on: (<span class="keyword">DESCRIPTION</span>=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))</span><br><span class="line">Listening on: (<span class="keyword">DESCRIPTION</span>=(ADDRESS=(PROTOCOL=tcp)(HOST=dbserver)(PORT=<span class="number">1521</span>)))</span><br><span class="line"></span><br><span class="line">Connecting to (<span class="keyword">DESCRIPTION</span>=(ADDRESS=(PROTOCOL=IPC)(KEY=EXTPROC1521)))</span><br><span class="line">STATUS of the LISTENER</span><br><span class="line">------------------------</span><br><span class="line">Alias                     LISTENER</span><br><span class="line">Version                   TNSLSNR <span class="keyword">for</span> Linux: Version <span class="number">11.2</span>.<span class="number">0.4</span>.<span class="number">0</span> - Production</span><br><span class="line">Start Date                <span class="number">14</span>-OCT-<span class="number">2016</span> <span class="number">18</span>:<span class="number">50</span>:<span class="number">30</span></span><br><span class="line">Uptime                    <span class="number">0</span> days <span class="number">0</span> hr. <span class="number">2</span> min. <span class="number">7</span> sec</span><br><span class="line">Trace Level               off</span><br><span class="line">Security                  ON: Local OS Authentication</span><br><span class="line">SNMP                      OFF</span><br><span class="line">Listener Parameter <span class="keyword">File</span>   <span class="regexp">/home/</span>app<span class="regexp">/oracle/</span>product<span class="regexp">/11.2.0.4/</span>db_1<span class="regexp">/network/</span>admin/listener.ora</span><br><span class="line">Listener Log <span class="keyword">File</span>         <span class="regexp">/home/</span>app<span class="regexp">/diag/</span>tnslsnr<span class="regexp">/dbserver/</span>listener<span class="regexp">/alert/</span>log.xml</span><br><span class="line">Listening Endpoints Summary...</span><br><span class="line">  (<span class="keyword">DESCRIPTION</span>=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))</span><br><span class="line">  (<span class="keyword">DESCRIPTION</span>=(ADDRESS=(PROTOCOL=tcp)(HOST=dbserver)(PORT=<span class="number">1521</span>)))</span><br><span class="line">The listener supports no services</span><br><span class="line">The command completed successfully</span><br></pre></td></tr></table></figure>
+<h3 id="客户端信息"><a href="#客户端信息" class="headerlink" title="客户端信息"></a>客户端信息</h3><p>这时候，远程连接oracle就会报错ora-12514:TNS: 无法解析指定的连接标识符.</p>
+<h3 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h3><p>根据lnstctl 提示信息，说明：数据实例没有注册到监听器上。</p>
+<h3 id="解决办法一"><a href="#解决办法一" class="headerlink" title="解决办法一"></a>解决办法一</h3><p>在listener.ora里面添加监听的实例名，属于静态注册监听实例。</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[oracle@dbserver admin]$ vi listener.ora </span><br><span class="line"><span class="comment"># listener.ora Network Configuration File: /home/app/oracle/product/11.2.0.4/db_1/network/admin/listener.ora</span></span><br><span class="line"><span class="comment"># Generated by Oracle configuration tools.</span></span><br><span class="line"></span><br><span class="line"><span class="attr">LISTENER</span> =</span><br><span class="line">  (<span class="attr">DESCRIPTION_LIST</span> =</span><br><span class="line">    (<span class="attr">DESCRIPTION</span> =</span><br><span class="line">      (<span class="attr">ADDRESS</span> = (<span class="attr">PROTOCOL</span> = IPC)(<span class="attr">KEY</span> = EXTPROC1521))</span><br><span class="line">      (<span class="attr">ADDRESS</span> = (<span class="attr">PROTOCOL</span> = TCP)(<span class="attr">HOST</span> = dbserver)(<span class="attr">PORT</span> = <span class="number">1521</span>))</span><br><span class="line">    )</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line"><span class="attr">ADR_BASE_LISTENER</span> = /home/app</span><br><span class="line"></span><br><span class="line"><span class="attr">INBOUND_CONNECT_TIMEOUT_listenername=0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加实例名</span></span><br><span class="line"><span class="attr">SID_LIST_LISTENER</span> = </span><br><span class="line">    (<span class="attr">SID_LIST</span> =</span><br><span class="line">            (<span class="attr">SID_DESC</span> =</span><br><span class="line">                    (<span class="attr">GLOBAL_DBNAME</span> = orcl)</span><br><span class="line">                    (<span class="attr">SID_NAME</span> = orcl)</span><br><span class="line">            )</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+<h3 id="解决办法二"><a href="#解决办法二" class="headerlink" title="解决办法二"></a>解决办法二</h3><p>通过sqlplus登录后，动态注册监听实例。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><spa

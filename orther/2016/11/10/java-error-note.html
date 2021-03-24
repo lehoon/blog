@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>java常见错误 | 豌豆荚博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="java常见错误">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java常见错误">
+<meta property="og:url" content="http://lehoon.cn/orther/2016/11/10/java-error-note.html">
+<meta property="og:site_name" content="豌豆荚博客">
+<meta property="og:description" content="java常见错误">
+<meta property="og:locale">
+<meta property="article:published_time" content="2016-11-10T09:12:00.000Z">
+<meta property="article:modified_time" content="2018-09-22T13:30:43.253Z">
+<meta property="article:author" content="lehoon">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="error">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="豌豆荚博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+  <script src="/js/pace.js"></script>
+  <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: 'https://lehoon.cn',
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Lehoon"></a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives">文章</a></li>
+                        
+                            <li><a href="/projects">项目</a></li>
+                        
+                            <li><a href="/polymerization">聚合</a></li>
+                        
+                            <li><a href="/about">关于</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:lehoon@lehoon.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/lehoon" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/lehoons" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="/rss.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">热爱生活，享受生活。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives">文章</a></li>
+                
+                    <li><a href="/projects">项目</a></li>
+                
+                    <li><a href="/polymerization">聚合</a></li>
+                
+                    <li><a href="/about">关于</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:lehoon@lehoon.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/lehoon" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/lehoons" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/rss.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-java-error-note" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/orther/2016/11/10/java-error-note.html" class="article-date">
+      <time datetime="2016-11-10T09:12:00.000Z" itemprop="datePublished">2016-11-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java常见错误
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/orther/">其他</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/error/" rel="tag">error</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>java常见错误</p>
+<span id="more"></span>
+<p>1、Too small initial heap for new size specified<br>错误内容：Too small initial heap for new size specified<br>由于jdk1.8以后取消了-XX:PermSize、-XX:MaxPermSize 选项，在jdk1.7下如果不使用该选项则会出现<br>“Too small initial heap for new size specified”的错误，导致jvm启动不了。<br>解决办法：<br>1、jdk1.7下增加该2项配置参数。<br>2、更换jdk1.8，取消该2项配置参数后即可正常运行。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/orther/2016/11/10/java-error-note.html">java常见错误</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问  的个人博客"></a></p>
+        <p><span>发布时间:</span>2016年11月10日 - 17时12分</p>
+        <p><span>最后更新:</span>2018年09月22日 - 21时30分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/orther/2016/11/10/java-error-note.html" title="java常见错误">http://lehoon.cn/orther/2016/11/10/java-error-note.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lehoon.cn/orther/2016/11/10/java-error-note.html　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          rocketmq中broker启动同步topic到namesrv过程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/rocketmq/2016/11/09/rocketmq-install-note.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">rocketmq安装记录</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+
+<script src="/js/require-2.1.6.min.js"></script>
+
+
+<script src="/js/jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html" title="上一篇: rocketmq中broker启动同步topic到namesrv过程">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/rocketmq/2016/11/09/rocketmq-install-note.html" title="下一篇: rocketmq安装记录">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/project/2021/03/24/finesys-devops.html">部署运维系统1.0</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2020/04/30/java-signal-ignore-note.html">java屏蔽控制台INT信号</a></li><li class="post-list-item"><a class="post-list-link" href="/project/2020/04/29/weixin-minishop-note.html">微信商城小程序</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2019/11/20/flink-study-note.html">flink安装部署</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2019/11/18/chrome-cpu-note.html">chrome占用cpu解决方法</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2019/06/21/python-note.html">python记录</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2019/06/17/maven-error-note.html">maven私服neuxs错误集合</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2019/04/12/linux-compile-php7.html">在centos7 linux上编译php-7.1.28</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2019/03/20/fix-protocol-note.html">金融信息交换fix协议文档</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2018/12/27/linux-using-note.html">linux使用记录笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/12/06/openjdk-makefile-note.html">openjdk1.8中的Makefile</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2018/11/27/openjdk-startup-note.html">OpenJdk1.8笔记--java启动流程</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2018/11/26/openjdk-study-note.html">OpenJdk1.8笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2018/11/19/win10-system-note.html">win10系统使用及问题解决记录</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/11/09/openjdk-compile-linux.html">Linux编译OpenJdk1.8</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/10/16/apama-deploy-note.html">apama发布笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/10/12/suse-leap15-install-note.html">SuSE 15.0安装备忘</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/10/09/ehcache-note.html">EhCache缓存使用</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2018/09/27/art-template-note.html">art-template使用笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/09/25/apama-note.html">apama笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2018/03/27/svn-showlog-date-1970.html">svn查看日志显示时间为1970解决方法</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/03/23/oracle12c-create-instance.html">oracle12c手动创建cdb实例</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/03/14/librdkafka-config.html">librdkafka配置参数详解</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/12/25/apk-decompile-tools.html">apk反编译工具</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/12/08/map-accuracy2scale.html">地图精度与电子地图比例尺的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/12/08/window-big-file-tools.html">window系统大文件打开工具</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/10/27/gnss-gprmc-format.html">GPRMC格式详解</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2017/09/21/autobuild-static-version.html">通过gulp自动构建项目静态资源的版本号</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/08/28/load-session-persistent-exception.html">Exception loading sessions from persistent storage</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/06/20/mysql-reset-password.html">Mysql重设密码和远程访问</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/06/19/idea-file-format.html">Intellij-idea文件格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/06/13/jstorm-hbase-issue.html">jstorm集成hbase、rocketmq</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/06/09/jps-process-information-unavailable.html">jps出现process information unavailable解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/05/31/linux-find-command-examples.html">Linux中find的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/05/27/vs-compilemode-difference.html">VS运行库区别</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/05/19/cache-invalid-problem.html">缓存击穿、失效及热点key问题</a></li><li class="post-list-item"><a class="post-list-link" href="/%E8%BF%90%E7%BB%B4/2017/05/12/linux-operation-maintenance.html">linux运维</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/05/03/eight-diagram-tactics.html">八卦阵解释</a></l

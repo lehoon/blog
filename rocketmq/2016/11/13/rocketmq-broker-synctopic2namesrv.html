@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>rocketmq中broker启动同步topic到namesrv过程 | 豌豆荚博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="rocketmq中broker启动同步topic到namesrv过程.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rocketmq中broker启动同步topic到namesrv过程">
+<meta property="og:url" content="http://lehoon.cn/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html">
+<meta property="og:site_name" content="豌豆荚博客">
+<meta property="og:description" content="rocketmq中broker启动同步topic到namesrv过程.">
+<meta property="og:locale">
+<meta property="article:published_time" content="2016-11-13T12:43:31.000Z">
+<meta property="article:modified_time" content="2018-09-22T13:31:08.514Z">
+<meta property="article:author" content="lehoon">
+<meta property="article:tag" content="rocketmq">
+<meta property="article:tag" content="topic">
+<meta property="article:tag" content="broker">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="豌豆荚博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+  <script src="/js/pace.js"></script>
+  <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: 'https://lehoon.cn',
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Lehoon"></a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives">文章</a></li>
+                        
+                            <li><a href="/projects">项目</a></li>
+                        
+                            <li><a href="/polymerization">聚合</a></li>
+                        
+                            <li><a href="/about">关于</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:lehoon@lehoon.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/lehoon" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/lehoons" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="/rss.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">热爱生活，享受生活。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives">文章</a></li>
+                
+                    <li><a href="/projects">项目</a></li>
+                
+                    <li><a href="/polymerization">聚合</a></li>
+                
+                    <li><a href="/about">关于</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:lehoon@lehoon.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/lehoon" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/lehoons" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/rss.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-rocketmq-broker-synctopic2namesrv" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html" class="article-date">
+      <time datetime="2016-11-13T12:43:31.000Z" itemprop="datePublished">2016-11-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      rocketmq中broker启动同步topic到namesrv过程
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/rocketmq/">rocketmq</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/broker/" rel="tag">broker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rocketmq/" rel="tag">rocketmq</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/topic/" rel="tag">topic</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>rocketmq中broker启动同步topic到namesrv过程.</p>
+<span id="more"></span>
+<h2 id="broker端"><a href="#broker端" class="headerlink" title="broker端"></a>broker端</h2><h3 id="topic的获取"><a href="#topic的获取" class="headerlink" title="topic的获取"></a>topic的获取</h3><p>broker启动会初始化一些系统或者用户自建的topic，在TopicConfigManager中实现，构造TopicConfigManager的时候初始化系统内置的topic，代码如下：</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">public <span class="constructor">TopicConfigManager(BrokerController <span class="params">brokerController</span>)</span> &#123;</span><br><span class="line">    this.brokerController = brokerController;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// MixAll.SELF_TEST_TOPIC</span></span><br><span class="line">        String topic = MixAll.SELF_TEST_TOPIC;</span><br><span class="line">        TopicConfig topicConfig = <span class="keyword">new</span> <span class="constructor">TopicConfig(<span class="params">topic</span>)</span>;</span><br><span class="line">        this.systemTopicList.add(topic);</span><br><span class="line">        topicConfig.set<span class="constructor">ReadQueueNums(1)</span>;</span><br><span class="line">        topicConfig.set<span class="constructor">WriteQueueNums(1)</span>;</span><br><span class="line">        this.topicConfigTable.put(topicConfig.get<span class="constructor">TopicName()</span>, topicConfig);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// MixAll.DEFAULT_TOPIC</span></span><br><span class="line">        <span class="keyword">if</span> (this.brokerController.get<span class="constructor">BrokerConfig()</span>.is<span class="constructor">AutoCreateTopicEnable()</span>) &#123;</span><br><span class="line">            String topic = MixAll.DEFAULT_TOPIC;</span><br><span class="line">            TopicConfig topicConfig = <span class="keyword">new</span> <span class="constructor">TopicConfig(<span class="params">topic</span>)</span>;</span><br><span class="line">            this.systemTopicList.add(topic);</span><br><span class="line">            topicConfig.set<span class="constructor">ReadQueueNums(<span class="params">this</span>.<span class="params">brokerController</span>.<span class="params">getBrokerConfig</span>()</span></span><br><span class="line">                    .get<span class="constructor">DefaultTopicQueueNums()</span>);</span><br><span class="line">            topicConfig.set<span class="constructor">WriteQueueNums(<span class="params">this</span>.<span class="params">brokerController</span>.<span class="params">getBrokerConfig</span>()</span></span><br><span class="line">                    .get<span class="constructor">DefaultTopicQueueNums()</span>);</span><br><span class="line">            <span class="built_in">int</span> perm = PermName.PERM_INHERIT <span class="pattern-match">| <span class="constructor">PermName</span>.<span class="constructor">PERM_READ</span> | <span class="constructor">PermName</span>.<span class="constructor">PERM_WRITE</span>;</span></span><br><span class="line"><span class="pattern-match">            topic<span class="constructor">Config</span>.set<span class="constructor">Perm(<span class="params">perm</span>)</span>;</span></span><br><span class="line"><span class="pattern-match">            this.topic<span class="constructor">ConfigTable</span>.put(topic<span class="constructor">Config</span>.get<span class="constructor">TopicName()</span>, topic<span class="constructor">Config</span>);</span></span><br><span class="line"><span class="pattern-match">        &#125;</span></span><br><span class="line"><span class="pattern-match">    &#125;</span></span><br><span class="line"><span class="pattern-match">    &#123;</span></span><br><span class="line"><span class="pattern-match">        <span class="operator">/</span><span class="operator">/</span> <span class="constructor">MixAll</span>.<span class="constructor">BENCHMARK_TOPIC</span></span></span><br><span class="line"><span class="pattern-match">        <span class="constructor">String</span> topic = <span class="constructor">MixAll</span>.<span class="constructor">BENCHMARK_TOPIC</span>;</span></span><br><span class="line"><span class="pattern-match">        <span class="constructor">TopicConfig</span> topic<span class="constructor">Config</span> = <span class="keyword">new</span> <span class="constructor">TopicConfig(<span class="params">topic</span>)</span>;</span></span><br><span class="line"><span class="pattern-match">        this.system<span class="constructor">TopicList</span>.add(topic);</span></span><br><span class="line"><span class="pattern-match">        topic<span class="constructor">Config</span>.set<span class="constructor">ReadQueueNums(1024)</span>;</span></span><br><span class="line"><span class="pattern-match">        topic<span class="constructor">Config</span>.set<span class="constructor">WriteQueueNums(1024)</span>;</span></span><br><span class="line"><span class="pattern-match">        this.topic<span class="constructor">ConfigTable</span>.put(topic<span class="constructor">Config</span>.get<span class="constructor">TopicName()</span>, topic<span class="constructor">Config</span>);</span></span><br><span class="line"><span class="pattern-match">    &#125;</span></span><br><span class="line"><span class="pattern-match">    &#123;</span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match">        <span class="constructor">String</span> topic = this.broker<span class="constructor">Controller</span>.get<span class="constructor">BrokerConfig()</span>.get<span class="constructor">BrokerClusterName()</span>;</span></span><br><span class="line"><span class="pattern-match">        <span class="constructor">TopicConfig</span> topic<span class="constructor">Config</span> = <span class="keyword">new</span> <span class="constructor">TopicConfig(<span class="params">topic</span>)</span>;</span></span><br><span class="line"><span class="pattern-match">        this.system<span class="constructor">TopicList</span>.add(topic);</span></span><br><span class="line"><span class="pattern-match">        <span class="built_in">int</span> perm = <span class="constructor">PermName</span>.<span class="constructor">PERM_INHERIT</span>;</span></span><br><span class="line"><span class="pattern-match">        <span class="keyword">if</span> (this.broker<span class="constructor">Controller</span>.get<span class="constructor">BrokerConfig()</span>.is<span class="constructor">ClusterTopicEnable()</span>) &#123;</span></span><br><span class="line"><span class="pattern-match">            perm |= <span class="constructor">PermName</span>.<span class="constructor">PERM_READ</span> | <span class="constructor">PermName</span>.<span class="constructor">PERM_WRITE</span>;</span></span><br><span class="line"><span class="pattern-match">        &#125;</span></span><br><span class="line"><span class="pattern-match">        topic<span class="constructor">Config</span>.set<span class="constructor">Perm(<span class="params">perm</span>)</span>;</span></span><br><span class="line"><span class="pattern-match">        this.topic<span class="constructor">ConfigTable</span>.put(topic<span class="constructor">Config</span>.get<span class="constructor">TopicName()</span>, topic<span class="constructor">Config</span>);</span></span><br><span class="line"><span class="pattern-match">    &#125;</span></span><br><span class="line"><span class="pattern-match">    &#123;</span></span><br><span class="line"><span class="pattern-match"></span></span><br><span class="line"><span class="pattern-match">        <span class="constructor">String</span> topic = this.broker<span class="constructor">Controller</span>.get<span class="constructor">BrokerConfig()</span>.get<span class="constructor">BrokerName()</span>;</span></span><br><span class="line"><span class="pattern-match">        <span class="constructor">TopicConfig</span> topic<span class="constructor">Config</span> = <span class="keyword">new</span> <span class="constructor">TopicConfig(<span class="params">topic</span>)</span>;</span></span><br><span class="line"><span class="pattern-match">        this.system<span class="constructor">TopicList</span>.add(topic);</span></span><br><span class="line"><span class="pattern-match">        <span class="built_in">int</span> perm = <span class="constructor">PermName</span>.<span class="constructor">PERM_INHERIT</span>;</span></span><br><span class="line"><span class="pattern-match">        <span class="keyword">if</span> (this.broker<span class="constructor">Controller</span>.get<span class="constructor">BrokerConfig()</span>.is<span class="constructor">BrokerTopicEnable()</span>) &#123;</span></span><br><span class="line"><span class="pattern-match">            perm |= <span class="constructor">PermName</span>.<span class="constructor">PERM_READ</span> | <span class="constructor">PermName</span>.<span class="constructor">PERM_WRITE</span>;</span></span><br><span class="line"><span class="pattern-match">        &#125;</span></span><br><span class="line"><span class="pattern-match">        topic<span class="constructor">Config</span>.set<span class="constructor">ReadQueueNums(1)</span>;</span></span><br><span class="line"><span class="pattern-match">        topic<span class="constructor">Config</span>.set<span class="constructor">WriteQueueNums(1)</span>;</span></span><br><span class="line"><span class="pattern-match">        topic<span class="constructor">Config</span>.set<span class="constructor">Perm(<span class="params">perm</span>)</span>;</span></span><br><span class="line"><span class="pattern-match">        this.topic<span class="constructor">ConfigTable</span>.put(topic<span class="constructor">Config</span>.get<span class="constructor">TopicName()</span>, topic<span class="constructor">Config</span>);</span></span><br><span class="line"><span class="pattern-match">    &#125;</span></span><br><span class="line"><span class="pattern-match">    &#123;</span></span><br><span class="line"><span class="pattern-match">        <span class="operator">/</span><span class="operator">/</span> <span class="constructor">MixAll</span>.<span class="constructor">OFFSET_MOVED_EVENT</span></span></span><br><span class="line"><span class="pattern-match">        <span class="constructor">String</span> topic = <span class="constructor">MixAll</span>.<span class="constructor">OFFSET_MOVED_EVENT</span>;</span></span><br><span class="line"><span class="pattern-match">        <span class="constructor">TopicConfig</span> topic<span class="constructor">Config</span> = <span class="keyword">new</span> <span class="constructor">TopicConfig(<span class="params">topic</span>)</span>;</span></span><br><span class="line"><span class="pattern-match">        this.system<span class="constructor">TopicList</span>.add(topic);</span></span><br><span class="line"><span class="pattern-match">        topic<span class="constructor">Config</span>.set<span class="constructor">ReadQueueNums(1)</span>;</span></span><br><span class="line"><span class="pattern-match">        topic<span class="constructor">Config</span>.set<span class="constructor">WriteQueueNums(1)</span>;</span></span><br><span class="line"><span class="pattern-match">        this.topic<span class="constructor">ConfigTable</span>.put(topic<span class="constructor">Config</span>.get<span class="constructor">TopicName()</span>, topic<span class="constructor">Config</span>);</span></span><br><span class="line"><span class="pattern-match">    &#125;</span></span><br><span class="line"><span class="pattern-match">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>用户自建的topic会通过TopicConfigManager的父类ConfigManager.load方法把本地存储的${user.home}/store/config/topic.json 加载出来，然后通过decode方法把json的数据转换出来保存到topicConfigTable表里面去。</p>
+<p>这样topic数据就获取到了。<br>当然第一次运行broker的时候，只有系统内建的topic。</p>
+<h3 id="同步到namesrv"><a href="#同步到namesrv" class="headerlink" title="同步到namesrv"></a>同步到namesrv</h3><p>启动broker服务中，通过调用BrokerController.start()方法启动broker。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 启动broker服务 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> void start() throws Exception </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.messageStore != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.messageStore.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.remotingServer != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.remotingServer.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.fastRemotingServer != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.fastRemotingServer.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.brokerOuterAPI != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.brokerOuterAPI.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.pullRequestHoldService != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.pullRequestHoldService.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.clientHousekeepingService != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.clientHousekeepingService.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.filterServerManager != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.filterServerManager.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注册broker到namesrv上去</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">this</span>.registerBrokerAll(<span class="literal">true</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 定时注册broker到namesrv上去</span></span><br><span class="line"><span class="comment">     * 启动10秒后运行</span></span><br><span class="line"><span class="comment">     * 每隔30秒定时注册broker到namesrv上去</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">this</span>.scheduledExecutorService.scheduleAtFixedRate(new Runnable() &#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> void run() &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                BrokerController.<span class="keyword">this</span>.registerBrokerAll(<span class="literal">true</span>, <span class="literal">false</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">                log.error(<span class="string">&quot;registerBrokerAll Exception&quot;</span>, e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">1000</span> * <span class="number">10</span>, <span class="number">1000</span> * <span class="number">30</span>, TimeUnit.MILLISECONDS);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.brokerStatsManager != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.brokerStatsManager.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.brokerFastFailure != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.brokerFastFailure.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>启动过程中调用了registerBrokerAll方法，注册broker到namesrv上去。<br>然后又启动一个定时注册任务来保证broker在namesrv上的可用性。<br>registerBrokerAll定义如下：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> synchronized void registerBrokerAll(<span class="keyword">final</span> boolean checkOrderConfig, boolean oneway) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * topic配置序列化包装对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    TopicConfigSerializeWrapper topicConfigWrapper = <span class="keyword">this</span>.getTopicConfigManager().buildTopicConfigSerializeWrapper();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 如果broker没有读写权限</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">if</span> (!PermName.isWriteable(<span class="keyword">this</span>.getBrokerConfig().getBrokerPermission())</span><br><span 
