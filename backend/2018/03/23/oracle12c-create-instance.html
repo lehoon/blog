@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>oracle12c手动创建cdb实例 | 豌豆荚博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="oracle12c通过手动创建cdb实例。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oracle12c手动创建cdb实例">
+<meta property="og:url" content="http://lehoon.cn/backend/2018/03/23/oracle12c-create-instance.html">
+<meta property="og:site_name" content="豌豆荚博客">
+<meta property="og:description" content="oracle12c通过手动创建cdb实例。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-03-23T08:10:17.000Z">
+<meta property="article:modified_time" content="2023-06-25T06:08:59.046Z">
+<meta property="article:author" content="lehoon">
+<meta property="article:tag" content="oracle12c">
+<meta property="article:tag" content="cdb">
+<meta property="article:tag" content="instance">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="豌豆荚博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+  <script src="/js/pace.js"></script>
+  <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: 'https://lehoon.cn',
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Lehoon"></a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives">文章</a></li>
+                        
+                            <li><a href="/projects">项目</a></li>
+                        
+                            <li><a href="/polymerization">聚合</a></li>
+                        
+                            <li><a href="/about">关于</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:lehoon@lehoon.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/lehoon" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/lehoons" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="/rss.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">热爱生活，享受生活。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives">文章</a></li>
+                
+                    <li><a href="/projects">项目</a></li>
+                
+                    <li><a href="/polymerization">聚合</a></li>
+                
+                    <li><a href="/about">关于</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:lehoon@lehoon.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/lehoon" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/lehoons" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/rss.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-oracle12c-create-instance" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/backend/2018/03/23/oracle12c-create-instance.html" class="article-date">
+      <time datetime="2018-03-23T08:10:17.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      oracle12c手动创建cdb实例
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/backend/">后端</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cdb/" rel="tag">cdb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/instance/" rel="tag">instance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle12c/" rel="tag">oracle12c</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>oracle12c通过手动创建cdb实例。</p>
+<span id="more"></span>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>操作系统： centos 7.3 64bit<br>oracle版本：Release 12.2.0.1.0 Production</p>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><h3 id="指定sid"><a href="#指定sid" class="headerlink" title="指定sid"></a>指定sid</h3><p>修改~/.bash_profile文件，修改ORACLE_SID名称</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> <span class="attribute">ORACLE_SID</span>=dpf</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建初始化文件"><a href="#创建初始化文件" class="headerlink" title="创建初始化文件"></a>创建初始化文件</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">oracle@db001:/home/oracle$ cat initdbdpf.ora </span><br><span class="line"><span class="attribute">db_name</span>=<span class="string">&#x27;dpf&#x27;</span></span><br><span class="line"><span class="attribute">memory_target</span>=2G</span><br><span class="line"><span class="attribute">processes</span>=150</span><br><span class="line"><span class="attribute">db_block_size</span>=8192</span><br><span class="line"><span class="attribute">db_domain</span>=<span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attribute">diagnostic_dest</span>=<span class="string">&#x27;/oracle&#x27;</span></span><br><span class="line"><span class="attribute">dispatchers</span>=<span class="string">&#x27;(PROTOCOL=TCP) (SERVICE=dpf)&#x27;</span></span><br><span class="line"><span class="attribute">open_cursors</span>=300</span><br><span class="line"><span class="attribute">remote_login_passwordfile</span>=<span class="string">&#x27;EXCLUSIVE&#x27;</span></span><br><span class="line"><span class="attribute">undo_tablespace</span>=<span class="string">&#x27;undotbs1&#x27;</span></span><br><span class="line"><span class="attribute">control_files</span>=<span class="string">&#x27;/oracle/oradata/dpf/control01.ctl&#x27;</span>, <span class="string">&#x27;/oracle/oradata/dpf/control02.ctl&#x27;</span></span><br><span class="line"><span class="attribute">compatible</span>=<span class="string">&#x27;12.0.0&#x27;</span></span><br><span class="line"><span class="attribute">audit_file_dest</span>=<span class="string">&#x27;/oracle/admin/dpf/adump&#x27;</span></span><br><span class="line"><span class="attribute">audit_trail</span>=<span class="string">&#x27;db&#x27;</span></span><br><span class="line"><span class="attribute">enable_pluggable_database</span>=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>保存到/home/oracle/initdbdpf.ora。</p>
+<h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><p>创建需要的文件目录</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="regexp">/oracle/</span>admin<span class="regexp">/dpf/</span>adump</span><br></pre></td></tr></table></figure>
+
+<h3 id="连接到oracle"><a href="#连接到oracle" class="headerlink" title="连接到oracle"></a>连接到oracle</h3><p>通过sysdba连接到oracle</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">oracle</span>@db001:/home/oracle$ sqlplus /nolog</span><br><span class="line"></span><br><span class="line"><span class="attribute">SQL</span>*Plus: Release <span class="number">12.2.0.1</span>.<span class="number">0</span> Production <span class="literal">on</span> Fri Mar <span class="number">23</span> <span class="number">16</span>:<span class="number">20</span>:<span class="number">00</span> <span class="number">2018</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">Copyright</span> (c) <span class="number">1982</span>, <span class="number">2016</span>, Oracle.  <span class="literal">All</span> rights reserved.</span><br><span class="line"></span><br><span class="line"><span class="attribute">SQL</span>&gt; conn / as sysdba</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建spfile文件"><a href="#创建spfile文件" class="headerlink" title="创建spfile文件"></a>创建spfile文件</h3><p>从initdborcl.ora创建spfile</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SQL</span><span class="operator">&gt;</span> <span class="keyword">create</span> spfile <span class="keyword">from</span> pfile<span class="operator">=</span><span class="string">&#x27;/home/oracle/initdbdpf.ora&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="启动实例"><a href="#启动实例" class="headerlink" title="启动实例"></a>启动实例</h3><p>使用nomount启动</p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SQ<span class="class">L&gt;startup nomount;</span></span><br><span class="line">ORACLE<span class="built_in"> instance </span>started.</span><br><span class="line"></span><br><span class="line">Total System Global Area 2147483648 bytes</span><br><span class="line">Fixed Size                  2926472 bytes</span><br><span class="line">Variable Size            1291847800 bytes</span><br><span class="line">Database Buffers          838860800 bytes</span><br><span class="line">Redo Buffers               13848576 bytes</span><br></pre></td></tr></table></figure>
+<h3 id="创建数据库实例"><a href="#创建数据库实例" class="headerlink" title="创建数据库实例"></a>创建数据库实例</h3><p>准备语句</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SQL</span>&gt;<span class="keyword">create</span> <span class="keyword">database</span> dpf</span><br><span class="line">  <span class="keyword">user</span> sys identified <span class="keyword">by</span> oracle123</span><br><span class="line">  <span class="keyword">user</span> <span class="keyword">system</span> identified <span class="keyword">by</span> oracle123</span><br><span class="line">  logfile <span class="keyword">group</span> <span class="number">1</span> (<span class="string">&#x27;/oracle/oradata/dpf/redo01a.log&#x27;</span>,<span class="string">&#x27;/oracle/oradata/dpf/redo01b.log&#x27;</span>) size <span class="number">100</span>m,</span><br><span class="line">          <span class="keyword">group</span> <span class="number">2</span> (<span class="string">&#x27;/oracle/oradata/dpf/redo02a.log&#x27;</span>,<span class="string">&#x27;/oracle/oradata/dpf/redo02b.log&#x27;</span>) size <span class="number">100</span>m, </span><br><span class="line">          <span class="keyword">group</span> <span class="number">3</span> (<span class="string">&#x27;/oracle/oradata/dpf/redo03a.log&#x27;</span>,<span class="string">&#x27;/oracle/oradata/dpf/redo03b.log&#x27;</span>) size <span class="number">100</span>m</span><br><span class="line">  maxloghistory <span class="number">1</span></span><br><span class="line">  maxlogfiles <span class="number">16</span></span><br><span class="line">  maxlogmembers <span class="number">3</span></span><br><span class="line">  maxdatafiles <span class="number">1024</span></span><br><span class="line">  <span class="type">character</span> <span class="keyword">set</span> al32utf8</span><br><span class="line">  <span class="type">national</span> <span class="type">character</span> <span class="keyword">set</span> al16utf16</span><br><span class="line">  extent management <span class="keyword">local</span></span><br><span class="line">  datafile <span class="string">&#x27;/oracle/oradata/dpf/system01.dbf&#x27;</span> size <span class="number">700</span>m reuse autoextend <span class="keyword">on</span> next <span class="number">10240</span>k maxsize unlimited</span><br><span class="line">  sysaux datafile <span class="string">&#x27;/oracle/oradata/dpf/sysaux01.dbf&#x27;</span> size <span class="number">550</span>m reuse autoextend <span class="keyword">on</span> next <span class="number">10240</span>k maxsize unlimited</span><br><span class="line">  <span class="keyword">default</span> <span class="keyword">tablespace</span> users</span><br><span class="line">    datafile <span class="string">&#x27;/oracle/oradata/dpf/users01.dbf&#x27;</span> size <span class="number">500</span>m reuse autoextend <span class="keyword">on</span> maxsize unlimited</span><br><span class="line">  <span class="keyword">default</span> <span class="keyword">temporary</span> <span class="keyword">tablespace</span> tempts1</span><br><span class="line">    tempfile <span class="string">&#x27;/oracle/oradata/dpf/temp01.dbf&#x27;</span> size <span class="number">20</span>m reuse autoextend <span class="keyword">on</span> next <span class="number">640</span>k maxsize unlimited</span><br><span class="line">  undo <span class="keyword">tablespace</span> undotbs1</span><br><span class="line">    datafile <span class="string">&#x27;/oracle/oradata/dpf/undotbs01.dbf&#x27;</span> size <span class="number">200</span>m reuse autoextend <span class="keyword">on</span> next <span class="number">5120</span>k maxsize unlimited</span><br><span class="line">  <span class="keyword">enable</span> pluggable <span class="keyword">database</span></span><br><span class="line">    seed</span><br><span class="line">    file_name_convert = (<span class="string">&#x27;/oracle/oradata/dpf&#x27;</span>,</span><br><span class="line">                         <span class="string">&#x27;/oracle/oradata/dpf/pdb1&#x27;</span>)</span><br><span class="line">    <span class="keyword">system</span> datafiles size <span class="number">125</span>m autoextend <span class="keyword">on</span> next <span class="number">10</span>m maxsize unlimited</span><br><span class="line">    sysaux datafiles size <span class="number">100</span>m</span><br><span class="line">    user_data <span class="keyword">tablespace</span> usertbs</span><br><span class="line">    datafile <span class="string">&#x27;/oracle/oradata/dpf/pdb1/usertbs01.dbf&#x27;</span> size <span class="number">200</span>m reuse autoextend <span class="keyword">on</span> maxsize unlimited;</span><br></pre></td></tr></table></figure>
+
+
+<p>执行完后，通过运行sql脚本创建数据字典视图</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@?<span class="regexp">/rdbms/</span>admin/catcdb.sql</span><br></pre></td></tr></table></figure>
+<p>执行命令会提示输入1、2参数<br>Enter value for 1: /oracle/product/12.2.0.1/rdbms/admin<br>Enter value for 2: /oracle/product/12.2.0.1/rdbms/admin/catcdb.pl</p>
+<p>此处会报错，报错内容如下</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Can&#x27;t locate Term/ReadKey.pm <span class="keyword">in</span> @INC (@INC contains: /U01/<span class="keyword">app</span>/oracle/product/12.2/rdbms/admin /usr/<span class="keyword">local</span>/lib64/perl5 /usr/<span class="keyword">local</span>/share/perl5 /usr/lib64/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib64/perl5 /usr/share/perl5 .) at /U01/<span class="keyword">app</span>/oracle/product/12.2/rdbms/admin/catcdb.<span class="keyword">pl</span> <span class="keyword">line</span> 30.</span><br><span class="line"></span><br><span class="line">BEGIN failed--compilation aborted at /U01/<span class="keyword">app</span>/oracle/product/12.2/rdbms/admin/catcdb.<span class="keyword">pl</span> <span class="keyword">line</span> 30.</span><br></pre></td></tr></table></figure>
+<p>解决办法；<br>1、设定环境变量PATH值，增加ORACLE下perl环境变量</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=<span class="variable">$ORACLE_HOME</span><span class="regexp">/perl/</span>bin:<span class="variable">$ORACLE_HOME</span><span class="regexp">/jdk/</span>bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<p>2、修改/oracle/product/12.2.0.1/rdbms/admin/catcdb.pl文件<br>修改35行，把util修改成Util。</p>
+<p>3、先退出sqlplus环境， 进入$ORACLE_HOME/perl/lib/5.22.0/x86_64-linux-thread-multi/Hash目录<br>然后在执行该sql即可。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、修改catcdb.pl文件<span class="number">35</span>行把unil修改成Util</span><br><span class="line"><span class="number">2</span>、进入hash目录后，进入sqlplus环境</span><br><span class="line">oracle@txbds-dpf-db001:<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>perl<span class="regexp">/lib/</span><span class="number">5.22</span>.<span class="number">0</span><span class="regexp">/x86_64-linux-thread-multi$ cd /</span>oracle<span class="regexp">/product/</span><span class="number">12.2</span>.<span class="number">0.1</span><span class="regexp">/perl/</span>lib<span class="regexp">/5.22.0/</span>x86_64-linux-thread-multi<span class="regexp">/Hash/</span></span><br><span class="line">oracle@txbds-dpf-db001:<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>perl<span class="regexp">/lib/</span><span class="number">5.22</span>.<span class="number">0</span><span class="regexp">/x86_64-linux-thread-multi/</span>Hash$ ll</span><br><span class="line">total <span class="number">28</span></span><br><span class="line">drwxr-xr-x <span class="number">2</span> oracle oinstall  <span class="number">4096</span> Apr <span class="number">20</span>  <span class="number">2017</span> Util</span><br><span class="line">-rwxr-x--- <span class="number">1</span> oracle oinstall <span class="number">23392</span> May <span class="number">12</span>  <span class="number">2016</span> Util.pm</span><br><span class="line">oracle@txbds-dpf-db001:<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>perl<span class="regexp">/lib/</span><span class="number">5.22</span>.<span class="number">0</span><span class="regexp">/x86_64-linux-thread-multi/</span>Hash$ sqlplus /nolog</span><br><span class="line"></span><br><span class="line">SQL*Plus: Release <span class="number">12.2</span>.<span class="number">0.1</span>.<span class="number">0</span> Production on Fri Mar <span class="number">23</span> <span class="number">14</span>:<span class="number">03</span>:<span class="number">51</span> <span class="number">2018</span></span><br><span class="line"></span><br><span class="line">Copyright (c) <span class="number">1982</span>, <span class="number">2016</span>, Oracle.  All rights reserved.</span><br><span class="line"></span><br><span class="line">SQL&gt; conn / as sysdba</span><br><span class="line">Connected.</span><br><span class="line">SQL&gt; @?<span class="regexp">/rdbms/</span>admin/catcdb.sql</span><br><span class="line"></span><br><span class="line">SQL&gt; host perl -I &amp;&amp;rdbms_admin &amp;&amp;rdbms_admin_catcdb --logDirectory &amp;&amp;<span class="number">1</span> --logFilename &amp;&amp;<span class="number">2</span></span><br><span class="line">Enter value <span class="keyword">for</span> <span class="number">1</span>: <span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms/admin</span><br><span class="line">Enter value <span class="keyword">for</span> <span class="number">2</span>: <span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catcdb.pl</span><br><span class="line">Enter new password <span class="keyword">for</span> SYS: oracle123</span><br><span class="line">Enter new password <span class="keyword">for</span> SYSTEM: oracle123</span><br><span class="line">Enter temporary tablespace name: dpf-temp</span><br><span class="line">No options to container mapping specified, no options will be installed <span class="keyword">in</span> any containers</span><br><span class="line">catcon: ALL catcon-related output will be written to [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catalog_catcon_14267.lst]</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catalog*.log] files <span class="keyword">for</span> output generated by scripts</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catalog_*.lst] files <span class="keyword">for</span> spool files, <span class="keyword">if</span> any</span><br><span class="line">catcon.pl: completed successfully</span><br><span class="line">catcon: ALL catcon-related output will be written to [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catproc_catcon_14355.lst]</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catproc*.log] files <span class="keyword">for</span> output generated by scripts</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catproc_*.lst] files <span class="keyword">for</span> spool files, <span class="keyword">if</span> any</span><br><span class="line">catcon.pl: completed successfully</span><br><span class="line">catcon: ALL catcon-related output will be written to [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catoctk_catcon_15507.lst]</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catoctk*.log] files <span class="keyword">for</span> output generated by scripts</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catoctk_*.lst] files <span class="keyword">for</span> spool files, <span class="keyword">if</span> any</span><br><span class="line">catcon.pl: completed successfully</span><br><span class="line">catcon: ALL catcon-related output will be written to [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>owminst_catcon_15593.lst]</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>owminst*.log] files <span class="keyword">for</span> output generated by scripts</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>owminst_*.lst] files <span class="keyword">for</span> spool files, <span class="keyword">if</span> any</span><br><span class="line">catcon.pl: completed successfully</span><br><span class="line">catcon: ALL catcon-related output will be written to [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>pupbld_catcon_16013.lst]</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>pupbld*.log] files <span class="keyword">for</span> output generated by scripts</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>pupbld_*.lst] files <span class="keyword">for</span> spool files, <span class="keyword">if</span> any</span><br><span class="line">catcon.pl: completed successfully</span><br><span class="line">catcon: ALL catcon-related output will be written to [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>pupbld_catcon_16097.lst]</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>pupbld*.log] files <span class="keyword">for</span> output generated by scripts</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>pupbld_*.lst] files <span class="keyword">for</span> spool files, <span class="keyword">if</span> any</span><br><span class="line">validate_script_path: sqlplus script <span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>sqlplus<span class="regexp">/admin/</span>help/hlpbld does not exist or is unreadable</span><br><span class="line">catconExec: empty Path returned by validate_script_path <span class="keyword">for</span> </span><br><span class="line">    SrcDir = <span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>sqlplus<span class="regexp">/admin/</span>help, FileName = hlpbld</span><br><span class="line">catcon.pl: Unexpected error encountered <span class="keyword">in</span> catconExec; exiting</span><br><span class="line">exec_DB_script: <span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>pupbld_catcon_16097_exec_DB_script.done did not need to be deleted before running a script</span><br><span class="line">exec_DB_script: opened Reader and Writer</span><br><span class="line">exec_DB_script: connected</span><br><span class="line">exec_DB_script: executed set echo on</span><br><span class="line"></span><br><span class="line">exec_DB_script: executed @@<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>pupbld_catcon_kill_sess_16097_ALL.sql</span><br><span class="line"></span><br><span class="line">exec_DB_script: sent </span><br><span class="line">host sqlplus -v &gt; <span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>pupbld_catcon_16097_exec_DB_script.done to Writer</span><br><span class="line">exec_DB_script: sent -<span class="keyword">exit</span>- to Writer</span><br><span class="line">exec_DB_script: closed Writer</span><br><span class="line">exec_DB_script: marker was undefined; read and ignore output, <span class="keyword">if</span> any</span><br><span class="line">exec_DB_script: finished reading and ignoring output</span><br><span class="line">exec_DB_script: waiting <span class="keyword">for</span> child process to <span class="keyword">exit</span></span><br><span class="line">exec_DB_script: child process exited</span><br><span class="line">sureunlink: unlink(<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>pupbld_catcon_16097_exec_DB_script.done) succeeded after <span class="number">1</span> attempt(s)</span><br><span class="line">sureunlink: verify that the file really no longer exists</span><br><span class="line">sureunlink: confirmed that <span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>pupbld_catcon_16097_exec_DB_script.done no longer exists after <span class="number">1</span> attempts</span><br><span class="line">exec_DB_script: deleted <span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>pupbld_catcon_16097_exec_DB_script.done after running a script</span><br><span class="line">exec_DB_script: closed Reader</span><br><span class="line">exec_DB_script: waitpid returned</span><br><span class="line">kill_sqlplus_sessions: output produced <span class="keyword">in</span> exec_DB_script [</span><br><span class="line">    </span><br><span class="line">    SQL*Plus: Release <span class="number">12.2</span>.<span class="number">0.1</span>.<span class="number">0</span> Production on Fri Mar <span class="number">23</span> <span class="number">14</span>:<span class="number">27</span>:<span class="number">09</span> <span class="number">2018</span></span><br><span class="line">    </span><br><span class="line">    Copyright (c) <span class="number">1982</span>, <span class="number">2016</span>, Oracle.  All rights reserved.</span><br><span class="line">    </span><br><span class="line">    SQL&gt; Connected.</span><br><span class="line">    SQL&gt; SQL&gt; SQL&gt; </span><br><span class="line">    SQL&gt; ALTER SYSTEM KILL SESSION <span class="string">&#x27;99,16498&#x27;</span> force timeout <span class="number">0</span> -- process <span class="number">16133</span></span><br><span class="line">      <span class="number">2</span>  /</span><br><span class="line">    </span><br><span class="line">    System altered.</span><br><span class="line">    </span><br><span class="line">    SQL&gt; </span><br><span class="line">    SQL&gt; SQL&gt; </span><br><span class="line">    SQL&gt; Disconnected from Oracle Database <span class="number">12</span>c Enterprise Edition Release <span class="number">12.2</span>.<span class="number">0.1</span>.<span class="number">0</span> - <span class="number">64</span>bit Production</span><br><span class="line">  ] end of output produced <span class="keyword">in</span> exec_DB_script</span><br><span class="line">catcon: ALL catcon-related output will be written to [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catclust_catcon_16148.lst]</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catclust*.log] files <span class="keyword">for</span> output generated by scripts</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catclust_*.lst] files <span class="keyword">for</span> spool files, <span class="keyword">if</span> any</span><br><span class="line">catcon.pl: completed successfully</span><br><span class="line">catcon: ALL catcon-related output will be written to [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catfinal_catcon_16566.lst]</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catfinal*.log] files <span class="keyword">for</span> output generated by scripts</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catfinal_*.lst] files <span class="keyword">for</span> spool files, <span class="keyword">if</span> any</span><br><span class="line">catcon.pl: completed successfully</span><br><span class="line">catcon: ALL catcon-related output will be written to [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catbundleapply_catcon_16650.lst]</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catbundleapply*.log] files <span class="keyword">for</span> output generated by scripts</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/</span>catbundleapply_*.lst] files <span class="keyword">for</span> spool files, <span class="keyword">if</span> any</span><br><span class="line">catcon.pl: completed successfully</span><br><span class="line">catcon: ALL catcon-related output will be written to [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/u</span>tlrp_catcon_16734.lst]</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/u</span>tlrp*.log] files <span class="keyword">for</span> output generated by scripts</span><br><span class="line">catcon: See [<span class="regexp">/oracle/</span>product<span class="regexp">/12.2.0.1/</span>rdbms<span class="regexp">/admin/u</span>tlrp_*.lst] files <span class="keyword">for</span> spool files, <span class="keyword">if</span> any</span><br><span class="line">catcon.pl: completed successfully</span><br></pre></td></tr></table></figure>
+<p>这样，数据库实例就创建好了。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/backend/2018/03/23/oracle12c-create-instance.html">oracle12c手动创建cdb实例</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问  的个人博客"></a></p>
+        <p><span>发布时间:</span>2018年03月23日 - 16时10分</p>
+        <p><span>最后更新:</span>2023年06月25日 - 14时08分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/backend/2018/03/23/oracle12c-create-instance.html" title="oracle12c手动创建cdb实例">http://lehoon.cn/backend/2018/03/23/oracle12c-create-instance.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lehoon.cn/backend/2018/03/23/oracle12c-create-instance.html　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/orther/2018/03/27/svn-showlog-date-1970.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          svn查看日志显示时间为1970解决方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/backend/2018/03/14/librdkafka-config.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">librdkafka配置参数详解</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">安装步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9Asid"><span class="toc-number">2.1.</span> <span class="toc-text">指定sid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%87%E4%BB%B6"><span class="toc-number">2.2.</span> <span class="toc-text">创建初始化文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95"><span class="toc-number">2.3.</span> <span class="toc-text">创建目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E5%88%B0oracle"><span class="toc-number">2.4.</span> <span class="toc-text">连接到oracle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAspfile%E6%96%87%E4%BB%B6"><span class="toc-number">2.5.</span> <span class="toc-text">创建spfile文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.6.</span> <span class="toc-text">启动实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.7.</span> <span class="toc-text">创建数据库实例</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+
+<script src="/js/require-2.1.6.min.js"></script>
+
+
+<script src="/js/jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/orther/2018/03/27/svn-showlog-date-1970.html" title="上一篇: svn查看日志显示时间为1970解决方法">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/backend/2018/03/14/librdkafka-config.html" title="下一篇: librdkafka配置参数详解">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/backend/2022/11/24/chrome-source-build-note.html">chrome源码编译笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2022/11/15/haikang-vedio-screenshot.html">海康摄像头截图实现</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2022/10/19/java-threadpool-task-cancel.html">java线程池任务取消注意点</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2022/10/17/c-embedded-v8-args.html">c++嵌入v8参数传递及返回值获取</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2022/09/26/v8-complie-win10.html">win10编译v8引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/%E5%BC%80%E6%BA%90/2022/01/07/opensource-list.html">常用的开源解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2021/12/21/cplusplus-random.html">c++生成一定范围内随机数的通用算法公式</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2021/12/06/netty-client-demo.html">netty客户端与多个远程服务器连接</a></li><li class="post-list-item"><a class="post-list-link" href="/project/2021/03/24/finesys-devops.html">部署运维系统1.0</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2020/04/30/java-signal-ignore-note.html">java屏蔽控制台INT信号</a></li><li class="post-list-item"><a class="post-list-link" href="/project/2020/04/29/weixin-minishop-note.html">微信商城小程序</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2019/11/20/flink-study-note.html">flink安装部署</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2019/11/18/chrome-cpu-note.html">chrome占用cpu解决方法</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2019/06/21/python-note.html">python记录</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2019/06/17/maven-error-note.html">maven私服neuxs错误集合</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2019/04/12/linux-compile-php7.html">在centos7 linux上编译php-7.1.28</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2019/03/20/fix-protocol-note.html">金融信息交换fix协议文档</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2018/12/27/linux-using-note.html">linux使用记录笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/12/06/openjdk-makefile-note.html">openjdk1.8中的Makefile</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2018/11/27/openjdk-startup-note.html">OpenJdk1.8笔记--java启动流程</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2018/11/26/openjdk-study-note.html">OpenJdk1.8笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2018/11/19/win10-system-note.html">win10系统使用及问题解决记录</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/11/09/openjdk-compile-linux.html">Linux编译OpenJdk1.8</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/10/16/apama-deploy-note.html">apama发布笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/10/12/suse-leap15-install-note.html">SuSE 15.0安装备忘</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/10/09/ehcache-note.html">EhCache缓存使用</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2018/09/27/art-template-note.html">art-template使用笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/09/25/apama-note.html">apama笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2018/03/27/svn-showlog-date-1970.html">svn查看日志显示时间为1970解决方法</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/03/23/oracle12c-create-instance.html">oracle12c手动创建cdb实例</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/03/14/librdkafka-config.html">librdkafka配置参数详解</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/12/25/apk-decompile-tools.html">apk反编译工具</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/12/08/map-accuracy2scale.html">地图精度与电子地图比例尺的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/12/08/window-big-file-tools.html">window系统大文件打开工具</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/10/27/gnss-gprmc-format.html">GPRMC格式详解</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2017/09/21/autobuild-static-version.html">通过gulp自动构建项目静态资源的版本号</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/08/28/load-session-persistent-exception.html">Exception loading sessions from persistent storage</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/06/20/mysql-reset-password.html">Mysql重设密码和远程访问</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/06/19/idea-file-format.html">Intellij-idea文件格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/06/13/jstorm-hbase-issue.html">jstorm集成hbase、rocketmq</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/06/09/jps-process-information-unavailable.html">jps出现process information unavailable解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/05/31/linux-find-command-examples.html">Linux中find的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/05/27/vs-compilemode-difference.html">VS运行库区别</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/05/19/cache-invalid-problem.html">缓存击穿、失效及热点key问题</a></li><li class="post-list-item"><a class="post-list-link" href="/%E8%BF%90%E7%BB%B4/2017/05/12/linux-operation-maintenance.html">linux运维</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/05/03/eight-diagram-tactics.html">八卦阵解释</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/05/03/gnss-terminology.html">gnss术语</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/04/28/ae-network-library.html">ae网络库</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/04/25/gnss-gpgga-formet.html">GPGGA格式详解</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/04/10/maven-download-timeout.html">maven下载文件超时</a></li><li class="post-list-item"><a class="post-list-link" href="/middleware/2017/03/31/storm-core-terminology.html">storm核心术语介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/03/30/hbase-insert-select.html">hbase通过api写入和查询</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/03/28/oracle-note-sql.html">oracle常用sql</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2017/03/27/extjs-treepanel-singleselect.html">extjs-treepanel实现单选功能</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/03/15/java-double-compare.html">java语言中double比较大小方法</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2017/03/10/extjs-form-submit.html">extjs中form表单提交注意点</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/02/25/rocketmq-client-sdk.html">rocketmq客户端sdk</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/02/22/source-insight4-crack.html">source insight4安装使用</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/02/21/rocketmq-topic-delete.html">rocketmq删除topic</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/02/21/rocketmq-message-store.html">rocketmq消息存储</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/02/20/idempotent-define.html">幂等介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/02/20/github-sync-fork-upstream.html">github上fork项目源同步</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/02/16/intellij-idea-2016.html">intellij-idea-2016下载安装</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/01/24/bubiao-protocol.html">部标808协议文件</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/01/24/life-secret.html">生活小秘方</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/01/10/mysql-odbc-driver-error.html">无法加载mysql odbc 5.3 unicode driver</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/25/rocketmq-net-port.html">rocketmq服务中的端口号</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html">rocketmq中broker启动同步topic到namesrv过程</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/11/10/java-error-note.html">java常见错误</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/09/rocketmq-install-note.html">rocketmq安装记录</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/09/rocketmq-docs.html">Rocketmq文档</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/10/28/game-develop-skill.html">游戏开发要点</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/10/14/oracle-error-note.html">oracle错误记录</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/10/11/oracle-materialized-view.html">oracle物化视图</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/10/09/centos-oracle11gr2-install.html">Centos7安装oracle11gr2</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/10/08/gdb-miss-debuginfo.html">gdb-miss-debuginfo</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/29/linux-io-schedule.html">Linux IO调度算法</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/27/linux-c-func.html">Linux下C函数定义</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/26/tcpdump.html">tcpdump使用文档</a></li><li class="post-list-item"><a class="post-list-link" href="/%E7%BC%96%E7%A8%8B/2016/09/20/eim.html">eim</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/16/linux-strace.html">linux-strace使用介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/16/linux-brk-sbrk.html">brk,sbrk--改变数据段长度</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/07/centos-note.html">Centos记录</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/09/05/raid.html">raid磁盘阵列介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/02/nginx-load-balance.html">nginx负载均衡各种场景下的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/09/01/usb-centos-error.html">U盘安装centos7，启动报错</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2016/09/01/js-generate-uuid.html">JavaScript生成全局唯一id的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/08/29/notepad.html">随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/08/22/kafka-window.html">kafka在window下部署</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/08/19/makefile.html">Makefile学习</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2016/08/16/http-etag-last-midified.html">HTTP缓存ETAG和Last-Modified</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/08/16/ip-catagory.html">ip地址分类</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/08/09/android-connection-session.html">android非浏览器应用程序与服务器会话保持实现</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/28/memcache-memcached-diff.html">memcache与memcached区别</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/19/centos-lvs.html">CentOS 7.0下安装部署LVS</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/07/19/awk.html">awk学习</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/11/epoll.html">Linux epoll学习</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/04/golang-deamon.html">go守护进程实现方式</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/04/tcp-load-balancing.html">tcp连接负载均衡</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/04/tcp-rst.html">tcp出现rst情况</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/05/26/linux-tcp-optimization.html">Linux下tcp的优化</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/05/08/oracle-merge-into.html">oracle中merge into语法注意点</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/02/05/window-batch.html">Window批处理记录</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2015/10/11/kesankaoshi.html">机动车驾驶科目三操作要领</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2015/09/28/window-service-program.html">window服务编程</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2015/09/21/assembly-instruction.html">汇编指令集</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2015/09/15/bool-BOOL.html">bool和BOOL的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2015/08/20/ssh-limit.html">ssh限制ip远程登录</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2015/08/18/ue-regex.html">ultraedit正则表达式使用</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2015/05/07/occi.html">c++使用occi连接oracle</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2015/03/06/gulp.html">gulp 提高页面加载速度</a></li></ul>
+		
+<script src="/js/require-2.1.6.min.js"></script>
+
+		
+<script src="/js/jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备18042181号-1</a>
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="/js/require-2.1.6.min.js"></script>
+
+
+<script src="/js/jquery-1.9.1.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 3;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".jpg)";
+            //$("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            //$(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?2dfe9be234e290e1635b659a55da3ab4";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

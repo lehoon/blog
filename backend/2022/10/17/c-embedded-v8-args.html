@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>c++嵌入v8参数传递及返回值获取 | 豌豆荚博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="c++嵌入v8参数传递及获取返回值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++嵌入v8参数传递及返回值获取">
+<meta property="og:url" content="http://lehoon.cn/backend/2022/10/17/c-embedded-v8-args.html">
+<meta property="og:site_name" content="豌豆荚博客">
+<meta property="og:description" content="c++嵌入v8参数传递及获取返回值">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-10-17T02:23:46.000Z">
+<meta property="article:modified_time" content="2023-06-25T06:08:58.998Z">
+<meta property="article:author" content="lehoon">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="v8">
+<meta property="article:tag" content="js engine">
+<meta property="article:tag" content="内嵌">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="豌豆荚博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+  <script src="/js/pace.js"></script>
+  <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: 'https://lehoon.cn',
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Lehoon"></a></h1>
+        </hgroup>
+
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives">文章</a></li>
+                        
+                            <li><a href="/projects">项目</a></li>
+                        
+                            <li><a href="/polymerization">聚合</a></li>
+                        
+                            <li><a href="/about">关于</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:lehoon@lehoon.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/lehoon" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/lehoons" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="/rss.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">热爱生活，享受生活。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives">文章</a></li>
+                
+                    <li><a href="/projects">项目</a></li>
+                
+                    <li><a href="/polymerization">聚合</a></li>
+                
+                    <li><a href="/about">关于</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:lehoon@lehoon.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/lehoon" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/lehoons" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/rss.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-c-embedded-v8-args" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/backend/2022/10/17/c-embedded-v8-args.html" class="article-date">
+      <time datetime="2022-10-17T02:23:46.000Z" itemprop="datePublished">2022-10-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      c++嵌入v8参数传递及返回值获取
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/backend/">后端</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-engine/" rel="tag">js engine</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/v8/" rel="tag">v8</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%85%E5%B5%8C/" rel="tag">内嵌</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>c++嵌入v8参数传递及获取返回值</p>
+<span id="more"></span>
+<h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><p>嵌入v8函数调用传递参数有2种方式,一种是全局参数放在global context中, 直接可以使用变量名; 另外一种是给函数传递参数属于当前context参数作用域.</p>
+<h2 id="全局参数"><a href="#全局参数" class="headerlink" title="全局参数"></a>全局参数</h2><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//组装请求数据context全局变量</span></span><br><span class="line">static v8::Local&lt;v8::ObjectTemplate&gt; <span class="constructor">CreateGetLevelCountGlobalObject(<span class="params">v8</span>::Isolate<span class="operator">*</span> <span class="params">isolate</span>, <span class="params">const</span> PaymentUserInfo&amp; <span class="params">userInfo</span>)</span> &#123;</span><br><span class="line">	v8::Local&lt;v8::ObjectTemplate&gt; global_object = v8::ObjectTemplate::<span class="constructor">New(<span class="params">isolate</span>)</span>;</span><br><span class="line">	<span class="comment">//用户信息对象 userInfo</span></span><br><span class="line">	v8::Local&lt;v8::ObjectTemplate&gt; global_user_info_object = v8::ObjectTemplate::<span class="constructor">New(<span class="params">isolate</span>)</span>;</span><br><span class="line">	global_user_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;id&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Integer::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">userInfo</span>.<span class="params">id</span>)</span>);</span><br><span class="line">	global_user_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;userNewId&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::String::<span class="constructor">NewFromUtf8(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">userInfo</span>.<span class="params">userNewId</span>.<span class="params">c_str</span>()</span>).<span class="constructor">ToLocalChecked()</span>);</span><br><span class="line">	global_user_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;userOldId&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::String::<span class="constructor">NewFromUtf8(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">userInfo</span>.<span class="params">userOldId</span>.<span class="params">c_str</span>()</span>).<span class="constructor">ToLocalChecked()</span>);</span><br><span class="line">	global_user_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;userName&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::String::<span class="constructor">NewFromUtf8(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">userInfo</span>.<span class="params">userName</span>.<span class="params">c_str</span>()</span>).<span class="constructor">ToLocalChecked()</span>);</span><br><span class="line">	global_user_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;phone&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::String::<span class="constructor">NewFromUtf8(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">userInfo</span>.<span class="params">phone</span>.<span class="params">c_str</span>()</span>).<span class="constructor">ToLocalChecked()</span>);</span><br><span class="line">	global_user_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;cardNo&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::String::<span class="constructor">NewFromUtf8(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">userInfo</span>.<span class="params">cardNo</span>.<span class="params">c_str</span>()</span>).<span class="constructor">ToLocalChecked()</span>);</span><br><span class="line">	global_user_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;compnayId&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::String::<span class="constructor">NewFromUtf8(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">userInfo</span>.<span class="params">compnayId</span>.<span class="params">c_str</span>()</span>).<span class="constructor">ToLocalChecked()</span>);</span><br><span class="line">	global_user_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;payCnt&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Integer::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">userInfo</span>.<span class="params">payCnt</span>)</span>);</span><br><span class="line">	global_user_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;fillCnt&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Integer::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">userInfo</span>.<span class="params">fillCnt</span>)</span>);</span><br><span class="line">	global_user_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;meterId&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Integer::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">userInfo</span>.<span class="params">meterId</span>)</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//公共信息对象commonInfo</span></span><br><span class="line">	v8::Local&lt;v8::ObjectTemplate&gt; global_common_info_object = v8::ObjectTemplate::<span class="constructor">New(<span class="params">isolate</span>)</span>;</span><br><span class="line">	global_common_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;buyTotalQuantity&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Integer::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">commonField</span>.<span class="params">buyTotalQuantity</span>)</span>);</span><br><span class="line">	global_common_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;buyTotalMoney&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Integer::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">commonField</span>.<span class="params">buyTotalMoney</span>)</span>);</span><br><span class="line">	global_common_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;yearTotalQuantity&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Integer::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">commonField</span>.<span class="params">buyTotalMoney</span>)</span>);</span><br><span class="line">	global_common_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;chargePoorId&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::String::<span class="constructor">NewFromUtf8(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">commonField</span>.<span class="params">chargePoorId</span>.<span class="params">c_str</span>()</span>).<span class="constructor">ToLocalChecked()</span>);</span><br><span class="line">	global_common_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;chargePoorPrice&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Integer::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">commonField</span>.<span class="params">chargePoorPrice</span>)</span>);</span><br><span class="line">	global_common_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;chargePoorMonthMaxMoney&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Integer::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">commonField</span>.<span class="params">chargePoorMonthMaxMoney</span>)</span>);</span><br><span class="line">	global_common_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;monthTotalMoney&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Integer::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">commonField</span>.<span class="params">monthTotalMoney</span>)</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">//收费价格对象 priceInfo</span></span><br><span class="line">	v8::Local&lt;v8::ObjectTemplate&gt; global_price_info_object = v8::ObjectTemplate::<span class="constructor">New(<span class="params">isolate</span>)</span>;</span><br><span class="line">	global_price_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;id&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Integer::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">userPriceType</span>.<span class="params">id</span>)</span>);</span><br><span class="line">	global_price_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;detailId&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Integer::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">userPriceType</span>.<span class="params">detailId</span>)</span>);</span><br><span class="line">	global_price_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;price&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::String::<span class="constructor">NewFromUtf8(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">userPriceType</span>.<span class="params">price</span>.<span class="params">c_str</span>()</span>).<span class="constructor">ToLocalChecked()</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//最后一次缴费记录 lastPayInfo</span></span><br><span class="line">	v8::Local&lt;v8::ObjectTemplate&gt; global_last_pay_info_object = v8::ObjectTemplate::<span class="constructor">New(<span class="params">isolate</span>)</span>;</span><br><span class="line">	global_last_pay_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;payMoney&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Integer::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">lastPaymentRecord</span>.<span class="params">payMoney</span>)</span>);</span><br><span class="line">	global_last_pay_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;surplus&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Number::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">lastPaymentRecord</span>.<span class="params">surplus</span>)</span>);</span><br><span class="line">	global_last_pay_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;lastSurplus&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Number::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">lastPaymentRecord</span>.<span class="params">lastSurplus</span>)</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//ic信息 cardInfo</span></span><br><span class="line">	v8::Local&lt;v8::ObjectTemplate&gt; global_card_info_object = v8::ObjectTemplate::<span class="constructor">New(<span class="params">isolate</span>)</span>;</span><br><span class="line">	global_card_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;id&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Integer::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">cardParamInfo</span>.<span class="params">id</span>)</span>);</span><br><span class="line">	global_card_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;isDelete&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::Integer::<span class="constructor">New(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">cardParamInfo</span>.<span class="params">isDelete</span>)</span>);</span><br><span class="line">	global_card_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;name&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::String::<span class="constructor">NewFromUtf8(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">cardParamInfo</span>.<span class="params">name</span>.<span class="params">c_str</span>()</span>).<span class="constructor">ToLocalChecked()</span>);</span><br><span class="line">	global_card_info_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;paramSet&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::String::<span class="constructor">NewFromUtf8(<span class="params">isolate</span>, <span class="params">userInfo</span>.<span class="params">cardParamInfo</span>.<span class="params">paramSet</span>.<span class="params">c_str</span>()</span>).<span class="constructor">ToLocalChecked()</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//填充global对象</span></span><br><span class="line">	global_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;userInfo&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, global_user_info_object);</span><br><span class="line">	global_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;commonInfo&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, global_common_info_object);</span><br><span class="line">	global_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;priceInfo&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, global_price_info_object);</span><br><span class="line">	global_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;lastPayInfo&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, global_last_pay_info_object);</span><br><span class="line">	global_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;cardInfo&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, global_card_info_object);</span><br><span class="line">	global_object-&gt;<span class="constructor">Set(<span class="params">v8</span>::String::NewFromUtf8(<span class="params">isolate</span>, <span class="string">&quot;log&quot;</span>)</span>.<span class="constructor">ToLocalChecked()</span>, v8::FunctionTemplate::<span class="constructor">New(<span class="params">isolate</span>, LogCallback)</span>);</span><br><span class="line">	return global_object;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建js函数调用参数   这里需要传入充值金额、获取用户信息对象</span></span><br><span class="line">v8::Local&lt;v8::Value&gt; funArg = v8::<span class="type">String</span>::<span class="title function_ invoke__">NewFromUtf8</span>(isolate, money).<span class="title function_ invoke__">ToLocalChecked</span>();</span><br></pre></td></tr></table></figure>
+
+<h2 id="参数使用"><a href="#参数使用" class="headerlink" title="参数使用"></a>参数使用</h2><p>全局参数直接在js中使用变量名即可获取到,函数参数在当前函数中有效,出了函数作用域不可访问.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">testFunction</span>(<span class="params">money</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> outJsonObject = &#123;&#125;;</span><br><span class="line">    <span class="comment">//直接使用函数参数money  当前context下有效</span></span><br><span class="line">    <span class="keyword">var</span> <span class="title class_">MoneyCnt</span>_Pre = <span class="built_in">parseFloat</span>(money);</span><br><span class="line">    <span class="comment">//全局参数priceInfo   在global context下有效</span></span><br><span class="line">    <span class="keyword">var</span> <span class="title class_">StepPrice</span> = priceInfo.<span class="property">price</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="title function_">log</span>(<span class="string">&#x27;input is &#x27;</span> + money);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">isNaN</span>(<span class="title class_">MoneyCnt</span>_Pre) || <span class="title class_">StepPrice</span> == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(outJsonObject);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="返回值获取"><a href="#返回值获取" class="headerlink" title="返回值获取"></a>返回值获取</h1><p>返回值通过v8::Value接收返回值,  然后转成v8::String::Utf8Value对象,直接使用<em>操作符获取到char</em>数据</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    v8::TryCatch <span class="title function_ invoke__">tryCatch</span>(isolate);</span><br><span class="line">    <span class="comment">//调用js函数  传递参数并获取返回值</span></span><br><span class="line">    v8::MaybeLocal&lt;v8::Value&gt; funResult =</span><br><span class="line">        functionValue.As&lt;v8::Object&gt;()<span class="punctuation">-&gt;</span><span class="title function_ invoke__">CallAsFunction</span>(context, context<span class="punctuation">-&gt;</span><span class="title function_ invoke__">Global</span>(), <span class="number">1</span>, &amp;funArg);</span><br><span class="line"></span><br><span class="line">    <span class="title function_ invoke__">if</span> (!funResult.<span class="title function_ invoke__">IsEmpty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        v8::<span class="type">String</span>::Utf8Value <span class="title function_ invoke__">utf8Value</span>(isolate, funResult.<span class="title function_ invoke__">ToLocalChecked</span>());</span><br><span class="line">        spdlog::<span class="title function_ invoke__">info</span>(<span class="string">&quot;调用js函数ProcessLevelCount(&#123;&#125;)获取的返回值&#123;&#125;&quot;</span>, money, *utf8Value);</span><br><span class="line">        outJson.<span class="title function_ invoke__">clear</span>();</span><br><span class="line">        outJson.<span class="title function_ invoke__">append</span>(*utf8Value);</span><br><span class="line">        bResult = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//调用失败的话 需要从异常里面拿到异常信息</span></span><br><span class="line">        v8::<span class="type">String</span>::Utf8Value <span class="title function_ invoke__">utf8Value</span>(isolate, tryCatch.<span class="title function_ invoke__">Message</span>()<span class="punctuation">-&gt;</span><span class="title function_ invoke__">Get</span>());</span><br><span class="line">        spdlog::<span class="title function_ invoke__">error</span>(<span class="string">&quot;js调用失败,错误信息&#123;&#125;&quot;</span>, *utf8Value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>在js中不可避免会产生异常,c++中想要获取到js发生的异常信息,使用v8::TryCatch 声明一个对象,然后进行v8函数调用，发生异常后可以从trycatch对象中获取到js中发生的异常信息.</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    v8::TryCatch <span class="title function_ invoke__">tryCatch</span>(isolate);</span><br><span class="line">    <span class="comment">//调用js函数  传递参数并获取返回值</span></span><br><span class="line">    v8::MaybeLocal&lt;v8::Value&gt; funResult =</span><br><span class="line">        functionValue.As&lt;v8::Object&gt;()<span class="punctuation">-&gt;</span><span class="title function_ invoke__">CallAsFunction</span>(context, context<span class="punctuation">-&gt;</span><span class="title function_ invoke__">Global</span>(), <span class="number">1</span>, &amp;funArg);</span><br><span class="line"></span><br><span class="line">    <span class="title function_ invoke__">if</span> (!funResult.<span class="title function_ invoke__">IsEmpty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        v8::<span class="type">String</span>::Utf8Value <span class="title function_ invoke__">utf8Value</span>(isolate, funResult.<span class="title function_ invoke__">ToLocalChecked</span>());</span><br><span class="line">        spdlog::<span class="title function_ invoke__">info</span>(<span class="string">&quot;调用js函数ProcessLevelCount(&#123;&#125;)获取的返回值&#123;&#125;&quot;</span>, money, *utf8Value);</span><br><span class="line">        outJson.<span class="title function_ invoke__">clear</span>();</span><br><span class="line">        outJson.<span class="title function_ invoke__">append</span>(*utf8Value);</span><br><span class="line">        bResult = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//调用失败的话 需要从异常里面拿到异常信息</span></span><br><span class="line">        v8::<span class="type">String</span>::Utf8Value <span class="title function_ invoke__">utf8Value</span>(isolate, tryCatch.<span class="title function_ invoke__">Message</span>()<span class="punctuation">-&gt;</span><span class="title function_ invoke__">Get</span>());</span><br><span class="line">        spdlog::<span class="title function_ invoke__">error</span>(<span class="string">&quot;js调用失败,错误信息&#123;&#125;&quot;</span>, *utf8Value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/backend/2022/10/17/c-embedded-v8-args.html">c++嵌入v8参数传递及返回值获取</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问  的个人博客"></a></p>
+        <p><span>发布时间:</span>2022年10月17日 - 10时23分</p>
+        <p><span>最后更新:</span>2023年06月25日 - 14时08分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/backend/2022/10/17/c-embedded-v8-args.html" title="c++嵌入v8参数传递及返回值获取">http://lehoon.cn/backend/2022/10/17/c-embedded-v8-args.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lehoon.cn/backend/2022/10/17/c-embedded-v8-args.html　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/backend/2022/10/19/java-threadpool-task-cancel.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          java线程池任务取消注意点
+        
+      </div>
+    </a>
+  
+  
+    <a href="/backend/2022/09/26/v8-complie-win10.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">win10编译v8引擎</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">参数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%8F%82%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">全局参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">函数参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">参数使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC%E8%8E%B7%E5%8F%96"><span class="toc-number">2.</span> <span class="toc-text">返回值获取</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">异常处理</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+
+<script src="/js/require-2.1.6.min.js"></script>
+
+
+<script src="/js/jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/backend/2022/10/19/java-threadpool-task-cancel.html" title="上一篇: java线程池任务取消注意点">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/backend/2022/09/26/v8-complie-win10.html" title="下一篇: win10编译v8引擎">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/backend/2022/11/24/chrome-source-build-note.html">chrome源码编译笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2022/11/15/haikang-vedio-screenshot.html">海康摄像头截图实现</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2022/10/19/java-threadpool-task-cancel.html">java线程池任务取消注意点</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2022/10/17/c-embedded-v8-args.html">c++嵌入v8参数传递及返回值获取</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2022/09/26/v8-complie-win10.html">win10编译v8引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/%E5%BC%80%E6%BA%90/2022/01/07/opensource-list.html">常用的开源解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2021/12/21/cplusplus-random.html">c++生成一定范围内随机数的通用算法公式</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2021/12/06/netty-client-demo.html">netty客户端与多个远程服务器连接</a></li><li class="post-list-item"><a class="post-list-link" href="/project/2021/03/24/finesys-devops.html">部署运维系统1.0</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2020/04/30/java-signal-ignore-note.html">java屏蔽控制台INT信号</a></li><li class="post-list-item"><a class="post-list-link" href="/project/2020/04/29/weixin-minishop-note.html">微信商城小程序</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2019/11/20/flink-study-note.html">flink安装部署</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2019/11/18/chrome-cpu-note.html">chrome占用cpu解决方法</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2019/06/21/python-note.html">python记录</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2019/06/17/maven-error-note.html">maven私服neuxs错误集合</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2019/04/12/linux-compile-php7.html">在centos7 linux上编译php-7.1.28</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2019/03/20/fix-protocol-note.html">金融信息交换fix协议文档</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2018/12/27/linux-using-note.html">linux使用记录笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/12/06/openjdk-makefile-note.html">openjdk1.8中的Makefile</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2018/11/27/openjdk-startup-note.html">OpenJdk1.8笔记--java启动流程</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2018/11/26/openjdk-study-note.html">OpenJdk1.8笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2018/11/19/win10-system-note.html">win10系统使用及问题解决记录</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/11/09/openjdk-compile-linux.html">Linux编译OpenJdk1.8</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/10/16/apama-deploy-note.html">apama发布笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/10/12/suse-leap15-install-note.html">SuSE 15.0安装备忘</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/10/09/ehcache-note.html">EhCache缓存使用</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2018/09/27/art-template-note.html">art-template使用笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/09/25/apama-note.html">apama笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2018/03/27/svn-showlog-date-1970.html">svn查看日志显示时间为1970解决方法</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/03/23/oracle12c-create-instance.html">oracle12c手动创建cdb实例</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2018/03/14/librdkafka-config.html">librdkafka配置参数详解</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/12/25/apk-decompile-tools.html">apk反编译工具</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/12/08/map-accuracy2scale.html">地图精度与电子地图比例尺的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/12/08/window-big-file-tools.html">window系统大文件打开工具</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/10/27/gnss-gprmc-format.html">GPRMC格式详解</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2017/09/21/autobuild-static-version.html">通过gulp自动构建项目静态资源的版本号</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/08/28/load-session-persistent-exception.html">Exception loading sessions from persistent storage</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/06/20/mysql-reset-password.html">Mysql重设密码和远程访问</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/06/19/idea-file-format.html">Intellij-idea文件格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/06/13/jstorm-hbase-issue.html">jstorm集成hbase、rocketmq</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/06/09/jps-process-information-unavailable.html">jps出现process information unavailable解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/05/31/linux-find-command-examples.html">Linux中find的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/05/27/vs-compilemode-difference.html">VS运行库区别</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/05/19/cache-invalid-problem.html">缓存击穿、失效及热点key问题</a></li><li class="post-list-item"><a class="post-list-link" href="/%E8%BF%90%E7%BB%B4/2017/05/12/linux-operation-maintenance.html">linux运维</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/05/03/eight-diagram-tactics.html">八卦阵解释</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/05/03/gnss-terminology.html">gnss术语</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/04/28/ae-network-library.html">ae网络库</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/04/25/gnss-gpgga-formet.html">GPGGA格式详解</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/04/10/maven-download-timeout.html">maven下载文件超时</a></li><li class="post-list-item"><a class="post-list-link" href="/middleware/2017/03/31/storm-core-terminology.html">storm核心术语介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/03/30/hbase-insert-select.html">hbase通过api写入和查询</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/03/28/oracle-note-sql.html">oracle常用sql</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2017/03/27/extjs-treepanel-singleselect.html">extjs-treepanel实现单选功能</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/03/15/java-double-compare.html">java语言中double比较大小方法</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2017/03/10/extjs-form-submit.html">extjs中form表单提交注意点</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/02/25/rocketmq-client-sdk.html">rocketmq客户端sdk</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/02/22/source-insight4-crack.html">source insight4安装使用</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/02/21/rocketmq-topic-delete.html">rocketmq删除topic</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2017/02/21/rocketmq-message-store.html">rocketmq消息存储</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/02/20/idempotent-define.html">幂等介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/02/20/github-sync-fork-upstream.html">github上fork项目源同步</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/02/16/intellij-idea-2016.html">intellij-idea-2016下载安装</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/01/24/bubiao-protocol.html">部标808协议文件</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/01/24/life-secret.html">生活小秘方</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2017/01/10/mysql-odbc-driver-error.html">无法加载mysql odbc 5.3 unicode driver</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/25/rocketmq-net-port.html">rocketmq服务中的端口号</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/13/rocketmq-broker-synctopic2namesrv.html">rocketmq中broker启动同步topic到namesrv过程</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/11/10/java-error-note.html">java常见错误</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/09/rocketmq-install-note.html">rocketmq安装记录</a></li><li class="post-list-item"><a class="post-list-link" href="/rocketmq/2016/11/09/rocketmq-docs.html">Rocketmq文档</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/10/28/game-develop-skill.html">游戏开发要点</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/10/14/oracle-error-note.html">oracle错误记录</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/10/11/oracle-materialized-view.html">oracle物化视图</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/10/09/centos-oracle11gr2-install.html">Centos7安装oracle11gr2</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/10/08/gdb-miss-debuginfo.html">gdb-miss-debuginfo</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/29/linux-io-schedule.html">Linux IO调度算法</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/27/linux-c-func.html">Linux下C函数定义</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/26/tcpdump.html">tcpdump使用文档</a></li><li class="post-list-item"><a class="post-list-link" href="/%E7%BC%96%E7%A8%8B/2016/09/20/eim.html">eim</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/16/linux-strace.html">linux-strace使用介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/16/linux-brk-sbrk.html">brk,sbrk--改变数据段长度</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/07/centos-note.html">Centos记录</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/09/05/raid.html">raid磁盘阵列介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/09/02/nginx-load-balance.html">nginx负载均衡各种场景下的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/09/01/usb-centos-error.html">U盘安装centos7，启动报错</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2016/09/01/js-generate-uuid.html">JavaScript生成全局唯一id的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/08/29/notepad.html">随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/08/22/kafka-window.html">kafka在window下部署</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/08/19/makefile.html">Makefile学习</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2016/08/16/http-etag-last-midified.html">HTTP缓存ETAG和Last-Modified</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/08/16/ip-catagory.html">ip地址分类</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/08/09/android-connection-session.html">android非浏览器应用程序与服务器会话保持实现</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/28/memcache-memcached-diff.html">memcache与memcached区别</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/19/centos-lvs.html">CentOS 7.0下安装部署LVS</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/07/19/awk.html">awk学习</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/11/epoll.html">Linux epoll学习</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/04/golang-deamon.html">go守护进程实现方式</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/04/tcp-load-balancing.html">tcp连接负载均衡</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/07/04/tcp-rst.html">tcp出现rst情况</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2016/05/26/linux-tcp-optimization.html">Linux下tcp的优化</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/05/08/oracle-merge-into.html">oracle中merge into语法注意点</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2016/02/05/window-batch.html">Window批处理记录</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2015/10/11/kesankaoshi.html">机动车驾驶科目三操作要领</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2015/09/28/window-service-program.html">window服务编程</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2015/09/21/assembly-instruction.html">汇编指令集</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2015/09/15/bool-BOOL.html">bool和BOOL的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2015/08/20/ssh-limit.html">ssh限制ip远程登录</a></li><li class="post-list-item"><a class="post-list-link" href="/orther/2015/08/18/ue-regex.html">ultraedit正则表达式使用</a></li><li class="post-list-item"><a class="post-list-link" href="/backend/2015/05/07/occi.html">c++使用occi连接oracle</a></li><li class="post-list-item"><a class="post-list-link" href="/frontend/2015/03/06/gulp.html">gulp 提高页面加载速度</a></li></ul>
+		
+<script src="/js/require-2.1.6.min.js"></script>
+
+		
+<script src="/js/jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备18042181号-1</a>
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="/js/require-2.1.6.min.js"></script>
+
+
+<script src="/js/jquery-1.9.1.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 3;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".jpg)";
+            //$("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            //$(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?2dfe9be234e290e1635b659a55da3ab4";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
