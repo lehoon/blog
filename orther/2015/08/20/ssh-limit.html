@@ -205,7 +205,7 @@
 <p>方法一、<br>在/etc/hosts.allow中添加允许ssh登录的ip地址和网段<br>sshd:192.168.1.2:allow   允许192.168.1.2登录<br>sshd:192.168.1.0/24:allow  允许192.168.1.0~192.168.1.24登录</p>
 <p>在/etc/hosts.deny中添加不允许ssh登录的ip<br>sshd:ALL  出了hosts.allow中允许的，其他都不允许登录</p>
 <p>方法二、<br>使用iptables<br>iptables -A INPUT -p tcp -s 192.168.1.2  –destination-port 22 -j ACCEPT<br>iptables -A INPUT -p tcp –destination-port 22 -j DROP</p>
-<p>方法三、<br>修改sshd_config文件<br>vi /etc/sshd/sshd_config<br>添加一行<br>allowusers <a href="mailto:&#x72;&#111;&#x6f;&#116;&#64;&#x31;&#x39;&#50;&#46;&#49;&#x36;&#56;&#46;&#x31;&#x2e;&#x32;">&#x72;&#111;&#x6f;&#116;&#64;&#x31;&#x39;&#50;&#46;&#49;&#x36;&#56;&#46;&#x31;&#x2e;&#x32;</a></p>
+<p>方法三、<br>修改sshd_config文件<br>vi /etc/sshd/sshd_config<br>添加一行<br>allowusers <a href="mailto:&#114;&#x6f;&#111;&#x74;&#x40;&#x31;&#x39;&#50;&#x2e;&#49;&#54;&#56;&#46;&#49;&#x2e;&#x32;">&#114;&#x6f;&#111;&#x74;&#x40;&#x31;&#x39;&#50;&#x2e;&#49;&#54;&#56;&#46;&#49;&#x2e;&#x32;</a></p>
 
       
     </div>
